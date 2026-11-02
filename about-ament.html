@@ -11,53 +11,591 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#172b4d;--blue:#2462a7;--paper:#faf9f6;--red:#e83d4b;--font:'Montserrat',Arial,sans-serif}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:var(--font);background:var(--paper);color:var(--navy)}
-a{color:inherit;text-decoration:none}
-.announcement{min-height:48px;display:flex;align-items:center;justify-content:center;padding:12px 20px;background:var(--red);color:#fff;text-align:center;font-size:11px;font-weight:800;letter-spacing:.04em}
-header{height:70px;padding:0 clamp(18px,5vw,72px);display:flex;align-items:center;justify-content:space-between;background:var(--paper);border-bottom:1px solid #e7e8e8}
-.brand img{display:block;width:104px;height:auto;max-height:38px;object-fit:contain}
-nav{display:flex;align-items:center;gap:clamp(12px,2vw,25px);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-nav a{transition:color .2s}nav a:hover,nav a[aria-current=page]{color:var(--red)}
-.donate{background:var(--red);color:#fff;padding:11px 20px;border-radius:24px}
+:root{--navy:#182d53;--blue:#75b5dc;--red:#ed3d4b;--paper:#f8f8f5;--ink:#182d53;--muted:#667080;--serif:'Montserrat',Arial,sans-serif;--sans:'Montserrat',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif)}a{color:inherit;text-decoration:none}button,input{font:inherit}.announcement{height:35px;background:var(--blue);display:flex;align-items:center;justify-content:center;padding:0 22px;color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.02em}.announcement a{margin-left:18px;background:var(--red);color:#fff;padding:8px 23px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+header{height:58px;background:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,78px);position:relative;z-index:10;border-bottom:1px solid #e7e8e8}.brand{display:flex;align-items:center;gap:9px;font-weight:900;font-size:12px;letter-spacing:-.04em}.brand-mark{width:31px;height:27px;display:block}.brand small{display:block;font-size:7px;letter-spacing:.23em;margin-top:3px;color:var(--navy)}nav{display:flex;align-items:center;gap:23px;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}nav a:hover{color:var(--red)}.nav-social{display:flex;gap:12px;align-items:center;font-size:12px}.nav-social a:not(.nav-donate),.footer-social a{width:25px;height:25px;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:50%;font:700 10px var(--sans);letter-spacing:0;transition:transform .25s,background .25s,color .25s}.nav-social a:not(.nav-donate):hover,.footer-social a:hover{transform:translateY(-4px);background:var(--blue);color:var(--navy)}.nav-donate{transition:transform .25s,box-shadow .25s;background:var(--red);color:#fff;padding:10px 22px;border-radius:25px;font-size:9px;font-weight:900;letter-spacing:.1em}
+.hero{min-height:610px;height:min(740px,calc(100svh - 93px));position:relative;overflow:hidden;background:#20365d;display:flex;align-items:center;color:white}.hero-image{position:absolute;inset:0;animation:heroDrift 24s ease-in-out infinite alternate;background-image:url('https://raw.githubusercontent.com/carrington-rblx/electament.com/main/HPKbB7IasAAUWmb.png');background-size:cover;background-position:70% 27%}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,45,83,.99) 0%,rgba(24,45,83,.96) 25%,rgba(24,45,83,.82) 41%,rgba(24,45,83,.32) 62%,rgba(24,45,83,.02) 83%),linear-gradient(0deg,rgba(24,45,83,.15),transparent 45%)}.nav-donate:hover,.announcement a:hover,.signup button:hover,.join:hover{transform:translateY(-3px);box-shadow:0 9px 20px #ed3d4b44}.hero-content{position:relative;z-index:1;width:min(1120px,90%);margin:auto;padding:50px 0 64px}.hero-brand{display:flex;align-items:center;gap:12px;margin-bottom:33px}.hero-brand .brand-mark{width:54px;height:47px}.hero-brand-name{font-size:clamp(36px,5vw,68px);line-height:.83;font-weight:900;letter-spacing:-.075em}.hero-brand-name small{font-size:13px;letter-spacing:.2em;display:block;margin:11px 0 0 5px}.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(37px,5vw,64px);line-height:.98;max-width:520px;margin:0 0 19px}.hero-copy{max-width:440px;font-size:13px;line-height:1.8;color:#e4e9f1;margin:0 0 20px}.signup{width:min(430px,100%);display:grid;grid-template-columns:1.4fr .8fr;gap:7px}.signup input{min-width:0;border:1px solid rgba(255,255,255,.6);background:rgba(12,28,55,.22);padding:12px 14px;color:#fff;font-size:10px;outline:none}.signup input::placeholder{color:#e4e9f1}.signup button{border:0;border-radius:25px;background:var(--blue);color:var(--navy);font-size:10px;font-weight:900;letter-spacing:.08em;cursor:pointer;padding:12px 18px}.signup .phone{grid-column:1/3;width:100%}.legal{grid-column:1/3;font-size:8px;line-height:1.5;color:#c6d0df;max-width:400px}.status{grid-column:1/3;font-size:10px;color:var(--blue);margin:0}
+.intro{max-width:1180px;margin:auto;padding:0 35px 68px;display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;position:relative}.support-tile{position:relative;transition:transform .35s,box-shadow .35s;background:linear-gradient(135deg,#83c4e7,#69add6);align-self:start;margin-top:0;background:var(--blue);padding:34px 30px;min-height:138px;max-width:280px;box-shadow:0 10px 25px #182d5315}.support-tile:hover{transform:translateY(-7px);box-shadow:0 18px 35px #182d5325}.support-tile:after{content:"↗";position:absolute;right:24px;top:20px;font-size:27px}.support-tile strong{display:block;max-width:170px;font-size:17px;line-height:1.12;margin-top:13px}.intro-copy{padding-top:55px;max-width:440px}.eyebrow{font-size:8px;font-weight:900;letter-spacing:.28em;text-transform:uppercase;color:#6b879f}.intro h2,.volunteer h2{font-family:var(--serif);font-size:42px;line-height:1.03;font-weight:400;margin:12px 0 14px}.intro p,.bio-copy p{font-size:11px;line-height:1.75;color:#606b79;margin:0 0 10px}.outline-link{transition:background .25s,color .25s,transform .25s}.outline-link:hover{background:var(--navy);color:white;transform:translateY(-3px)}.outline-link{display:inline-flex;border:1px solid #8ba8c0;border-radius:25px;padding:11px 22px;font-size:8px;font-weight:900;letter-spacing:.13em;margin-top:14px}.rally{min-height:400px;position:relative;overflow:hidden;background:#1c3156}.rally img{position:absolute;transition:transform 1s;width:100%;height:100%;object-fit:cover;inset:0}.rally:hover img{transform:scale(1.035)}.rally:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(17,33,62,.76),transparent 70%)}.play{transition:transform .3s,background .3s;position:absolute;z-index:2;left:30px;bottom:27px;width:59px;height:59px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;color:white;font-size:21px;background:#182d5380}.play:hover{transform:scale(1.1);background:var(--red)}.rally-caption{position:absolute;z-index:2;bottom:30px;left:110px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.updates{background:var(--navy);color:#fff;padding:64px 5vw}.updates-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:.75fr 2fr;gap:38px;align-items:center}.updates h2{font-family:var(--serif);font-size:31px;line-height:1;margin:0 0 12px}.updates-intro p{font-size:10px;line-height:1.6;color:#c6d0df;max-width:200px}.follow{transition:transform .25s,background .25s;}.follow:hover{transform:translateY(-3px);background:#d92d3b}.follow{display:inline-block;background:var(--red);padding:10px 24px;border-radius:30px;font-size:8px;font-weight:900;letter-spacing:.14em;margin-top:8px}.update-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.update-card{border-radius:3px;box-shadow:0 12px 28px #07172c35;transition:transform .35s,box-shadow .35s;min-height:172px;background:#fff;color:var(--navy);padding:19px 17px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-1deg)}.update-card:nth-child(2){background:#fff;transform:rotate(1deg)}.update-card:nth-child(3){background:var(--blue);transform:rotate(-1deg)}.update-card:hover{transform:translateY(-9px) rotate(0)!important;box-shadow:0 20px 36px #07172c55}.update-card .social{font:700 14px var(--sans)}
+.update-card .social{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 40px;box-sizing:border-box}.update-card .social img{width:30px!important;height:30px!important;max-width:100%;max-height:100%;object-fit:contain;display:block}
+.update-card p{font-family:var(--serif);font-size:14px;line-height:1.2;margin:18px 0}.update-card small{font-size:7px;color:#647185}
+.volunteer{display:grid;grid-template-columns:.85fr 1.15fr;max-width:1120px;margin:auto;align-items:center;padding:70px 35px;gap:38px}.volunteer-form{max-width:370px;margin:auto;width:100%;padding:10px 15px}.volunteer h2{text-align:center;font-size:43px;margin-bottom:16px}.volunteer .eyebrow{text-align:center}.volunteer-form input{width:100%;border:0;border-bottom:1px solid #d7dce1;background:transparent;padding:12px 8px;font-size:9px;outline:none}.volunteer-form .join{width:100%;margin-top:15px;background:var(--red);color:white;border:0;border-radius:25px;padding:13px;font-size:8px;font-weight:900;letter-spacing:.14em}.volunteer-form .legal{color:#87909a;font-size:7px;display:block;margin-top:10px}.volunteer-photo{height:390px;overflow:hidden}.volunteer-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.volunteer-photo:hover img{transform:scale(1.045)}
+footer{background:var(--navy);color:#fff;text-align:center;padding:42px 20px 30px}.footer-brand{display:inline-flex;align-items:center;gap:8px;font-size:23px;font-weight:900;letter-spacing:-.06em}.footer-brand small{display:block;font-size:8px;letter-spacing:.22em}.footer-links a{transition:color .2s,transform .2s}.footer-links a:hover{color:var(--blue);transform:translateY(-2px)}.footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:23px auto 17px;font-size:8px;font-weight:700}.footer-social{font-size:14px;letter-spacing:10px;margin:15px}.footer-legal{max-width:580px;margin:20px auto 0;font-size:7px;line-height:1.8;color:#aebbd0}.footer-legal a{text-decoration:underline}.copyright{font-size:7px;color:#8797b0;margin-top:18px}
+
+/* Unified campaign palette, refined typography and motion */
+:root{--navy:#172b4d;--blue:#82bee1;--red:#e83d4b;--paper:#faf9f6;--ink:#172b4d;--muted:#697487}
+body,button,input,nav,.announcement,.brand,.eyebrow,.legal,.status,.footer-links,.footer-legal,.copyright{font-family:var(--serif)}
+body{background:var(--paper)}
+.hero h1,.intro h2,.updates h2,.volunteer h2,.update-card p{font-family:var(--serif)}
+.hero-copy,.intro p,.updates-intro p{color:#5d6878}
+.hero-copy{color:#e8edf5}
+.signup input{border-radius:2px;background:rgba(12,28,55,.38);border-color:#b7c6d8}
+.signup input:focus,.volunteer-form input:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}
+.signup button,.join,.nav-donate,.announcement a,.follow{background:var(--red);color:#fff}
+.signup button{font-family:var(--serif);font-size:13px}
+.support-tile{background:linear-gradient(135deg,#91c9e8,#72b4dc);color:#172b4d}
+.update-card:nth-child(3){background:#82bee1}
+.volunteer{background:var(--paper)}
+.volunteer-photo{box-shadow:18px 18px 0 #82bee1}
+.announcement{background:#82bee1;color:#172b4d}
+header{background:#faf9f6}
+footer{background:#172b4d}
+@keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.07)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.hero-content>*{animation:riseIn .8s both}
+.hero-content>*:nth-child(1){animation-delay:.08s}.hero-content>*:nth-child(2){animation-delay:.2s}.hero-content>*:nth-child(3){animation-delay:.32s}.hero-content>*:nth-child(4){animation-delay:.44s}
+a,button{ -webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+@media(hover:hover){.nav-donate:hover,.announcement a:hover,.signup button:hover,.join:hover{background:#cf2e3c;color:#fff}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+
+/* Tighter spacing: bring each composition together like the reference */
+.hero-content{padding:38px 0 46px}
+.hero-brand{margin-bottom:22px}
+.hero h1{margin-bottom:13px}
+.hero-copy{margin-bottom:14px;line-height:1.65}
+.signup{gap:6px}
+.signup input{padding:10px 12px}
+.signup button{padding:10px 16px}
+.intro{padding:0 35px 38px;gap:30px;grid-template-columns:.78fr 1.22fr}
+.intro-copy{padding-top:32px}
+.intro h2{margin:8px 0 10px}
+.intro p{line-height:1.6;margin-bottom:7px}
+.support-tile{min-height:118px;padding:25px 24px}
+.rally{height:350px;min-height:350px}
+.updates{padding:46px 5vw}
+.updates-inner{gap:24px}
+.updates h2{margin-bottom:8px}
+.update-card{min-height:150px;padding:15px}
+.update-card p{margin:12px 0}
+.volunteer{padding:48px 35px;gap:26px}
+.volunteer-photo{height:330px}
+.volunteer h2{margin:8px 0 12px}
+.volunteer-form input{padding:9px 8px}
+footer{padding:32px 20px 24px}
+.footer-links{margin:17px auto 12px;gap:15px}
+.footer-legal{margin-top:14px}
+.copyright{margin-top:12px}
+#donate{padding:30px 22px!important}
+#donate h2{margin:7px!important}
+@media(max-width:760px){
+ .hero-content{padding:42px 0}
+ .hero-brand{margin-bottom:22px}
+ .intro{padding:0 22px 30px;gap:0}
+ .intro-copy{padding:25px 3px 20px}
+ .support-tile{min-height:86px;padding:17px 20px}
+ .rally{height:270px;min-height:270px}
+ .updates{padding:36px 22px}
+ .updates-inner{gap:18px}
+ .update-card{min-height:132px;padding:12px}
+ .volunteer{padding:36px 22px;gap:20px}
+ .volunteer-photo{height:260px}
+ footer{padding:28px 18px 22px}
+}
+@media(max-width:430px){
+ .hero-content{padding:34px 0}
+ .intro h2,.volunteer h2{font-size:36px}
+ .rally{height:230px;min-height:230px}
+ .updates{padding:30px 18px}
+ .volunteer{padding:30px 18px}
+ .volunteer-photo{height:220px}
+}
+
+@media(max-width:760px){.announcement{height:auto;min-height:38px;font-size:8px}.announcement a{padding:7px 13px;margin-left:8px}header{height:54px;padding:0 17px}nav{gap:12px;font-size:7px}.nav-social{display:none}.nav-donate{padding:8px 13px}.hero{height:auto;min-height:680px}.hero-image{background-position:64% center}.hero:after{background:linear-gradient(90deg,rgba(24,45,83,.95),rgba(24,45,83,.73) 58%,rgba(24,45,83,.25)),linear-gradient(0deg,rgba(24,45,83,.55),transparent)}.hero-content{width:88%;padding:55px 0}.hero-brand-name{font-size:43px}.hero h1{font-size:43px}.intro{padding:0 22px 45px;grid-template-columns:1fr;gap:0}.support-tile{margin-top:0;max-width:100%;min-height:90px;padding:18px 22px}.support-tile strong{font-size:15px}.intro-copy{padding:36px 3px}.intro h2{font-size:38px}.rally{min-height:280px}.updates{padding:48px 22px}.updates-inner{grid-template-columns:1fr;gap:24px}.updates-intro p{max-width:340px}.update-cards{gap:7px}.update-card{padding:12px 10px;min-height:150px}.update-card p{font-size:11px}.volunteer{grid-template-columns:1fr;padding:48px 22px;gap:28px}.volunteer-photo{height:300px;grid-row:1}.volunteer-form{padding:0 10px}.volunteer h2{font-size:39px}}
+@media(max-width:430px){nav{gap:9px;font-size:6px}.brand{font-size:10px}.brand small{font-size:6px}.nav-donate{font-size:7px;padding:7px 10px}.hero-brand-name{font-size:37px}.hero-brand-name small{font-size:10px}.hero h1{font-size:38px}.signup{grid-template-columns:1fr}.signup .phone,.legal,.status{grid-column:1}.update-cards{grid-template-columns:1fr}.update-card{min-height:120px}.update-card:nth-child(n){transform:none}.update-card p{font-size:14px}}
+
+/* Closer camera framing and larger, fuller page composition */
+.hero{min-height:680px;height:min(790px,calc(100svh - 85px))}
+.hero-image{background-size:118% auto;background-position:73% 28%}
+.hero-content{width:min(1240px,92%);padding:48px 0 54px}
+.hero-brand{transform:scale(1.08);transform-origin:left center;margin-bottom:28px}
+.hero h1{font-size:clamp(44px,5.7vw,72px);max-width:590px}
+.hero-copy{font-size:14px;max-width:490px;line-height:1.75}
+.signup{width:min(470px,100%)}
+.signup input{font-size:11px;padding:13px 15px}
+.signup button{font-size:14px;padding:13px 18px}
+.intro{max-width:1320px;padding-left:28px;padding-right:28px;grid-template-columns:.72fr 1.28fr;gap:25px}
+.intro-copy{max-width:520px}
+.intro h2{font-size:48px}
+.intro p{font-size:12px;line-height:1.75}
+.support-tile{max-width:320px;min-height:130px}
+.support-tile strong{font-size:19px;max-width:210px}
+.rally{height:410px;min-height:410px}
+.updates-inner{max-width:1280px;grid-template-columns:.72fr 2.28fr;gap:30px}
+.updates h2{font-size:37px}
+.updates-intro p{font-size:12px;max-width:250px}
+.update-card{min-height:178px;padding:20px}
+.update-card p{font-size:16px}
+.update-card small{font-size:8px}
+.volunteer{max-width:1280px;padding:55px 28px;grid-template-columns:.9fr 1.1fr;gap:32px}
+.volunteer-photo{height:390px}
+.volunteer h2{font-size:49px}
+.volunteer-form input{font-size:11px;padding:12px 8px}
+.volunteer-form .join{font-size:10px;padding:15px}
+footer{padding-top:38px;padding-bottom:30px}
+.footer-brand{font-size:27px}
+.footer-links{font-size:9px}
+@media(max-width:760px){
+ .hero{min-height:710px;height:auto}
+ .hero-image{background-size:auto 112%;background-position:68% center}
+ .hero-content{width:89%;padding:48px 0}
+ .hero-brand{transform:scale(1.02);margin-bottom:25px}
+ .hero h1{font-size:clamp(42px,9vw,52px)}
+ .hero-copy{font-size:13px}
+ .intro{padding-left:20px;padding-right:20px;grid-template-columns:1fr;gap:0}
+ .intro h2{font-size:43px}
+ .intro p{font-size:12px}
+ .rally{height:300px;min-height:300px}
+ .updates h2{font-size:34px}
+ .update-card p{font-size:14px}
+ .volunteer{padding:40px 20px;gap:22px}
+ .volunteer-photo{height:290px}
+ .volunteer h2{font-size:44px}
+}
+@media(max-width:430px){
+ .hero{min-height:690px}
+ .hero-image{background-size:auto 105%;background-position:67% center}
+ .hero h1{font-size:41px}
+ .rally{height:250px;min-height:250px}
+ .volunteer-photo{height:245px}
+}
+
+
+/* Full-viewport fit: remove the distant, narrow composition */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+header{padding-left:clamp(18px,3vw,48px);padding-right:clamp(18px,3vw,48px)}
+.hero{width:100%;height:calc(100svh - 93px);min-height:650px;max-height:900px}
+.hero-image{background-size:auto 150%;background-position:74% 30%}
+.hero-content{width:min(1440px,94vw);padding:clamp(28px,4vh,54px) 0}
+.hero-brand{margin-bottom:clamp(18px,3vh,32px)}
+.hero h1{font-size:clamp(48px,6.2vw,88px);max-width:700px;line-height:.94}
+.hero-copy{font-size:clamp(13px,1.1vw,16px);max-width:560px}
+.signup{width:min(520px,100%);gap:8px}
+.intro{width:100%;max-width:1500px;padding-left:3vw;padding-right:3vw;grid-template-columns:minmax(250px,.75fr) minmax(0,1.25fr);gap:2vw}
+.intro-copy{max-width:650px}
+.intro h2{font-size:clamp(44px,4vw,62px)}
+.rally{width:100%;height:clamp(360px,48vw,620px)}
+.updates{padding:clamp(42px,5vw,76px) 3vw}
+.updates-inner{width:100%;max-width:1500px;grid-template-columns:minmax(230px,.7fr) minmax(0,2.3fr);gap:3vw}
+.update-card{min-height:clamp(160px,17vw,230px);padding:clamp(16px,2vw,28px)}
+.update-card p{font-size:clamp(15px,1.35vw,21px)}
+.volunteer{width:100%;max-width:1500px;padding:clamp(42px,5vw,76px) 3vw;gap:3vw}
+.volunteer-photo{height:clamp(300px,34vw,480px)}
+footer{padding:42px 3vw 30px}
+@media(max-width:760px){
+ .hero{height:calc(100svh - 92px);min-height:650px;max-height:850px}
+ .hero-image{background-size:auto 120%;background-position:70% center}
+ .hero-content{width:90vw}
+ .hero h1{font-size:clamp(42px,10vw,58px)}
+ .intro{width:100%;padding-left:5vw;padding-right:5vw}
+ .rally{height:55vw;min-height:250px;max-height:390px}
+ .updates{padding:38px 5vw}
+ .updates-inner{grid-template-columns:1fr;gap:20px}
+ .volunteer{padding:38px 5vw}
+}
+
+
+/* Header refinement: compact, balanced navigation like the reference */
+.announcement{height:32px;font-family:var(--sans);font-size:10px;letter-spacing:.015em}
+.announcement a{font-family:var(--sans);padding:7px 19px;font-size:9px}
+header{
+  height:68px;
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) auto minmax(180px,1fr);
+  align-items:center;
+  gap:24px;
+  padding:0 clamp(24px,4.2vw,68px);
+  background:var(--paper);
+  border-bottom:1px solid #e5e7e8;
+}
+.brand{justify-self:start;gap:10px;font-family:var(--sans);font-size:13px;letter-spacing:-.035em;white-space:nowrap}
+.brand-mark{width:35px;height:27px;flex:none}
+.brand small{font-family:var(--sans);font-size:7px;letter-spacing:.2em}
+header nav{
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(18px,2.1vw,32px);
+  white-space:nowrap;
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:.11em;
+}
+.nav-social{justify-self:end;gap:10px;white-space:nowrap}
+.nav-social a:not(.nav-donate){width:26px;height:26px}
+.nav-donate{font-family:var(--sans);padding:10px 20px;font-size:9px}
+@media(max-width:760px){
+  header{height:60px;grid-template-columns:1fr auto;gap:10px;padding:0 17px}
+  header nav{grid-column:1/-1;grid-row:2;display:none}
+  .brand{font-size:11px}
+  .brand-mark{width:30px}
+  .nav-social{grid-column:2;grid-row:1;gap:8px}
+}
+@media(max-width:430px){
+  header{height:56px;padding:0 13px}
+  .brand{font-size:10px}
+  .nav-donate{padding:8px 13px;font-size:8px}
+}
+
+/* Hero signup and statement: centered, minimal campaign landing */
+.hero{justify-content:center;text-align:center}
+.hero:after{background:radial-gradient(ellipse at 50% 48%,rgba(23,43,77,.22) 0%,rgba(23,43,77,.38) 48%,rgba(23,43,77,.82) 100%),linear-gradient(115deg,rgba(23,43,77,.38),rgba(23,43,77,.08) 52%,rgba(23,43,77,.42))}
+.hero-image{background-position:center 28%;background-size:cover}
+.hero-content{width:min(760px,92vw);margin:0 auto;padding:36px 0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-brand{transform:none;transform-origin:center;margin:0 auto 30px;justify-content:center}
+.hero-brand .brand-mark{width:62px;height:48px}
+.hero-brand-name{text-align:left;font-size:clamp(38px,5vw,62px)}
+.signup{width:min(510px,100%);grid-template-columns:1fr 1fr;gap:10px;margin:0 auto}
+.signup input{min-height:48px;padding:13px 17px;text-align:left;transition:padding .22s ease,border-color .22s ease,background .22s ease}
+.signup input:hover{padding-left:23px;border-color:var(--blue)}
+.signup input:focus{padding-left:23px}
+.signup .phone{grid-column:1}
+.signup button{grid-column:2;background:var(--blue);color:var(--navy);font-family:var(--sans);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:background .22s,color .22s,transform .22s}
+.signup button:hover{background:var(--red);color:#fff}
+.signup .legal{grid-column:1/-1;width:100%;max-width:none;text-align:center;font-family:Montserrat,var(--sans);font-size:9px;line-height:1.65;color:#edf3f8;font-weight:500;letter-spacing:.005em;margin-top:3px}
+.signup .status{grid-column:1/-1}
+.campaign-statement{min-height:210px;padding:55px 20px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--paper);color:var(--blue);font-family:var(--serif);font-size:clamp(30px,4.4vw,58px);line-height:1.08;letter-spacing:-.025em}
+@media(max-width:760px){
+ .hero{min-height:650px;height:calc(100svh - 92px)}
+ .hero-content{width:88vw;padding:34px 0}
+ .hero-brand{margin-bottom:26px}
+ .hero-brand .brand-mark{width:48px}
+ .hero-brand-name{font-size:clamp(34px,8vw,48px)}
+ .signup{grid-template-columns:1fr}
+ .signup .phone,.signup button,.signup .legal,.signup .status{grid-column:1}
+ .signup input{min-height:46px}
+ .campaign-statement{min-height:165px;padding:42px 22px}
+}
+
+/* Transparent over the hero at page top; solid campaign navy after scrolling */
+header{
+  position:fixed;top:32px;left:0;right:0;width:100%;
+  z-index:1000;background:transparent;color:#fff;
+  border:0;box-shadow:none;
+  transform:translateY(0);opacity:1;visibility:visible;
+  transition:background .28s ease,box-shadow .28s ease,top .28s ease;
+}
+header.header-scrolled{top:0;background:var(--navy);box-shadow:0 5px 18px rgba(10,24,45,.16)}
+header .brand,header nav a{color:#fff}
+header nav a:hover{color:var(--blue)}
+header .nav-social a:not(.nav-donate){color:#fff;border-color:rgba(255,255,255,.7)}
+header .nav-donate{background:var(--red);color:#fff}
+html{scroll-padding-top:82px}
+.announcement{position:relative;z-index:1001}
+@media(max-width:760px){header{top:38px}header.header-scrolled{top:0}}
+.intro{padding-top:0!important;padding-bottom:28px!important;gap:22px!important}
+.intro-copy{padding-top:24px!important}
+.support-tile{margin-top:0!important}
+.campaign-statement{min-height:135px;padding:32px 18px}
+.updates{padding-top:36px!important;padding-bottom:36px!important}
+.updates-inner{gap:22px!important}
+.update-card{min-height:145px!important}
+.volunteer{padding-top:36px!important;padding-bottom:36px!important;gap:22px!important}
+.volunteer-photo{height:320px!important}
+#bio.intro{padding-top:18px!important;padding-bottom:26px!important}
+#bio .intro-copy{padding-top:8px!important}
+#donate{padding-top:28px!important;padding-bottom:28px!important}
+#donate h2{margin:5px 0!important}
+footer{padding-top:28px!important;padding-bottom:22px!important}
+.footer-links{margin:12px auto 9px!important}
+.footer-legal{margin-top:10px!important}
+.copyright{margin-top:9px!important}
+@media(max-width:760px){
+ header{height:60px;grid-template-columns:1fr auto;padding:0 17px}
+ header nav{display:none}
+ .intro{padding:0 20px 24px!important}
+ .intro-copy{padding:20px 3px 12px!important}
+ .campaign-statement{min-height:110px;padding:26px 18px}
+ .updates{padding:30px 5vw!important}
+ .updates-inner{gap:15px!important}
+ .update-card{min-height:120px!important}
+ .volunteer{padding:28px 5vw!important;gap:18px!important}
+ .volunteer-photo{height:245px!important}
+ #bio.intro{padding-top:12px!important;padding-bottom:18px!important}
+ #bio .intro-copy{padding-top:8px!important}
+ #donate{padding:24px 18px!important}
+}
+
+
+/* Compact header mark and footer rhythm */
+header{gap:12px}
+header .brand{width:78px;min-width:78px;justify-self:start}
+header .header-flag{display:block;width:72px;height:34px;object-fit:contain;flex:none}
+header nav{gap:clamp(12px,1.45vw,21px);font-size:8px}
+header .nav-social{gap:7px}
+header .nav-donate{padding:9px 16px}
+footer{padding-top:25px!important;padding-bottom:18px!important}
+.footer-brand{margin-bottom:0}
+.footer-links{margin:9px auto 7px!important;gap:11px!important;line-height:1.3}
+.footer-social{margin:9px 0 7px}
+.footer-legal{margin-top:8px!important;line-height:1.55}
+.copyright{margin-top:7px!important}
+@media(max-width:760px){
+  header .brand{width:60px;min-width:60px}
+  header .header-flag{width:56px;height:28px}
+  header nav{gap:9px}
+  footer{padding-top:22px!important;padding-bottom:16px!important}
+  .footer-links{gap:10px!important;margin:8px auto 6px!important}
+}
+
+\n/* Full campaign wordmark above the hero signup; flag-only mark remains in header */\n.hero-brand{display:flex;align-items:center;justify-content:center;width:100%;}\n.hero-brand{display:flex;justify-content:center;align-items:center;width:100%;margin:0 auto 22px!important;text-align:center}.hero-brand .hero-full-logo{display:block;width:min(340px,68vw);height:auto;max-height:82px;object-fit:contain;margin:0 auto;}\n@media(max-width:760px){.hero-brand .hero-full-logo{width:min(280px,72vw);max-height:68px}}\n
+/* Compact homepage spacing */
+.announcement{height:27px;min-height:27px;font-size:9px}.announcement a{padding:5px 14px;margin-left:12px}
+header{height:56px;padding-left:clamp(18px,3vw,42px);padding-right:clamp(18px,3vw,42px)}header .header-flag{width:60px;height:28px}header nav{gap:clamp(10px,1.2vw,17px)}.nav-donate{padding:8px 13px}
+.hero{min-height:490px;height:min(610px,calc(100svh - 83px))}.hero-content{padding:22px 0!important}.hero-brand{margin-bottom:14px!important}.hero-brand .hero-full-logo{width:min(285px,58vw);max-height:68px}
+.signup{gap:7px}.signup input{min-height:42px;padding:10px 13px}.signup button{padding:10px 14px}.signup .legal{margin-top:0;line-height:1.4}
+.campaign-statement{min-height:96px;padding:20px 16px;font-size:clamp(27px,3.8vw,46px)}
+.intro{padding:0 3vw 20px!important;gap:16px!important}.intro-copy{padding-top:12px!important}.intro h2{font-size:clamp(34px,3.4vw,46px);margin:6px 0 8px}.intro p{font-size:11px;line-height:1.55;margin-bottom:6px}.support-tile{min-height:96px;padding:18px}.support-tile strong{font-size:16px;margin-top:7px}.outline-link{padding:8px 16px;margin-top:8px}
+.rally{height:clamp(230px,30vw,380px)!important;min-height:0!important}
+.updates{padding:28px 3vw!important}.updates-inner{gap:16px!important}.updates h2{font-size:clamp(28px,3vw,36px);margin-bottom:6px}.updates-intro p{font-size:11px;line-height:1.5}.follow{padding:8px 18px;margin-top:5px}.update-card{min-height:125px!important;padding:13px!important}.update-card p{font-size:clamp(13px,1.15vw,17px);margin:8px 0}
+.volunteer{padding:28px 3vw!important;gap:18px!important}.volunteer-photo{height:clamp(220px,27vw,320px)!important}.volunteer h2{font-size:clamp(34px,3.5vw,44px);margin:5px 0 9px}.volunteer-form{padding:0 10px}.volunteer-form input{padding:8px}.volunteer-form .join{margin-top:9px;padding:11px}
+#donate{padding:20px 18px!important}#donate h2{margin:4px 0!important}
+footer{padding:18px 18px 14px!important}.footer-brand{font-size:22px}.footer-links{margin:7px auto 5px!important;gap:10px!important}.footer-social{margin:6px 0 5px}.footer-legal{margin-top:6px!important;line-height:1.4}.copyright{margin-top:5px!important}
+@media(max-width:760px){
+.announcement{min-height:29px;height:auto;font-size:8px}.announcement a{padding:5px 10px;margin-left:7px}
+header{height:50px;padding:0 14px}header .brand{width:52px;min-width:52px}header .header-flag{width:48px;height:24px}
+.hero{height:auto;min-height:550px;max-height:none}.hero-content{width:88vw;padding:26px 0!important}.hero-brand{margin-bottom:15px!important}.hero-brand .hero-full-logo{width:min(240px,70vw);max-height:58px}
+.signup input{min-height:41px}.campaign-statement{min-height:86px;padding:18px 15px}
+.intro{padding:0 5vw 16px!important}.intro-copy{padding:12px 3px 7px!important}.support-tile{min-height:76px;padding:14px 16px}
+.rally{height:210px!important;min-height:210px!important}.updates{padding:23px 5vw!important}.updates-inner{gap:11px!important}.update-card{min-height:105px!important;padding:10px!important}
+.volunteer{padding:22px 5vw!important;gap:14px!important}.volunteer-photo{height:205px!important}
+footer{padding:16px 14px 12px!important}
+}
+@media(max-width:430px){.hero{min-height:530px}.campaign-statement{font-size:26px}.intro h2{font-size:33px}.rally{height:185px!important;min-height:185px!important}.volunteer-photo{height:185px!important}.footer-links{gap:8px!important}}
+
+
+/* Final compact layout and full-logo sticky header */
+:root{--site-header-height:58px}
+html{scroll-padding-top:66px}
+body{overflow-x:hidden}
+.announcement{height:27px;min-height:27px;padding:0 12px;font-size:9px;line-height:1.15}
+.announcement a{padding:5px 13px;margin-left:10px}
+header{position:fixed!important;top:27px!important;left:0;right:0;height:58px!important;padding:0 clamp(16px,3vw,42px)!important;display:flex;align-items:center;gap:16px;background:transparent!important;border:0!important;box-shadow:none;z-index:1002;transition:top .2s ease,background .2s ease,box-shadow .2s ease}
+header.header-scrolled{top:0!important;background:var(--navy)!important;box-shadow:0 4px 14px rgba(10,24,45,.18)}
+header .brand{display:flex;flex:0 0 auto;width:auto!important;min-width:0!important;height:100%;align-items:center;justify-content:flex-start;color:#fff!important}
+header .header-main-logo{display:block;width:clamp(112px,12vw,154px);height:48px;max-width:100%;object-fit:contain;object-position:left center}
+header nav{display:flex;align-items:center;gap:clamp(9px,1.15vw,16px);margin-left:auto;font-size:8px;white-space:nowrap}
+header nav a{color:#fff!important}
+header nav a:hover{color:var(--blue)!important}
+header .nav-social{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+header .nav-social a:not(.nav-donate){width:22px;height:22px}
+header .nav-donate{padding:7px 12px;font-size:8px}
+.hero{height:clamp(430px,calc(100svh - 85px),610px)!important;min-height:430px!important;max-height:610px!important}
+.hero-image{background-size:cover!important;background-position:70% 28%!important}
+.hero-content{width:min(1180px,90vw)!important;padding:22px 0!important}
+.hero-brand{justify-content:center!important;margin:0 auto 12px!important;width:100%!important}
+.hero-brand .hero-full-logo{width:min(255px,48vw)!important;max-height:64px!important;height:auto!important}
+.signup{width:min(430px,100%)!important;gap:6px!important}
+.signup input{min-height:39px!important;padding:8px 11px!important}
+.signup button{padding:9px 13px!important}
+.signup .legal{margin:0!important;font-size:7px!important;line-height:1.35!important}
+.campaign-statement{min-height:82px!important;padding:16px 14px!important}
+.intro{padding:0 4vw 18px!important;gap:16px!important}
+.intro-copy{padding-top:10px!important}
+.intro h2{font-size:clamp(30px,3.2vw,42px)!important;margin:5px 0 7px!important}
+.intro p{font-size:10px!important;line-height:1.5!important;margin:0 0 6px!important}
+.support-tile{min-height:82px!important;padding:14px 16px!important}
+.support-tile strong{font-size:15px!important;margin-top:4px!important}
+.outline-link{margin-top:6px!important;padding:7px 13px!important}
+.rally{height:clamp(190px,25vw,310px)!important;min-height:0!important}
+.updates{padding:22px 4vw!important}
+.updates-inner{gap:14px!important}
+.updates h2{font-size:clamp(25px,2.7vw,33px)!important;margin:0 0 5px!important}
+.updates-intro p{font-size:10px!important;line-height:1.45!important;margin:0 0 5px!important}
+.follow{margin-top:4px!important;padding:7px 15px!important}
+.update-cards{gap:7px!important}
+.update-card{min-height:108px!important;padding:10px!important}
+.update-card p{font-size:clamp(12px,1vw,15px)!important;line-height:1.2!important;margin:6px 0!important}
+.volunteer{padding:22px 4vw!important;gap:16px!important}
+.volunteer-photo{height:clamp(190px,24vw,285px)!important}
+.volunteer h2{font-size:clamp(30px,3.2vw,40px)!important;margin:5px 0 8px!important}
+.volunteer-form input{padding:7px!important}
+.volunteer-form .join{margin-top:7px!important;padding:9px!important}
+#bio.intro{padding-top:12px!important;padding-bottom:14px!important}
+#bio .intro-copy{padding-top:6px!important}
+#donate{padding:16px 14px!important}
+#donate h2{font-size:30px!important;margin:5px!important}
+#donate p{margin:5px 0 10px!important}
+footer{padding:14px 14px 10px!important}
+.footer-brand{font-size:19px!important}
+.footer-brand svg{width:34px!important;height:26px!important}
+.footer-links{margin:6px auto 4px!important;gap:9px!important}
+.footer-social{margin:4px 0!important}
+.footer-social a{width:20px!important;height:20px!important}
+.footer-legal{margin:5px auto 0!important;line-height:1.35!important}
+.copyright{margin-top:4px!important}
+@media(max-width:760px){
+ :root{--site-header-height:48px}
+ .announcement{min-height:29px;height:29px;font-size:7px;white-space:nowrap}
+ .announcement a{padding:4px 9px;margin-left:6px;font-size:7px}
+ header{top:29px!important;height:48px!important;padding:0 12px!important;gap:7px}
+ header.header-scrolled{top:0!important}
+ header .header-main-logo{width:104px;height:42px}
+ header nav{gap:8px;font-size:6px;letter-spacing:.04em}
+ header .nav-social{display:none}
+ header .nav-donate{padding:6px 9px;font-size:7px}
+ .hero{height:auto!important;min-height:480px!important;max-height:none!important}
+ .hero-content{width:88vw!important;padding:24px 0!important}
+ .hero-brand .hero-full-logo{width:min(220px,66vw)!important;max-height:54px!important}
+ .signup{grid-template-columns:1fr 1fr!important}
+ .signup .phone,.signup .legal,.signup .status{grid-column:1/3!important}
+ .campaign-statement{min-height:72px!important;font-size:clamp(22px,6vw,30px)!important}
+ .intro{grid-template-columns:1fr!important;padding:0 5vw 14px!important;gap:0!important}
+ .support-tile{min-height:65px!important;padding:12px 14px!important}
+ .intro-copy{padding:10px 2px 8px!important}
+ .intro h2{font-size:34px!important}
+ .rally{height:190px!important}
+ .updates{padding:20px 5vw!important}
+ .updates-inner{grid-template-columns:1fr!important;gap:10px!important}
+ .update-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .update-card{min-height:100px!important;padding:8px!important}
+ .update-card p{font-size:11px!important}
+ .volunteer{grid-template-columns:1fr!important;padding:20px 5vw!important;gap:12px!important}
+ .volunteer-photo{height:185px!important;grid-row:1}
+ .volunteer-form{padding:0 8px!important}
+ .volunteer h2{font-size:34px!important}
+ #bio.intro{padding-top:10px!important}
+ #donate{padding:14px 12px!important}
+ footer{padding:13px 12px 9px!important}
+}
+@media(max-width:430px){
+ header{padding:0 9px!important}
+ header .header-main-logo{width:88px;height:38px}
+ header nav{gap:6px;font-size:5.5px}
+ header .nav-donate{padding:5px 7px;font-size:6px}
+ .announcement{font-size:6.5px}
+ .hero{min-height:465px!important}
+ .hero-content{padding:20px 0!important}
+ .hero-brand .hero-full-logo{width:min(190px,62vw)!important;max-height:48px!important}
+ .signup{grid-template-columns:1fr!important}
+ .signup .phone,.signup .legal,.signup .status{grid-column:1!important}
+ .intro h2{font-size:31px!important}
+ .rally{height:170px!important}
+ .update-cards{grid-template-columns:1fr!important}
+ .update-card{min-height:82px!important}
+ .volunteer-photo{height:165px!important}
+ .footer-links{gap:7px!important}
+}
+
+
+/* Site-wide Montserrat typography and clear weight hierarchy */
+:root{--serif:'Montserrat',Arial,sans-serif;--sans:'Montserrat',Arial,sans-serif}
+*,*::before,*::after{font-family:'Montserrat',Arial,sans-serif!important}
+body{font-family:'Montserrat',Arial,sans-serif!important;font-weight:500}
+h1,h2,h3,h4,h5,h6,strong,b,.brand,.footer-brand,.eyebrow,.announcement,
+nav,.nav-donate,.follow,.outline-link,button,.signup button,.join,
+.campaign-statement,.update-card small,.footer-links{font-weight:800!important}
+p,.hero-copy,.intro p,.updates-intro p,.footer-legal,.copyright,
+.volunteer-form input,.signup input{font-weight:500}
+input,button{font-family:'Montserrat',Arial,sans-serif!important}
+
+
+
+/* Slightly larger campaign wordmarks for a clearer, balanced presence */
+header .header-main-logo{width:clamp(126px,13.2vw,174px)!important;height:52px!important}
+.hero-brand .hero-full-logo{width:min(300px,64vw)!important;max-height:76px!important}
+@media(max-width:760px){
+  header .header-main-logo{width:116px!important;height:46px!important}
+  .hero-brand .hero-full-logo{width:min(242px,70vw)!important;max-height:60px!important}
+}
+@media(max-width:430px){
+  header .header-main-logo{width:100px!important;height:42px!important}
+  .hero-brand .hero-full-logo{width:min(212px,68vw)!important;max-height:54px!important}
+}
+
+
+
+/* Campaign-style page frame: consistent side gutters and tighter content widths */
+:root{--campaign-gutter:clamp(22px,5.5vw,84px);--campaign-width:1160px}
+header{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.hero-content{width:min(var(--campaign-width),calc(100% - 2 * var(--campaign-gutter)))!important}
+.intro{width:calc(100% - 2 * var(--campaign-gutter))!important;max-width:var(--campaign-width)!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important;gap:clamp(22px,3vw,42px)!important}
+.intro-copy{max-width:560px!important}
+.support-tile{max-width:300px!important}
+.campaign-statement{width:calc(100% - 2 * var(--campaign-gutter))!important;max-width:var(--campaign-width)!important;margin:0 auto!important}
+.rally{width:calc(100% - 2 * var(--campaign-gutter))!important;max-width:var(--campaign-width)!important;margin:0 auto!important;overflow:hidden}
+.updates{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.updates-inner{width:100%!important;max-width:var(--campaign-width)!important;margin:0 auto!important;gap:clamp(18px,2.5vw,34px)!important}
+.volunteer{width:100%!important;max-width:var(--campaign-width)!important;margin:0 auto!important;padding-left:0!important;padding-right:0!important;gap:clamp(22px,3vw,42px)!important}
+#bio.intro{padding-top:28px!important;padding-bottom:28px!important}
+#donate{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+footer{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.footer-legal{max-width:520px!important}
+@media(max-width:760px){
+ :root{--campaign-gutter:20px}
+ .intro{width:calc(100% - 2 * var(--campaign-gutter))!important;gap:0!important}
+ .campaign-statement,.rally{width:calc(100% - 2 * var(--campaign-gutter))!important}
+ .updates{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+ .volunteer{width:calc(100% - 2 * var(--campaign-gutter))!important;gap:14px!important}
+ #bio.intro{padding-top:14px!important;padding-bottom:14px!important}
+}
+@media(max-width:430px){
+ :root{--campaign-gutter:16px}
+}
+
+
+/* Final requested polish: stronger footer, larger hero wordmark, red leadership highlight */
+footer{padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
+.footer-brand{font-size:clamp(29px,3vw,36px)!important}
+.footer-brand .brand-mark{width:clamp(52px,5vw,68px)!important;height:auto!important}
+.footer-links{gap:clamp(18px,2.4vw,30px)!important;margin:28px auto 22px!important;font-size:10px!important}
+.footer-social{margin:22px!important}
+.footer-social a{width:32px!important;height:32px!important;font-size:12px!important}
+.footer-legal{max-width:680px!important;font-size:9px!important;line-height:1.9!important;margin-top:22px!important}
+.copyright{font-size:9px!important;margin-top:18px!important}
+.hero-brand .hero-full-logo{width:min(420px,76vw)!important;max-height:104px!important}
+@media(max-width:760px){
+ footer{padding:46px 20px 34px!important}
+ .hero-brand .hero-full-logo{width:min(340px,82vw)!important;max-height:86px!important}
+ .footer-links{gap:14px 20px!important}
+}
+@media(max-width:430px){
+ footer{padding:40px 16px 30px!important}
+ .hero-brand .hero-full-logo{width:min(300px,84vw)!important;max-height:76px!important}
+}
+/* Campaign intro color treatment: blue values tile, red full copy panel */
+#bio .support-tile{background:var(--blue)!important;color:var(--navy)!important}
+#bio .support-tile strong{color:var(--navy)!important}
+#bio .intro-copy{background:var(--red)!important;color:#fff!important;padding:22px 24px!important}
+#bio .intro-copy .eyebrow,
+#bio .intro-copy h2,
+#bio .intro-copy p{color:#fff!important}
+#bio .intro-copy h2{display:block;width:100%;box-sizing:border-box;background:transparent!important;color:#fff!important;padding:0!important;margin:8px 0 12px!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#bio .intro-copy .outline-link{color:#fff!important;border-color:#fff!important}
+@media(max-width:760px){#bio .intro-copy{padding:18px 16px!important}}
+
+
+
+/* About page hero layout */
 .bio-hero{min-height:calc(100svh - 118px);display:grid;grid-template-columns:1fr 1fr;background:var(--navy)}
 .bio-photo{min-height:620px;overflow:hidden;background:#172b4d}
-.bio-photo img{display:block;width:100%;height:100%;min-height:620px;object-fit:cover;object-position:center}
+.bio-photo img{display:block;width:100%;height:100%;min-height:620px;object-fit:cover;object-position:64% center}
 .bio-panel{display:flex;align-items:center;justify-content:center;padding:clamp(42px,7vw,100px);color:#fff;background:linear-gradient(135deg,#172b4d 0%,#1d477c 52%,#286bb2 100%)}
 .bio-copy{width:min(100%,620px)}
-.eyebrow{font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:#b9d9f2}
-h1{font-size:clamp(38px,5vw,68px);line-height:1.02;letter-spacing:-.055em;margin:16px 0 28px;font-weight:900}
+.bio-copy .eyebrow{font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:#b9d9f2}
+.bio-copy h1{font-size:clamp(38px,5vw,68px);line-height:1.02;letter-spacing:-.055em;margin:16px 0 28px;font-weight:900}
 .bio-copy p{font-size:clamp(15px,1.3vw,18px);line-height:1.85;color:#edf4fb;margin:0 0 18px}
 .bio-rule{width:58px;height:4px;background:#e83d4b;margin:0 0 30px}
-footer{background:#172b4d;color:#fff;text-align:center;padding:28px 18px}
-.footer-brand img{width:min(260px,65vw);max-height:70px;object-fit:contain}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:18px auto;font-size:10px;font-weight:700}
-.footer-links a:hover{color:#82bee1}
-.copyright{font-size:8px;color:#aebbd0;margin-top:18px}
 @media(max-width:760px){
- .announcement{font-size:9px;min-height:44px}
- header{height:62px;padding:0 16px}
- .brand img{width:76px;max-height:30px}
- nav{gap:10px;font-size:8px}
- nav a:nth-child(n+3){display:none}
- .donate{padding:9px 12px}
  .bio-hero{grid-template-columns:1fr;min-height:0}
  .bio-photo{min-height:0;height:58svh;max-height:620px}
- .bio-photo img{min-height:0;height:100%}
+ .bio-photo img{min-height:0;height:100%;object-position:64% center}
  .bio-panel{min-height:440px;padding:54px 28px}
- h1{font-size:clamp(40px,10vw,58px);margin:14px 0 22px}
+ .bio-copy h1{font-size:clamp(40px,10vw,58px);margin:14px 0 22px}
  .bio-copy p{font-size:15px;line-height:1.75}
 }
-@media(max-width:390px){nav{gap:8px;font-size:7px}.brand img{width:66px}.donate{padding:8px 10px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<a class="announcement" href="./">AMENTAMOUR FOR PRESIDENT · RETURN TO THE CAMPAIGN HOME PAGE</a>
+<a class="announcement" href="#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
 <header>
-<a class="brand" href="./" aria-label="AmentAmour home"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour"></a>
-<nav aria-label="Main navigation"><a href="./">Home</a><a href="about-ament.html" aria-current="page">About Ament</a><a href="./#news">News</a><a href="./#shop">Shop</a><a href="./#volunteer">Volunteer</a><a class="donate" href="./#donate">Donate</a></nav>
+<a class="brand" href="./" aria-label="AmentAmour home"><img class="header-main-logo" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20415%20160%22%20role%3D%22img%22%20aria-label%3D%22AmentAmour%20flag%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0.41%2028.24%200.27%2028.75%200.67%2029.47%204.31%2032.70%205.14%2033.75%205.51%2034.60%205.60%2035.40%205.44%2036.35%203.83%2040.48%203.81%2041.29%204.14%2041.91%204.75%2042.16%205.57%2042.07%206.52%2041.67%209.54%2040.07%2010.42%2039.80%2011.21%2039.74%2012.01%2039.92%2012.96%2040.40%2015.82%2042.65%2016.62%2043.15%2017.57%2043.37%2017.91%2043.29%2018.23%2043.06%2018.48%2042.56%2018.56%2041.83%2017.78%2037.62%2017.78%2036.83%2017.98%2036.04%2018.49%2035.17%2019.19%2034.47%2022.10%2032.57%2022.80%2031.99%2023.24%2031.35%2023.32%2030.67%2023.01%2030.15%2022.26%2029.72%2018.05%2029.08%2017.19%2028.76%2016.37%2028.20%2015.82%2027.57%2015.41%2026.83%2014.38%2023.25%2014.07%2022.59%2013.69%2022.15%2013.30%2021.94%2012.82%2021.92%2012.39%2022.08%2011.98%2022.41%2011.37%2023.25%209.77%2026.33%209.01%2027.17%208.25%2027.68%207.47%2027.93%206.68%2028.01%201.52%2027.74%200.88%2027.90ZM39.09%2029.58%2038.95%2029.90%2038.95%2030.33%2039.36%2031.15%2040.16%2031.92%2042.88%2033.99%2043.54%2034.74%2043.95%2035.56%2044.10%2036.27%2044.03%2037.22%2042.96%2041.35%2043.04%2042.22%2043.45%2042.79%2044.09%2042.96%2044.93%2042.75%2048.59%2040.35%2049.54%2039.93%2050.34%2039.81%2051.13%2039.90%2052.01%2040.23%2055.03%2042.07%2055.98%2042.53%2056.92%2042.62%2057.25%2042.50%2057.54%2042.23%2057.75%2041.63%2057.74%2040.95%2056.47%2036.98%2056.33%2036.11%2056.41%2035.32%2056.76%2034.48%2057.36%2033.69%2060.10%2031.34%2060.84%2030.50%2061.08%2030.00%2061.14%2029.48%2061.00%2029.08%2060.69%2028.78%2060.18%2028.54%2059.48%2028.41%2055.51%2028.38%2054.79%2028.20%2054.12%2027.86%2053.40%2027.27%2052.72%2026.35%2051.45%2023.33%2051.03%2022.59%2050.45%2022.01%2049.80%2021.84%2049.22%2022.05%2048.68%2022.66%2048.31%2023.41%2047.20%2026.51%2046.64%2027.38%2045.97%2028.01%2045.24%2028.42%2044.37%2028.67%2040.16%2028.98%2039.47%2029.25ZM78.28%2026.73%2078.21%2027.08%2078.28%2027.49%2078.87%2028.19%2079.76%2028.67%2083.02%2029.91%2083.87%2030.50%2084.53%2031.25%2084.89%2031.99%2085.09%2032.86%2085.19%2037.14%2085.51%2037.92%2085.98%2038.27%2086.67%2038.25%2087.38%2037.87%2088.13%2037.13%2090.28%2034.59%2091.15%2033.90%2091.93%2033.53%2092.72%2033.39%2093.67%2033.48%2096.86%2034.41%2098.04%2034.64%2098.93%2034.49%2099.25%2034.25%2099.41%2033.96%2099.46%2033.31%2099.24%2032.62%2096.98%2029.13%2096.59%2028.25%2096.45%2027.46%2096.56%2026.59%2096.92%2025.71%2098.97%2022.70%2099.45%2021.75%2099.57%2021.22%2099.51%2020.71%2099.26%2020.33%2098.84%2020.10%2098.28%2020.01%2097.49%2020.10%2093.67%2021.14%2092.88%2021.18%2092.16%2021.05%2091.33%2020.65%2090.47%2019.94%2088.54%2017.56%2087.74%2016.75%2087.05%2016.38%2086.36%2016.38%2085.88%2016.75%2085.55%2017.47%2085.19%2021.75%2084.92%2022.60%2084.49%2023.30%2083.83%2023.94%2083.02%2024.43%2079.22%2025.83%2078.63%2026.24Z%22%2F%3E%3Cpath%20fill%3D%22%23de293a%22%20d%3D%22M414.70%20123.65%20414.58%20122.85%20414.20%20121.94%20412.29%20118.89%20402.43%2099.76%20401.64%2098.61%20400.80%2097.77%20399.83%2097.17%20398.71%2096.85%20397.68%2096.78%20396.17%2096.85%20377.56%2098.61%20358.87%20100.09%20345.20%20100.93%20328.82%20101.44%20321.90%20101.99%20315.62%20102.74%20305.12%20104.38%20294.70%20106.59%20289.14%20108.03%20284.13%20109.53%20280.07%20110.95%20274.66%20113.08%20272.91%20113.45%20270.93%20113.56%20269.66%20113.29%20268.45%20112.56%20265.20%20109.23%20262.89%20107.10%20260.19%20104.86%20257.17%20102.63%20254.86%20101.11%20252.24%2099.55%20246.99%2096.93%20244.13%2095.76%20241.11%2094.69%20237.69%2093.69%20234.35%2092.90%20231.40%2092.37%20228.38%2091.98%20224.41%2091.69%20221.23%2091.62%20217.41%2091.80%20214.31%2092.10%20210.41%2092.71%20206.91%2093.47%20203.49%2094.42%20185.76%2099.86%20172.56%20103.72%20159.28%20107.43%20148.86%20110.20%20134.79%20113.73%20123.26%20116.41%20111.88%20118.82%20102.90%20120.53%2094.71%20121.90%2085.96%20123.12%2075.94%20124.18%2064.33%20125.08%2054.23%20125.59%2047.31%20125.79%2016.14%20125.94%2014.88%20126.22%2013.93%20126.82%2013.31%20127.72%2013.10%20128.81%2013.50%20130.95%2020.92%20155.95%2021.86%20158.68%2022.29%20159.30%2022.80%20159.68%2023.86%20159.92%2070.22%20159.92%2071.54%20159.75%2075.46%20158.88%2089.30%20157.12%2099.40%20155.53%20110.37%20153.37%20121.03%20150.82%20129.38%20148.51%20141.39%20144.81%20193.31%20127.95%20213.91%20121.61%20225.84%20118.30%20235.14%20116.06%20243.49%20114.40%20251.05%20113.33%20257.25%20112.89%20261.06%20112.94%20263.93%20113.19%20265.68%20113.46%20267.35%20113.85%20268.78%20114.42%20270.61%20115.52%20273.47%20117.70%20291.84%20133.54%20293.67%20134.72%20294.46%20135.01%20295.34%20135.14%20297.09%20134.98%20306.71%20132.75%20317.76%20130.69%20329.77%20128.93%20340.58%20127.72%20350.76%20126.91%20362.69%20126.43%20411.52%20126.40%20413.25%20126.22%20414.08%20125.81%20414.40%20125.45%20414.60%20124.99ZM396.14%2071.57%20395.97%2070.63%20395.35%2069.29%20384.71%2049.84%20383.47%2047.78%20382.34%2046.54%20381.06%2045.75%20379.63%2045.38%20377.24%2045.24%20359.75%2045.52%20343.13%2046.28%20333.59%2046.96%20326.19%2047.63%20318.00%2048.54%20311.80%2049.39%20302.18%2050.97%20294.54%2052.55%20289.61%2053.77%20269.97%2059.08%20258.20%2061.86%20249.85%2063.53%20243.09%2064.53%20241.34%2064.43%20239.91%2063.88%20238.80%2063.15%20233.55%2059.16%20228.38%2055.86%20225.12%2054.08%20222.26%2052.69%20216.45%2050.34%20210.57%2048.51%20204.45%2047.18%20198.16%2046.38%20194.35%2046.15%20191.48%2046.11%20186.00%2046.38%20180.11%2047.11%20153.08%2052.87%20132.88%2056.72%20116.66%2059.55%20103.06%2061.74%2093.75%2063.05%2083.97%2064.20%2073.00%2065.18%2061.39%2065.83%2054.55%2066.03%2039.92%2066.03%2032.92%2065.83%2024.17%2065.39%2015.90%2064.79%205.41%2063.86%204.42%2064.06%203.78%2064.48%203.34%2065.20%203.19%2066.11%203.34%2067.70%207.29%2093.33%207.60%2094.84%208.04%2095.81%208.48%2096.37%209.04%2096.80%209.78%2097.11%2010.58%2097.27%2023.14%2097.62%2041.43%2097.62%2055.90%2097.25%2068.94%2096.65%2077.93%2096.06%2087.95%2095.15%2096.78%2094.10%20104.25%2092.96%20109.66%2091.96%20116.42%2090.53%20133.67%2086.38%20149.58%2082.20%20186.24%2072.27%20202.14%2068.18%20210.17%2066.29%20216.69%2064.92%20222.18%2063.97%20226.63%2063.46%20229.57%2063.41%20230.69%2063.59%20231.80%2063.93%20234.19%2065.21%20237.21%2067.52%20239.12%2069.38%20241.07%2071.59%20257.39%2091.42%20258.26%2092.29%20259.09%2092.92%20259.95%2093.34%20260.75%2093.49%20261.70%2093.42%20262.73%2093.11%20269.49%2090.26%20276.25%2087.86%20282.14%2086.02%20289.14%2084.09%20296.05%2082.40%20303.85%2080.69%20312.59%2078.98%20321.50%2077.45%20330.09%2076.13%20339.87%2074.82%20348.62%2073.82%20356.97%2073.07%20369.29%2072.35%20382.17%2072.30%20388.22%2072.59%20394.26%2073.15%20395.02%2073.03%20395.63%2072.71%20395.99%2072.25ZM117.93%2012.38%20118.08%2013.41%20118.61%2014.84%20126.49%2032.46%20127.16%2033.54%20127.89%2034.30%20128.75%2034.81%20129.70%2035.01%20130.73%2034.94%20132.08%2034.64%20168.11%2024.90%20179.87%2021.89%20186.79%2020.26%20194.43%2018.66%20200.63%2017.66%20204.76%2017.35%20206.04%2017.41%20207.23%2017.65%20208.90%2018.29%20210.57%2019.29%20212.64%2020.85%20214.50%2022.57%20217.29%2025.71%20232.16%2043.80%20233.00%2044.67%20233.89%2045.37%20234.67%2045.75%20235.54%2045.93%20236.49%2045.86%20237.53%2045.56%20243.89%2042.89%20249.93%2040.72%20255.82%2038.88%20261.94%2037.19%20268.78%2035.49%20277.29%2033.64%20285.72%2032.02%20294.38%2030.54%20302.02%2029.39%20311.32%2028.15%20318.72%2027.31%20326.91%2026.56%20339.23%2025.85%20350.05%2025.79%20354.50%2025.95%20362.29%2026.59%20362.99%2026.48%20363.61%2026.17%20363.99%2025.72%20364.15%2025.06%20364.03%2024.21%20363.39%2022.78%20351.72%201.59%20351.25%200.93%20350.70%200.45%20350.10%200.14%20349.41%200.01%20318.56%200.01%20312.83%200.98%20295.89%202.55%20284.92%203.90%20276.41%205.26%20269.18%206.70%20263.53%208.06%20246.35%2012.72%20236.81%2015.07%20226.71%2017.20%20221.38%2018.10%20218.84%2018.41%20217.25%2018.34%20215.74%2017.79%20214.55%2017.02%20209.93%2013.52%20205.24%2010.48%20199.91%207.65%20194.74%205.43%20189.58%203.70%20184.49%202.42%20180.67%201.72%20170.73%200.26%20169.06%200.32%20157.29%202.15%20138.29%206.29%20120.71%209.79%20119.53%2010.19%20118.70%2010.74%20118.15%2011.48Z%22%2F%3E%3C%2Fsvg%3E" alt="AmentAmour for President"></a>
+<nav><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="#news">News</a><a href="#shop">Shop</a><a href="#volunteer">Volunteer</a></nav>
+<div class="nav-social"><a href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M19.7 5.3A18.5 18.5 0 0 0 15.2 4l-.6 1.2a17 17 0 0 0-5.2 0L8.8 4a18.5 18.5 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.6a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.8 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a><a href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/REPUBLIC%20LOGO.png" alt="RepublicRx" style="width:18px;height:18px;object-fit:contain;display:block"></a><a class="nav-donate" href="#donate">Donate</a></div>
 </header>
 <main>
 <section class="bio-hero" aria-labelledby="bio-title">
