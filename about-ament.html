@@ -1059,6 +1059,26 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 }
 </style>
 
+
+<style id="leadership-image-style">
+.leadership-image-wrap{
+  width:min(100%,920px);
+  margin:clamp(42px,6vw,72px) auto 18px;
+  padding-right:18px;
+  box-sizing:border-box;
+}
+.leadership-image{
+  display:block;
+  width:100%;
+  height:auto;
+  box-shadow:18px 18px 0 #82bee1;
+}
+@media(max-width:600px){
+  .leadership-image-wrap{width:calc(100% - 18px);margin-top:38px}
+  .leadership-image{box-shadow:12px 12px 0 #82bee1}
+}
+</style>
+
 </head>
 <body>
 <a class="announcement" href="#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
@@ -1082,6 +1102,9 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   <div class="leadership-copy">
     <h2 id="leadership-title">Executive Leadership &amp; Statecraft</h2>
     <p>AmentAmour established a reputation as a masterful diplomat and one of the most widely celebrated Secretaries of State in RXUSA history. Serving as the 18th United States Secretary of State, his tenure in the State Department was defined by extraordinary popularity, unwavering strength, and historic achievements on the world stage. Managing complex global relationships with steady leadership, he restored international stability, negotiated landmark diplomatic treaties, and earned bipartisan acclaim as a premier statesman. His time leading the nation's foreign policy remains the gold standard for executive decision-making and international statesmanship.</p>
+  </div>
+  <div class="leadership-image-wrap">
+    <img class="leadership-image" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-08-02_133056.png" alt="Executive leadership and statecraft">
   </div>
 </section>
 </main>
