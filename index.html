@@ -647,6 +647,45 @@ demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');docume
     max-width:100%!important;
   }
 }
+
+#about .support-tile{
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:linear-gradient(115deg,#8bc9e9 0%,#68acd5 42%,#a6dcf4 50%,#68acd5 58%,#8bc9e9 100%)!important;
+  background-size:220% 100%!important;
+  box-shadow:0 8px 22px rgba(24,45,83,.18),0 0 0 0 rgba(105,183,225,.35)!important;
+  animation:supportCampaignGlow 3.2s ease-in-out infinite,supportCampaignShimmer 6s ease-in-out infinite;
+  transition:box-shadow .25s ease,filter .25s ease!important;
+}
+#about .support-tile:after{
+  content:"→";
+  position:absolute;
+  right:clamp(18px,3vw,34px);
+  top:50%;
+  transform:translateY(-50%);
+  font-size:30px;
+  font-weight:700;
+  opacity:.75;
+  transition:transform .25s ease,opacity .25s ease;
+}
+#about .support-tile:hover,
+#about .support-tile:focus-visible{
+  filter:saturate(1.18) brightness(1.04);
+  box-shadow:0 13px 30px rgba(24,45,83,.24),0 0 0 5px rgba(105,183,225,.2)!important;
+  outline:none;
+}
+#about .support-tile:hover:after,
+#about .support-tile:focus-visible:after{transform:translate(7px,-50%);opacity:1}
+@keyframes supportCampaignGlow{
+  0%,100%{box-shadow:0 8px 22px rgba(24,45,83,.18),0 0 0 0 rgba(105,183,225,.25)}
+  50%{box-shadow:0 12px 28px rgba(24,45,83,.23),0 0 0 7px rgba(105,183,225,0)}
+}
+@keyframes supportCampaignShimmer{0%,65%,100%{background-position:100% 50%}35%{background-position:0% 50%}}
+@media(prefers-reduced-motion:reduce){
+  #about .support-tile{animation:none!important;transition:none!important}
+  #about .support-tile:after{transition:none!important}
+}
+
 </style>
 
 </body></html>
