@@ -612,16 +612,24 @@ demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');docume
 </script>
 
 <style id="support-campaign-emphasis">
+#about .support-tile{
+  text-align:left!important;
+  justify-content:flex-start!important;
+  align-items:center!important;
+}
 #about .support-tile strong{
-  font-size:clamp(25px,3vw,38px)!important;
-  font-weight:900!important;
-  line-height:1.12!important;
-  letter-spacing:-.025em!important;
-  max-width:360px!important;
+  font-size:clamp(18px,1.7vw,23px)!important;
+  font-weight:800!important;
+  line-height:1.2!important;
+  letter-spacing:-.015em!important;
+  max-width:260px!important;
+  margin-left:0!important;
+  margin-right:auto!important;
+  text-align:left!important;
 }
 @media(max-width:760px){
   #about .support-tile strong{
-    font-size:clamp(27px,6vw,34px)!important;
+    font-size:20px!important;
     max-width:100%!important;
   }
 }
