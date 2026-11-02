@@ -5,7 +5,7 @@
 <meta name="description" content="AmentAmour for President — a campaign for accountability, opportunity, and a stronger America.">
 <title>AmentAmour for President</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#182d53;--blue:#75b5dc;--red:#ed3d4b;--paper:#f8f8f5;--ink:#182d53;--muted:#667080;--serif:'DM Serif Display',Georgia,serif;--sans:Inter,Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif)}a{color:inherit;text-decoration:none}button,input{font:inherit}.announcement{height:35px;background:var(--blue);display:flex;align-items:center;justify-content:center;padding:0 22px;color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.02em}.announcement a{margin-left:18px;background:var(--red);color:#fff;padding:8px 23px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
@@ -234,6 +234,36 @@ header nav{
   .brand{font-size:10px}
   .nav-donate{padding:8px 13px;font-size:8px}
 }
+
+/* Hero signup and statement: centered, minimal campaign landing */
+.hero{justify-content:center;text-align:center}
+.hero:after{background:rgba(23,43,77,.58)}
+.hero-image{background-position:center 28%;background-size:cover}
+.hero-content{width:min(760px,92vw);margin:0 auto;padding:36px 0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-brand{transform:none;transform-origin:center;margin:0 auto 30px;justify-content:center}
+.hero-brand .brand-mark{width:62px;height:48px}
+.hero-brand-name{text-align:left;font-size:clamp(38px,5vw,62px)}
+.signup{width:min(510px,100%);grid-template-columns:1fr 1fr;gap:10px;margin:0 auto}
+.signup input{min-height:48px;padding:13px 17px;text-align:left;transition:padding .22s ease,border-color .22s ease,background .22s ease}
+.signup input:hover{padding-left:23px;border-color:var(--blue)}
+.signup input:focus{padding-left:23px}
+.signup .phone{grid-column:1/-1}
+.signup button{grid-column:1/-1;background:var(--blue);color:var(--navy);font-family:var(--sans);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:background .22s,color .22s,transform .22s}
+.signup button:hover{background:var(--red);color:#fff}
+.signup .legal{grid-column:1/-1;width:100%;max-width:none;text-align:center;font-family:Montserrat,var(--sans);font-size:9px;line-height:1.65;color:#edf3f8;font-weight:500;letter-spacing:.005em;margin-top:3px}
+.signup .status{grid-column:1/-1}
+.campaign-statement{min-height:210px;padding:55px 20px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--paper);color:var(--blue);font-family:var(--serif);font-size:clamp(30px,4.4vw,58px);line-height:1.08;letter-spacing:-.025em}
+@media(max-width:760px){
+ .hero{min-height:650px;height:calc(100svh - 92px)}
+ .hero-content{width:88vw;padding:34px 0}
+ .hero-brand{margin-bottom:26px}
+ .hero-brand .brand-mark{width:48px}
+ .hero-brand-name{font-size:clamp(34px,8vw,48px)}
+ .signup{grid-template-columns:1fr}
+ .signup .phone,.signup .legal,.signup .status{grid-column:1}
+ .signup input{min-height:46px}
+ .campaign-statement{min-height:165px;padding:42px 22px}
+}
 </style>
 </head>
 <body>
@@ -250,7 +280,7 @@ header nav{
 <form class="signup" id="hero-form"><input type="email" placeholder="Email Address" aria-label="Email address" required><input inputmode="numeric" placeholder="Zip Code" aria-label="Zip code" required><input class="phone" type="tel" placeholder="Phone Number (Optional)" aria-label="Phone number"><button type="submit">Join the team →</button><span class="legal">By providing your mobile number, you consent to receive campaign calls and text messages. Message and data rates may apply. Reply STOP to opt out.</span><p class="status" id="hero-status" aria-live="polite"></p></form>
 </div></section>
 <section class="intro" id="about"><a class="support-tile" href="#donate"><strong>Support AmentAmour's campaign</strong></a><div class="intro-copy"><span class="eyebrow">Leadership that listens</span><h2>In the Senate</h2><p>AmentAmour's campaign puts accountable leadership and practical solutions at the center of public service. The agenda focuses on transparency, opportunity, and making public institutions work for the communities they serve.</p><p>Explore the priorities, ask hard questions, and help shape the work ahead.</p><a class="outline-link" href="#bio">Learn more →</a></div></section>
-<section class="rally" aria-label="Campaign rally"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1500&q=90" alt="Public speaker at a rally"><button class="play" id="video-open" aria-label="Open campaign video">▶</button><div class="rally-caption">On the campaign trail</div></section>
+<section class="campaign-statement" aria-label="Campaign statement">Saving America From It&#39;s Failure.</section>
 <section class="updates" id="news"><div class="updates-inner"><div class="updates-intro"><h2>The Latest<br>Updates</h2><p>Follow Team AmentAmour and stay connected to the work happening across the country.</p><a class="follow" href="https://instagram.com">Follow +</a></div><div class="update-cards"><article class="update-card"><span class="social" aria-label="Community"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 8.8c0 5.2-8.8 10-8.8 10S3.2 14 3.2 8.8A4.2 4.2 0 0 1 12 7.1a4.2 4.2 0 0 1 8.8 1.7Z"/></svg></span><p>Meet the people working together for a stronger future.</p><small>CAMPAIGN UPDATE</small></article><article class="update-card"><span class="social" aria-label="Events"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.8 14.4 9l6.6 1-4.8 4.6 1.2 6.6L12 18l-5.4 3.2 1.2-6.6L3 10l6.6-1z"/></svg></span><p>Join us at an upcoming community event. Your voice belongs here.</p><small>EVENTS &amp; NEWS</small></article><article class="update-card"><span class="social" aria-label="Social updates"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8zm-1.1 18h1.7L7.3 3.9H5.5z"/></svg></span><p>Accountability starts with asking the right questions.</p><small>FOLLOW THE CAMPAIGN</small></article></div></div></section>
 <section class="volunteer" id="volunteer"><div class="volunteer-form"><span class="eyebrow">Sign up</span><h2>Volunteer</h2><form id="vol-form"><input type="email" placeholder="Email Address" aria-label="Volunteer email" required><input placeholder="Zip Code" aria-label="Volunteer zip code" required><input type="tel" placeholder="Phone Number" aria-label="Volunteer phone"><button class="join" type="submit">Join the team →</button><span class="legal">Your information is not sent or stored by this preview. Connect the campaign's approved signup system before launch.</span><p class="status" id="vol-status" aria-live="polite"></p></form></div><div class="volunteer-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1300&q=90" alt="Community members spending time together"></div></section>
 <section id="bio" class="intro" style="padding-top:45px"><div class="support-tile"><strong>Truth. Service. Accountability.</strong></div><div class="intro-copy" style="padding-top:20px"><span class="eyebrow">The campaign</span><h2>Leadership for everyone.</h2><p>Learn more about AmentAmour's priorities and the values guiding this campaign. Official biography and policy details should be verified by the campaign before publication.</p><a class="outline-link" href="#volunteer">Get involved →</a></div></section>
@@ -265,6 +295,6 @@ document.querySelectorAll('.intro,.rally,.updates,.volunteer,.update-card,.suppo
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'))}
 
 demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');document.getElementById('year').textContent=new Date().getFullYear();
-document.getElementById('video-open').addEventListener('click',()=>alert('Add the official campaign video URL to enable playback.'));
+
 </script>
 </body></html>
