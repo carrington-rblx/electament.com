@@ -100,6 +100,63 @@ footer{padding:32px 20px 24px}
 
 @media(max-width:760px){.announcement{height:auto;min-height:38px;font-size:8px}.announcement a{padding:7px 13px;margin-left:8px}header{height:54px;padding:0 17px}nav{gap:12px;font-size:7px}.nav-social{display:none}.nav-donate{padding:8px 13px}.hero{height:auto;min-height:680px}.hero-image{background-position:64% center}.hero:after{background:linear-gradient(90deg,rgba(24,45,83,.95),rgba(24,45,83,.73) 58%,rgba(24,45,83,.25)),linear-gradient(0deg,rgba(24,45,83,.55),transparent)}.hero-content{width:88%;padding:55px 0}.hero-brand-name{font-size:43px}.hero h1{font-size:43px}.intro{padding:0 22px 45px;grid-template-columns:1fr;gap:0}.support-tile{margin-top:0;max-width:100%;min-height:90px;padding:18px 22px}.support-tile strong{font-size:15px}.intro-copy{padding:36px 3px}.intro h2{font-size:38px}.rally{min-height:280px}.updates{padding:48px 22px}.updates-inner{grid-template-columns:1fr;gap:24px}.updates-intro p{max-width:340px}.update-cards{gap:7px}.update-card{padding:12px 10px;min-height:150px}.update-card p{font-size:11px}.volunteer{grid-template-columns:1fr;padding:48px 22px;gap:28px}.volunteer-photo{height:300px;grid-row:1}.volunteer-form{padding:0 10px}.volunteer h2{font-size:39px}}
 @media(max-width:430px){nav{gap:9px;font-size:6px}.brand{font-size:10px}.brand small{font-size:6px}.nav-donate{font-size:7px;padding:7px 10px}.hero-brand-name{font-size:37px}.hero-brand-name small{font-size:10px}.hero h1{font-size:38px}.signup{grid-template-columns:1fr}.signup .phone,.legal,.status{grid-column:1}.update-cards{grid-template-columns:1fr}.update-card{min-height:120px}.update-card:nth-child(n){transform:none}.update-card p{font-size:14px}}
+
+/* Closer camera framing and larger, fuller page composition */
+.hero{min-height:680px;height:min(790px,calc(100svh - 85px))}
+.hero-image{background-size:118% auto;background-position:73% 28%}
+.hero-content{width:min(1240px,92%);padding:48px 0 54px}
+.hero-brand{transform:scale(1.08);transform-origin:left center;margin-bottom:28px}
+.hero h1{font-size:clamp(44px,5.7vw,72px);max-width:590px}
+.hero-copy{font-size:14px;max-width:490px;line-height:1.75}
+.signup{width:min(470px,100%)}
+.signup input{font-size:11px;padding:13px 15px}
+.signup button{font-size:14px;padding:13px 18px}
+.intro{max-width:1320px;padding-left:28px;padding-right:28px;grid-template-columns:.72fr 1.28fr;gap:25px}
+.intro-copy{max-width:520px}
+.intro h2{font-size:48px}
+.intro p{font-size:12px;line-height:1.75}
+.support-tile{max-width:320px;min-height:130px}
+.support-tile strong{font-size:19px;max-width:210px}
+.rally{height:410px;min-height:410px}
+.updates-inner{max-width:1280px;grid-template-columns:.72fr 2.28fr;gap:30px}
+.updates h2{font-size:37px}
+.updates-intro p{font-size:12px;max-width:250px}
+.update-card{min-height:178px;padding:20px}
+.update-card p{font-size:16px}
+.update-card small{font-size:8px}
+.volunteer{max-width:1280px;padding:55px 28px;grid-template-columns:.9fr 1.1fr;gap:32px}
+.volunteer-photo{height:390px}
+.volunteer h2{font-size:49px}
+.volunteer-form input{font-size:11px;padding:12px 8px}
+.volunteer-form .join{font-size:10px;padding:15px}
+footer{padding-top:38px;padding-bottom:30px}
+.footer-brand{font-size:27px}
+.footer-links{font-size:9px}
+@media(max-width:760px){
+ .hero{min-height:710px;height:auto}
+ .hero-image{background-size:auto 112%;background-position:68% center}
+ .hero-content{width:89%;padding:48px 0}
+ .hero-brand{transform:scale(1.02);margin-bottom:25px}
+ .hero h1{font-size:clamp(42px,9vw,52px)}
+ .hero-copy{font-size:13px}
+ .intro{padding-left:20px;padding-right:20px;grid-template-columns:1fr;gap:0}
+ .intro h2{font-size:43px}
+ .intro p{font-size:12px}
+ .rally{height:300px;min-height:300px}
+ .updates h2{font-size:34px}
+ .update-card p{font-size:14px}
+ .volunteer{padding:40px 20px;gap:22px}
+ .volunteer-photo{height:290px}
+ .volunteer h2{font-size:44px}
+}
+@media(max-width:430px){
+ .hero{min-height:690px}
+ .hero-image{background-size:auto 105%;background-position:67% center}
+ .hero h1{font-size:41px}
+ .rally{height:250px;min-height:250px}
+ .volunteer-photo{height:245px}
+}
+
 </style>
 </head>
 <body>
