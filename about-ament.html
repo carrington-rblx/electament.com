@@ -1179,6 +1179,61 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   .presidency-photo img{height:100%;min-height:0}
   .presidency-panel{padding:58px 24px 68px}
 }
+.running-mate-cta{
+  background:#82bee1;
+  padding:clamp(64px,8vw,96px) 24px;
+  text-align:center;
+}
+.running-mate-cta-inner{
+  width:min(100%,820px);
+  margin:0 auto;
+}
+.running-mate-cta h2{
+  margin:0 0 16px;
+  color:#172b4d;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(28px,3.4vw,42px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+.running-mate-cta p{
+  max-width:720px;
+  margin:0 auto 30px;
+  color:#172b4d;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(15px,1.2vw,17px);
+  line-height:1.8;
+  font-weight:500;
+}
+.running-mate-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:0 28px;
+  border:2px solid #172b4d;
+  border-radius:3px;
+  background:transparent;
+  color:#172b4d;
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:not-allowed;
+  opacity:.78;
+}
+.running-mate-note{
+  display:block;
+  margin-top:12px;
+  color:#25466d;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
 </style>
 </head>
 <body>
@@ -1225,6 +1280,14 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
       <h2 id="presidency-title">Proven Record for the Presidency</h2>
       <p>Building on a distinguished legacy defined by his beloved tenure as Secretary of State, AmentAmour is launching his campaign for President of the United States. His candidacy brings together a proven track record of top-tier executive diplomacy and deep legislative oversight experience. AmentAmour is running to restore integrity, decisive executive leadership, and tested strength to the White House to fix the critical challenges facing the nation.</p>
     </div>
+  </div>
+</section>
+<section class="running-mate-cta" aria-labelledby="running-mate-title">
+  <div class="running-mate-cta-inner">
+    <h2 id="running-mate-title">Meet His Running Mate</h2>
+    <p>Great leadership is built on strong partnerships. Discover the person standing alongside AmentAmour as they work toward a stronger future for the nation.</p>
+    <button class="running-mate-button" type="button" disabled aria-disabled="true">Meet His Running Mate</button>
+    <span class="running-mate-note">Running mate announcement coming soon</span>
   </div>
 </section>
 </main>
