@@ -1254,8 +1254,20 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   font-weight:800;
   letter-spacing:.08em;
   text-transform:uppercase;
-  cursor:not-allowed;
-  opacity:.78;
+  cursor:pointer;
+  opacity:1;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+.running-mate-button:hover,
+.running-mate-button:focus-visible{
+  background:#e83d4b;
+  border-color:#e83d4b;
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 9px 22px rgba(23,43,77,.18);
+}
+.running-mate-button:active{
+  transform:translateY(-1px);
 }
 .running-mate-note{
   display:block;
@@ -1319,7 +1331,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   <div class="running-mate-cta-inner">
     <h2 id="running-mate-title">Meet His Running Mate</h2>
     <p>Great leadership is built on strong partnerships. Discover the person standing alongside AmentAmour as they work toward a stronger future for the nation.</p>
-    <button class="running-mate-button" type="button" disabled aria-disabled="true">Meet His Running Mate</button>
+    <button class="running-mate-button" type="button" aria-disabled="true">Meet His Running Mate</button>
     <span class="running-mate-note">Running mate announcement coming soon</span>
   </div>
 </section>
