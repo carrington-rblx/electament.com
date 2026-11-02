@@ -950,3 +950,22 @@ body{
   outline:none!important;
 }
 </style>
+
+
+/* Hero elements: a modest size increase while keeping the layout airy */
+.hero-brand .hero-full-logo{
+  width:min(460px,78vw)!important;
+  max-height:112px!important;
+}
+.signup{width:min(475px,100%)!important;gap:8px!important}
+.signup input{min-height:44px!important;padding:11px 14px!important;font-size:11px!important}
+.signup button{font-size:13px!important;padding:11px 16px!important}
+.signup .legal{font-size:8px!important;line-height:1.45!important}
+@media(max-width:760px){
+  .hero-brand .hero-full-logo{width:min(360px,84vw)!important;max-height:91px!important}
+  .signup{width:min(440px,100%)!important}
+  .signup input{min-height:44px!important}
+}
+@media(max-width:430px){
+  .hero-brand .hero-full-logo{width:min(320px,86vw)!important;max-height:82px!important}
+}
