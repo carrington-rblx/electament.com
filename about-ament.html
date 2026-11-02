@@ -1180,11 +1180,40 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   .presidency-panel{padding:58px 24px 68px}
 }
 .running-mate-cta{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
   background:#82bee1;
   padding:clamp(64px,8vw,96px) 24px;
   text-align:center;
 }
+.running-mate-cta::before,
+.running-mate-cta::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(34px);
+  opacity:.38;
+}
+.running-mate-cta::before{
+  width:340px;
+  height:250px;
+  left:-90px;
+  top:-110px;
+  background:radial-gradient(ellipse,rgba(255,255,255,.72) 0%,rgba(255,255,255,.18) 58%,transparent 76%);
+}
+.running-mate-cta::after{
+  width:420px;
+  height:300px;
+  right:-130px;
+  bottom:-150px;
+  background:radial-gradient(ellipse,rgba(23,43,77,.42) 0%,rgba(23,43,77,.12) 55%,transparent 76%);
+}
 .running-mate-cta-inner{
+  position:relative;
+  z-index:1;
   width:min(100%,820px);
   margin:0 auto;
 }
