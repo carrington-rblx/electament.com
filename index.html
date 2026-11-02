@@ -577,7 +577,7 @@ footer{padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
 <form class="signup" id="hero-form"><input type="email" placeholder="Email Address" aria-label="Email address" required><input inputmode="numeric" placeholder="Zip Code" aria-label="Zip code" required><input class="phone" type="tel" placeholder="Phone Number (Optional)" aria-label="Phone number"><button type="submit">Join the team →</button><span class="legal">By providing your mobile number, you consent to receive campaign calls and text messages. Message and data rates may apply. Reply STOP to opt out.</span><p class="status" id="hero-status" aria-live="polite"></p></form>
 </div></section>
 <section class="intro" id="about"><a class="support-tile" href="#donate"><strong>Support AmentAmour's campaign</strong></a><div class="intro-copy"><span class="eyebrow">Leadership that listens</span><h2>In the Senate</h2><p>AmentAmour's campaign puts accountable leadership and practical solutions at the center of public service. The agenda focuses on transparency, opportunity, and making public institutions work for the communities they serve.</p><p>Explore the priorities, ask hard questions, and help shape the work ahead.</p><a class="outline-link" href="#bio">Learn more →</a></div></section>
-<section class="campaign-statement" aria-label="Campaign statement">Saving America From It&#39;s Failure.</section>
+<section class="campaign-statement" aria-label="Campaign statement">Saving America From<br>It&#39;s Failure.</section>
 <section class="updates" id="news"><div class="updates-inner"><div class="updates-intro"><h2>The Latest<br>Updates</h2><p>Follow Team AmentAmour and stay connected to the work happening across the country.</p><a class="follow" href="https://instagram.com">Follow +</a></div><div class="update-cards"><article class="update-card"><span class="social" aria-label="Community"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 8.8c0 5.2-8.8 10-8.8 10S3.2 14 3.2 8.8A4.2 4.2 0 0 1 12 7.1a4.2 4.2 0 0 1 8.8 1.7Z"/></svg></span><p>Meet the people working together for a stronger future.</p><small>CAMPAIGN UPDATE</small></article><article class="update-card"><span class="social" aria-label="Events"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.8 14.4 9l6.6 1-4.8 4.6 1.2 6.6L12 18l-5.4 3.2 1.2-6.6L3 10l6.6-1z"/></svg></span><p>Join us at an upcoming community event. Your voice belongs here.</p><small>EVENTS &amp; NEWS</small></article><article class="update-card"><span class="social" aria-label="Social updates"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8zm-1.1 18h1.7L7.3 3.9H5.5z"/></svg></span><p>Accountability starts with asking the right questions.</p><small>FOLLOW THE CAMPAIGN</small></article></div></div></section>
 <section class="volunteer" id="volunteer"><div class="volunteer-form"><span class="eyebrow">Sign up</span><h2>Volunteer</h2><form id="vol-form"><input type="email" placeholder="Email Address" aria-label="Volunteer email" required><input placeholder="Zip Code" aria-label="Volunteer zip code" required><input type="tel" placeholder="Phone Number" aria-label="Volunteer phone"><button class="join" type="submit">Join the team →</button><span class="legal">Your information is not sent or stored by this preview. Connect the campaign's approved signup system before launch.</span><p class="status" id="vol-status" aria-live="polite"></p></form></div><div class="volunteer-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1300&q=90" alt="Community members spending time together"></div></section>
 <section id="bio" class="intro" style="padding-top:45px"><div class="intro-copy"><span class="eyebrow">The campaign</span><h2>Leadership for everyone.</h2><p>Learn more about AmentAmour's priorities and the values guiding this campaign. Official biography and policy details should be verified by the campaign before publication.</p><a class="outline-link" href="#volunteer">Get involved →</a></div></section>
@@ -775,5 +775,27 @@ header .nav-donate{font-size:10px!important;padding:10px 16px!important}
  #about .intro-copy p{font-size:17px!important}
  #about .intro-copy .outline-link{align-self:center!important}
  .campaign-statement{font-size:clamp(32px,8vw,46px)!important;padding:48px 22px!important;min-height:0!important}
+}
+</style>
+
+
+<style>
+/* Fine-tune announcement proportions and bring the intro typography back down */
+.announcement{font-size:clamp(10px,.85vw,12px)!important;line-height:1.4!important;padding:18px 20px!important;min-height:54px!important;box-sizing:border-box!important}
+.announcement a{font-size:1em!important;padding:0 3px!important}
+#about .support-tile{font-size:clamp(19px,2vw,24px)!important;line-height:1.22!important;padding:clamp(26px,3vw,42px)!important}
+#about .intro-copy .eyebrow{font-size:clamp(12px,1vw,14px)!important}
+#about .intro-copy h2{font-size:clamp(36px,3.6vw,46px)!important;line-height:1.1!important;margin:10px 0 15px!important}
+#about .intro-copy p{font-size:clamp(15px,1.2vw,17px)!important;line-height:1.65!important;margin-bottom:14px!important}
+#about .intro-copy .outline-link{font-size:14px!important;padding:13px 22px!important}
+.campaign-statement{display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;text-align:center!important;white-space:normal!important;font-size:clamp(34px,4.2vw,52px)!important;line-height:1.13!important;max-width:100%!important}
+@media(max-width:760px){
+ .announcement{font-size:10px!important;padding:16px 14px!important;min-height:50px!important}
+ #about .support-tile{font-size:21px!important;padding:26px 22px!important}
+ #about .intro-copy{padding:30px 24px!important}
+ #about .intro-copy h2{font-size:clamp(34px,7vw,42px)!important}
+ #about .intro-copy p{font-size:15px!important}
+ #about .intro-copy .outline-link{font-size:14px!important;padding:12px 20px!important}
+ .campaign-statement{font-size:clamp(32px,7vw,42px)!important;padding:44px 20px!important}
 }
 </style>
