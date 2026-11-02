@@ -20,7 +20,7 @@
     .serif{font-family:'DM Serif Display',Georgia,serif}
     .flag-wave{filter:drop-shadow(0 3px 3px rgba(0,0,0,.12))}
     .hero-grid{background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:18px 18px}
-    .hero-photo{background:linear-gradient(180deg,rgba(24,37,61,.02),rgba(24,37,61,.32)),url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1300&q=88') center 24%/cover}
+    .hero-photo{background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=2200&q=90');background-position:center 28%;background-size:cover;background-repeat:no-repeat}.hero-shade{background:linear-gradient(90deg,rgba(24,37,61,.98) 0%,rgba(24,37,61,.94) 30%,rgba(24,37,61,.78) 48%,rgba(24,37,61,.24) 72%,rgba(24,37,61,.06) 100%),linear-gradient(0deg,rgba(24,37,61,.32),transparent 45%)}
     .rally-photo{background:linear-gradient(90deg,rgba(24,37,61,.48),rgba(24,37,61,.05)),url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=85') center/cover}
     .community-photo{background:linear-gradient(0deg,rgba(24,37,61,.25),transparent),url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1100&q=85') center/cover}
     .input-dark{width:100%;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:14px 18px;color:#fff;outline:none;transition:.2s}
@@ -35,7 +35,7 @@
     .star-text{letter-spacing:.18em;color:#F6C85F}
     .endorsement{box-shadow:0 20px 60px rgba(7,19,38,.24)}
     .social-card{background:linear-gradient(145deg,#fff,#f4f7fa)}
-    @media(max-width:767px){.hero-photo{min-height:390px;background-position:center 18%}.endorsement{display:none}}
+    @media(max-width:767px){.hero-photo{background-position:62% center}.hero-shade{background:linear-gradient(180deg,rgba(24,37,61,.88) 0%,rgba(24,37,61,.82) 52%,rgba(24,37,61,.56) 100%),linear-gradient(90deg,rgba(24,37,61,.38),rgba(24,37,61,.08))}.endorsement{display:none}}
   </style>
 </head>
 <body class="antialiased">
@@ -70,28 +70,32 @@
   </header>
 
   <main id="home">
-    <section class="px-4 pb-8 pt-7 sm:px-6 lg:px-8 lg:pt-10">
-      <div class="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-navy shadow-soft lg:grid-cols-[1.08fr_.92fr]">
-        <div class="hero-grid flex flex-col justify-center px-6 py-10 text-white sm:px-10 sm:py-14 lg:px-14 lg:py-16">
-          <div class="mb-10 flex items-center gap-4 sm:mb-12">
-            <svg class="flag-wave h-16 w-20 shrink-0 sm:h-20 sm:w-24" viewBox="0 0 96 72" role="img" aria-label="AmentAmour flag"><path d="M5 12 C26 3 43 21 63 12 S83 8 91 13 L88 27 C67 20 48 38 27 29 S10 26 5 30Z" fill="#E53935"/><path d="M5 30 C25 23 45 39 64 30 S82 26 89 30 L87 44 C66 38 48 54 28 46 S11 43 5 48Z" fill="#fff"/><path d="M5 48 C24 42 44 57 64 48 S81 45 87 48 L85 61 C64 55 47 70 27 62 S10 59 5 64Z" fill="#E53935"/><path d="M7 13 C17 11 24 13 31 17 L28 31 C20 27 13 27 5 30Z" fill="#18253D"/><g fill="#fff"><path d="m13 16 1.4 3h3.2l-2.6 1.9 1 3.1-3-1.9-2.7 1.9 1-3.1-2.5-1.9h3.1z"/><path d="m22 19 1.2 2.6H26l-2.2 1.7.8 2.6-2.6-1.6-2.4 1.6.9-2.6-2.2-1.7h2.7z"/><path d="m29 22 1 2.2h2.4l-1.9 1.4.7 2.2-2.2-1.4-2.1 1.4.8-2.2-1.9-1.4h2.3z"/></g></svg>
-            <div><div class="text-2xl font-black leading-none tracking-tight sm:text-3xl">AMENTAMOUR</div><div class="mt-2 text-[10px] font-bold tracking-[.32em] text-sky sm:text-xs">FOR PRESIDENT</div></div>
+    <section class="relative pb-8">
+      <div class="relative isolate flex min-h-[calc(100svh-112px)] w-full items-center overflow-hidden bg-navy shadow-soft sm:min-h-[760px]">
+        <div class="hero-photo absolute inset-0" role="img" aria-label="Full-width campaign portrait background"></div>
+        <div class="hero-shade absolute inset-0"></div>
+        <div class="hero-grid pointer-events-none absolute inset-0 opacity-30"></div>
+        <div class="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+          <div class="max-w-2xl">
+            <div class="mb-8 flex items-center gap-4 sm:mb-10">
+              <svg class="flag-wave h-16 w-20 shrink-0 sm:h-20 sm:w-24" viewBox="0 0 96 72" role="img" aria-label="AmentAmour flag"><path d="M5 12 C26 3 43 21 63 12 S83 8 91 13 L88 27 C67 20 48 38 27 29 S10 26 5 30Z" fill="#E53935"/><path d="M5 30 C25 23 45 39 64 30 S82 26 89 30 L87 44 C66 38 48 54 28 46 S11 43 5 48Z" fill="#fff"/><path d="M5 48 C24 42 44 57 64 48 S81 45 87 48 L85 61 C64 55 47 70 27 62 S10 59 5 64Z" fill="#E53935"/><path d="M7 13 C17 11 24 13 31 17 L28 31 C20 27 13 27 5 30Z" fill="#18253D"/><g fill="#fff"><path d="m13 16 1.4 3h3.2l-2.6 1.9 1 3.1-3-1.9-2.7 1.9 1-3.1-2.5-1.9h3.1z"/><path d="m22 19 1.2 2.6H26l-2.2 1.7.8 2.6-2.6-1.6-2.4 1.6.9-2.6-2.2-1.7h2.7z"/><path d="m29 22 1 2.2h2.4l-1.9 1.4.7 2.2-2.2-1.4-2.1 1.4.8-2.2-1.9-1.4h2.3z"/></g></svg>
+              <div><div class="text-2xl font-black leading-none tracking-tight sm:text-3xl">AMENTAMOUR</div><div class="mt-2 text-[10px] font-bold tracking-[.32em] text-sky sm:text-xs">FOR PRESIDENT</div></div>
+            </div>
+            <p class="mb-3 text-[10px] font-extrabold uppercase tracking-[.28em] text-sky">A campaign for the people</p>
+            <h1 class="max-w-2xl text-4xl font-black uppercase leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">A stronger America starts with <span class="text-sky">accountability.</span></h1>
+            <p class="mt-5 max-w-xl text-sm leading-7 text-white/80 sm:text-base">Join Team AmentAmour. Add your voice to a movement for honest leadership, opportunity, and a government that works for everyone.</p>
+            <form id="hero-form" class="mt-8 grid max-w-xl gap-3 sm:grid-cols-2" novalidate>
+              <label class="sr-only" for="hero-email">Email Address</label><input class="input-dark sm:col-span-2" id="hero-email" type="email" placeholder="Email Address" required autocomplete="email">
+              <label class="sr-only" for="hero-zip">Zip Code</label><input class="input-dark" id="hero-zip" inputmode="numeric" autocomplete="postal-code" placeholder="Zip Code" required>
+              <label class="sr-only" for="hero-phone">Phone Number (Optional)</label><input class="input-dark" id="hero-phone" type="tel" autocomplete="tel" placeholder="Phone Number (Optional)">
+              <button class="rounded-full bg-action px-7 py-3.5 text-xs font-black uppercase tracking-[.18em] text-white transition hover:bg-red-600 sm:col-span-2 sm:w-fit sm:min-w-48" type="submit">Join the team <span aria-hidden="true">→</span></button>
+              <p class="text-[10px] leading-5 text-white/65 sm:col-span-2">By providing your mobile number you consent to receive cell phone calls and text messages from AmentAmour for President. Message and data rates may apply. Reply STOP to opt out.</p>
+              <p id="hero-status" class="hidden text-sm font-semibold text-sky sm:col-span-2" role="status"></p>
+            </form>
+            <a href="#donate" class="mt-7 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-white/80 transition hover:text-sky">Stand with the campaign <span class="text-xl" aria-hidden="true">↓</span></a>
           </div>
-          <p class="mb-3 text-[10px] font-extrabold uppercase tracking-[.28em] text-sky">A campaign for the people</p>
-          <h1 class="max-w-xl text-4xl font-black uppercase leading-[1.04] tracking-tight sm:text-5xl xl:text-6xl">A stronger America starts with <span class="text-sky">accountability.</span></h1>
-          <p class="mt-5 max-w-lg text-sm leading-7 text-white/75 sm:text-base">Join Team AmentAmour. Add your voice to a movement for honest leadership, opportunity, and a government that works for everyone.</p>
-          <form id="hero-form" class="mt-8 grid gap-3 sm:grid-cols-2" novalidate>
-            <label class="sr-only" for="hero-email">Email Address</label><input class="input-dark sm:col-span-2" id="hero-email" type="email" placeholder="Email Address" required autocomplete="email">
-            <label class="sr-only" for="hero-zip">Zip Code</label><input class="input-dark" id="hero-zip" inputmode="numeric" autocomplete="postal-code" placeholder="Zip Code" required>
-            <label class="sr-only" for="hero-phone">Phone Number (Optional)</label><input class="input-dark" id="hero-phone" type="tel" autocomplete="tel" placeholder="Phone Number (Optional)">
-            <button class="rounded-full bg-sky px-7 py-3.5 text-xs font-black uppercase tracking-[.18em] text-navy transition hover:bg-white sm:col-span-2" type="submit">Join the team <span aria-hidden="true">→</span></button>
-            <p class="text-[10px] leading-5 text-white/55 sm:col-span-2">By providing your mobile number you consent to receive cell phone calls and text messages from AmentAmour for President. Message and data rates may apply. Reply STOP to opt out.</p>
-            <p id="hero-status" class="hidden text-sm font-semibold text-sky sm:col-span-2" role="status"></p>
-          </form>
         </div>
-        <div class="hero-photo relative min-h-[430px] lg:min-h-[700px]" role="img" aria-label="Portrait placeholder for the official AmentAmour campaign candidate photo">
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/25 to-transparent p-7 pt-28 text-white sm:p-10 sm:pt-36"><p class="text-xs font-bold uppercase tracking-[.24em] text-white/80">Leadership. Integrity. Service.</p><p class="mt-2 text-2xl font-black uppercase">The future is ours to shape.</p><p class="mt-2 text-xs text-white/65">Replace this stock portrait with the campaign's approved candidate photograph.</p></div>
-        </div>
+        <div class="pointer-events-none absolute bottom-0 right-0 hidden p-10 text-right text-white/75 lg:block"><p class="text-[10px] font-bold uppercase tracking-[.25em]">Leadership · Integrity · Service</p></div>
       </div>
       <a href="#donate" class="mx-auto flex max-w-7xl items-center justify-between bg-sky px-6 py-5 text-white transition hover:bg-[#6d9bc7] sm:px-10"><span class="text-sm font-extrabold uppercase tracking-[.16em] sm:text-base">Support the campaign</span><span class="text-3xl" aria-hidden="true">→</span></a>
     </section>
