@@ -979,7 +979,7 @@ body{
 
 
 <style id="signup-field-interactions">
-/* Keep fields stationary; gently shift the entered/placeholder text on hover */
+/* Keep fields stationary; gently shift text and turn hero signup fields white on hover */
 .signup input,
 .volunteer-form input{
   transform:none!important;
@@ -989,6 +989,15 @@ body{
 .volunteer-form input:hover{
   transform:none!important;
   padding-left:19px!important;
+}
+.signup input:hover{
+  background:#fff!important;
+  color:var(--navy)!important;
+  border-color:#fff!important;
+}
+.signup input:hover::placeholder{
+  color:var(--navy)!important;
+  opacity:.72!important;
 }
 .signup input:focus,
 .signup input:focus-visible{
