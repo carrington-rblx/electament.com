@@ -1079,6 +1079,44 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 }
 </style>
 
+<style id="leadership-side-art-style">
+.leadership-section{
+  display:grid;
+  grid-template-columns:minmax(190px,28%) minmax(0,1fr);
+  align-items:stretch;
+  gap:clamp(28px,4vw,64px);
+  padding:0 clamp(28px,5vw,72px) clamp(72px,9vw,116px) 0;
+}
+.leadership-side-art{
+  min-width:0;
+  align-self:stretch;
+  overflow:hidden;
+}
+.leadership-side-art img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+.leadership-main{
+  min-width:0;
+  padding-top:clamp(64px,8vw,108px);
+}
+.leadership-copy{width:100%;max-width:980px}
+.leadership-image-wrap{width:100%;max-width:920px}
+@media(max-width:760px){
+  .leadership-section{
+    grid-template-columns:1fr;
+    gap:28px;
+    padding:0 22px 72px;
+  }
+  .leadership-side-art{height:auto;max-height:360px}
+  .leadership-side-art img{width:100%;height:auto;min-height:0;max-height:360px;object-fit:contain}
+  .leadership-main{padding-top:0}
+}
+</style>
 </head>
 <body>
 <a class="announcement" href="#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
@@ -1099,12 +1137,17 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 </div></div>
 </section>
 <section class="leadership-section" aria-labelledby="leadership-title">
+  <div class="leadership-side-art">
+    <img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Conservative%20Party%20%2859%29.png" alt="Conservative Party artwork">
+  </div>
+  <div class="leadership-main">
   <div class="leadership-copy">
     <h2 id="leadership-title">Executive Leadership &amp; Statecraft</h2>
     <p>AmentAmour established a reputation as a masterful diplomat and one of the most widely celebrated Secretaries of State in RXUSA history. Serving as the 18th United States Secretary of State, his tenure in the State Department was defined by extraordinary popularity, unwavering strength, and historic achievements on the world stage. Managing complex global relationships with steady leadership, he restored international stability, negotiated landmark diplomatic treaties, and earned bipartisan acclaim as a premier statesman. His time leading the nation's foreign policy remains the gold standard for executive decision-making and international statesmanship.</p>
   </div>
   <div class="leadership-image-wrap">
     <img class="leadership-image" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-08-02_133056.png" alt="Executive leadership and statecraft">
+  </div>
   </div>
 </section>
 </main>
