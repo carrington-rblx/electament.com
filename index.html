@@ -16,11 +16,11 @@
   <style>
     :root{--navy:#18253D;--sky:#7CA9D3;--red:#E53935;--paper:#F9F9FB}
     html{scroll-behavior:smooth;scroll-padding-top:100px}
-    body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:var(--sky);color:var(--navy)}
+    body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:var(--paper);color:var(--navy)}
     .serif{font-family:'DM Serif Display',Georgia,serif}
     .flag-wave{filter:drop-shadow(0 3px 3px rgba(0,0,0,.12))}
     .hero-grid{background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:18px 18px}
-    .hero-photo{background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=2200&q=90');background-position:center 28%;background-size:cover;background-repeat:no-repeat}.hero-shade{background:linear-gradient(90deg,rgba(24,37,61,.98) 0%,rgba(24,37,61,.94) 30%,rgba(24,37,61,.78) 48%,rgba(24,37,61,.24) 72%,rgba(24,37,61,.06) 100%),linear-gradient(0deg,rgba(24,37,61,.32),transparent 45%)}
+    .hero-photo{background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=2200&q=90');background-position:68% 25%;background-size:cover;background-repeat:no-repeat}.hero-shade{background:linear-gradient(90deg,rgba(24,37,61,.97) 0%,rgba(24,37,61,.88) 28%,rgba(24,37,61,.62) 46%,rgba(24,37,61,.16) 72%,rgba(24,37,61,.02) 100%),linear-gradient(0deg,rgba(24,37,61,.3),transparent 45%)}
     .rally-photo{background:linear-gradient(90deg,rgba(24,37,61,.48),rgba(24,37,61,.05)),url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=85') center/cover}
     .community-photo{background:linear-gradient(0deg,rgba(24,37,61,.25),transparent),url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1100&q=85') center/cover}
     .input-dark{width:100%;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:14px 18px;color:#fff;outline:none;transition:.2s}
@@ -35,24 +35,24 @@
     .star-text{letter-spacing:.18em;color:#F6C85F}
     .endorsement{box-shadow:0 20px 60px rgba(7,19,38,.24)}
     .social-card{background:linear-gradient(145deg,#fff,#f4f7fa)}
-    @media(max-width:767px){.hero-photo{background-position:62% center}.hero-shade{background:linear-gradient(180deg,rgba(24,37,61,.88) 0%,rgba(24,37,61,.82) 52%,rgba(24,37,61,.56) 100%),linear-gradient(90deg,rgba(24,37,61,.38),rgba(24,37,61,.08))}.endorsement{display:none}}
+    @media(max-width:767px){.hero-photo{background-position:64% center}.hero-shade{background:linear-gradient(180deg,rgba(24,37,61,.88) 0%,rgba(24,37,61,.78) 55%,rgba(24,37,61,.62) 100%)}.endorsement{display:none}}
   </style>
 </head>
 <body class="antialiased">
-  <div class="bg-navy text-white">
+  <div class="bg-sky text-navy">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-2.5 text-center sm:flex-row sm:justify-between">
-      <p class="text-xs font-semibold tracking-wide sm:text-sm">Chip in now to stand with Team AmentAmour and a Stronger America.</p>
+      <p class="text-[10px] font-bold tracking-[.08em] sm:text-xs">Chip in now to stand with Team AmentAmour and a Stronger America.</p>
       <a href="#donate" class="rounded-full bg-action px-6 py-2 text-xs font-extrabold uppercase tracking-widest text-white transition hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-white">Donate</a>
     </div>
   </div>
 
-  <header class="sticky top-0 z-40 border-b border-white/10 bg-navy/95 text-white backdrop-blur-lg">
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-paper/95 text-navy backdrop-blur-lg">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
       <a href="#home" class="flex items-center gap-3" aria-label="AmentAmour for President home">
         <svg class="flag-wave h-10 w-12" viewBox="0 0 96 72" role="img" aria-label="Waving red and white flag"><path d="M5 12 C26 3 43 21 63 12 S83 8 91 13 L88 27 C67 20 48 38 27 29 S10 26 5 30Z" fill="#E53935"/><path d="M5 30 C25 23 45 39 64 30 S82 26 89 30 L87 44 C66 38 48 54 28 46 S11 43 5 48Z" fill="#fff"/><path d="M5 48 C24 42 44 57 64 48 S81 45 87 48 L85 61 C64 55 47 70 27 62 S10 59 5 64Z" fill="#E53935"/><path d="M5 12 C26 3 43 21 63 12 S83 8 91 13 L88 27 C67 20 48 38 27 29 S10 26 5 30Z" fill="#E53935"/><path d="M7 13 C17 11 24 13 31 17 L28 31 C20 27 13 27 5 30Z" fill="#18253D"/><g fill="#fff"><path d="m13 16 1.4 3h3.2l-2.6 1.9 1 3.1-3-1.9-2.7 1.9 1-3.1-2.5-1.9h3.1z"/><path d="m22 19 1.2 2.6H26l-2.2 1.7.8 2.6-2.6-1.6-2.4 1.6.9-2.6-2.2-1.7h2.7z"/></g></svg>
         <span class="hidden text-[11px] font-black leading-tight tracking-[.16em] sm:block">AMENTAMOUR<br><span class="font-medium tracking-[.27em] text-sky">FOR PRESIDENT</span></span>
       </a>
-      <nav id="desktop-nav" class="hidden items-center gap-8 text-[11px] font-extrabold tracking-[.16em] lg:flex">
+      <nav id="desktop-nav" class="hidden items-center gap-8 text-[10px] font-extrabold tracking-[.16em] lg:flex">
         <a class="nav-link" href="#home">HOME</a><a class="nav-link" href="#about">ABOUT</a><a class="nav-link" href="#news">NEWS</a><a class="nav-link" href="#shop">SHOP</a><a class="nav-link" href="#volunteer">VOLUNTEER</a>
       </nav>
       <div class="hidden items-center gap-4 lg:flex">
@@ -71,19 +71,19 @@
 
   <main id="home">
     <section class="relative pb-8">
-      <div class="relative isolate flex min-h-[calc(100svh-112px)] w-full items-center overflow-hidden bg-navy shadow-soft sm:min-h-[760px]">
+      <div class="relative isolate flex min-h-[calc(100svh-112px)] w-full items-center overflow-hidden bg-navy sm:min-h-[760px]">
         <div class="hero-photo absolute inset-0" role="img" aria-label="Full-width campaign portrait background"></div>
         <div class="hero-shade absolute inset-0"></div>
         <div class="hero-grid pointer-events-none absolute inset-0 opacity-30"></div>
         <div class="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-          <div class="max-w-2xl">
+          <div class="max-w-[610px]">
             <div class="mb-8 flex items-center gap-4 sm:mb-10">
               <svg class="flag-wave h-16 w-20 shrink-0 sm:h-20 sm:w-24" viewBox="0 0 96 72" role="img" aria-label="AmentAmour flag"><path d="M5 12 C26 3 43 21 63 12 S83 8 91 13 L88 27 C67 20 48 38 27 29 S10 26 5 30Z" fill="#E53935"/><path d="M5 30 C25 23 45 39 64 30 S82 26 89 30 L87 44 C66 38 48 54 28 46 S11 43 5 48Z" fill="#fff"/><path d="M5 48 C24 42 44 57 64 48 S81 45 87 48 L85 61 C64 55 47 70 27 62 S10 59 5 64Z" fill="#E53935"/><path d="M7 13 C17 11 24 13 31 17 L28 31 C20 27 13 27 5 30Z" fill="#18253D"/><g fill="#fff"><path d="m13 16 1.4 3h3.2l-2.6 1.9 1 3.1-3-1.9-2.7 1.9 1-3.1-2.5-1.9h3.1z"/><path d="m22 19 1.2 2.6H26l-2.2 1.7.8 2.6-2.6-1.6-2.4 1.6.9-2.6-2.2-1.7h2.7z"/><path d="m29 22 1 2.2h2.4l-1.9 1.4.7 2.2-2.2-1.4-2.1 1.4.8-2.2-1.9-1.4h2.3z"/></g></svg>
               <div><div class="text-2xl font-black leading-none tracking-tight sm:text-3xl">AMENTAMOUR</div><div class="mt-2 text-[10px] font-bold tracking-[.32em] text-sky sm:text-xs">FOR PRESIDENT</div></div>
             </div>
-            <p class="mb-3 text-[10px] font-extrabold uppercase tracking-[.28em] text-sky">A campaign for the people</p>
-            <h1 class="max-w-2xl text-4xl font-black uppercase leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">A stronger America starts with <span class="text-sky">accountability.</span></h1>
-            <p class="mt-5 max-w-xl text-sm leading-7 text-white/80 sm:text-base">Join Team AmentAmour. Add your voice to a movement for honest leadership, opportunity, and a government that works for everyone.</p>
+            <p class="mb-4 text-[10px] font-extrabold uppercase tracking-[.32em] text-sky">A campaign for the people</p>
+            <h1 class="serif max-w-2xl text-5xl leading-[.98] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]">A stronger America starts with <span class="text-sky">accountability.</span></h1>
+            <p class="mt-6 max-w-lg text-sm leading-7 text-white/85 sm:text-base">Join Team AmentAmour. Add your voice to a movement for honest leadership, opportunity, and a government that works for everyone.</p>
             <form id="hero-form" class="mt-8 grid max-w-xl gap-3 sm:grid-cols-2" novalidate>
               <label class="sr-only" for="hero-email">Email Address</label><input class="input-dark sm:col-span-2" id="hero-email" type="email" placeholder="Email Address" required autocomplete="email">
               <label class="sr-only" for="hero-zip">Zip Code</label><input class="input-dark" id="hero-zip" inputmode="numeric" autocomplete="postal-code" placeholder="Zip Code" required>
@@ -100,16 +100,16 @@
       <a href="#donate" class="mx-auto flex max-w-7xl items-center justify-between bg-sky px-6 py-5 text-white transition hover:bg-[#6d9bc7] sm:px-10"><span class="text-sm font-extrabold uppercase tracking-[.16em] sm:text-base">Support the campaign</span><span class="text-3xl" aria-hidden="true">→</span></a>
     </section>
 
-    <section id="about" class="px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-      <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
-        <article class="rounded-[1.75rem] bg-white p-7 shadow-soft sm:p-10">
+    <section id="about" class="bg-paper px-4 py-14 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[.82fr_1.18fr]">
+        <article class="bg-paper px-2 py-5 sm:px-8 sm:py-10">
           <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-sky">Leadership that listens</p>
           <h2 class="serif mt-3 text-4xl sm:text-5xl">In the Senate</h2>
           <p class="mt-5 text-sm leading-7 text-slate-600">AmentAmour's campaign puts accountable leadership and practical solutions at the center of public service. The agenda focuses on shining a light on corruption, strengthening access to quality healthcare, and ensuring public institutions deliver for the communities they serve.</p>
           <p class="mt-3 text-sm leading-7 text-slate-600">Explore the priorities, ask hard questions, and help shape the work ahead. Policy details and officeholder achievements should be reviewed and verified by the campaign before publication.</p>
           <a href="#bio" class="mt-7 inline-flex items-center gap-3 border-b-2 border-action pb-1 text-[11px] font-black tracking-[.18em] hover:text-action">LEARN MORE <span aria-hidden="true">→</span></a>
         </article>
-        <article class="group relative min-h-[360px] overflow-hidden rounded-[1.75rem] bg-navy shadow-soft">
+        <article class="group relative min-h-[420px] overflow-hidden bg-navy shadow-soft sm:min-h-[520px]">
           <div class="rally-photo absolute inset-0 transition duration-700 group-hover:scale-105" role="img" aria-label="Campaign rally and public speaking photo placeholder"></div>
           <div class="absolute inset-x-0 bottom-0 p-7 text-white sm:p-9"><p class="text-[10px] font-extrabold tracking-[.25em] text-sky">ON THE CAMPAIGN TRAIL</p><h3 class="mt-2 text-3xl font-black uppercase leading-tight">Rally for our republic</h3></div>
           <button id="video-open" class="absolute bottom-28 left-7 flex h-16 w-16 items-center justify-center rounded-full border-2 border-white bg-action text-white shadow-xl transition hover:scale-110 sm:bottom-32 sm:left-9" aria-label="Open campaign video information"><svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="m7 4 14 8-14 8V4Z"/></svg></button>
@@ -160,22 +160,22 @@
       </div>
     </section>
 
-    <section id="news" class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+    <section id="news" class="bg-navy px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div><p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-sky">From the campaign</p><h2 class="serif mt-2 text-4xl sm:text-5xl">The Latest Updates</h2></div>
           <a href="https://instagram.com/" class="self-start rounded-full bg-action px-6 py-3 text-[10px] font-black uppercase tracking-[.18em] text-white transition hover:bg-red-600 sm:self-auto">Follow +</a>
         </div>
         <div class="mt-8 grid gap-5 md:grid-cols-3">
-          <article class="social-card overflow-hidden rounded-2xl border border-slate-100 shadow-sm"><div class="flex items-center gap-3 bg-navy px-5 py-4 text-white"><div class="grid h-9 w-9 place-items-center rounded-full bg-sky text-xs font-black text-navy">AA</div><div><p class="text-xs font-bold">AmentAmour for President</p><p class="text-[10px] text-white/55">Campaign update</p></div></div><div class="p-5"><p class="text-sm leading-6 text-slate-600">A stronger democracy starts with neighbors showing up, listening, and working together. Find a volunteer opportunity near you.</p><a href="#volunteer" class="mt-5 inline-block text-[10px] font-black tracking-widest text-action">GET INVOLVED →</a></div></article>
+          <article class="social-card overflow-hidden rounded-sm border border-white/10 shadow-sm"><div class="flex items-center gap-3 bg-navy px-5 py-4 text-white"><div class="grid h-9 w-9 place-items-center rounded-full bg-sky text-xs font-black text-navy">AA</div><div><p class="text-xs font-bold">AmentAmour for President</p><p class="text-[10px] text-white/55">Campaign update</p></div></div><div class="p-5"><p class="text-sm leading-6 text-slate-600">A stronger democracy starts with neighbors showing up, listening, and working together. Find a volunteer opportunity near you.</p><a href="#volunteer" class="mt-5 inline-block text-[10px] font-black tracking-widest text-action">GET INVOLVED →</a></div></article>
           <article class="social-card overflow-hidden rounded-2xl border border-slate-100 shadow-sm"><div class="flex items-center gap-3 bg-navy px-5 py-4 text-white"><div class="grid h-9 w-9 place-items-center rounded-full bg-sky text-xs font-black text-navy">AA</div><div><p class="text-xs font-bold">AmentAmour for President</p><p class="text-[10px] text-white/55">On the issues</p></div></div><div class="p-5"><p class="text-sm leading-6 text-slate-600">Accountability is not a slogan. It's a promise to ask tough questions and put the public interest first.</p><a href="#about" class="mt-5 inline-block text-[10px] font-black tracking-widest text-action">READ OUR PRIORITIES →</a></div></article>
           <article class="social-card overflow-hidden rounded-2xl border border-slate-100 shadow-sm"><div class="flex items-center gap-3 bg-navy px-5 py-4 text-white"><div class="grid h-9 w-9 place-items-center rounded-full bg-sky text-xs font-black text-navy">AA</div><div><p class="text-xs font-bold">AmentAmour for President</p><p class="text-[10px] text-white/55">Join the movement</p></div></div><div class="p-5"><p class="text-sm leading-6 text-slate-600">Every conversation matters. Sign up to receive campaign news and ways to make your voice heard.</p><a href="#home" class="mt-5 inline-block text-[10px] font-black tracking-widest text-action">SIGN UP →</a></div></article>
         </div>
       </div>
     </section>
 
-    <section id="volunteer" class="px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-      <div class="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-white shadow-soft lg:grid-cols-2">
+    <section id="volunteer" class="bg-paper px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl overflow-hidden bg-white shadow-soft lg:grid-cols-2">
         <div class="community-photo min-h-[300px] lg:min-h-[560px]" role="img" aria-label="Community volunteers together"></div>
         <div class="p-7 sm:p-12 lg:p-14">
           <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-sky">Many voices. One future.</p>
@@ -193,7 +193,7 @@
       </div>
     </section>
 
-    <section id="shop" class="px-4 pb-14 sm:px-6 lg:px-8">
+    <section id="shop" class="bg-paper px-4 pb-14 sm:px-6 lg:px-8">
       <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 rounded-2xl border border-white/60 bg-white/35 p-7 text-center sm:flex-row sm:text-left">
         <div><p class="text-[10px] font-extrabold uppercase tracking-[.22em] text-navy/60">Wear your support</p><h2 class="serif mt-1 text-3xl">Campaign shop</h2><p class="mt-1 text-sm text-navy/70">Official campaign merchandise coming soon.</p></div>
         <a href="#volunteer" class="rounded-full bg-navy px-7 py-3.5 text-xs font-extrabold uppercase tracking-widest text-white transition hover:bg-action">Get campaign updates →</a>
