@@ -1123,6 +1123,62 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 @media(max-width:760px){
   .leadership-section,.congressional-section{padding:64px 22px 76px}
 }
+.presidency-section{
+  display:grid;
+  grid-template-columns:minmax(0,46%) minmax(0,54%);
+  align-items:stretch;
+  background:#f3f1ef;
+  overflow:hidden;
+}
+.presidency-photo{
+  min-width:0;
+  min-height:100%;
+  overflow:hidden;
+  background:#172b4d;
+}
+.presidency-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.presidency-panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(64px,8vw,112px) clamp(30px,6vw,88px);
+  background:#f3f1ef;
+}
+.presidency-copy{
+  width:min(100%,660px);
+}
+.presidency-copy h2{
+  margin:0 0 24px;
+  color:#172b4d;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(28px,3.6vw,46px);
+  line-height:1.15;
+  letter-spacing:-.035em;
+  font-weight:800;
+  text-align:left;
+}
+.presidency-copy p{
+  margin:0;
+  color:#34445a;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(15px,1.25vw,18px);
+  line-height:1.9;
+  font-weight:500;
+  text-align:left;
+}
+@media(max-width:760px){
+  .presidency-section{grid-template-columns:1fr}
+  .presidency-photo{height:clamp(300px,72vw,480px);min-height:0}
+  .presidency-photo img{height:100%;min-height:0}
+  .presidency-panel{padding:58px 24px 68px}
+}
 </style>
 </head>
 <body>
@@ -1158,6 +1214,17 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   <div class="congressional-copy">
     <h2 id="congressional-title">Congressional Oversight &amp; National Security</h2>
     <p>Before taking the helm at the Department of State, AmentAmour built an extensive foundation in national security and foreign policy through his legislative service as a U.S. Senator and U.S. Representative. During his time in the Senate, he held crucial seats on the Senate Foreign Relations Committee and the Senate Select Committee on Intelligence. In these positions, he exercised rigorous oversight over international affairs, global strategies, and intelligence operations, ensuring that American foreign policy was backed by strategic vision.</p>
+  </div>
+</section>
+<section class="presidency-section" aria-labelledby="presidency-title">
+  <div class="presidency-photo">
+    <img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-08-25_184707.png" alt="AmentAmour campaign portrait">
+  </div>
+  <div class="presidency-panel">
+    <div class="presidency-copy">
+      <h2 id="presidency-title">Proven Record for the Presidency</h2>
+      <p>Building on a distinguished legacy defined by his beloved tenure as Secretary of State, AmentAmour is launching his campaign for President of the United States. His candidacy brings together a proven track record of top-tier executive diplomacy and deep legislative oversight experience. AmentAmour is running to restore integrity, decisive executive leadership, and tested strength to the White House to fix the critical challenges facing the nation.</p>
+    </div>
   </div>
 </section>
 </main>
