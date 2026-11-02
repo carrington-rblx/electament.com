@@ -834,3 +834,23 @@ header nav{align-items:center!important}
  header{height:68px!important;min-height:68px!important}
 }
 </style>
+
+
+<style>
+/* Announcement hover: light blue surface with navy text */
+a.announcement{
+ transition:background-color .22s ease,color .22s ease!important;
+}
+a.announcement:hover,
+a.announcement:focus-visible{
+ background:var(--blue)!important;
+ color:var(--navy)!important;
+}
+a.announcement:hover .announcement-cta,
+a.announcement:hover .announcement-arrow,
+a.announcement:focus-visible .announcement-cta,
+a.announcement:focus-visible .announcement-arrow{
+ color:var(--navy)!important;
+}
+a.announcement:focus-visible{outline:3px solid var(--navy)!important;outline-offset:-3px!important}
+</style>
