@@ -1083,51 +1083,45 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 .leadership-section{
   display:block;
   position:relative;
-  isolation:isolate;
-  overflow:hidden;
   padding:clamp(76px,9vw,116px) 28px clamp(76px,9vw,116px);
-  background-color:#f3f1ef;
-  background-image:
-    radial-gradient(ellipse at 8% 18%,rgba(130,190,225,.045),transparent 42%),
-    radial-gradient(ellipse at 94% 82%,rgba(23,43,77,.025),transparent 38%);
-}
-.leadership-section::before,
-.leadership-section::after{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  pointer-events:none;
-  width:210px;
-  height:150px;
-  opacity:.16;
-  background-repeat:no-repeat;
-  background-size:100% 100%;
-}
-.leadership-section::before{
-  top:22px;
-  left:18px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 150'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M12 30 Q42 18 72 34 T132 30' stroke='%2382bee1' stroke-width='5'/%3E%3Cpath d='M20 45 Q48 35 78 48 T145 44' stroke='%2382bee1' stroke-width='2.5'/%3E%3Cpath d='M45 75 Q66 62 91 76 T154 72' stroke='%23172b4d' stroke-width='4'/%3E%3Cpath d='M34 91 Q62 82 86 95 T142 91' stroke='%23172b4d' stroke-width='2'/%3E%3Cpath d='M68 116 Q92 103 116 117 T180 112' stroke='%23e83d4b' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E");
-}
-.leadership-section::after{
-  right:12px;
-  bottom:18px;
-  transform:rotate(180deg);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 150'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M12 30 Q42 18 72 34 T132 30' stroke='%2382bee1' stroke-width='5'/%3E%3Cpath d='M20 45 Q48 35 78 48 T145 44' stroke='%2382bee1' stroke-width='2.5'/%3E%3Cpath d='M45 75 Q66 62 91 76 T154 72' stroke='%23172b4d' stroke-width='4'/%3E%3Cpath d='M34 91 Q62 82 86 95 T142 91' stroke='%23172b4d' stroke-width='2'/%3E%3Cpath d='M68 116 Q92 103 116 117 T180 112' stroke='%23e83d4b' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E");
+  background:#f3f1ef;
 }
 .leadership-main{
-  position:relative;
-  z-index:1;
   width:min(100%,1100px);
   margin:0 auto;
-  padding-top:0;
 }
 .leadership-copy{width:100%;max-width:980px}
 .leadership-image-wrap{width:100%;max-width:920px}
+.congressional-section{
+  background:#172b4d;
+  color:#fff;
+  padding:clamp(76px,9vw,116px) 28px;
+}
+.congressional-copy{
+  width:min(100%,980px);
+  margin:0 auto;
+}
+.congressional-copy h2{
+  margin:0 0 24px;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(28px,3.6vw,46px);
+  line-height:1.15;
+  letter-spacing:-.035em;
+  font-weight:800;
+  text-align:left;
+}
+.congressional-copy p{
+  margin:0;
+  color:#edf4fb;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(15px,1.25vw,18px);
+  line-height:1.9;
+  font-weight:500;
+  text-align:left;
+}
 @media(max-width:760px){
-  .leadership-section{padding:64px 22px 76px}
-  .leadership-section::before,.leadership-section::after{width:118px;height:86px;opacity:.12}
-  .leadership-section::before{top:12px;left:8px}
-  .leadership-section::after{right:6px;bottom:10px}
+  .leadership-section,.congressional-section{padding:64px 22px 76px}
 }
 </style>
 </head>
@@ -1158,6 +1152,12 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   <div class="leadership-image-wrap">
     <img class="leadership-image" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-08-02_133056.png" alt="Executive leadership and statecraft">
   </div>
+  </div>
+</section>
+<section class="congressional-section" aria-labelledby="congressional-title">
+  <div class="congressional-copy">
+    <h2 id="congressional-title">Congressional Oversight &amp; National Security</h2>
+    <p>Before taking the helm at the Department of State, AmentAmour built an extensive foundation in national security and foreign policy through his legislative service as a U.S. Senator and U.S. Representative. During his time in the Senate, he held crucial seats on the Senate Foreign Relations Committee and the Senate Select Committee on Intelligence. In these positions, he exercised rigorous oversight over international affairs, global strategies, and intelligence operations, ensuring that American foreign policy was backed by strategic vision.</p>
   </div>
 </section>
 </main>
