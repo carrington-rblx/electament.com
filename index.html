@@ -610,6 +610,23 @@ window.addEventListener('scroll',()=>{
 demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');document.getElementById('year').textContent=new Date().getFullYear();
 
 </script>
+
+<style id="support-campaign-emphasis">
+#about .support-tile strong{
+  font-size:clamp(25px,3vw,38px)!important;
+  font-weight:900!important;
+  line-height:1.12!important;
+  letter-spacing:-.025em!important;
+  max-width:360px!important;
+}
+@media(max-width:760px){
+  #about .support-tile strong{
+    font-size:clamp(27px,6vw,34px)!important;
+    max-width:100%!important;
+  }
+}
+</style>
+
 </body></html>
 <style>
 
