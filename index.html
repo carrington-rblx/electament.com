@@ -157,6 +157,40 @@ footer{padding-top:38px;padding-bottom:30px}
  .volunteer-photo{height:245px}
 }
 
+
+/* Full-viewport fit: remove the distant, narrow composition */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+header{padding-left:clamp(18px,3vw,48px);padding-right:clamp(18px,3vw,48px)}
+.hero{width:100%;height:calc(100svh - 93px);min-height:650px;max-height:900px}
+.hero-image{background-size:auto 150%;background-position:74% 30%}
+.hero-content{width:min(1440px,94vw);padding:clamp(28px,4vh,54px) 0}
+.hero-brand{margin-bottom:clamp(18px,3vh,32px)}
+.hero h1{font-size:clamp(48px,6.2vw,88px);max-width:700px;line-height:.94}
+.hero-copy{font-size:clamp(13px,1.1vw,16px);max-width:560px}
+.signup{width:min(520px,100%);gap:8px}
+.intro{width:100%;max-width:1500px;padding-left:3vw;padding-right:3vw;grid-template-columns:minmax(250px,.75fr) minmax(0,1.25fr);gap:2vw}
+.intro-copy{max-width:650px}
+.intro h2{font-size:clamp(44px,4vw,62px)}
+.rally{width:100%;height:clamp(360px,48vw,620px)}
+.updates{padding:clamp(42px,5vw,76px) 3vw}
+.updates-inner{width:100%;max-width:1500px;grid-template-columns:minmax(230px,.7fr) minmax(0,2.3fr);gap:3vw}
+.update-card{min-height:clamp(160px,17vw,230px);padding:clamp(16px,2vw,28px)}
+.update-card p{font-size:clamp(15px,1.35vw,21px)}
+.volunteer{width:100%;max-width:1500px;padding:clamp(42px,5vw,76px) 3vw;gap:3vw}
+.volunteer-photo{height:clamp(300px,34vw,480px)}
+footer{padding:42px 3vw 30px}
+@media(max-width:760px){
+ .hero{height:calc(100svh - 92px);min-height:650px;max-height:850px}
+ .hero-image{background-size:auto 120%;background-position:70% center}
+ .hero-content{width:90vw}
+ .hero h1{font-size:clamp(42px,10vw,58px)}
+ .intro{width:100%;padding-left:5vw;padding-right:5vw}
+ .rally{height:55vw;min-height:250px;max-height:390px}
+ .updates{padding:38px 5vw}
+ .updates-inner{grid-template-columns:1fr;gap:20px}
+ .volunteer{padding:38px 5vw}
+}
+
 </style>
 </head>
 <body>
