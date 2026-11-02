@@ -906,3 +906,20 @@ header.header-scrolled .header-main-logo{
  header.header-scrolled .header-main-logo{width:78px!important;max-height:28px!important}
 }
 </style>
+
+
+<style>
+/* Keep the transparent header clear of the announcement banner */
+header:not(.header-scrolled) .brand,
+header:not(.header-scrolled) nav,
+header:not(.header-scrolled) .nav-social{
+ transform:translateY(22px)!important;
+}
+@media(max-width:760px){
+ header:not(.header-scrolled) .brand,
+ header:not(.header-scrolled) nav,
+ header:not(.header-scrolled) .nav-social{
+  transform:translateY(15px)!important;
+ }
+}
+</style>
