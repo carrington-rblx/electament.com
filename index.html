@@ -265,21 +265,22 @@ header nav{
  .campaign-statement{min-height:165px;padding:42px 22px}
 }
 
-/* Scroll-reveal navigation and tighter vertical rhythm */
+/* Transparent over the hero at page top; solid campaign navy after scrolling */
 header{
-  position:fixed;top:0;left:0;right:0;width:100%;
-  z-index:1000;background:var(--navy);color:#fff;
-  border:0;box-shadow:0 5px 18px rgba(10,24,45,.16);
-  transform:translateY(-110%);opacity:0;visibility:hidden;
-  transition:transform .28s ease,opacity .28s ease,visibility .28s;
+  position:fixed;top:32px;left:0;right:0;width:100%;
+  z-index:1000;background:transparent;color:#fff;
+  border:0;box-shadow:none;
+  transform:translateY(0);opacity:1;visibility:visible;
+  transition:background .28s ease,box-shadow .28s ease,top .28s ease;
 }
-header.header-visible{transform:translateY(0);opacity:1;visibility:visible}
+header.header-scrolled{top:0;background:var(--navy);box-shadow:0 5px 18px rgba(10,24,45,.16)}
 header .brand,header nav a{color:#fff}
 header nav a:hover{color:var(--blue)}
 header .nav-social a:not(.nav-donate){color:#fff;border-color:rgba(255,255,255,.7)}
 header .nav-donate{background:var(--red);color:#fff}
 html{scroll-padding-top:82px}
-.announcement{position:relative;z-index:2}
+.announcement{position:relative;z-index:1001}
+@media(max-width:760px){header{top:38px}header.header-scrolled{top:0}}
 .intro{padding-top:0!important;padding-bottom:28px!important;gap:22px!important}
 .intro-copy{padding-top:24px!important}
 .support-tile{margin-top:0!important}
@@ -345,11 +346,13 @@ if('IntersectionObserver' in window){const observer=new IntersectionObserver(ent
 
 const siteHeader=document.querySelector('header');
 let headerTick=false;
+const syncHeader=()=>siteHeader.classList.toggle('header-scrolled',window.scrollY>100);
+syncHeader();
 window.addEventListener('scroll',()=>{
   if(headerTick)return;
   headerTick=true;
   requestAnimationFrame(()=>{
-    siteHeader.classList.toggle('header-visible',window.scrollY>100);
+    syncHeader();
     headerTick=false;
   });
 },{passive:true});
