@@ -551,7 +551,16 @@ footer{padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
  footer{padding:40px 16px 30px!important}
  .hero-brand .hero-full-logo{width:min(300px,84vw)!important;max-height:76px!important}
 }
-#bio .intro-copy h2{display:block;width:100%;box-sizing:border-box;background:var(--red);color:#fff;padding:10px 15px 12px!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+/* Campaign intro color treatment: blue values tile, red full copy panel */
+#bio .support-tile{background:var(--blue)!important;color:var(--navy)!important}
+#bio .support-tile strong{color:var(--navy)!important}
+#bio .intro-copy{background:var(--red)!important;color:#fff!important;padding:22px 24px!important}
+#bio .intro-copy .eyebrow,
+#bio .intro-copy h2,
+#bio .intro-copy p{color:#fff!important}
+#bio .intro-copy h2{display:block;width:100%;box-sizing:border-box;background:transparent!important;color:#fff!important;padding:0!important;margin:8px 0 12px!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#bio .intro-copy .outline-link{color:#fff!important;border-color:#fff!important}
+@media(max-width:760px){#bio .intro-copy{padding:18px 16px!important}}
 
 </style>
 </head>
