@@ -854,3 +854,55 @@ a.announcement:focus-visible .announcement-arrow{
 }
 a.announcement:focus-visible{outline:3px solid var(--navy)!important;outline-offset:-3px!important}
 </style>
+
+
+<style>
+/* Keep the header the same height; only its contents shift between states */
+header{
+ height:58px!important;
+ min-height:58px!important;
+ padding-top:0!important;
+ padding-bottom:0!important;
+ transition:top .2s ease,background .2s ease,box-shadow .2s ease!important;
+}
+header .brand,
+header nav,
+header .nav-social{
+ transition:transform .22s ease!important;
+}
+header .header-main-logo{
+ width:68px!important;
+ max-height:27px!important;
+ height:auto!important;
+ transition:width .22s ease,max-height .22s ease!important;
+}
+/* Transparent hero state: compact logo and navigation sits slightly lower */
+header:not(.header-scrolled) .brand,
+header:not(.header-scrolled) nav,
+header:not(.header-scrolled) .nav-social{
+ transform:translateY(10px)!important;
+}
+/* Scrolled state: restore normal logo size and vertically centered navigation */
+header.header-scrolled .brand,
+header.header-scrolled nav,
+header.header-scrolled .nav-social{
+ transform:translateY(0)!important;
+}
+header.header-scrolled .header-main-logo{
+ width:100px!important;
+ max-height:34px!important;
+}
+@media(max-width:760px){
+ header{height:48px!important;min-height:48px!important}
+ header .header-main-logo{width:58px!important;max-height:23px!important}
+ header:not(.header-scrolled) .brand,
+ header:not(.header-scrolled) nav,
+ header:not(.header-scrolled) .nav-social{transform:translateY(7px)!important}
+ header.header-scrolled .header-main-logo{width:88px!important;max-height:30px!important}
+}
+@media(max-width:430px){
+ header{height:48px!important;min-height:48px!important}
+ header .header-main-logo{width:52px!important;max-height:21px!important}
+ header.header-scrolled .header-main-logo{width:78px!important;max-height:28px!important}
+}
+</style>
