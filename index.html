@@ -237,7 +237,7 @@ header nav{
 
 /* Hero signup and statement: centered, minimal campaign landing */
 .hero{justify-content:center;text-align:center}
-.hero:after{background:rgba(23,43,77,.58)}
+.hero:after{background:radial-gradient(ellipse at 50% 48%,rgba(23,43,77,.22) 0%,rgba(23,43,77,.38) 48%,rgba(23,43,77,.82) 100%),linear-gradient(115deg,rgba(23,43,77,.38),rgba(23,43,77,.08) 52%,rgba(23,43,77,.42))}
 .hero-image{background-position:center 28%;background-size:cover}
 .hero-content{width:min(760px,92vw);margin:0 auto;padding:36px 0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hero-brand{transform:none;transform-origin:center;margin:0 auto 30px;justify-content:center}
@@ -247,8 +247,8 @@ header nav{
 .signup input{min-height:48px;padding:13px 17px;text-align:left;transition:padding .22s ease,border-color .22s ease,background .22s ease}
 .signup input:hover{padding-left:23px;border-color:var(--blue)}
 .signup input:focus{padding-left:23px}
-.signup .phone{grid-column:1/-1}
-.signup button{grid-column:1/-1;background:var(--blue);color:var(--navy);font-family:var(--sans);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:background .22s,color .22s,transform .22s}
+.signup .phone{grid-column:1}
+.signup button{grid-column:2;background:var(--blue);color:var(--navy);font-family:var(--sans);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:background .22s,color .22s,transform .22s}
 .signup button:hover{background:var(--red);color:#fff}
 .signup .legal{grid-column:1/-1;width:100%;max-width:none;text-align:center;font-family:Montserrat,var(--sans);font-size:9px;line-height:1.65;color:#edf3f8;font-weight:500;letter-spacing:.005em;margin-top:3px}
 .signup .status{grid-column:1/-1}
@@ -260,7 +260,7 @@ header nav{
  .hero-brand .brand-mark{width:48px}
  .hero-brand-name{font-size:clamp(34px,8vw,48px)}
  .signup{grid-template-columns:1fr}
- .signup .phone,.signup .legal,.signup .status{grid-column:1}
+ .signup .phone,.signup button,.signup .legal,.signup .status{grid-column:1}
  .signup input{min-height:46px}
  .campaign-statement{min-height:165px;padding:42px 22px}
 }
@@ -276,7 +276,6 @@ header nav{
 <main id="home">
 <section class="hero"><div class="hero-image" role="img" aria-label="Campaign portrait placeholder"></div><div class="hero-content">
 <div class="hero-brand"><svg class="brand-mark" viewBox="0 0 96 72" aria-hidden="true"><path d="M5 12Q35 0 63 12T91 13L88 27Q58 17 27 29T5 30Z" fill="#ed3d4b"/><path d="M5 30Q35 20 64 30T89 30L87 44Q58 34 28 46T5 48Z" fill="#fff"/><path d="M5 48Q35 38 64 48T87 48L85 61Q55 51 27 62T5 64Z" fill="#ed3d4b"/></svg><div class="hero-brand-name">AmentAmour<small>FOR PRESIDENT</small></div></div>
-<h1>A stronger voice for a stronger America.</h1><p class="hero-copy">Join Team AmentAmour. Stand with a campaign for honest leadership, opportunity, and a government that works for everyone.</p>
 <form class="signup" id="hero-form"><input type="email" placeholder="Email Address" aria-label="Email address" required><input inputmode="numeric" placeholder="Zip Code" aria-label="Zip code" required><input class="phone" type="tel" placeholder="Phone Number (Optional)" aria-label="Phone number"><button type="submit">Join the team →</button><span class="legal">By providing your mobile number, you consent to receive campaign calls and text messages. Message and data rates may apply. Reply STOP to opt out.</span><p class="status" id="hero-status" aria-live="polite"></p></form>
 </div></section>
 <section class="intro" id="about"><a class="support-tile" href="#donate"><strong>Support AmentAmour's campaign</strong></a><div class="intro-copy"><span class="eyebrow">Leadership that listens</span><h2>In the Senate</h2><p>AmentAmour's campaign puts accountable leadership and practical solutions at the center of public service. The agenda focuses on transparency, opportunity, and making public institutions work for the communities they serve.</p><p>Explore the priorities, ask hard questions, and help shape the work ahead.</p><a class="outline-link" href="#bio">Learn more →</a></div></section>
