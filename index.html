@@ -501,6 +501,36 @@ header .header-main-logo{width:clamp(126px,13.2vw,174px)!important;height:52px!i
   .hero-brand .hero-full-logo{width:min(212px,68vw)!important;max-height:54px!important}
 }
 
+
+
+/* Campaign-style page frame: consistent side gutters and tighter content widths */
+:root{--campaign-gutter:clamp(22px,5.5vw,84px);--campaign-width:1160px}
+header{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.hero-content{width:min(var(--campaign-width),calc(100% - 2 * var(--campaign-gutter)))!important}
+.intro{width:calc(100% - 2 * var(--campaign-gutter))!important;max-width:var(--campaign-width)!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important;gap:clamp(22px,3vw,42px)!important}
+.intro-copy{max-width:560px!important}
+.support-tile{max-width:300px!important}
+.campaign-statement{width:calc(100% - 2 * var(--campaign-gutter))!important;max-width:var(--campaign-width)!important;margin:0 auto!important}
+.rally{width:calc(100% - 2 * var(--campaign-gutter))!important;max-width:var(--campaign-width)!important;margin:0 auto!important;overflow:hidden}
+.updates{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.updates-inner{width:100%!important;max-width:var(--campaign-width)!important;margin:0 auto!important;gap:clamp(18px,2.5vw,34px)!important}
+.volunteer{width:100%!important;max-width:var(--campaign-width)!important;margin:0 auto!important;padding-left:0!important;padding-right:0!important;gap:clamp(22px,3vw,42px)!important}
+#bio.intro{padding-top:28px!important;padding-bottom:28px!important}
+#donate{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+footer{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.footer-legal{max-width:520px!important}
+@media(max-width:760px){
+ :root{--campaign-gutter:20px}
+ .intro{width:calc(100% - 2 * var(--campaign-gutter))!important;gap:0!important}
+ .campaign-statement,.rally{width:calc(100% - 2 * var(--campaign-gutter))!important}
+ .updates{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+ .volunteer{width:calc(100% - 2 * var(--campaign-gutter))!important;gap:14px!important}
+ #bio.intro{padding-top:14px!important;padding-bottom:14px!important}
+}
+@media(max-width:430px){
+ :root{--campaign-gutter:16px}
+}
+
 </style>
 </head>
 <body>
