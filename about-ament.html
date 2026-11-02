@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 :root{--navy:#182d53;--blue:#75b5dc;--red:#ed3d4b;--paper:#f8f8f5;--ink:#182d53;--muted:#667080;--serif:'Montserrat',Arial,sans-serif;--sans:'Montserrat',Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif)}a{color:inherit;text-decoration:none}button,input{font:inherit}.announcement{height:35px;background:var(--blue);display:flex;align-items:center;justify-content:center;padding:0 22px;color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.02em}.announcement a{margin-left:18px;background:var(--red);color:#fff;padding:8px 23px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
@@ -568,9 +569,444 @@ footer{padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
 #bio .intro-copy .outline-link{color:#fff!important;border-color:#fff!important}
 @media(max-width:760px){#bio .intro-copy{padding:18px 16px!important}}
 
+</style>
+<style id="support-campaign-emphasis">
+#about .support-tile{
+  text-align:left!important;
+  justify-content:flex-start!important;
+  align-items:center!important;
+}
+#about .support-tile strong{
+  font-size:clamp(20px,1.85vw,25px)!important;
+  font-weight:800!important;
+  line-height:1.2!important;
+  letter-spacing:-.015em!important;
+  max-width:260px!important;
+  margin-left:0!important;
+  margin-right:auto!important;
+  text-align:left!important;
+}
+@media(max-width:760px){
+  #about .support-tile strong{
+    font-size:22px!important;
+    max-width:100%!important;
+  }
+}
 
+#about .support-tile{
+  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease!important;
+}
+#about .support-tile:hover,
+#about .support-tile:focus-visible{
+  transform:translateY(-5px)!important;
+  box-shadow:0 13px 26px rgba(24,45,83,.2)!important;
+  filter:brightness(1.04);
+  outline:none;
+}
+#about .support-tile:active{
+  transform:translateY(-1px)!important;
+  box-shadow:0 5px 12px rgba(24,45,83,.16)!important;
+}
 
-/* About page hero layout */
+</style>
+<style>
+
+/* Bio campaign message: red panel, with the values strip remaining blue */
+#bio .support-tile{background:var(--blue)!important;color:#172b4d!important}
+#bio .intro-copy{background:var(--red)!important;color:#fff!important;padding:clamp(22px,3vw,36px)!important;box-sizing:border-box}
+#bio .intro-copy .eyebrow,
+#bio .intro-copy h2,
+#bio .intro-copy p{color:#fff!important;background:transparent!important}
+#bio .intro-copy h2{display:block;width:100%;box-sizing:border-box;padding:0!important}
+#bio .intro-copy .outline-link{color:#fff!important;border-color:#fff!important}
+</style>
+<style>
+
+/* Full-width campaign panel and more legible campaign typography */
+#bio{
+  width:100%!important;max-width:none!important;box-sizing:border-box!important;
+  background:var(--red)!important;color:#fff!important;
+  padding:clamp(42px,6vw,82px) var(--campaign-gutter)!important;
+  display:grid!important;grid-template-columns:minmax(220px,.8fr) minmax(0,1.5fr)!important;
+  align-items:center!important;gap:clamp(28px,5vw,76px)!important;
+}
+#bio .support-tile{width:100%!important;max-width:420px!important;min-height:170px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:clamp(28px,4vw,48px)!important;box-sizing:border-box!important;
+  background:var(--blue)!important;color:#172b4d!important;font-size:clamp(22px,2.4vw,30px)!important;
+  line-height:1.25!important;border-radius:18px!important}
+#bio .intro-copy{width:100%!important;max-width:760px!important;box-sizing:border-box!important;
+  background:transparent!important;color:#fff!important;padding:0!important}
+#bio .intro-copy .eyebrow{font-size:clamp(13px,1.2vw,16px)!important;letter-spacing:.16em!important;color:#fff!important}
+#bio .intro-copy h2{font-size:clamp(38px,5vw,64px)!important;line-height:1.08!important;
+  letter-spacing:-.035em!important;margin:14px 0 22px!important;color:#fff!important;background:transparent!important;padding:0!important}
+#bio .intro-copy p{font-size:clamp(17px,1.45vw,20px)!important;line-height:1.7!important;
+  max-width:680px!important;margin:0 0 18px!important;color:#fff!important}
+#bio .intro-copy .outline-link{display:inline-flex!important;align-items:center!important;
+  margin-top:12px!important;padding:15px 24px!important;font-size:15px!important;font-weight:800!important;
+  color:#fff!important;border:2px solid #fff!important;border-radius:999px!important}
+.updates{padding:clamp(64px,8vw,108px) var(--campaign-gutter)!important}
+.updates-inner{width:100%!important;max-width:1160px!important;gap:clamp(34px,5vw,72px)!important}
+.updates-intro h2{font-size:clamp(42px,5vw,64px)!important;line-height:1.06!important;letter-spacing:-.035em!important;margin:0 0 22px!important}
+.updates-intro p{font-size:clamp(17px,1.45vw,20px)!important;line-height:1.65!important;max-width:440px!important}
+.updates-intro .follow{font-size:15px!important;padding:14px 23px!important}
+.update-cards{gap:clamp(16px,2vw,26px)!important}
+.update-card{min-height:260px!important;padding:clamp(25px,3vw,38px)!important;border-radius:20px!important;
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+.update-card .social{width:64px!important;height:64px!important;min-width:64px!important;
+  border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  margin-bottom:24px!important}
+.update-card .social svg{width:28px!important;height:28px!important}
+.update-card p{font-size:clamp(17px,1.35vw,19px)!important;line-height:1.6!important;margin:0 0 22px!important}
+.update-card small{font-size:11px!important;letter-spacing:.14em!important;margin-top:auto!important}
+@media(max-width:760px){
+ #bio{grid-template-columns:1fr!important;gap:24px!important;padding:44px 20px!important}
+ #bio .support-tile{max-width:none!important;min-height:120px!important}
+ #bio .intro-copy h2{font-size:clamp(36px,9vw,48px)!important}
+ .updates-inner{grid-template-columns:1fr!important}
+ .update-cards{grid-template-columns:1fr!important}
+ .update-card{min-height:210px!important}
+}
+@media(max-width:430px){
+ #bio{padding:36px 16px!important}
+ .updates{padding:52px 16px!important}
+ .updates-intro h2{font-size:40px!important}
+}
+</style>
+<style>
+
+/* Final proportion, spacing and embedded-brand-art refinements */
+.header-main-logo{width:clamp(126px,13vw,170px)!important;height:auto!important;max-height:46px!important;object-fit:contain!important}
+.hero-full-logo{width:min(390px,70vw)!important;max-height:150px!important;height:auto!important;object-fit:contain!important}
+.footer-brand{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important}
+.footer-logo-art{display:block!important;width:min(330px,72vw)!important;height:auto!important;max-height:82px!important;object-fit:contain!important}
+#bio{width:100%!important;max-width:none!important;box-sizing:border-box!important;background:var(--red)!important;color:#fff!important;
+ padding:clamp(48px,6vw,76px) var(--campaign-gutter)!important;display:flex!important;justify-content:center!important;align-items:center!important;text-align:center!important}
+#bio .intro-copy{width:min(100%,820px)!important;max-width:820px!important;margin:0 auto!important;padding:0!important;text-align:center!important;background:transparent!important;color:#fff!important}
+#bio .intro-copy .eyebrow{font-size:12px!important;letter-spacing:.15em!important;color:#fff!important}
+#bio .intro-copy h2{font-size:clamp(34px,4.2vw,50px)!important;line-height:1.12!important;letter-spacing:-.025em!important;margin:12px 0 18px!important;padding:0!important;background:transparent!important;color:#fff!important}
+#bio .intro-copy p{font-size:clamp(15px,1.25vw,17px)!important;line-height:1.65!important;max-width:700px!important;margin:0 auto 14px!important;color:#fff!important}
+#bio .intro-copy .outline-link{display:inline-flex!important;margin:12px auto 0!important;padding:13px 22px!important;font-size:14px!important}
+#about{position:relative!important;z-index:2!important;margin-top:-44px!important;padding-top:clamp(58px,7vw,86px)!important}
+#about .support-tile{position:relative!important;z-index:3!important;transform:translateY(-28px)!important;margin-bottom:-28px!important;min-height:190px!important;padding:34px!important;border-radius:18px!important;font-size:clamp(20px,2vw,26px)!important;display:flex!important;align-items:center!important;justify-content:center!important}
+#about .intro-copy{padding:28px 0!important}
+.campaign-statement{text-align:center!important;display:flex!important;justify-content:center!important;align-items:center!important;min-height:clamp(150px,18vw,220px)!important;padding:36px var(--campaign-gutter)!important;font-size:clamp(30px,4vw,48px)!important;line-height:1.12!important}
+#donate{padding:clamp(58px,7vw,88px) var(--campaign-gutter)!important;min-height:340px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:12px!important}
+#donate .eyebrow{font-size:13px!important;letter-spacing:.15em!important}
+#donate h2{font-size:clamp(36px,4.5vw,54px)!important;line-height:1.1!important;margin:4px 0 8px!important}
+#donate p{font-size:15px!important;line-height:1.6!important;max-width:560px!important}
+#donate .nav-donate{font-size:14px!important;padding:15px 28px!important;margin-top:8px!important}
+#volunteer{width:min(1160px,calc(100% - 2 * var(--campaign-gutter)))!important;margin:clamp(54px,7vw,82px) auto!important;min-height:500px!important;gap:0!important;align-items:stretch!important;border-radius:22px!important;overflow:hidden!important}
+#volunteer .volunteer-form{padding:clamp(34px,5vw,64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+#volunteer .volunteer-form .eyebrow{font-size:12px!important;letter-spacing:.15em!important}
+#volunteer .volunteer-form h2{font-size:clamp(36px,4vw,50px)!important;line-height:1.1!important;margin:12px 0 24px!important}
+#volunteer form{gap:16px!important}
+#volunteer input{min-height:54px!important;padding:14px 16px!important;font-size:15px!important}
+#volunteer .join{min-height:54px!important;font-size:15px!important;padding:14px 22px!important}
+#volunteer .legal{font-size:11px!important;line-height:1.6!important}
+#volunteer .volunteer-photo{min-height:100%!important}
+#volunteer .volunteer-photo img{width:100%!important;height:100%!important;min-height:500px!important;object-fit:cover!important}
+@media(max-width:760px){
+ .header-main-logo{width:112px!important;max-height:42px!important}
+ .hero-full-logo{width:min(320px,82vw)!important;max-height:118px!important}
+ #about{margin-top:-24px!important;padding-top:52px!important}
+ #about .support-tile{transform:translateY(-18px)!important;margin-bottom:-18px!important;min-height:140px!important}
+ #about .intro-copy{padding:20px 0!important}
+ .campaign-statement{min-height:150px!important;font-size:clamp(28px,7vw,38px)!important}
+ #donate{min-height:300px!important;padding:48px 20px!important}
+ #volunteer{grid-template-columns:1fr!important;min-height:0!important;margin:42px auto!important}
+ #volunteer .volunteer-photo img{min-height:260px!important;height:260px!important}
+}
+@media(max-width:430px){
+ .header-main-logo{width:100px!important}
+ #bio{padding:42px 16px!important}
+ #bio .intro-copy h2{font-size:34px!important}
+ #volunteer{width:calc(100% - 32px)!important}
+ #volunteer .volunteer-form{padding:30px 22px!important}
+}
+
+</style>
+<style>
+/* Final sizing pass: stronger hero mark, more legible navigation, quieter header logo */
+.header-main-logo{width:clamp(108px,11vw,146px)!important;max-height:42px!important}
+header nav{font-size:clamp(9px,.9vw,11px)!important;gap:clamp(12px,1.45vw,20px)!important}
+header nav a{padding:9px 2px!important}
+header .nav-donate{font-size:10px!important;padding:10px 16px!important}
+.hero-full-logo{width:min(500px,78vw)!important;max-height:184px!important}
+@media(max-width:760px){
+ .header-main-logo{width:96px!important;max-height:38px!important}
+ header nav{font-size:8px!important;gap:9px!important}
+ header nav a{padding:8px 1px!important}
+ header .nav-donate{font-size:9px!important;padding:8px 11px!important}
+ .hero-full-logo{width:min(410px,88vw)!important;max-height:154px!important}
+}
+@media(max-width:430px){
+ .header-main-logo{width:86px!important;max-height:34px!important}
+ header nav{font-size:7px!important;gap:6px!important}
+ header .nav-donate{font-size:8px!important;padding:7px 9px!important}
+ .hero-full-logo{width:min(360px,90vw)!important;max-height:136px!important}
+}
+</style>
+<style>
+/* Campaign message and layout refinements */
+.announcement{font-size:clamp(13px,1.15vw,16px)!important;padding:12px 18px!important;line-height:1.45!important}
+.announcement a{font-size:1.08em!important;font-weight:900!important;padding:2px 4px!important}
+.header-main-logo{width:clamp(82px,8.5vw,112px)!important;max-height:36px!important}
+#about{position:relative!important;z-index:3!important;margin-top:0!important;padding-top:0!important;display:grid!important;grid-template-columns:minmax(250px,.82fr) minmax(0,1.5fr)!important;gap:0!important;align-items:stretch!important}
+#about .support-tile{position:relative!important;z-index:4!important;transform:none!important;margin:0!important;align-self:stretch!important;width:100%!important;max-width:none!important;min-height:100%!important;border-radius:0!important;padding:clamp(30px,4vw,54px)!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+#about .intro-copy{width:100%!important;max-width:none!important;margin:0!important;padding:clamp(32px,4vw,54px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+#about .intro-copy .eyebrow{font-size:clamp(14px,1.3vw,17px)!important}
+#about .intro-copy h2{font-size:clamp(42px,5vw,62px)!important;line-height:1.08!important;margin:12px 0 18px!important}
+#about .intro-copy p{font-size:clamp(17px,1.55vw,21px)!important;line-height:1.7!important;max-width:780px!important;margin-bottom:18px!important}
+#about .intro-copy .outline-link{font-size:16px!important;padding:16px 27px!important;align-self:flex-start!important}
+.campaign-statement{width:100%!important;box-sizing:border-box!important;max-width:none!important;min-height:0!important;padding:clamp(54px,7vw,88px) var(--campaign-gutter)!important;display:flex!important;justify-content:center!important;align-items:center!important;text-align:center!important;white-space:normal!important;font-size:clamp(34px,5vw,62px)!important;line-height:1.12!important;max-width:none!important}
+@media(max-width:760px){
+ .header-main-logo{width:80px!important;max-height:32px!important}
+ #about{grid-template-columns:1fr!important}
+ #about .support-tile{min-height:130px!important;padding:28px 22px!important;border-radius:0!important}
+ #about .intro-copy{padding:34px 24px!important}
+ #about .intro-copy h2{font-size:clamp(38px,8vw,52px)!important}
+ #about .intro-copy p{font-size:17px!important}
+ #about .intro-copy .outline-link{align-self:center!important}
+ .campaign-statement{font-size:clamp(32px,8vw,46px)!important;padding:48px 22px!important;min-height:0!important}
+}
+</style>
+<style>
+/* Fine-tune announcement proportions and bring the intro typography back down */
+.announcement{font-size:clamp(10px,.85vw,12px)!important;line-height:1.4!important;padding:18px 20px!important;min-height:54px!important;box-sizing:border-box!important}
+.announcement a{font-size:1em!important;padding:0 3px!important}
+#about .support-tile{font-size:clamp(19px,2vw,24px)!important;line-height:1.22!important;padding:clamp(26px,3vw,42px)!important}
+#about .intro-copy .eyebrow{font-size:clamp(12px,1vw,14px)!important}
+#about .intro-copy h2{font-size:clamp(36px,3.6vw,46px)!important;line-height:1.1!important;margin:10px 0 15px!important}
+#about .intro-copy p{font-size:clamp(15px,1.2vw,17px)!important;line-height:1.65!important;margin-bottom:14px!important}
+#about .intro-copy .outline-link{font-size:14px!important;padding:13px 22px!important}
+.campaign-statement{display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;text-align:center!important;white-space:normal!important;font-size:clamp(34px,4.2vw,52px)!important;line-height:1.13!important;max-width:100%!important}
+@media(max-width:760px){
+ .announcement{font-size:10px!important;padding:16px 14px!important;min-height:50px!important}
+ #about .support-tile{font-size:21px!important;padding:26px 22px!important}
+ #about .intro-copy{padding:30px 24px!important}
+ #about .intro-copy h2{font-size:clamp(34px,7vw,42px)!important}
+ #about .intro-copy p{font-size:15px!important}
+ #about .intro-copy .outline-link{font-size:14px!important;padding:12px 20px!important}
+ .campaign-statement{font-size:clamp(32px,7vw,42px)!important;padding:44px 20px!important}
+}
+</style>
+<style>
+/* Header alignment and full-width campaign announcement */
+a.announcement{
+ display:flex!important;width:100%!important;box-sizing:border-box!important;
+ min-height:58px!important;padding:16px var(--campaign-gutter)!important;
+ align-items:center!important;justify-content:center!important;gap:12px!important;
+ background:#db2a37!important;color:#fff!important;text-decoration:none!important;
+ text-align:center!important;font-size:clamp(10px,.85vw,12px)!important;
+ line-height:1.45!important;font-weight:800!important;letter-spacing:.025em!important;
+ border-radius:0!important;cursor:pointer!important
+}
+a.announcement:visited,a.announcement:hover,a.announcement:focus{color:#fff!important;text-decoration:none!important}
+.announcement .announcement-cta{display:inline-flex!important;align-items:center!important;gap:7px!important;
+ color:#fff!important;font-size:inherit!important;font-weight:900!important;white-space:nowrap!important}
+.announcement .announcement-arrow{display:inline-block!important;color:#fff!important;font-size:17px!important;
+ line-height:1!important;transition:transform .2s ease!important}
+a.announcement:hover .announcement-arrow{transform:translateX(4px)!important}
+header{height:78px!important;min-height:78px!important;box-sizing:border-box!important;
+ padding-top:10px!important;padding-bottom:0!important;align-items:center!important}
+header .brand,header nav,header .nav-social{transform:translateY(5px)!important}
+header .header-main-logo{width:clamp(76px,7.5vw,100px)!important;max-height:34px!important;height:auto!important}
+header nav{align-items:center!important}
+@media(max-width:760px){
+ a.announcement{min-height:54px!important;padding:13px 16px!important;gap:8px!important;flex-wrap:wrap!important}
+ header{height:72px!important;min-height:72px!important;padding-top:8px!important}
+ header .brand,header nav,header .nav-social{transform:translateY(4px)!important}
+ header .header-main-logo{width:76px!important;max-height:30px!important}
+}
+@media(max-width:430px){
+ a.announcement{font-size:9px!important;line-height:1.35!important}
+ header{height:68px!important;min-height:68px!important}
+}
+</style>
+<style>
+/* Announcement hover: light blue surface with navy text */
+a.announcement{
+ transition:background-color .22s ease,color .22s ease!important;
+}
+a.announcement:hover,
+a.announcement:focus-visible{
+ background:var(--blue)!important;
+ color:var(--navy)!important;
+}
+a.announcement:hover .announcement-cta,
+a.announcement:hover .announcement-arrow,
+a.announcement:focus-visible .announcement-cta,
+a.announcement:focus-visible .announcement-arrow{
+ color:var(--navy)!important;
+}
+a.announcement:focus-visible{outline:3px solid var(--navy)!important;outline-offset:-3px!important}
+</style>
+<style>
+/* Keep the header the same height; only its contents shift between states */
+header{
+ height:58px!important;
+ min-height:58px!important;
+ padding-top:0!important;
+ padding-bottom:0!important;
+ transition:top .2s ease,background .2s ease,box-shadow .2s ease!important;
+}
+header .brand,
+header nav,
+header .nav-social{
+ transition:transform .22s ease!important;
+}
+header .header-main-logo{
+ width:68px!important;
+ max-height:27px!important;
+ height:auto!important;
+ transition:width .22s ease,max-height .22s ease!important;
+}
+/* Transparent hero state: compact logo and navigation sits slightly lower */
+header:not(.header-scrolled) .brand,
+header:not(.header-scrolled) nav,
+header:not(.header-scrolled) .nav-social{
+ transform:translateY(10px)!important;
+}
+/* Scrolled state: restore normal logo size and vertically centered navigation */
+header.header-scrolled .brand,
+header.header-scrolled nav,
+header.header-scrolled .nav-social{
+ transform:translateY(0)!important;
+}
+header.header-scrolled .header-main-logo{
+ width:100px!important;
+ max-height:34px!important;
+}
+@media(max-width:760px){
+ header{height:48px!important;min-height:48px!important}
+ header .header-main-logo{width:58px!important;max-height:23px!important}
+ header:not(.header-scrolled) .brand,
+ header:not(.header-scrolled) nav,
+ header:not(.header-scrolled) .nav-social{transform:translateY(7px)!important}
+ header.header-scrolled .header-main-logo{width:88px!important;max-height:30px!important}
+}
+@media(max-width:430px){
+ header{height:48px!important;min-height:48px!important}
+ header .header-main-logo{width:52px!important;max-height:21px!important}
+ header.header-scrolled .header-main-logo{width:78px!important;max-height:28px!important}
+}
+</style>
+<style>
+/* Keep the transparent header clear of the announcement banner */
+header:not(.header-scrolled) .brand,
+header:not(.header-scrolled) nav,
+header:not(.header-scrolled) .nav-social{
+ transform:translateY(22px)!important;
+}
+@media(max-width:760px){
+ header:not(.header-scrolled) .brand,
+ header:not(.header-scrolled) nav,
+ header:not(.header-scrolled) .nav-social{
+  transform:translateY(15px)!important;
+ }
+}
+</style>
+<style>
+/* The fixed transparent header starts below the full announcement hit area */
+header:not(.header-scrolled){top:58px!important}
+@media(max-width:760px){
+ header:not(.header-scrolled){top:54px!important}
+}
+@media(max-width:430px){
+ header:not(.header-scrolled){top:50px!important}
+}
+</style>
+<style id="outer-white-frame-refined">
+/* Deep navy outside the page; no white frame */
+html{
+  min-height:100%;
+  background:#10264b!important;
+}
+body{
+  min-height:100vh;
+  margin:0!important;
+  background:var(--paper)!important;
+  outline:none!important;
+}
+</style>
+<style id="hero-size-refinement">
+/* Slightly larger hero branding, headline, copy and signup controls */
+.hero-brand .hero-full-logo{
+  width:min(500px,80vw)!important;
+  max-height:122px!important;
+}
+.hero h1{font-size:clamp(40px,5.3vw,68px)!important;max-width:560px!important}
+.hero-copy{font-size:14px!important;max-width:470px!important;line-height:1.8!important}
+.signup{width:min(485px,100%)!important;gap:8px!important}
+.signup input{min-height:46px!important;padding:12px 15px!important;font-size:11px!important}
+.signup button{font-size:12px!important;padding:12px 18px!important}
+.signup .legal{font-size:8px!important;line-height:1.5!important}
+@media(max-width:760px){
+  .hero-brand .hero-full-logo{width:min(390px,86vw)!important;max-height:98px!important}
+  .hero h1{font-size:clamp(36px,7vw,52px)!important}
+  .hero-copy{font-size:13px!important}
+  .signup{width:min(450px,100%)!important}
+  .signup input{min-height:44px!important}
+}
+@media(max-width:430px){
+  .hero-brand .hero-full-logo{width:min(345px,88vw)!important;max-height:88px!important}
+  .hero h1{font-size:clamp(34px,8vw,43px)!important}
+}
+</style>
+<style id="signup-field-interactions">
+/* Shift the complete signup fields, including their borders, slightly right on hover */
+.signup input,
+.volunteer-form input{
+  transform:translateX(0)!important;
+  transition:transform .2s ease,padding-left .2s ease,border-color .18s ease,box-shadow .18s ease,background-color .18s ease!important;
+}
+.signup input:hover,
+.volunteer-form input:hover{
+  transform:translateX(6px)!important;
+  padding-left:19px!important;
+}
+.signup input:hover{
+  background:rgba(12,28,55,.38)!important;
+  color:#fff!important;
+  border-color:#b7c6d8!important;
+}
+.signup input:hover::placeholder{
+  color:#e8edf5!important;
+  opacity:1!important;
+}
+.signup input:focus,
+.signup input:focus-visible{
+  border-color:#fff!important;
+  outline:1px solid #fff!important;
+  outline-offset:2px!important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.16)!important;
+  background:rgba(12,28,55,.32)!important;
+}
+.volunteer-form input:focus,
+.volunteer-form input:focus-visible{
+  border-color:var(--blue)!important;
+  outline:none!important;
+  box-shadow:0 2px 0 var(--blue)!important;
+  padding-left:19px!important;
+}
+.signup button:hover,
+.volunteer-form .join:hover{
+  transform:none!important;
+}
+
+/* Align the footer social icons as a balanced pair */
+.footer-social{display:flex!important;align-items:center!important;justify-content:center!important;gap:14px!important;margin:18px auto!important;letter-spacing:0!important}
+.footer-social a.footer-social-link{width:38px!important;height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;line-height:1!important;margin:0!important;padding:0!important}
+.footer-social a.footer-social-link svg{display:block!important;width:16px!important;height:16px!important;flex:0 0 auto!important}
+.footer-social a.footer-social-link img{display:block!important;width:20px!important;height:20px!important;object-fit:contain!important;flex:0 0 auto!important}
+
+</style>
+<style id="final-announcement-accent">
+a.announcement{background-color:#db2a37!important}
+a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!important}
+</style>
+<style id="about-ament-layout">
 .bio-hero{min-height:calc(100svh - 118px);display:grid;grid-template-columns:1fr 1fr;background:var(--navy)}
 .bio-photo{min-height:620px;overflow:hidden;background:#172b4d}
 .bio-photo img{display:block;width:100%;height:100%;min-height:620px;object-fit:cover;object-position:64% center}
