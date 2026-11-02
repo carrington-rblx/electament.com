@@ -937,28 +937,16 @@ header:not(.header-scrolled){top:58px!important}
 </style>
 
 
-<style id="outer-white-frame">
-html{
-  box-sizing:border-box;
-  border:1px solid rgba(255,255,255,.9);
-}
-*,*::before,*::after{box-sizing:inherit}
-body{
-  outline:1px solid rgba(255,255,255,.9);
-  outline-offset:-1px;
-}
-</style>
-
-
 <style id="outer-white-frame-refined">
+/* Keep the original site palette; use rich navy only in the outer page margin */
 html{
   min-height:100%;
-  background:#244b78!important;
-  border:2px solid rgba(255,255,255,.94)!important;
+  background:#10264b!important;
 }
 body{
   min-height:100vh;
-  background-color:#244b78!important;
+  margin:8px!important;
+  background:var(--paper)!important;
   outline:2px solid rgba(255,255,255,.94)!important;
   outline-offset:-2px!important;
 }
