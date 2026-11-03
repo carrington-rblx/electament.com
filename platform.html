@@ -22,8 +22,8 @@ header{min-height:70px;padding:12px clamp(18px,5vw,78px);display:flex;align-item
 .brand small{display:block;font-size:7px;letter-spacing:.2em;margin-top:3px}
 nav{display:flex;align-items:center;gap:clamp(9px,2vw,23px);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 nav a:not(.nav-platform):hover,.footer-links a:hover{color:var(--red)}
-.nav-platform{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#dff1fb;color:var(--navy);border:1px solid #b9dff3;white-space:nowrap}
-.nav-platform small{font-size:7px;letter-spacing:.08em;color:#477b9d;border-left:1px solid #a7d2e9;padding-left:7px}
+.nav-platform{color:inherit;white-space:nowrap;transition:color .2s ease}
+nav .nav-platform:hover,.footer-links .nav-platform:hover{color:var(--red)}
 .nav-donate{background:var(--red);color:white;padding:10px 19px;border-radius:30px;font-size:9px}
 main{min-height:calc(100vh - 260px);display:grid;place-items:center;padding:70px 22px 90px;position:relative;overflow:hidden}
 main:before{content:"";position:absolute;width:min(70vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#dff1fb 0%,rgba(223,241,251,0) 68%);right:-18%;top:-28%;pointer-events:none}
@@ -40,12 +40,10 @@ h1 span{color:#70afd5}
 footer{background:var(--navy);color:white;text-align:center;padding:34px 20px 26px}
 .footer-brand img{width:170px;max-height:55px;object-fit:contain}
 .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px auto 15px;font-size:8px;font-weight:700}
-.footer-links .nav-platform{padding:5px 8px}
-.footer-links .nav-platform small{font-size:6px}
 .footer-legal{max-width:580px;margin:16px auto 0;font-size:7px;line-height:1.8;color:#aebbd0}
 .footer-legal a{text-decoration:underline}
 .copyright{font-size:7px;color:#8797b0;margin-top:13px}
-@media(max-width:700px){header{align-items:flex-start;flex-direction:column;gap:12px;padding:13px 17px}nav{width:100%;justify-content:space-between;gap:7px;font-size:7px;flex-wrap:wrap}.nav-platform{gap:4px;padding:6px 7px}.nav-platform small{font-size:5px;padding-left:4px}main{padding:44px 16px 58px}.platform-panel{padding:36px 22px}h1{font-size:clamp(42px,12vw,62px)}}
+@media(max-width:700px){header{align-items:flex-start;flex-direction:column;gap:12px;padding:13px 17px}nav{width:100%;justify-content:space-between;gap:7px;font-size:7px;flex-wrap:wrap}main{padding:44px 16px 58px}.platform-panel{padding:36px 22px}h1{font-size:clamp(42px,12vw,62px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -57,7 +55,7 @@ footer{background:var(--navy);color:white;text-align:center;padding:34px 20px 26
 <a href="about-ament.html">About Ament</a>
 <a href="news.html">News</a>
 <a href="images.html">Images</a>
-<a class="nav-platform" href="platform.html" aria-current="page"><span>Platform</span><small>Coming soon</small></a>
+<a class="nav-platform" href="platform.html" aria-current="page">Platform</a>
 <a class="nav-donate" href="index.html#donate">Donate</a>
 </nav>
 </header>
@@ -73,7 +71,7 @@ footer{background:var(--navy);color:white;text-align:center;padding:34px 20px 26
 </main>
 <footer>
 <a class="footer-brand" href="./" aria-label="AmentAmour for President"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a>
-<div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a class="nav-platform" href="platform.html"><span>Platform</span><small>Coming soon</small></a><a href="index.html#donate">Donate</a></div>
+<div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a class="nav-platform" href="platform.html">Platform</a><a href="index.html#donate">Donate</a></div>
 <div class="footer-legal">Paid for by AmentAmour for President. Campaign committee disclaimer and registration details must be reviewed and completed by the campaign's compliance team before publication. <a href="mailto:privacy@electament.com">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div>
 <div class="copyright">© <span id="year"></span> AmentAmour for President. All rights reserved.</div>
 </footer>
