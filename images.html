@@ -1446,65 +1446,288 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
     <h1 id="images-title">Images</h1>
   </div>
 </section>
-<section class="campaign-trail-action" aria-label="Campaign trail">
-  <button class="running-mate-button" type="button" aria-disabled="true">ON THE CAMPAIGN TRAIL</button>
+<section class="event-gallery" aria-label="Campaign events">
+  <button class="event-card" type="button" data-event-index="0" aria-label="Open Campaign Event, October 23, 2026">
+    <img class="event-cover" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png" alt="Campaign event cover">
+    <span class="event-card-shade" aria-hidden="true"></span>
+    <span class="event-card-caption">
+      <span class="event-card-title">Campaign Event</span>
+      <span class="event-card-date">October 23, 2026</span>
+    </span>
+    <span class="event-card-count">1 PHOTO</span>
+  </button>
 </section>
-<section class="campaign-image-preview" aria-label="Campaign image preview">
-  <img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png" alt="Campaign moment">
-</section>
-</main>
+
+<div class="event-viewer" id="event-viewer" aria-hidden="true">
+  <button class="viewer-close" type="button" aria-label="Close gallery">×</button>
+  <button class="viewer-arrow viewer-prev" type="button" aria-label="Previous photo">‹</button>
+  <figure class="viewer-figure">
+    <img id="viewer-image" src="" alt="">
+    <figcaption>
+      <span id="viewer-title">Campaign Event</span>
+      <span id="viewer-date">October 23, 2026</span>
+      <span id="viewer-count">1 / 1</span>
+    </figcaption>
+  </figure>
+  <button class="viewer-arrow viewer-next" type="button" aria-label="Next photo">›</button>
+</div>
+
 <style>
-.campaign-trail-action{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:42px 24px 24px;
-  text-align:center;
+.event-gallery{
+  width:min(100% - 48px,1320px);
+  margin:0 auto;
+  padding:58px 0 100px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:26px;
 }
-.campaign-trail-action .running-mate-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-  padding:0 28px;
-  border:2px solid #172b4d;
-  border-radius:3px;
-  background:transparent;
-  color:#172b4d;
-  font-family:'Montserrat',sans-serif;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  cursor:pointer;
-  opacity:1;
-  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
-}
-.campaign-trail-action .running-mate-button:hover,
-.campaign-trail-action .running-mate-button:focus-visible{
-  background:#e83d4b;
-  border-color:#e83d4b;
-  color:#fff;
-  transform:translateY(-3px);
-  box-shadow:0 9px 22px rgba(23,43,77,.18);
-}
-.campaign-trail-action .running-mate-button:active{transform:translateY(-1px)}
-.campaign-image-preview{
-  width:min(100% - 48px,1200px);
-  margin:20px auto 90px;
-  text-align:center;
-}
-.campaign-image-preview img{
+.event-card{
+  position:relative;
   display:block;
   width:100%;
+  aspect-ratio:4/3;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  border-radius:3px;
+  background:#172b4d;
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+  isolation:isolate;
+}
+.event-cover{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:filter .45s ease,transform .65s ease;
+}
+.event-card-shade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(12,25,47,.02) 25%,rgba(12,25,47,.84) 100%);
+  opacity:.82;
+  transition:opacity .35s ease;
+}
+.event-card-caption{
+  position:absolute;
+  z-index:2;
+  left:clamp(20px,3vw,36px);
+  right:24px;
+  bottom:clamp(20px,3vw,34px);
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  transform:translateY(10px);
+  opacity:0;
+  transition:opacity .35s ease,transform .35s ease;
+}
+.event-card-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(21px,2.5vw,34px);
+  line-height:1.1;
+  font-weight:800;
+  letter-spacing:-.035em;
+}
+.event-card-date{
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#d9e9f6;
+}
+.event-card-count{
+  position:absolute;
+  z-index:2;
+  top:20px;
+  right:20px;
+  padding:8px 11px;
+  background:rgba(23,43,77,.78);
+  color:#fff;
+  font:800 9px 'Montserrat',sans-serif;
+  letter-spacing:.14em;
+  opacity:0;
+  transition:opacity .35s ease;
+}
+.event-card:hover .event-cover,
+.event-card:focus-visible .event-cover{
+  filter:blur(5px) brightness(.62);
+  transform:scale(1.06);
+}
+.event-card:hover .event-card-shade,
+.event-card:focus-visible .event-card-shade{opacity:1}
+.event-card:hover .event-card-caption,
+.event-card:focus-visible .event-card-caption,
+.event-card:hover .event-card-count,
+.event-card:focus-visible .event-card-count{
+  opacity:1;
+  transform:translateY(0);
+}
+.event-card:focus-visible{outline:3px solid #82bee1;outline-offset:5px}
+.event-viewer{
+  position:fixed;
+  z-index:1000;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 76px;
+  background:rgba(7,15,29,.96);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease,visibility .25s ease;
+}
+.event-viewer.is-open{opacity:1;visibility:visible}
+.viewer-figure{
+  width:min(100%,1400px);
+  height:100%;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+.viewer-figure img{
+  display:block;
+  max-width:100%;
+  max-height:calc(100% - 62px);
+  width:auto;
   height:auto;
   object-fit:contain;
+  cursor:pointer;
 }
-@media(max-width:520px){
-  .campaign-trail-action{padding:32px 18px 18px}
-  .campaign-image-preview{width:calc(100% - 32px);margin-bottom:60px}
+.viewer-figure figcaption{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  color:#fff;
+  font:700 12px 'Montserrat',sans-serif;
+  letter-spacing:.08em;
+  text-align:center;
+}
+#viewer-title{font-size:14px;font-weight:800}
+#viewer-date{color:#b9cde0}
+#viewer-count{color:#82bee1}
+.viewer-close,.viewer-arrow{
+  position:absolute;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(23,43,77,.72);
+  color:#fff;
+  cursor:pointer;
+  transition:background .2s ease,transform .2s ease;
+}
+.viewer-close:hover,.viewer-arrow:hover{background:#e83d4b}
+.viewer-close{
+  top:22px;right:25px;
+  width:46px;height:46px;
+  border-radius:50%;
+  font:300 32px/1 Arial,sans-serif;
+}
+.viewer-arrow{
+  top:50%;
+  width:48px;height:64px;
+  border-radius:3px;
+  transform:translateY(-50%);
+  font:300 42px/1 Arial,sans-serif;
+}
+.viewer-arrow:hover{transform:translateY(-50%) scale(1.06)}
+.viewer-prev{left:18px}
+.viewer-next{right:18px}
+.viewer-arrow:disabled{opacity:.22;cursor:default;background:rgba(23,43,77,.5)}
+.viewer-arrow:disabled:hover{transform:translateY(-50%)}
+@media(max-width:700px){
+  .event-gallery{width:calc(100% - 32px);padding:36px 0 64px;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .event-card{aspect-ratio:4/5}
+  .event-card-caption{left:14px;right:12px;bottom:15px;gap:5px}
+  .event-card-title{font-size:clamp(14px,3.4vw,21px)}
+  .event-card-date{font-size:9px;letter-spacing:.07em}
+  .event-card-count{top:10px;right:10px;font-size:7px;padding:6px 7px}
+  .event-viewer{padding:58px 14px 30px}
+  .viewer-prev{left:8px}
+  .viewer-next{right:8px}
+  .viewer-arrow{width:36px;height:50px;font-size:32px}
+  .viewer-figure img{max-width:100%;max-height:calc(100% - 76px)}
+  .viewer-figure figcaption{gap:8px;font-size:10px}
+}
+@media(hover:none){
+  .event-card-caption,.event-card-count{opacity:1;transform:none}
+  .event-card-shade{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .event-cover,.event-card-caption,.event-card-count,.event-card-shade,.event-viewer{transition:none}
 }
 </style>
+
+<script>
+(()=>{
+  const photos=[
+    "https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png"
+  ];
+  const title="Campaign Event";
+  const date="October 23, 2026";
+  const viewer=document.getElementById("event-viewer");
+  const image=document.getElementById("viewer-image");
+  const titleNode=document.getElementById("viewer-title");
+  const dateNode=document.getElementById("viewer-date");
+  const countNode=document.getElementById("viewer-count");
+  const previous=document.querySelector(".viewer-prev");
+  const next=document.querySelector(".viewer-next");
+  const closeButton=document.querySelector(".viewer-close");
+  let current=0;
+  let lastTrigger=null;
+
+  function showPhoto(index){
+    current=(index+photos.length)%photos.length;
+    image.src=photos[current];
+    image.alt=title+" — photo "+(current+1);
+    titleNode.textContent=title;
+    dateNode.textContent=date;
+    countNode.textContent=(current+1)+" / "+photos.length;
+    previous.disabled=photos.length<2;
+    next.disabled=photos.length<2;
+  }
+  function openViewer(trigger){
+    lastTrigger=trigger;
+    showPhoto(0);
+    viewer.classList.add("is-open");
+    viewer.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+    closeButton.focus();
+  }
+  function closeViewer(){
+    viewer.classList.remove("is-open");
+    viewer.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+    if(lastTrigger)lastTrigger.focus();
+  }
+  document.querySelectorAll(".event-card").forEach(card=>{
+    card.addEventListener("click",()=>openViewer(card));
+  });
+  previous.addEventListener("click",()=>showPhoto(current-1));
+  next.addEventListener("click",()=>showPhoto(current+1));
+  image.addEventListener("click",()=>showPhoto(current+1));
+  closeButton.addEventListener("click",closeViewer);
+  viewer.addEventListener("click",event=>{
+    if(event.target===viewer)closeViewer();
+  });
+  document.addEventListener("keydown",event=>{
+    if(!viewer.classList.contains("is-open"))return;
+    if(event.key==="Escape")closeViewer();
+    if(event.key==="ArrowLeft")showPhoto(current-1);
+    if(event.key==="ArrowRight")showPhoto(current+1);
+  });
+})();
+</script>
 
 <footer><a class="footer-brand" href="./" aria-label="AmentAmour for President"><img class="footer-logo-art" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a><div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a href="#volunteer">Volunteer</a><a href="#donate">Donate</a></div><div class="footer-social"><a class="footer-social-link" href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19.7 5.3A18.5 18.5 0 0 0 15.2 4l-.6 1.2a17 17 0 0 0-5.2 0L8.8 4a18.5 18.5 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.6a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.8 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a><a class="footer-social-link" href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/REPUBLIC%20LOGO.png" alt="RepublicRx"></a></div><div class="footer-legal">Paid for by AmentAmour for President. Campaign committee disclaimer and registration details must be reviewed and completed by the campaign's compliance team before publication. <a href="mailto:privacy@electament.com">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div><div class="copyright">© <span id="year"></span> AmentAmour for President. All rights reserved.</div></footer>
 <script>
