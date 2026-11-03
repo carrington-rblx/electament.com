@@ -160,6 +160,14 @@ body{background:var(--paper)!important}
       <div class="empty"><strong>Welcome to Campaign Room</strong>Select an article or create a new press release.</div>
     </section>
   </div>
+  <section id="galleryPanel" class="panel members hidden">
+    <div class="side-head"><strong>Campaign image gallery</strong><span class="status approved">Administrator only</span></div>
+    <p class="help">Manage the public Images page: create event albums, upload or replace covers, add/remove photos, change captions and dates, reorder albums, and publish or hide them.</p>
+    <div class="workspace" style="grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);margin-top:16px">
+      <div><div class="side-head"><strong>Albums</strong><button class="btn blue" id="newAlbum" type="button">+ New album</button></div><div id="albumList" class="article-list"><div class="empty">Loading albums…</div></div></div>
+      <div id="albumEditor" class="panel editor"><div class="empty"><strong>Gallery manager</strong>Select an album or create a new one.</div></div>
+    </div>
+  </section>
   <section id="passwordPanel" class="panel members">
     <div class="side-head"><strong>Account security</strong></div>
     <form id="passwordForm" class="grid2">
