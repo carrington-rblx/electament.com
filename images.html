@@ -1564,7 +1564,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 .event-card:focus-visible{outline:3px solid #82bee1;outline-offset:5px}
 .event-viewer{
   position:fixed;
-  z-index:1000;
+  z-index:1100;
   inset:0;
   display:flex;
   align-items:center;
@@ -1609,14 +1609,17 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 }
 .viewer-indicator{
   display:block;
-  width:9px;
-  height:9px;
+  width:18px;
+  height:10px;
+  border:1.5px solid #e83d4b;
   border-radius:999px;
-  background:#e9a0a6;
+  background:rgba(232,61,75,.3);
+  box-shadow:0 1px 5px rgba(0,0,0,.16);
 }
 .viewer-indicator.is-active{
-  width:24px;
+  width:28px;
   background:#e83d4b;
+  border-color:#fff;
 }
 .viewer-close{
   position:absolute;
