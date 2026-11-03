@@ -200,7 +200,7 @@ async function sendResponse(card,proposalId,choice){
   if(btn)btn.disabled=false;return;
  }
  state.responded.add(proposalId);renderProposals();
- const newCard=document.querySelector('[data-proposal="'+proposalId+'"]');if(newCard)newCard.querySelector(".proposal").scrollIntoView?.({block:"nearest"});
+
 }
 $("idea-form").addEventListener("submit",async event=>{
  event.preventDefault();status("idea-status","");
