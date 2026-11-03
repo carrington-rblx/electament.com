@@ -107,7 +107,7 @@ function openEditor(article){
       <div class="field"><label for="articleTitle">Headline</label><input id="articleTitle" maxlength="180" value="${escapeHtml(article.title)}" ${canEdit?"":"disabled"}></div>
       <div class="field"><label for="articleSlug">URL slug</label><input id="articleSlug" maxlength="80" value="${escapeHtml(article.slug)}" ${canEdit?"":"disabled"}><span class="help">Lowercase letters, numbers, and hyphens.</span></div>
       <div class="field" style="grid-column:1/-1"><label for="articleExcerpt">News-card excerpt</label><textarea id="articleExcerpt" rows="3" ${canEdit?"":"disabled"}>${escapeHtml(article.excerpt)}</textarea></div>
-      <div class="field" style="grid-column:1/-1"><label for="heroImage">Hero image URL (optional)</label><input id="heroImage" value="${escapeHtml(article.hero_image||"")}" placeholder="Upload an image below or paste a public image URL" ${canEdit?"":"disabled"}></div>
+      <div class="field" style="grid-column:1/-1"><label for="heroImage">Hero image URL (optional)</label><input id="heroImage" value="${escapeHtml(article.hero_image||"")}" placeholder="Upload an image below or paste a public image URL" ${canEdit?"":"disabled"}><input id="heroImageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif" ${canEdit?"":"disabled"} style="margin-top:9px"><span class="help">Upload a hero image or paste a public image URL.</span></div>
     </div>
     <div class="block-head"><strong>Article content</strong><div class="block-tools"><button class="btn ghost" id="addText" ${canEdit?"":"disabled"}>+ Text section</button><button class="btn ghost" id="addImage" ${canEdit?"":"disabled"}>+ Image</button></div></div>
     <p class="help">Arrange text and image blocks in any order. Image blocks support captions and full-width, left, or right layouts.</p>
@@ -117,6 +117,16 @@ function openEditor(article){
     ${admin && article.status==="published"?'<div class="notice">This article is currently published. Changes saved by an administrator update this CMS record immediately; use the review controls on a submitted draft for staff-proposed revisions.</div>':""}
   `;
   renderBlocks(canEdit);
+  $("heroImageFile")?.addEventListener("change",async e=>{
+    const file=e.target.files[0];if(!file)return;
+    if(file.size>10*1024*1024){notice("appMessage","Images must be 10 MB or smaller.","error");e.target.value="";return;}
+    if(!["image/jpeg","image/png","image/webp","image/gif"].includes(file.type)){notice("appMessage","Choose a JPG, PNG, WebP, or GIF image.","error");e.target.value="";return;}
+    const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,""),path=state.user.id+"/"+crypto.randomUUID()+"."+ext;
+    const q=await supabase.storage.from("campaign-media").upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type});
+    if(q.error){notice("appMessage",q.error.message,"error");return;}
+    $("heroImage").value=supabase.storage.from("campaign-media").getPublicUrl(path).data.publicUrl;
+    notice("appMessage","Hero image uploaded. Save the article to apply it.","good");e.target.value="";
+  });
   if(canSaveLive){ $("saveDraft").textContent="Save live changes"; $("submitArticle").classList.add("hidden"); }
   if(canEdit){
     $("addText").addEventListener("click",()=>{state.blocks.push({type:"text",text:""});renderBlocks(true);});
