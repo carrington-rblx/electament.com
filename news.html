@@ -1045,17 +1045,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   transform:scale(1.035);
   pointer-events:none;
 }
-.news-hero-map{
-  position:absolute;
-  z-index:2;
-  width:min(82vw,1000px);
-  height:92%;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  overflow:visible;
-  pointer-events:none;
-}
+
 .news-hero::after{
   content:"";
   position:absolute;
@@ -1190,10 +1180,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 </header>
 <main>
   <section class="news-hero" aria-labelledby="news-title">
-    <svg class="news-hero-map" viewBox="0 0 960 560" role="img" aria-label="Solid silhouette of the United States" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#172b4d" d="M72 122 L126 105 178 112 224 104 270 111 318 103 362 110 405 101 449 108 490 98 535 105 580 95 622 102 661 94 699 100 730 92 760 101 791 94 818 104 840 96 857 111 872 130 866 150 849 163 854 183 842 202 830 221 823 244 832 266 824 287 807 303 799 325 790 350 783 379 773 405 761 433 751 456 737 476 724 464 714 441 706 415 696 392 680 376 663 368 646 374 628 365 610 372 593 364 577 370 558 362 540 369 520 360 500 367 482 357 464 364 444 354 425 361 405 351 386 358 368 348 349 356 332 347 313 354 296 345 277 352 259 342 241 349 223 339 205 345 188 334 171 339 154 328 139 331 126 318 112 315 102 299 96 281 91 262 83 246 78 227 70 211 65 191 68 171 61 153 67 137 Z M114 320 L139 330 154 349 164 373 173 399 184 427 194 453 202 477 194 494 183 482 173 459 163 438 151 414 140 390 128 367 Z M650 374 L675 379 695 397 711 418 724 442 739 465 751 482 745 499 733 511 719 504 707 485 696 465 682 447 670 428 657 411 644 393 Z M795 107 L813 94 831 89 847 98 859 112 851 127 836 133 820 126 Z"/>
-      <path fill="#172b4d" d="M40 390 L62 376 83 383 91 400 79 418 57 421 42 409 Z M112 437 L119 432 126 439 124 449 116 451 Z M138 456 L145 451 152 458 150 468 142 470 Z"/>
-    </svg>
+    
     <div class="news-hero-inner">
       <span class="news-kicker">THE LATEST</span>
       <h1 id="news-title">News and Press</h1>
