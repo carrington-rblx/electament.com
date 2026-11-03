@@ -119,7 +119,7 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 </section>
 
 <section aria-labelledby="proposals-title">
-<div class="section-head"><div><div class="eyebrow" style="color:#6b9dbc">Have your say</div><h2 id="proposals-title">Ideas on the table</h2><p>Choose how you feel about each discussion proposal. You can leave a note when you want to improve or reject an idea.</p></div><div class="count" id="proposal-count">Loading proposals…</div></div>
+<div class="section-head"><div><div class="eyebrow" style="color:#6b9dbc">Have your say</div><h2 id="proposals-title">Ideas on the table</h2><p>These are starting points for discussion, not final campaign commitments. Choose how you feel about each idea, and leave a note when you want to improve or reject it.</p></div><div class="count" id="proposal-count">Loading proposals…</div></div>
 <div class="filters" id="filters" aria-label="Filter proposals by topic"></div>
 <div class="proposal-list" id="proposal-list" aria-live="polite"><div class="empty">Loading ideas…</div></div>
 </section>
@@ -168,7 +168,7 @@ function renderProposals(){
  }).join("");
 }
 async function loadProposals(){
- const {data,error}=await supabase.from("campaign_platform_proposals").select("id,category,title,description,sort_order").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});
+ const {data,error}=await supabase.from("campaign_platform_proposals").select("id,category,title,description,sort_order,created_at").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});
  if(error){$("proposal-list").innerHTML='<div class="empty">We couldn't load the proposals just now. Please refresh the page and try again.</div>';status("proposal-count","Temporarily unavailable");return;}
  state.proposals=data||[];renderFilters();renderProposals();
 }
