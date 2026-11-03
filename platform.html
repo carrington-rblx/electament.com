@@ -703,7 +703,7 @@ $("proposal-list").addEventListener("click",async event=>{
  if(choiceButton){
   const card=choiceButton.closest("[data-proposal]"),choice=choiceButton.dataset.choice;
   if(choice==="improve"){
-   card.querySelectorAll("[data-choice]").forEach(b=>b.classList.toggle("selected",b===choiceButton));
+   $("proposal-list").querySelectorAll("[data-choice]").forEach(b=>b.classList.toggle("selected",b===choiceButton));
    $("game-response").hidden=false;
    $("game-response").dataset.choice="improve";
    $("game-comment").focus();
