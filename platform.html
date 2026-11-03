@@ -198,6 +198,30 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 .walkthrough-fourth .walkthrough-dots{margin:21px 0 16px}
 .history-disclaimer{font-size:8px;color:#a0a7ae;letter-spacing:.025em;margin:18px 0 0;text-align:center}
 @media(max-width:540px){.walkthrough-fourth{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-fourth-canvas{min-height:730px;border-radius:20px;padding:22px 12px 24px}.history-cluster{height:305px;margin-top:12px}.person-degaulle{top:100px}.person-degaulle .portrait-disc{width:100px;height:100px}.person-jfk{left:2%;top:4px}.person-churchill{right:2%;top:4px}.person-mandela{right:0;top:165px}.person-trudeau{left:0;top:165px}.person-adenauer{left:15%;bottom:0}.person-schuman{right:15%;bottom:0}.person-jfk .portrait-disc,.person-churchill .portrait-disc,.person-mandela .portrait-disc,.person-trudeau .portrait-disc,.person-adenauer .portrait-disc,.person-schuman .portrait-disc{width:60px;height:60px}.history-person{font-size:7px}.history-rule{margin:7px auto 17px}.history-disclaimer{margin-top:14px}}
+
+.walkthrough-fifth[hidden]{display:none}
+.walkthrough-fifth{padding:clamp(14px,4vw,40px) 16px 48px;background:#edf0f2;min-height:calc(100vh - 70px);place-items:center}
+.walkthrough-fifth:not([hidden]){display:grid}
+.walkthrough-fifth-canvas{width:min(760px,100%);min-height:760px;background:#fbfbf8;border-radius:26px;padding:clamp(24px,4vw,42px) 22px 28px;display:flex;align-items:center;flex-direction:column;box-shadow:0 18px 65px #172b4d12;position:relative}
+.privacy-card{width:min(510px,100%);background:#fff;border:1px solid #e7ecea;border-radius:20px;padding:26px 27px 22px;margin:42px auto 16px;box-shadow:0 8px 26px #172b4d0a}
+.privacy-badge{display:inline-flex;align-items:center;gap:7px;background:#dff5f0;color:#137d70;border-radius:30px;padding:8px 13px;font-size:9px;font-weight:900;letter-spacing:.12em}
+.privacy-card h1{font-size:clamp(26px,4.5vw,34px);line-height:1.08;letter-spacing:-.06em;color:#19232d;margin:19px 0 22px}
+.privacy-points{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px}
+.privacy-points li{display:flex;align-items:flex-start;gap:12px;color:#596674;font-size:11px;line-height:1.7}
+.privacy-square{width:21px;height:21px;flex:0 0 21px;border-radius:5px;background:#dff5f0;color:#168778;display:grid;place-items:center;font-size:12px;font-weight:900;margin-top:1px}
+.privacy-policy-link{display:inline-flex;gap:7px;align-items:center;margin-top:21px;color:#147e73;font-size:10px;font-weight:900;text-decoration:underline;text-underline-offset:3px}
+.consent-panel{width:min(510px,100%);display:flex;align-items:flex-start;gap:13px;background:#fff;border:1px solid #e2e9e6;border-radius:16px;padding:18px 20px;color:#52606d;font-size:10px;line-height:1.7;cursor:pointer}
+.consent-panel input{position:absolute;opacity:0;width:1px;height:1px}
+.consent-checkmark{width:22px;height:22px;flex:0 0 22px;border:2px solid #9aaca8;border-radius:6px;background:#fff;display:grid;place-items:center;margin-top:1px}
+.consent-panel input:checked+.consent-checkmark{background:#168c7d;border-color:#168c7d}
+.consent-panel input:checked+.consent-checkmark:after{content:"✓";color:#fff;font-size:15px;font-weight:900}
+.consent-panel input:focus-visible+.consent-checkmark{outline:3px solid #82bee1;outline-offset:3px}
+.consent-panel a{color:#147e73;font-weight:800;text-decoration:underline}
+.consent-required{width:min(510px,100%);margin:9px auto 0;text-align:center;color:#8a969e;font-size:9px;line-height:1.5}
+.privacy-accept:disabled{opacity:.48;cursor:not-allowed;box-shadow:0 5px 0 #e9c33c;transform:none}
+.walkthrough-fifth .walkthrough-dots{margin:19px 0 15px}
+.privacy-version{font-size:8px;color:#a0a7ae;margin:15px 0 0}
+@media(max-width:540px){.walkthrough-fifth{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-fifth-canvas{min-height:730px;border-radius:20px;padding:22px 12px 24px}.privacy-card{margin:30px auto 13px;padding:21px 18px 19px}.privacy-card h1{margin:16px 0 18px}.privacy-points{gap:13px}.privacy-points li{font-size:10px;line-height:1.65}.consent-panel{padding:15px 14px;font-size:9px;gap:10px}}
 </style>
 </head>
 <body>
@@ -305,6 +329,32 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
   <p class="history-disclaimer">Fictional game · Illustrative profiles · Public-domain-inspired artwork</p>
  </div>
 </section>
+
+<section class="walkthrough-fifth" id="walkthrough-fifth" hidden>
+ <div class="walkthrough-fifth-canvas">
+  <div class="walkthrough-top"><span class="walkthrough-kicker">BEFORE YOU PLAY</span><span class="walkthrough-step">05 <i>/ 05</i></span></div>
+  <div class="privacy-card">
+   <div class="privacy-badge"><span aria-hidden="true">🛡️</span> CONFIDENTIALITY</div>
+   <h1>What happens to your answers?</h1>
+   <ul class="privacy-points">
+    <li><span class="privacy-square">✓</span><span>We process your responses to understand participation and produce aggregated statistics about the ideas people support, want changed or reject.</span></li>
+    <li><span class="privacy-square">✓</span><span>Submissions are retained while the campaign is active. After it ends, the campaign intends to delete or anonymise them, subject to legal and record-keeping requirements.</span></li>
+    <li><span class="privacy-square">✓</span><span>Your responses may reveal political opinions. We will only collect and use these sensitive responses when you give explicit consent.</span></li>
+   </ul>
+   <a class="privacy-policy-link" href="privacy-policy.html" target="_blank" rel="noopener">Read the privacy notice and participation terms <span aria-hidden="true">↗</span></a>
+  </div>
+  <label class="consent-panel" for="political-consent">
+   <input id="political-consent" type="checkbox">
+   <span class="consent-checkmark" aria-hidden="true"></span>
+   <span>I explicitly consent to the processing of my responses, which may reveal my political opinions, for the purposes described in the <a href="privacy-policy.html" target="_blank" rel="noopener">privacy notice</a>. I understand that I can withdraw consent for future processing by contacting the campaign.</span>
+  </label>
+  <p class="consent-required" id="consent-required" role="status" aria-live="polite">Your choice is voluntary. You must actively agree before submitting responses.</p>
+  <div class="walkthrough-dots" aria-label="Walkthrough step 5 of 5"><span></span><span></span><span></span><span></span><span class="active"></span></div>
+  <button type="button" class="walkthrough-next privacy-accept" id="walkthrough-fifth-accept" disabled>I agree and play <span>→</span></button>
+  <button type="button" class="walkthrough-back" id="walkthrough-fifth-back">← Back</button>
+  <p class="privacy-version">Consent notice version 1.0 · November 3, 2026</p>
+ </div>
+</section>
 <div class="learn-modal" id="learn-modal" hidden role="dialog" aria-modal="true" aria-labelledby="learn-modal-title"><div class="learn-modal-card"><button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">A starting point</div><h2 id="learn-modal-title">An idea to explore</h2><p id="learn-modal-copy"></p><button type="button" class="modal-done" id="modal-done">Got it</button></div></div>
 <main id="participation" hidden>
 <section class="username-panel" aria-labelledby="username-title">
@@ -343,7 +393,9 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 const supabase=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
 const $=id=>document.getElementById(id);
-const state={proposals:[],category:"All topics",responded:new Set(),pending:null};
+const state={proposals:[],category:"All topics",responded:new Set(),pending:null,consentAccepted:false};
+const CONSENT_VERSION="2026-11-03-v1";
+function consentPayload(){return {consent_given_at:new Date().toISOString(),consent_version:CONSENT_VERSION};}
 const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function username(){return $("roblox-username").value.trim();}
 function validUsername(){return /^[A-Za-z0-9_]{3,20}$/.test(username());}
@@ -384,10 +436,11 @@ $("proposal-list").addEventListener("click",async event=>{
  }
 });
 async function sendResponse(card,proposalId,choice){
+ if(!state.consentAccepted){status("consent-required","Please review the privacy notice and actively give consent before submitting.");$("walkthrough-fifth").hidden=false;$("walkthrough-fifth").scrollIntoView({behavior:"smooth",block:"start"});return;}
  if(!validUsername()){status("proposal-count","Enter a valid Roblox username above first.");$("roblox-username").focus();return;}
  const btn=card.querySelector(".send-response");if(btn)btn.disabled=true;
  const comment=card.querySelector(".response-comment")?.value.trim()||"";
- const {error}=await supabase.from("campaign_platform_responses").insert({proposal_id:proposalId,roblox_username:username(),response:choice,comment});
+ const {error}=await supabase.from("campaign_platform_responses").insert({proposal_id:proposalId,roblox_username:username(),response:choice,comment,...consentPayload()});
  if(error){
   const message=error.code==="23505"?"This Roblox username has already responded to this proposal.":"We couldn't save that response. Please try again.";
   const target=card.querySelector(".response-status");if(target)target.textContent=message;else status("proposal-count",message);
@@ -399,11 +452,12 @@ async function sendResponse(card,proposalId,choice){
 $("idea-form").addEventListener("submit",async event=>{
  event.preventDefault();status("idea-status","");
  if($("website").value)return;
+ if(!state.consentAccepted){status("idea-status","Please give explicit consent on the privacy screen before submitting.");$("walkthrough-fifth").hidden=false;$("walkthrough-fifth").scrollIntoView({behavior:"smooth",block:"start"});return;}
  if(!validUsername()){status("idea-status","Please enter a valid Roblox username above.");$("roblox-username").focus();return;}
  const category=$("idea-category").value,title=$("idea-title-input").value.trim(),description=$("idea-description").value.trim();
  if(!category||title.length<8||description.length<20){status("idea-status","Please complete each field. Your title needs at least 8 characters and your description at least 20.");return;}
  const button=$("submit-idea");button.disabled=true;button.textContent="Sending…";
- const {error}=await supabase.from("campaign_platform_ideas").insert({roblox_username:username(),category,title,description});
+ const {error}=await supabase.from("campaign_platform_ideas").insert({roblox_username:username(),category,title,description,...consentPayload()});
  button.disabled=false;button.textContent="Submit your idea";
  if(error){status("idea-status","We couldn't submit your idea just now. Please check your connection and try again.");return;}
  $("idea-form").reset();status("idea-status","Thank you — your idea has been sent to the campaign team for review.");
@@ -438,7 +492,10 @@ $("walkthrough-next").addEventListener("click",()=>{$("walkthrough").hidden=true
 $("walkthrough-third-back").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("walkthrough").hidden=false;$("walkthrough").scrollIntoView({behavior:"smooth",block:"start"});});
 $("walkthrough-third-next").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("walkthrough-fourth").hidden=false;$("walkthrough-fourth").scrollIntoView({behavior:"smooth",block:"start"});});
 $("walkthrough-fourth-back").addEventListener("click",()=>{$("walkthrough-fourth").hidden=true;$("walkthrough-third").hidden=false;$("walkthrough-third").scrollIntoView({behavior:"smooth",block:"start"});});
-$("walkthrough-fourth-next").addEventListener("click",()=>{$("walkthrough-fourth").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+$("walkthrough-fourth-next").addEventListener("click",()=>{$("walkthrough-fourth").hidden=true;$("walkthrough-fifth").hidden=false;$("walkthrough-fifth").scrollIntoView({behavior:"smooth",block:"start"});});
+$("walkthrough-fifth-back").addEventListener("click",()=>{$("walkthrough-fifth").hidden=true;$("walkthrough-fourth").hidden=false;$("walkthrough-fourth").scrollIntoView({behavior:"smooth",block:"start"});});
+$("political-consent").addEventListener("change",event=>{$("walkthrough-fifth-accept").disabled=!event.target.checked;$("consent-required").textContent=event.target.checked?"Consent given for this participation session. You can withdraw consent for future processing by contacting the campaign.":"Your choice is voluntary. You must actively agree before submitting responses.";});
+$("walkthrough-fifth-accept").addEventListener("click",()=>{if(!$("political-consent").checked)return;state.consentAccepted=true;$("walkthrough-fifth").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
 
 showFeatured(0);
 
