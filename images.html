@@ -1350,6 +1350,87 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 }
 </style>
 
+<style id="images-news-hero">
+.news-hero{
+  min-height:470px;
+  height:min(590px,calc(76svh - 35px));
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:#1c3056;
+}
+.news-hero::before{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  z-index:0;
+  background-image:url("./Screenshot_2026-10-23_182824.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  filter:blur(10px);
+  transform:scale(1.035);
+  pointer-events:none;
+}
+
+.news-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(105deg,rgba(23,43,77,.88) 0%,rgba(23,43,77,.72) 48%,rgba(23,43,77,.86) 100%),
+    linear-gradient(180deg,rgba(23,43,77,.24) 0%,rgba(23,43,77,.68) 100%);
+  pointer-events:none;
+}
+.news-hero-inner{
+  width:min(1120px,90%);
+  margin:0 auto;
+  padding:80px 0;
+  position:relative;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.news-kicker{
+  display:block;
+  color:#bfe5fb;
+  font-size:clamp(12px,1.15vw,16px);
+  font-weight:900;
+  letter-spacing:.28em;
+  line-height:1.2;
+  margin:0 0 17px;
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+.news-hero h1{
+  color:#fff;
+  font-size:clamp(48px,8vw,100px);
+  font-weight:900;
+  letter-spacing:-.075em;
+  line-height:.94;
+  margin:0 auto;
+  max-width:800px;
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+@media(max-width:760px){
+  .news-hero{min-height:390px;height:52svh}
+  .news-hero::before{inset:0}
+  .news-hero-inner{padding:64px 0}
+}
+</style>
 </head>
 <body>
 <a class="announcement" href="#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
@@ -1359,14 +1440,11 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 <div class="nav-social"><a href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M19.7 5.3A18.5 18.5 0 0 0 15.2 4l-.6 1.2a17 17 0 0 0-5.2 0L8.8 4a18.5 18.5 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.6a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.8 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a><a href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/REPUBLIC%20LOGO.png" alt="RepublicRx" style="width:18px;height:18px;object-fit:contain;display:block"></a><a class="nav-donate" href="#donate">Donate</a></div>
 </header>
 <main>
-<section class="bio-hero campaign-image-hero" aria-labelledby="images-title">
-  <div class="bio-photo"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/HUYM_oIbIAAaoJV.png" alt="AmentAmour campaign image"></div>
-  <div class="bio-panel"><div class="bio-copy">
-    <div class="bio-rule"></div>
-    <div class="eyebrow">Campaign gallery</div>
+<section class="news-hero" aria-labelledby="images-title">
+  <div class="news-hero-inner">
+    <span class="news-kicker">CAMPAIGN GALLERY</span>
     <h1 id="images-title">Images</h1>
-    <p>Explore photographs, campaign moments, and images from across the AmentAmour for President campaign.</p>
-  </div></div>
+  </div>
 </section>
 <section class="leadership-section" aria-labelledby="gallery-title">
   <div class="leadership-copy" style="width:min(100%,1200px);margin:0 auto;padding:0 24px 34px">
