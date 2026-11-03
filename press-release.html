@@ -1335,6 +1335,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 .cms-article-image.right{float:right;width:min(44%,340px);margin:8px 0 20px 28px}
 .cms-article-image figcaption{font-size:12px;line-height:1.55;color:#69788a;margin-top:9px}
 #cms-content p{white-space:pre-line}
+.cms-rich-text strong,.cms-rich-text b{font-weight:800}.cms-rich-text em,.cms-rich-text i{font-style:italic}.cms-rich-text u{text-decoration:underline}.cms-rich-text p{margin:0 0 1em}.cms-rich-text p:last-child{margin-bottom:0}.cms-rich-text span{font-weight:inherit}
 </style>
 </head>
 <body>
@@ -1382,6 +1383,20 @@ demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');docume
 <script type="module">
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 const db=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp");
+const allowedPressColors=["#e83d4b","#172b4d","#82bee1","#1d2d49"];
+function cleanPressHtml(input=""){
+ const parsed=new DOMParser().parseFromString(String(input),"text/html");
+ const allowed=new Set(["B","STRONG","I","EM","U","BR","P","DIV","SPAN","FONT"]);
+ function clean(node){
+  if(node.nodeType===Node.TEXT_NODE)return document.createTextNode(node.textContent||"");
+  if(node.nodeType!==Node.ELEMENT_NODE)return document.createDocumentFragment();
+  if(!allowed.has(node.tagName)){const f=document.createDocumentFragment();[...node.childNodes].forEach(c=>f.append(clean(c)));return f;}
+  const tag=node.tagName==="FONT"?"SPAN":node.tagName.toLowerCase(),out=document.createElement(tag);
+  if(tag==="span"){const raw=node.getAttribute("color")||node.style.color||"",color=allowedPressColors.find(c=>c.toLowerCase()===raw.toLowerCase());if(color)out.style.color=color;}
+  [...node.childNodes].forEach(c=>out.append(clean(c)));return out;
+ }
+ const root=document.createElement("div");[...parsed.body.childNodes].forEach(n=>root.append(clean(n)));return root.innerHTML;
+}
 const params=new URLSearchParams(location.search);const slug=params.get("slug");
 const title=document.getElementById("press-article-title"),date=document.getElementById("cms-date"),body=document.getElementById("cms-content");
 const back='<a class="press-article-back" href="news.html">← BACK TO NEWS</a>';
@@ -1403,7 +1418,7 @@ try{
    if(block.caption){const cap=document.createElement("figcaption");cap.textContent=block.caption;figure.append(cap);}
    body.append(figure);
   }else if(block.type==="text"&&block.text){
-   const p=document.createElement("p");p.textContent=block.text;body.append(p);
+   const p=document.createElement("div");p.className="cms-rich-text";p.innerHTML=cleanPressHtml(block.html||String(block.text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\\n/g,"<br>"));body.append(p);
   }
  }
  if(!body.children.length&&data.excerpt){const p=document.createElement("p");p.textContent=data.excerpt;body.append(p);}
