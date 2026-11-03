@@ -222,6 +222,30 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 .walkthrough-fifth .walkthrough-dots{margin:19px 0 15px}
 .privacy-version{font-size:8px;color:#a0a7ae;margin:15px 0 0}
 @media(max-width:540px){.walkthrough-fifth{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-fifth-canvas{min-height:730px;border-radius:20px;padding:22px 12px 24px}.privacy-card{margin:30px auto 13px;padding:21px 18px 19px}.privacy-card h1{margin:16px 0 18px}.privacy-points{gap:13px}.privacy-points li{font-size:10px;line-height:1.65}.consent-panel{padding:15px 14px;font-size:9px;gap:10px}}
+
+.gameplay{max-width:680px;margin:0 auto 55px}
+.game-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.game-back{border:0;border-radius:30px;background:#e8edf2;color:#526277;padding:10px 17px;font-size:10px;font-weight:900}
+.game-count{font-size:9px;color:#758396;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.game-progress{height:6px;border-radius:20px;background:#e2e7ed;overflow:hidden}
+.game-progress span{display:block;height:100%;width:0;background:#82bee1;border-radius:20px;transition:width .25s}
+.game-progress-label{display:flex;justify-content:space-between;margin:7px 1px 18px;color:#9aa6b3;font-size:9px;font-weight:800}
+.game-card{position:relative;width:min(520px,100%);min-height:440px;margin:0 auto;background:#fff;border:1px solid #e4e8ed;border-radius:22px;padding:0 29px 25px;box-shadow:0 15px 45px #172b4d12;overflow:hidden}
+.game-card-art{height:135px;margin:0 -29px 0;background:#e9e3fa;display:grid;place-items:center;color:#5942a3;font-size:66px}
+.game-category{position:relative;display:inline-flex;margin-top:-14px;z-index:1;border-radius:30px;background:#eee8ff;color:#6548a8;padding:8px 14px;font-size:9px;font-weight:900;letter-spacing:.08em}
+.game-card h2{font-size:clamp(22px,4vw,29px);line-height:1.18;letter-spacing:-.055em;color:#151b25;margin:20px 0 12px;max-width:410px}
+.game-card p{font-size:12px;line-height:1.8;color:#687587;margin:0 0 18px;max-width:410px}
+.game-learn{border:0;border-radius:6px;background:#edf0f3;color:#566474;padding:11px 15px;font-size:10px;font-weight:800}
+.game-watermark{position:absolute;right:8px;top:160px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:7px;line-height:1.4;letter-spacing:.04em;color:#aeb7c2;max-height:240px}
+.game-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,4vw,32px);max-width:430px;margin:27px auto 0}
+.game-choice{border:0;border-radius:50%;width:clamp(78px,17vw,104px);height:clamp(78px,17vw,104px);justify-self:center;color:white;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;box-shadow:0 6px 0 #172b4d1c;transition:transform .18s}
+.game-choice:hover{transform:translateY(-4px)}
+.game-choice .symbol{font-size:30px;line-height:1}.game-choice strong{font-size:8px;letter-spacing:.08em}
+.game-choice.reject{background:#e83d4b}.game-choice.improve{background:#438fca}.game-choice.keep{background:#35a36c}
+.game-response{max-width:520px;margin:18px auto 0;background:#fff;border:1px solid #e1e7ed;border-radius:13px;padding:16px}
+.game-response[hidden]{display:none}.game-response textarea{width:100%;min-height:78px;border:1px solid #d6dfe7;border-radius:7px;padding:10px;font:inherit;font-size:11px}
+.game-response .send-response{margin-top:10px}.game-hint{text-align:center;color:#9aa4b0;font-size:9px;margin:18px 0}
+@media(max-width:540px){.game-card{padding:0 21px 22px;min-height:410px}.game-card-art{margin:0 -21px;height:120px}.game-watermark{right:5px;font-size:6px}.game-card h2{font-size:22px}.game-card p{font-size:11px}.game-choice strong{font-size:7px}}
 </style>
 </head>
 <body>
@@ -362,10 +386,12 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 <div class="field"><label for="roblox-username">Roblox username</label><input id="roblox-username" name="roblox_username" type="text" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}" autocomplete="off" placeholder="YourRobloxName" required><small>3–20 letters, numbers or underscores. Your username is self-reported and is not verified.</small></div>
 </section>
 
-<section aria-labelledby="proposals-title">
-<div class="section-head"><div><div class="eyebrow" style="color:#6b9dbc">Have your say</div><h2 id="proposals-title">Ideas on the table</h2><p>These are starting points for discussion, not final campaign commitments. Choose how you feel about each idea, and leave a note when you want to improve or reject it.</p></div><div class="count" id="proposal-count">Loading proposals…</div></div>
-<div class="filters" id="filters" aria-label="Filter proposals by topic"></div>
-<div class="proposal-list" id="proposal-list" aria-live="polite"><div class="empty">Loading ideas…</div></div>
+<section class="gameplay" aria-labelledby="gameplay-title">
+ <div class="game-top"><button type="button" id="game-back" class="game-back">← Previous</button><span class="game-count" id="proposal-count">Loading proposals…</span></div>
+ <div class="game-progress" role="progressbar" aria-label="Proposal progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="game-progress-fill"></span></div>
+ <div class="game-progress-label"><span id="game-progress-current">0</span><span id="game-progress-total">0</span></div>
+ <div class="proposal-list" id="proposal-list" aria-live="polite"><div class="empty">Loading proposals…</div></div>
+ <div class="game-hint">Swipe left to reject · up to improve · right to keep</div>
 </section>
 
 <section class="contribute" id="your-idea" aria-labelledby="idea-title">
@@ -393,7 +419,7 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 const supabase=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
 const $=id=>document.getElementById(id);
-const state={proposals:[],category:"All topics",responded:new Set(),pending:null,consentAccepted:false};
+const state={proposals:[],category:"All topics",responded:new Set(),pending:null,consentAccepted:false,currentIndex:0};
 const CONSENT_VERSION="2026-11-03-v1";
 function consentPayload(){return {consent_given_at:new Date().toISOString(),consent_version:CONSENT_VERSION};}
 const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -405,13 +431,19 @@ function renderFilters(){
  $("filters").innerHTML=categories().map(c=>'<button type="button" class="filter '+(state.category===c?"active":"")+'" data-category="'+escapeHtml(c)+'">'+escapeHtml(c)+'</button>').join("");
 }
 function renderProposals(){
- const shown=state.proposals.filter(p=>state.category==="All topics"||p.category===state.category);
- $("proposal-count").textContent=state.proposals.length+" discussion "+(state.proposals.length===1?"idea":"ideas");
- if(!shown.length){$("proposal-list").innerHTML='<div class="empty">There are no proposals in this topic just yet. You can still share your own idea below.</div>';return;}
- $("proposal-list").innerHTML=shown.map((p,i)=>{
-  const done=state.responded.has(p.id);
-  return '<article class="proposal" data-proposal="'+p.id+'"><div class="proposal-top"><span class="category">'+escapeHtml(p.category)+'</span><span class="number">IDEA '+String(state.proposals.indexOf(p)+1).padStart(2,"0")+'</span></div><h3>'+escapeHtml(p.title)+'</h3><p>'+escapeHtml(p.description)+'</p><div class="actions"><button type="button" class="choice keep" data-choice="keep" '+(done?"disabled":"")+'>'+ (done?"Response sent":"Keep it")+'</button><button type="button" class="choice improve" data-choice="improve" '+(done?"disabled":"")+'>'+ (done?"✓":"Improve it")+'</button><button type="button" class="choice reject" data-choice="reject" '+(done?"disabled":"")+'>'+ (done?"✓":"Reject it")+'</button></div><div class="response-box" hidden><div class="field"><label>Want to explain? (optional)</label><textarea class="response-comment" maxlength="1200" placeholder="What would you change, or why does this not work for you?"></textarea></div><button type="button" class="send-response">Send response</button><div class="status response-status" role="status"></div></div></article>';
- }).join("");
+ const total=state.proposals.length;
+ if(!total){$("proposal-count").textContent="No proposals available";$("proposal-list").innerHTML='<div class="empty">There are no published proposals yet.</div>';return;}
+ state.currentIndex=Math.min(state.currentIndex,total-1);
+ const p=state.proposals[state.currentIndex],done=state.responded.has(p.id);
+ const icons={"Disability":"♿","Handicap":"♿","Education & opportunity":"🎓","Jobs & the economy":"💼","Public services":"🏛️","Youth voice":"🗣️","Community & wellbeing":"🤝","Transparency & accountability":"⚖️"};
+ $("proposal-count").textContent="Proposal "+(state.currentIndex+1)+" of "+total;
+ $("game-progress-current").textContent=String(state.currentIndex+1);
+ $("game-progress-total").textContent=String(total);
+ $("game-progress-fill").style.width=((state.currentIndex+1)/total*100)+"%";
+ document.querySelector(".game-progress").setAttribute("aria-valuemax",String(total));
+ document.querySelector(".game-progress").setAttribute("aria-valuenow",String(state.currentIndex+1));
+ $("proposal-list").innerHTML='<article class="game-card" id="active-game-card" data-proposal="'+escapeHtml(p.id)+'"><div class="game-card-art" aria-hidden="true">'+(icons[p.category]||"✦")+'</div><span class="game-category">'+escapeHtml(p.category)+'</span><h2 id="gameplay-title">'+escapeHtml(p.title)+'</h2><p>'+escapeHtml(p.description)+'</p><button type="button" class="game-learn" id="game-learn">? Learn more</button><span class="game-watermark">This proposal comes from public debate and does not represent a campaign commitment.</span></article><div class="game-choices" aria-label="Choose your position"><button type="button" class="game-choice reject" data-choice="reject" '+(done?"disabled":"")+'><span class="symbol">×</span><strong>REJECT</strong></button><button type="button" class="game-choice improve" data-choice="improve" '+(done?"disabled":"")+'><span class="symbol">🔧</span><strong>IMPROVE</strong></button><button type="button" class="game-choice keep" data-choice="keep" '+(done?"disabled":"")+'><span class="symbol">♥</span><strong>KEEP</strong></button></div><div class="game-response" id="game-response" hidden><label for="game-comment" class="field"><span>What would you change or why? (optional)</span><textarea id="game-comment" maxlength="1200" placeholder="Share a short explanation…"></textarea></label><button type="button" class="send-response" id="game-submit">Submit response</button><div class="status" id="game-response-status" role="status"></div></div>'+(done?'<p class="status">You have already responded to this proposal with this username.</p>':'');
+ $("game-learn").addEventListener("click",()=>{$("learn-modal-title").textContent=p.title;$("learn-modal-copy").textContent=p.description;$("learn-modal").hidden=false;});
 }
 async function loadProposals(){
  const {data,error}=await supabase.from("campaign_platform_proposals").select("id,category,title,description,sort_order,created_at").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});
@@ -426,15 +458,27 @@ $("proposal-list").addEventListener("click",async event=>{
  const choiceButton=event.target.closest("[data-choice]");
  if(choiceButton){
   if(!validUsername()){status("proposal-count","Enter a valid Roblox username above first.");$("roblox-username").focus();return;}
-  const card=choiceButton.closest("[data-proposal]");const proposalId=card.dataset.proposal;const choice=choiceButton.dataset.choice;
-  if(choice==="keep"){await sendResponse(card,proposalId,choice);return;}
+  const card=choiceButton.closest("[data-proposal]"),choice=choiceButton.dataset.choice;
+  if(choice==="keep"){await sendResponse(card,card.dataset.proposal,choice);return;}
   card.querySelectorAll("[data-choice]").forEach(b=>b.classList.toggle("selected",b===choiceButton));
-  const box=card.querySelector(".response-box");box.hidden=false;card.dataset.pendingChoice=choice;box.querySelector(".response-comment").focus();return;
+  $("game-response").hidden=false;$("game-response").dataset.choice=choice;$("game-comment").focus();return;
  }
- if(event.target.closest(".send-response")){
-  const card=event.target.closest("[data-proposal]");await sendResponse(card,card.dataset.proposal,card.dataset.pendingChoice||"improve");
+ if(event.target.closest("#game-submit")){
+  const card=event.target.closest("#active-game-card");await sendResponse(card,card.dataset.proposal,$("game-response").dataset.choice||"improve");
  }
 });
+$("game-back").addEventListener("click",()=>{
+ if(state.currentIndex>0){state.currentIndex--;renderProposals();return;}
+ $("participation").hidden=true;$("walkthrough-fifth").hidden=false;$("walkthrough-fifth").scrollIntoView({behavior:"smooth",block:"start"});
+});
+let swipeStart=null;
+$("proposal-list").addEventListener("touchstart",event=>{const t=event.changedTouches[0];swipeStart={x:t.clientX,y:t.clientY};},{passive:true});
+$("proposal-list").addEventListener("touchend",event=>{
+ if(!swipeStart)return;const t=event.changedTouches[0],dx=t.clientX-swipeStart.x,dy=t.clientY-swipeStart.y;swipeStart=null;
+ if(Math.max(Math.abs(dx),Math.abs(dy))<65)return;
+ const choice=Math.abs(dx)>Math.abs(dy)?(dx<0?"reject":"keep"):(dy<0?"improve":null);
+ if(choice){const btn=$("proposal-list").querySelector('[data-choice="'+choice+'"]');if(btn&&!btn.disabled)btn.click();}
+},{passive:true});
 async function sendResponse(card,proposalId,choice){
  if(!state.consentAccepted){status("consent-required","Please review the privacy notice and actively give consent before submitting.");$("walkthrough-fifth").hidden=false;$("walkthrough-fifth").scrollIntoView({behavior:"smooth",block:"start"});return;}
  if(!validUsername()){status("proposal-count","Enter a valid Roblox username above first.");$("roblox-username").focus();return;}
@@ -446,7 +490,7 @@ async function sendResponse(card,proposalId,choice){
   const target=card.querySelector(".response-status");if(target)target.textContent=message;else status("proposal-count",message);
   if(btn)btn.disabled=false;return;
  }
- state.responded.add(proposalId);renderProposals();
+ state.responded.add(proposalId);state.currentIndex=Math.min(state.currentIndex+1,state.proposals.length-1);renderProposals();
 
 }
 $("idea-form").addEventListener("submit",async event=>{
