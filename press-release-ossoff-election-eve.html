@@ -1299,8 +1299,9 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 </style>
 <style id="press-article-design">
 .press-article-hero{
-  min-height:390px;
-  padding:90px 24px;
+  min-height:calc(100svh - 78px);
+  box-sizing:border-box;
+  padding:150px 24px 110px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1317,7 +1318,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 .press-article-back{display:inline-flex;margin-top:38px;color:var(--navy);font-size:12px;font-weight:900;letter-spacing:.12em;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:7px;transition:color .2s,border-color .2s}
 .press-article-back:hover,.press-article-back:focus-visible{color:var(--red);border-color:var(--red)}
 @media(max-width:760px){
- .press-article-hero{min-height:330px;padding:70px 22px}
+ .press-article-hero{min-height:calc(100svh - 68px);padding:120px 22px 80px}
  .press-article-date{font-size:11px;margin-bottom:17px}
  .press-article-hero h1{font-size:clamp(28px,7vw,40px)}
  .press-article-content{padding:58px 23px 75px}
