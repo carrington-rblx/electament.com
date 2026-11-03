@@ -206,3 +206,15 @@ $("memberForm").addEventListener("submit",async e=>{
   }catch(err){notice("appMessage",err.message||"Could not create staff account.","error");}
   finally{setBusy(button,false,"Create account");}
 });
+
+$("passwordForm").addEventListener("submit",async e=>{
+  e.preventDefault();const password=$("newPassword").value;
+  const button=$("passwordForm").querySelector('button[type="submit"]');setBusy(button,true);
+  try{
+    const {error}=await supabase.auth.updateUser({password});
+    if(error)throw error;
+    $("newPassword").value="";
+    notice("appMessage","Your password has been changed.","good");
+  }catch(err){notice("appMessage",err.message||"Could not change password.","error");}
+  finally{setBusy(button,false,"Change password");}
+});
