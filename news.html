@@ -1097,44 +1097,82 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   margin:0 auto;
   padding:76px 35px 90px;
 }
-.news-interview{
+.press-release-list{
   display:flex;
   justify-content:center;
-  padding-top:82px;
+  padding-top:76px;
   padding-bottom:92px;
 }
-.interview-request{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-  border:1.5px solid var(--blue);
-  border-radius:30px;
-  padding:17px 31px;
+.press-release-card{
+  position:relative;
+  width:min(900px,100%);
+  min-height:230px;
+  padding:36px 88px 38px 46px;
+  background:#fff;
+  border:1px solid #e5eaf0;
+  border-left:8px solid var(--blue);
+  box-shadow:0 12px 32px rgba(23,43,77,.08);
   color:var(--navy);
-  background:transparent;
-  font-size:11px;
+  text-align:left;
+  transition:transform .28s cubic-bezier(.2,.75,.25,1),box-shadow .28s,border-left-color .28s;
+  transform:translateY(0) scale(1);
+}
+.press-release-card:hover{
+  border-left-color:var(--red);
+  transform:translateY(-5px) scale(1.012);
+  box-shadow:0 20px 42px rgba(23,43,77,.15);
+}
+.press-release-meta{
+  display:block;
+  margin:0 0 17px;
+  color:var(--blue);
+  font-size:10px;
   font-weight:900;
-  letter-spacing:.12em;
-  text-align:center;
-  transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease,box-shadow .22s ease;
+  letter-spacing:.17em;
+  line-height:1.4;
 }
-.interview-request:hover,
-.interview-request:focus-visible{
-  background:var(--red);
-  border-color:var(--red);
-  color:#fff;
-  transform:translateY(-3px);
-  box-shadow:0 9px 20px #ed3d4b44;
+.press-release-meta span{padding:0 5px;color:var(--blue)}
+.press-release-card h2{
+  max-width:720px;
+  margin:0 0 13px;
+  color:var(--navy);
+  font-size:clamp(20px,2.5vw,27px);
+  font-weight:800;
+  letter-spacing:-.045em;
+  line-height:1.2;
 }
-.interview-arrow{
-  font-size:17px;
+.press-release-card p{
+  max-width:710px;
+  margin:0;
+  color:var(--navy);
+  font-size:13px;
+  font-weight:500;
+  line-height:1.75;
+}
+.press-release-chevron{
+  position:absolute;
+  top:30px;
+  right:32px;
+  color:var(--navy);
+  font-size:28px;
+  font-weight:400;
   line-height:1;
-  transition:transform .22s ease;
+  transition:color .28s,transform .28s;
 }
-.interview-request:hover .interview-arrow,
-.interview-request:focus-visible .interview-arrow{
-  transform:translateX(3px);
+.press-release-card:hover .press-release-chevron{
+  color:var(--red);
+  transform:translateX(4px);
+}
+@media(max-width:760px){
+  .press-release-list{padding:55px 22px 65px}
+  .press-release-card{min-height:0;padding:29px 56px 31px 26px;border-left-width:6px}
+  .press-release-meta{font-size:9px;letter-spacing:.12em;margin-bottom:14px}
+  .press-release-card h2{font-size:21px}
+  .press-release-card p{font-size:12px}
+  .press-release-chevron{top:25px;right:20px;font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .press-release-card,.press-release-chevron{transition:none}
 }
 .news-content-heading{
   display:flex;
@@ -1224,11 +1262,13 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
       <span class="news-kicker">THE LATEST</span>
       <h1 id="news-title">News and Press</h1>
     </div>
-  </section>  <section class="news-content news-interview" aria-label="Interview requests">
-    <a class="interview-request" href="mailto:campaign@electament.com?subject=Interview%20Request">
-      <span>SUBMIT AN INTERVIEW REQUEST</span>
-      <span class="interview-arrow" aria-hidden="true">→</span>
-    </a>
+  </section>  <section class="news-content press-release-list" aria-label="Press releases">
+    <article class="press-release-card">
+      <span class="press-release-meta">PRESS RELEASE <span aria-hidden="true">|</span> NOVEMBER 2, 2026</span>
+      <h2>WATCH: On Election Day Eve, Ossoff Campaigns With Sen. Rev. Warnock, Rep. Johnson, and Downballot Candidates</h2>
+      <p>Sen. Ossoff in South DeKalb: “There are 29 hours until the polls close, and what I want you to know and take courage in knowing...</p>
+      <span class="press-release-chevron" aria-hidden="true">&gt;</span>
+    </article>
   </section>
 </main>
 <footer><a class="footer-brand" href="./" aria-label="AmentAmour for President"><img class="footer-logo-art" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a><div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html" aria-current="page">News</a><a href="index.html#shop">Shop</a><a href="index.html#volunteer">Volunteer</a><a href="index.html#donate">Donate</a></div><div class="footer-social"><a class="footer-social-link" href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19.7 5.3A18.5 18.5 0 0 0 15.2 4l-.6 1.2a17 17 0 0 0-5.2 0L8.8 4a18.5 18.5 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.6a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.8 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a><a class="footer-social-link" href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/REPUBLIC%20LOGO.png" alt="RepublicRx"></a></div><div class="footer-legal">Paid for by AmentAmour for President. Campaign committee disclaimer and registration details must be reviewed and completed by the campaign's compliance team before publication. <a href="mailto:privacy@electament.com">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div><div class="copyright">© <span id="year"></span> AmentAmour for President. All rights reserved.</div></footer>
