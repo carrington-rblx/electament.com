@@ -429,7 +429,7 @@ footer{background:var(--navy);color:#fff;border-top:0}
 .result-stat.reject{--ring-color:var(--red)}.result-stat.improve{--ring-color:#75b5dc}.result-stat.keep{--ring-color:#258b5b}
 .result-share{background:var(--red);color:#fff;border-radius:5px;box-shadow:0 5px 0 #b92b37}
 .result-secondary button{border:1px solid #dce3e9;border-radius:5px;color:var(--navy)}
-.result-answer{border-radius:5px;border-color:#e1e7ed}
+.result-answer{border-radius:5px;border-color:#e1e7ed}.result-answer span{display:flex;flex-direction:column;gap:5px}.result-answer small{font-size:9px;line-height:1.6;color:#68778a;font-weight:500}
 @media(max-width:760px){header{border-radius:0}.contribute{border-radius:6px}}
 
 
@@ -674,7 +674,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 const supabase=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
 const $=id=>document.getElementById(id);
 const state={proposals:[],category:"All topics",consentAccepted:false,currentIndex:0,answers:[]};
-const CONSENT_VERSION="2026-11-03-v1";
+const CONSENT_VERSION="2026-11-03-v2";
 function consentPayload(){return {consent_given_at:new Date().toISOString(),consent_version:CONSENT_VERSION};}
 const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function status(id,message){$(id).textContent=message;}
@@ -798,7 +798,7 @@ function showGameResults(){
   $("ring-"+choice).style.setProperty("--pct",pct+"%");
  });
  $("participation").hidden=true;$("game-results").hidden=false;
- $("result-answer-list").innerHTML=state.answers.map(a=>'<div class="result-answer"><span>'+escapeHtml(a.title)+'</span><strong class="answer-'+a.choice+'">'+({reject:"Reject",improve:"Improve",keep:"Keep"}[a.choice])+'</strong></div>').join("");
+ $("result-answer-list").innerHTML=state.answers.map(a=>'<div class="result-answer"><span>'+escapeHtml(a.title)+(a.choice==="improve"&&a.improvement?'<small>'+escapeHtml(a.improvement)+'</small>':"")+'</span><strong class="answer-'+a.choice+'">'+({reject:"Reject",improve:"Improve",keep:"Keep"}[a.choice])+'</strong></div>').join("");
  $("game-results").scrollIntoView({behavior:"smooth",block:"start"});
 }
 $("result-trivia").addEventListener("click",()=>{
