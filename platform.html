@@ -149,6 +149,24 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 .walkthrough-next span{margin-left:8px;font-size:18px}
 .walkthrough-back{position:absolute;bottom:34px;left:34px;border:0;background:none;color:#7d8997;font-size:9px;font-weight:800}
 @media(max-width:540px){.walkthrough{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-canvas{min-height:730px;border-radius:20px;padding:24px 12px 25px}.walkthrough-game{height:300px;gap:4px}.sample-policy{height:270px;padding:18px 17px}.sample-policy h2{font-size:21px}.swipe-arrow{font-size:32px}.demo-choice{width:72px;height:72px}.walkthrough-rule{margin:8px auto 18px}.walkthrough-back{left:18px;bottom:30px}}
+
+.walkthrough-third[hidden]{display:none}
+.walkthrough-third{padding:clamp(14px,4vw,40px) 16px 48px;background:#edf0f2;min-height:calc(100vh - 70px);place-items:center}
+.walkthrough-third:not([hidden]){display:grid}
+.walkthrough-third-canvas{width:min(760px,100%);min-height:760px;background:#fbfbf8;border-radius:26px;padding:clamp(24px,4vw,42px) 22px 28px;display:flex;align-items:center;flex-direction:column;box-shadow:0 18px 65px #172b4d12;position:relative}
+.choices-heading{text-align:center;margin:44px 0 32px}
+.choices-heading h1{font-size:clamp(35px,6vw,54px);line-height:1;letter-spacing:-.07em;color:#171d26;margin:0 0 12px;font-weight:900}
+.choices-heading h1 span{color:#82bee1}
+.choices-heading p{font-size:13px;color:#667383;margin:0}
+.choice-explainers{width:min(510px,100%);display:flex;flex-direction:column;gap:14px}
+.choice-explainer{display:flex;align-items:center;gap:17px;background:#fff;border:1px solid #eceeec;border-radius:17px;padding:19px 20px;min-height:112px;box-shadow:0 7px 22px #172b4d09}
+.choice-icon{width:53px;height:53px;flex:0 0 53px;border-radius:50%;display:grid;place-items:center;color:white;font-size:31px;font-weight:800}
+.choice-icon-reject{background:#e83d4b}.choice-icon-improve{background:#438fca;font-size:22px}.choice-icon-keep{background:#35a36c}
+.choice-explainer h2{font-size:19px;letter-spacing:-.04em;margin:0 0 5px;color:#1c2632}
+.choice-explainer p{font-size:11px;line-height:1.6;color:#667383;margin:0}
+.choice-explainer p span{display:block;margin-top:4px;font-size:9px;font-weight:900;letter-spacing:.04em;color:#8994a0}
+.walkthrough-third .walkthrough-dots{margin:30px 0 20px}
+@media(max-width:540px){.walkthrough-third{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-third-canvas{min-height:730px;border-radius:20px;padding:24px 14px 25px}.choices-heading{margin:42px 0 28px}.choice-explainer{padding:16px;gap:13px;min-height:104px}.choice-icon{width:47px;height:47px;flex-basis:47px}.choice-explainer h2{font-size:17px}.choice-explainer p{font-size:10px}}
 </style>
 </head>
 <body>
@@ -203,6 +221,33 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
   <div class="walkthrough-dots" aria-label="Walkthrough step 2 of 5"><span></span><span class="active"></span><span></span><span></span><span></span></div>
   <button type="button" class="walkthrough-next" id="walkthrough-next">Next <span>→</span></button>
   <button type="button" class="walkthrough-back" id="walkthrough-back">← Back</button>
+ </div>
+</section>
+
+<section class="walkthrough-third" id="walkthrough-third" hidden>
+ <div class="walkthrough-third-canvas">
+  <div class="walkthrough-top"><span class="walkthrough-kicker">HOW IT WORKS</span><span class="walkthrough-step">03 <i>/ 05</i></span></div>
+  <header class="choices-heading">
+   <h1>3 choices for the <span>future.</span></h1>
+   <p>For every proposal, one choice. Yours.</p>
+  </header>
+  <div class="choice-explainers">
+   <article class="choice-explainer">
+    <span class="choice-icon choice-icon-reject">×</span>
+    <div><h2>Reject</h2><p>This measure doesn't work. Let's start again. <span>← Swipe left</span></p></div>
+   </article>
+   <article class="choice-explainer">
+    <span class="choice-icon choice-icon-improve">🔧</span>
+    <div><h2>Improve</h2><p>Suggest a better alternative to make this idea work. <span>● Central button</span></p></div>
+   </article>
+   <article class="choice-explainer">
+    <span class="choice-icon choice-icon-keep">♥</span>
+    <div><h2>Keep</h2><p>This measure works. Let's keep it. <span>→ Swipe right</span></p></div>
+   </article>
+  </div>
+  <div class="walkthrough-dots" aria-label="Walkthrough step 3 of 5"><span></span><span></span><span class="active"></span><span></span><span></span></div>
+  <button type="button" class="walkthrough-next" id="walkthrough-third-next">Next <span>→</span></button>
+  <button type="button" class="walkthrough-back" id="walkthrough-third-back">← Back</button>
  </div>
 </section>
 <div class="learn-modal" id="learn-modal" hidden role="dialog" aria-modal="true" aria-labelledby="learn-modal-title"><div class="learn-modal-card"><button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">A starting point</div><h2 id="learn-modal-title">An idea to explore</h2><p id="learn-modal-copy"></p><button type="button" class="modal-done" id="modal-done">Got it</button></div></div>
@@ -334,7 +379,9 @@ document.querySelectorAll("[data-demo]").forEach(b=>b.addEventListener("click",(
 $("demo-reject").addEventListener("click",()=>demoChoice("reject"));
 $("demo-keep").addEventListener("click",()=>demoChoice("keep"));
 $("walkthrough-back").addEventListener("click",()=>{$("walkthrough").hidden=true;$("landing").hidden=false;$("landing").scrollIntoView({behavior:"smooth",block:"start"});});
-$("walkthrough-next").addEventListener("click",()=>{$("walkthrough").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+$("walkthrough-next").addEventListener("click",()=>{$("walkthrough").hidden=true;$("walkthrough-third").hidden=false;$("walkthrough-third").scrollIntoView({behavior:"smooth",block:"start"});});
+$("walkthrough-third-back").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("walkthrough").hidden=false;$("walkthrough").scrollIntoView({behavior:"smooth",block:"start"});});
+$("walkthrough-third-next").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
 
 showFeatured(0);
 
