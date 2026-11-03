@@ -159,6 +159,13 @@ body{background:var(--paper)!important}
       <div class="empty"><strong>Welcome to Campaign Room</strong>Select an article or create a new press release.</div>
     </section>
   </div>
+  <section id="passwordPanel" class="panel members">
+    <div class="side-head"><strong>Account security</strong></div>
+    <form id="passwordForm" class="grid2">
+      <div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" minlength="12" autocomplete="new-password" required><span class="help">Use at least 12 characters. Change the temporary password when you first sign in.</span></div>
+      <div style="align-self:end"><button class="btn blue" type="submit">Change password</button></div>
+    </form>
+  </section>
   <section id="memberPanel" class="panel members hidden">
     <div class="side-head"><strong>Staff access</strong><span class="status approved">Administrator</span></div>
     <p class="help">Create staff accounts with usernames and temporary passwords. Staff do not need email addresses. Share login details with each person privately. Access can be suspended at any time.</p>
