@@ -713,8 +713,8 @@ $("proposal-list").addEventListener("click",async event=>{
   return;
  }
  if(event.target.closest("#game-submit")){
-  const card=event.target.closest("#active-game-card");
-  const improvement=card.querySelector(".response-comment")?.value.trim()||"";
+  const card=$("active-game-card");
+  const improvement=$("game-comment").value.trim();
   if(improvement.length<10){status("game-response-status","Please write an improvement of at least 10 characters before submitting.");$("game-comment").focus();return;}
   await sendResponse(card,card.dataset.proposal,"improve",improvement);
  }
@@ -734,7 +734,7 @@ $("proposal-list").addEventListener("touchend",event=>{
 async function sendResponse(card,proposalId,choice,improvement=""){
  if(!state.consentAccepted){status("consent-required","Please review the privacy notice and actively give consent before submitting.");$("walkthrough-fifth").hidden=false;$("walkthrough-fifth").scrollIntoView({behavior:"smooth",block:"start"});return;}
  if(choice==="improve"&&improvement.trim().length<10){status("game-response-status","Please write an improvement of at least 10 characters.");return;}
- const btn=card.querySelector(".send-response");if(btn)btn.disabled=true;
+ const btn=choice==="improve"?$("game-submit"):card.querySelector('[data-choice="'+choice+'"]');if(btn)btn.disabled=true;
  const {error}=await supabase.from("campaign_platform_responses").insert({proposal_id:proposalId,response:choice,comment:improvement.trim(),...consentPayload()});
  if(error){status("game-response-status","We couldn't save that response. Please try again.");if(btn)btn.disabled=false;return;}
  state.answers.push({proposalId,title:state.proposals.find(p=>p.id===proposalId)?.title||"Proposal",choice,improvement:improvement.trim()});
