@@ -186,7 +186,7 @@ async function reviewArticle(status){
   try{
     let approvedId=state.current.id;
     if(status==="published") {
-      const {data,error}=await supabase.rpc("admin_publish_article",{p_article_id:state.current.id});
+      const {data,error}=await supabase.rpc("admin_publish_article",{p_article_id:state.current.id,p_review_note:note});
       if(error)throw error;
       approvedId=data;
     } else {
