@@ -1462,11 +1462,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   <figure class="viewer-figure">
     <button class="viewer-close" type="button" aria-label="Close gallery">×</button>
     <img id="viewer-image" src="" alt="">
-    <figcaption>
-      <span id="viewer-title">Campaign Event</span>
-      <span id="viewer-date">October 23, 2026</span>
-      <span id="viewer-count">1 / 1</span>
-    </figcaption>
+    <div class="viewer-indicators" id="viewer-indicators" role="img" aria-label="Photo 1 of 1"></div>
   </figure>
 </div>
 
@@ -1574,7 +1570,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   align-items:center;
   justify-content:center;
   padding:28px;
-  background:transparent;
+  background:rgba(12,22,39,.38);
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -1591,7 +1587,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:13px;
   pointer-events:auto;
 }
 .viewer-figure img{
@@ -1602,22 +1598,26 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   height:auto;
   object-fit:contain;
   cursor:pointer;
-  box-shadow:0 8px 32px rgba(23,43,77,.18);
+  box-shadow:0 8px 32px rgba(0,0,0,.16);
 }
-.viewer-figure figcaption{
+.viewer-indicators{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  color:#172b4d;
-  font:700 11px 'Montserrat',sans-serif;
-  letter-spacing:.04em;
-  text-align:center;
+  gap:7px;
+  min-height:12px;
 }
-#viewer-title{font-size:13px;font-weight:800}
-#viewer-date{color:#667080}
-#viewer-count{color:#667080}
+.viewer-indicator{
+  display:block;
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:#e9a0a6;
+}
+.viewer-indicator.is-active{
+  width:24px;
+  background:#e83d4b;
+}
 .viewer-close{
   position:absolute;
   z-index:2;
@@ -1629,20 +1629,19 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   place-items:center;
   border:0;
   border-radius:50%;
-  background:rgba(250,249,246,.94);
+  background:rgba(250,249,246,.96);
   color:#172b4d;
   box-shadow:0 2px 12px rgba(23,43,77,.18);
   cursor:pointer;
   font:300 30px/1 Arial,sans-serif;
   transition:background .2s ease,transform .2s ease;
 }
-.viewer-close:hover{background:#82bee1;transform:scale(1.05)}
+.viewer-close:hover{background:#e83d4b;color:#fff;transform:scale(1.05)}
 @media(max-width:700px){
   .event-viewer{padding:16px}
   .viewer-figure{width:100%}
-  .viewer-figure img{max-width:100%;max-height:calc(100svh - 105px)}
+  .viewer-figure img{max-width:100%;max-height:calc(100svh - 85px)}
   .viewer-close{top:8px;right:8px;width:40px;height:40px}
-  .viewer-figure figcaption{gap:7px;font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){
   .event-cover,.event-card-caption,.event-card-count,.event-card-shade,.event-viewer{transition:none}
@@ -1655,36 +1654,49 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
     "https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png"
   ];
   const title="Campaign Event";
-  const date="October 23, 2026";
   const viewer=document.getElementById("event-viewer");
   const image=document.getElementById("viewer-image");
-  const titleNode=document.getElementById("viewer-title");
-  const dateNode=document.getElementById("viewer-date");
-  const countNode=document.getElementById("viewer-count");
+  const indicators=document.getElementById("viewer-indicators");
   const closeButton=document.querySelector(".viewer-close");
   let current=0;
   let lastTrigger=null;
+  let savedScrollY=0;
 
   function showPhoto(index){
     current=(index+photos.length)%photos.length;
     image.src=photos[current];
     image.alt=title+" — photo "+(current+1);
-    titleNode.textContent=title;
-    dateNode.textContent=date;
-    countNode.textContent=(current+1)+" / "+photos.length;
+    indicators.replaceChildren();
+    photos.forEach((photo,i)=>{
+      const pill=document.createElement("span");
+      pill.className="viewer-indicator"+(i===current?" is-active":"");
+      pill.setAttribute("aria-hidden","true");
+      indicators.appendChild(pill);
+    });
+    indicators.setAttribute("aria-label","Photo "+(current+1)+" of "+photos.length);
   }
   function openViewer(trigger){
     lastTrigger=trigger;
+    savedScrollY=window.scrollY;
     showPhoto(0);
+    document.body.style.position="fixed";
+    document.body.style.top="-"+savedScrollY+"px";
+    document.body.style.left="0";
+    document.body.style.right="0";
+    document.body.style.width="100%";
     viewer.classList.add("is-open");
     viewer.setAttribute("aria-hidden","false");
-    document.body.style.overflow="hidden";
     closeButton.focus();
   }
   function closeViewer(){
     viewer.classList.remove("is-open");
     viewer.setAttribute("aria-hidden","true");
-    document.body.style.overflow="";
+    document.body.style.position="";
+    document.body.style.top="";
+    document.body.style.left="";
+    document.body.style.right="";
+    document.body.style.width="";
+    window.scrollTo(0,savedScrollY);
     if(lastTrigger)lastTrigger.focus();
   }
   document.querySelectorAll(".event-card").forEach(card=>{
