@@ -26,7 +26,9 @@ function sanitizeRichHtml(input=""){
     const out=document.createElement(tag);
     if(tag==="span"){
       const raw=node.getAttribute("color")||node.style.color||"";
-      const color=Object.values(PRESS_COLORS).find(v=>v.toLowerCase()===raw.toLowerCase());
+      const normalized=raw.toLowerCase().replace(/\\s+/g,"");
+      const rgbMap={"rgb(232,61,75)":"#e83d4b","rgb(23,43,77)":"#172b4d","rgb(130,190,225)":"#82bee1","rgb(29,45,73)":"#1d2d49"};
+      const color=Object.values(PRESS_COLORS).find(v=>v.toLowerCase()===normalized)||rgbMap[normalized];
       if(color)out.style.color=color;
     }
     [...node.childNodes].forEach(child=>out.append(clean(child)));
