@@ -1392,7 +1392,7 @@ function cleanPressHtml(input=""){
   if(node.nodeType!==Node.ELEMENT_NODE)return document.createDocumentFragment();
   if(!allowed.has(node.tagName)){const f=document.createDocumentFragment();[...node.childNodes].forEach(c=>f.append(clean(c)));return f;}
   const tag=node.tagName==="FONT"?"SPAN":node.tagName.toLowerCase(),out=document.createElement(tag);
-  if(tag==="span"){const raw=node.getAttribute("color")||node.style.color||"",normalized=raw.toLowerCase().replace(/\\s+/g,""),rgbMap={"rgb(232,61,75)":"#e83d4b","rgb(23,43,77)":"#172b4d","rgb(130,190,225)":"#82bee1","rgb(29,45,73)":"#1d2d49"},color=allowedPressColors.find(c=>c.toLowerCase()===normalized)||rgbMap[normalized];if(color)out.style.color=color;}
+  if(tag==="span"){const raw=node.getAttribute("color")||node.style.color||"",normalized=raw.toLowerCase().replace(/\s+/g,""),rgbMap={"rgb(232,61,75)":"#e83d4b","rgb(23,43,77)":"#172b4d","rgb(130,190,225)":"#82bee1","rgb(29,45,73)":"#1d2d49"},color=allowedPressColors.find(c=>c.toLowerCase()===normalized)||rgbMap[normalized];if(color)out.style.color=color;}
   [...node.childNodes].forEach(c=>out.append(clean(c)));return out;
  }
  const root=document.createElement("div");[...parsed.body.childNodes].forEach(n=>root.append(clean(n)));return root.innerHTML;
@@ -1418,7 +1418,7 @@ try{
    if(block.caption){const cap=document.createElement("figcaption");cap.textContent=block.caption;figure.append(cap);}
    body.append(figure);
   }else if(block.type==="text"&&block.text){
-   const p=document.createElement("div");p.className="cms-rich-text";p.innerHTML=cleanPressHtml(block.html||String(block.text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\\n/g,"<br>"));body.append(p);
+   const p=document.createElement("div");p.className="cms-rich-text";p.innerHTML=cleanPressHtml(block.html||String(block.text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n/g,"<br>"));body.append(p);
   }
  }
  if(!body.children.length&&data.excerpt){const p=document.createElement("p");p.textContent=data.excerpt;body.append(p);}
