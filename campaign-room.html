@@ -168,10 +168,10 @@ body{background:var(--paper)!important}
     </form>
   </section>
   <section id="memberPanel" class="panel members hidden">
-    <div class="side-head"><strong>Staff access</strong><span class="status approved">Administrator</span></div>
-    <p class="help">Create staff accounts with usernames and temporary passwords. Staff do not need email addresses. Share login details with each person privately. Access can be suspended at any time.</p>
+    <div class="side-head"><strong>Account management</strong><span class="status approved">Administrator only</span></div>
+    <p class="help">Only an existing administrator can create accounts. There is no public sign-up. You can create both staff members and additional administrators here; assign each person a username and temporary password. They do not need email addresses. Share login details privately, and suspend access whenever needed.</p>
     <form id="memberForm" class="grid2">
-      <div class="field"><label for="memberUsername">Staff username</label><input id="memberUsername" type="text" minlength="3" maxlength="24" pattern="[a-zA-Z0-9_]{3,24}" autocomplete="off" placeholder="e.g. campaign_writer" required></div>
+      <div class="field"><label for="memberUsername">Account username</label><input id="memberUsername" type="text" minlength="3" maxlength="24" pattern="[a-zA-Z0-9_]{3,24}" autocomplete="off" placeholder="e.g. campaign_writer" required></div>
       <div class="field"><label for="memberPassword">Temporary password</label><input id="memberPassword" type="password" minlength="12" autocomplete="new-password" required><span class="help">At least 12 characters.</span></div>
       <div class="field"><label for="memberRole">Role</label><select id="memberRole"><option value="staff">Staff</option><option value="admin">Administrator</option></select></div>
       <div style="grid-column:1/-1"><button class="btn" type="submit">Create account</button></div>
