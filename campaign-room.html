@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#172b4d"><meta name="robots" content="noindex,nofollow">
+<title>Campaign Room | AmentAmour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#172b4d;--blue:#75b5dc;--red:#ed3d4b;--paper:#f8f8f5;--ink:#1d2d49;--muted:#6b7687;--line:#dce2e8;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:#f1f4f6;color:var(--ink);font-family:Montserrat,Arial,sans-serif;font-size:14px}button,input,textarea,select{font:inherit}button{cursor:pointer}
+.top{background:var(--navy);color:white;padding:20px clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:4px solid var(--blue)}
+.brand{display:flex;align-items:center;gap:14px}.brand-mark{width:38px;height:38px;border:2px solid var(--blue);display:grid;place-items:center;font-weight:900;color:white;transform:rotate(-4deg)}.brand small{display:block;color:#a9c9e0;font-size:9px;letter-spacing:.2em;font-weight:900;margin-bottom:4px}.brand strong{font-size:14px;letter-spacing:.04em}
+.top-actions{display:flex;align-items:center;gap:16px}.top a{color:white;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.top button{border:1px solid #ffffff55;background:transparent;color:white;border-radius:3px;padding:10px 14px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.shell{width:min(1240px,calc(100% - 40px));margin:38px auto 80px}.intro{margin-bottom:26px}.eyebrow{font-size:10px;font-weight:900;letter-spacing:.22em;color:#547e9c;text-transform:uppercase}.intro h1{font-size:clamp(28px,4vw,42px);letter-spacing:-.055em;color:var(--navy);margin:9px 0}.intro p{color:var(--muted);line-height:1.7;max-width:700px;margin:0}
+.panel{background:white;border:1px solid var(--line);box-shadow:0 10px 35px #142b4910;border-radius:6px}.auth-wrap{max-width:490px;margin:70px auto}.auth-card{padding:34px}.auth-card h2{font-size:24px;color:var(--navy);letter-spacing:-.04em;margin:8px 0}.auth-card p{color:var(--muted);line-height:1.7}.field{display:grid;gap:7px;margin:16px 0}.field label{font-size:10px;font-weight:900;letter-spacing:.12em;color:#64758a;text-transform:uppercase}.field input,.field textarea,.field select{width:100%;border:1px solid #cfd7df;border-radius:3px;padding:13px 14px;color:var(--navy);background:#fff;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:#4e94c1;box-shadow:0 0 0 3px #75b5dc25}.field textarea{min-height:130px;resize:vertical;line-height:1.65}
+.btn{border:0;border-radius:3px;padding:13px 18px;background:var(--navy);color:white;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.btn:hover{background:#25446f}.btn.blue{background:#dceefa;color:var(--navy)}.btn.red{background:var(--red)}.btn.ghost{background:white;border:1px solid #cfd7df;color:var(--navy)}.btn:disabled{opacity:.45;cursor:not-allowed}.auth-toggle{background:none;border:0;color:#28658e;font-weight:800;padding:0;text-decoration:underline}
+.notice{padding:12px 14px;border-radius:3px;background:#edf5fa;color:#345b78;font-size:12px;line-height:1.6;margin:14px 0}.notice.error{background:#fff0f0;color:#9a3038}.notice.good{background:#edf8f1;color:#276541}.hidden{display:none!important}
+.workspace{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px;align-items:start}.sidebar{padding:20px;position:sticky;top:20px}.side-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.side-head strong{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}.article-list{display:grid;gap:8px}.article-item{padding:13px;border:1px solid var(--line);background:#fff;text-align:left;border-radius:3px;width:100%;color:var(--ink)}.article-item.active{border-color:#75b5dc;background:#f1f8fc}.article-item strong{display:block;font-size:12px;line-height:1.45;margin-bottom:7px}.article-item small{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#688096}.status{display:inline-block;border-radius:20px;padding:4px 8px;background:#eef1f4;color:#5c6878;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.status.published,.status.approved{background:#eaf6ee;color:#287043}.status.submitted{background:#fff5e5;color:#8a5b13}.status.rejected{background:#fff0f0;color:#a33942}
+.editor{padding:clamp(20px,3vw,34px)}.editor-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}.editor-head h2{font-size:22px;letter-spacing:-.04em;color:var(--navy);margin:6px 0}.editor-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.block-head{display:flex;justify-content:space-between;align-items:center;margin:24px 0 12px;border-top:1px solid var(--line);padding-top:18px}.block-head strong{font-size:11px;letter-spacing:.13em;text-transform:uppercase}.block-tools{display:flex;gap:7px;flex-wrap:wrap}.block{border:1px solid var(--line);border-radius:4px;padding:15px;margin:10px 0;background:#fbfcfd}.block-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.block-top b{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#5f748b}.block textarea{min-height:150px}.block img{max-width:180px;max-height:120px;object-fit:cover;border-radius:3px;display:block;margin:10px 0}.block-controls{display:flex;gap:6px}.icon-btn{border:1px solid var(--line);background:#fff;color:#52677c;border-radius:3px;padding:6px 9px;font-size:11px}.block .grid2{gap:10px}.help{font-size:11px;color:#798697;line-height:1.6}.review-box{background:#f4f7f9;border:1px solid var(--line);padding:16px;border-radius:4px;margin-top:22px}.review-box h3{font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 10px}.members{margin-top:22px;padding:22px}.member-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid var(--line)}.member-row strong{font-size:12px}.member-row small{display:block;color:var(--muted);margin-top:4px}
+.empty{padding:50px 25px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--navy);font-size:18px;margin-bottom:8px}.footer{text-align:center;color:#8793a0;font-size:10px;padding:28px}
+@media(max-width:850px){.workspace{grid-template-columns:1fr}.sidebar{position:static}.article-list{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-head{display:block}.editor-actions{justify-content:flex-start;margin-top:14px}}
+@media(max-width:560px){.top{padding:15px 18px}.top-actions>a{display:none}.shell{width:calc(100% - 24px);margin:24px auto 55px}.auth-card,.editor{padding:20px}.grid2{grid-template-columns:1fr}.article-list{grid-template-columns:1fr}.editor-actions .btn{flex:1}.member-row{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="brand-mark">A</div><div><small>AMENTAMOUR FOR PRESIDENT</small><strong>CAMPAIGN ROOM</strong></div></div>
+  <div class="top-actions"><a href="news.html">Public Newsroom ↗</a><button id="signout" class="hidden">Sign out</button></div>
+</header>
+<main id="authView" class="shell auth-wrap">
+  <section class="panel auth-card">
+    <span class="eyebrow">Private staff workspace</span><h2 id="authTitle">Sign in to Campaign Room</h2>
+    <p>Authorized campaign staff can draft press releases, upload media, and manage editorial review here.</p>
+    <div id="authMessage" class="notice hidden" role="status"></div>
+    <form id="authForm">
+      <div class="field"><label for="authEmail">Campaign email</label><input id="authEmail" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="authPassword">Password</label><input id="authPassword" type="password" minlength="8" autocomplete="current-password" required></div>
+      <button class="btn" id="authSubmit" type="submit">Sign in</button>
+    </form>
+    <p style="font-size:12px;margin-top:20px"><span id="authSwitchText">New staff account?</span> <button id="authSwitch" class="auth-toggle" type="button">Create an account</button></p>
+    <p class="help">Creating an account does not automatically grant staff access. The campaign administrator must approve staff membership. The designated owner email receives administrator access after email verification.</p>
+  </section>
+</main>
+<main id="appView" class="shell hidden">
+  <div class="intro"><span class="eyebrow">Editorial operations</span><h1>Campaign newsroom</h1><p id="welcomeText">Manage press releases, review submissions, and prepare approved updates for publication.</p></div>
+  <div id="appMessage" class="notice hidden" role="status"></div>
+  <div class="workspace">
+    <aside class="panel sidebar">
+      <div class="side-head"><strong>Articles</strong><button class="btn blue" id="newArticle">+ New</button></div>
+      <div id="articleList" class="article-list"><div class="empty">Loading articles…</div></div>
+      <p class="help" style="margin-top:16px">Staff see their own work. Administrators can review and edit all submissions.</p>
+    </aside>
+    <section class="panel editor" id="editorPanel">
+      <div class="empty"><strong>Welcome to Campaign Room</strong>Select an article or create a new press release.</div>
+    </section>
+  </div>
+  <section id="memberPanel" class="panel members hidden">
+    <div class="side-head"><strong>Staff access</strong><span class="status approved">Administrator</span></div>
+    <p class="help">Add an account after the staff member has registered and verified their email. Access can be suspended at any time.</p>
+    <form id="memberForm" class="grid2">
+      <div class="field"><label for="memberEmail">Registered account email</label><input id="memberEmail" type="email" required></div>
+      <div class="field"><label for="memberRole">Role</label><select id="memberRole"><option value="staff">Staff</option><option value="admin">Administrator</option></select></div>
+      <div style="grid-column:1/-1"><button class="btn" type="submit">Grant access</button></div>
+    </form>
+    <div id="memberList"></div>
+  </section>
+</main>
+<footer class="footer">Private campaign workspace · Access is governed by Supabase authentication and database row-level security.</footer>
+<script type="module" src="campaign-room.js"></script>
+</body></html>
