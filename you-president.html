@@ -385,7 +385,339 @@ header:not(.header-scrolled){top:58px!important}
 .footer-social a.footer-social-link img{display:block!important;width:20px!important;height:20px!important;object-fit:contain!important;flex:0 0 auto!important}
 a.announcement{background-color:#db2a37!important}
 a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!important}
-</style></head>
+</style>
+<style>
+/* FINAL HOMEPAGE HEADER CASCADE — copied in source order */
+.announcement{height:35px;background:var(--blue);display:flex;align-items:center;justify-content:center;padding:0 22px;color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.02em}
+.announcement a{margin-left:18px;background:var(--red);color:#fff;padding:8px 23px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+header{height:58px;background:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,78px);position:relative;z-index:10;border-bottom:1px solid #e7e8e8}
+.brand{display:flex;align-items:center;gap:9px;font-weight:900;font-size:12px;letter-spacing:-.04em}
+.brand-mark{width:31px;height:27px;display:block}
+.brand small{display:block;font-size:7px;letter-spacing:.23em;margin-top:3px;color:var(--navy)}
+nav{display:flex;align-items:center;gap:23px;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+nav a:hover{color:var(--red)}
+.nav-social{display:flex;gap:12px;align-items:center;font-size:12px}
+.nav-social a:not(.nav-donate),.footer-social a{width:25px;height:25px;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:50%;font:700 10px var(--sans);letter-spacing:0;transition:transform .25s,background .25s,color .25s}
+.nav-social a:not(.nav-donate):hover,.footer-social a:hover{transform:translateY(-4px);background:var(--blue);color:var(--navy)}
+.nav-donate{transition:transform .25s,box-shadow .25s;background:var(--red);color:#fff;padding:10px 22px;border-radius:25px;font-size:9px;font-weight:900;letter-spacing:.1em}
+.nav-donate:hover,.announcement a:hover,.signup button:hover,.join:hover{transform:translateY(-3px);box-shadow:0 9px 20px #ed3d4b44}
+.hero-brand{display:flex;align-items:center;gap:12px;margin-bottom:33px}
+.hero-brand .brand-mark{width:54px;height:47px}
+.hero-brand-name{font-size:clamp(36px,5vw,68px);line-height:.83;font-weight:900;letter-spacing:-.075em}
+.hero-brand-name small{font-size:13px;letter-spacing:.2em;display:block;margin:11px 0 0 5px}
+.footer-brand{display:inline-flex;align-items:center;gap:8px;font-size:23px;font-weight:900;letter-spacing:-.06em}
+.footer-brand small{display:block;font-size:8px;letter-spacing:.22em}
+body,button,input,nav,.announcement,.brand,.eyebrow,.legal,.status,.footer-links,.footer-legal,.copyright{font-family:var(--serif)}
+.signup button,.join,.nav-donate,.announcement a,.follow{background:var(--red);color:#fff}
+.announcement{background:#82bee1;color:#172b4d}
+header{background:#f3f1ef}
+@media(hover:hover){.nav-donate:hover,.announcement a:hover,.signup button:hover,.join:hover{background:#cf2e3c;color:#fff}}
+.hero-brand{margin-bottom:22px}
+@media(max-width:760px){.hero-brand{margin-bottom:22px}}
+@media(max-width:760px){.announcement{height:auto;min-height:38px;font-size:8px}
+.announcement a{padding:7px 13px;margin-left:8px}
+header{height:54px;padding:0 17px}
+nav{gap:12px;font-size:7px}
+.nav-social{display:none}
+.nav-donate{padding:8px 13px}
+.hero-brand-name{font-size:43px}}
+@media(max-width:430px){nav{gap:9px;font-size:6px}
+.brand{font-size:10px}
+.brand small{font-size:6px}
+.nav-donate{font-size:7px;padding:7px 10px}
+.hero-brand-name{font-size:37px}
+.hero-brand-name small{font-size:10px}}
+.hero-brand{transform:scale(1.08);transform-origin:left center;margin-bottom:28px}
+.footer-brand{font-size:27px}
+@media(max-width:760px){.hero-brand{transform:scale(1.02);margin-bottom:25px}}
+header{padding-left:clamp(18px,3vw,48px);padding-right:clamp(18px,3vw,48px)}
+.hero-brand{margin-bottom:clamp(18px,3vh,32px)}
+/* Header refinement: compact, balanced navigation like the reference */
+.announcement{height:32px;font-family:var(--sans);font-size:10px;letter-spacing:.015em}
+.announcement a{font-family:var(--sans);padding:7px 19px;font-size:9px}
+header{
+  height:68px;
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) auto minmax(180px,1fr);
+  align-items:center;
+  gap:24px;
+  padding:0 clamp(24px,4.2vw,68px);
+  background:var(--paper);
+  border-bottom:1px solid #e5e7e8;
+}
+.brand{justify-self:start;gap:10px;font-family:var(--sans);font-size:13px;letter-spacing:-.035em;white-space:nowrap}
+.brand-mark{width:35px;height:27px;flex:none}
+.brand small{font-family:var(--sans);font-size:7px;letter-spacing:.2em}
+header nav{
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(18px,2.1vw,32px);
+  white-space:nowrap;
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:.11em;
+}
+.nav-social{justify-self:end;gap:10px;white-space:nowrap}
+.nav-social a:not(.nav-donate){width:26px;height:26px}
+.nav-donate{font-family:var(--sans);padding:10px 20px;font-size:9px}
+@media(max-width:760px){header{height:60px;grid-template-columns:1fr auto;gap:10px;padding:0 17px}
+header nav{grid-column:1/-1;grid-row:2;display:none}
+.brand{font-size:11px}
+.brand-mark{width:30px}
+.nav-social{grid-column:2;grid-row:1;gap:8px}}
+@media(max-width:430px){header{height:56px;padding:0 13px}
+.brand{font-size:10px}
+.nav-donate{padding:8px 13px;font-size:8px}}
+.hero-brand{transform:none;transform-origin:center;margin:0 auto 30px;justify-content:center}
+.hero-brand .brand-mark{width:62px;height:48px}
+.hero-brand-name{text-align:left;font-size:clamp(38px,5vw,62px)}
+@media(max-width:760px){.hero-brand{margin-bottom:26px}
+.hero-brand .brand-mark{width:48px}
+.hero-brand-name{font-size:clamp(34px,8vw,48px)}}
+/* Transparent over the hero at page top; solid campaign navy after scrolling */
+header{
+  position:fixed;top:32px;left:0;right:0;width:100%;
+  z-index:1000;background:transparent;color:#fff;
+  border:0;box-shadow:none;
+  transform:translateY(0);opacity:1;visibility:visible;
+  transition:background .28s ease,box-shadow .28s ease,top .28s ease;
+}
+header.header-scrolled{top:0;background:var(--navy);box-shadow:0 5px 18px rgba(10,24,45,.16)}
+header .brand,header nav a{color:#fff}
+header nav a:hover{color:var(--blue)}
+header .nav-social a:not(.nav-donate){color:#fff;border-color:rgba(255,255,255,.7)}
+header .nav-donate{background:var(--red);color:#fff}
+.announcement{position:relative;z-index:1001}
+@media(max-width:760px){header{top:38px}
+header.header-scrolled{top:0}}
+@media(max-width:760px){header{height:60px;grid-template-columns:1fr auto;padding:0 17px}
+header nav{display:none}}
+/* Compact header mark and footer rhythm */
+header{gap:12px}
+header .brand{width:78px;min-width:78px;justify-self:start}
+header .header-flag{display:block;width:72px;height:34px;object-fit:contain;flex:none}
+header nav{gap:clamp(12px,1.45vw,21px);font-size:8px}
+header .nav-social{gap:7px}
+header .nav-donate{padding:9px 16px}
+.footer-brand{margin-bottom:0}
+@media(max-width:760px){header .brand{width:60px;min-width:60px}
+header .header-flag{width:56px;height:28px}
+header nav{gap:9px}}
+\n/* Full campaign wordmark above the hero signup; flag-only mark remains in header */\n.hero-brand{display:flex;align-items:center;justify-content:center;width:100%;}
+\n.hero-brand{display:flex;justify-content:center;align-items:center;width:100%;margin:0 auto 22px!important;text-align:center}
+.hero-brand .hero-full-logo{display:block;width:min(340px,68vw);height:auto;max-height:82px;object-fit:contain;margin:0 auto;}
+\n
+/* Compact homepage spacing */
+.announcement{height:27px;min-height:27px;font-size:9px}
+.announcement a{padding:5px 14px;margin-left:12px}
+header{height:56px;padding-left:clamp(18px,3vw,42px);padding-right:clamp(18px,3vw,42px)}
+header .header-flag{width:60px;height:28px}
+header nav{gap:clamp(10px,1.2vw,17px)}
+.nav-donate{padding:8px 13px}
+.hero-brand{margin-bottom:14px!important}
+.hero-brand .hero-full-logo{width:min(285px,58vw);max-height:68px}
+.footer-brand{font-size:22px}
+@media(max-width:760px){.announcement{min-height:29px;height:auto;font-size:8px}
+.announcement a{padding:5px 10px;margin-left:7px}
+header{height:50px;padding:0 14px}
+header .brand{width:52px;min-width:52px}
+header .header-flag{width:48px;height:24px}
+.hero-brand{margin-bottom:15px!important}
+.hero-brand .hero-full-logo{width:min(240px,70vw);max-height:58px}}
+/* Final compact layout and full-logo sticky header */
+:root{--site-header-height:58px}
+.announcement{height:27px;min-height:27px;padding:0 12px;font-size:9px;line-height:1.15}
+.announcement a{padding:5px 13px;margin-left:10px}
+header{position:fixed!important;top:27px!important;left:0;right:0;height:58px!important;padding:0 clamp(16px,3vw,42px)!important;display:flex;align-items:center;gap:16px;background:transparent!important;border:0!important;box-shadow:none;z-index:1002;transition:top .2s ease,background .2s ease,box-shadow .2s ease}
+header.header-scrolled{top:0!important;background:var(--navy)!important;box-shadow:0 4px 14px rgba(10,24,45,.18)}
+header .brand{display:flex;flex:0 0 auto;width:auto!important;min-width:0!important;height:100%;align-items:center;justify-content:flex-start;color:#fff!important}
+header .header-main-logo{display:block;width:clamp(112px,12vw,154px);height:48px;max-width:100%;object-fit:contain;object-position:left center}
+header nav{display:flex;align-items:center;gap:clamp(9px,1.15vw,16px);margin-left:auto;font-size:8px;white-space:nowrap}
+header nav a{color:#fff!important}
+header nav a:hover{color:var(--blue)!important}
+header .nav-social{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+header .nav-social a:not(.nav-donate){width:22px;height:22px}
+header .nav-donate{padding:7px 12px;font-size:8px}
+.hero-brand{justify-content:center!important;margin:0 auto 12px!important;width:100%!important}
+.hero-brand .hero-full-logo{width:min(255px,48vw)!important;max-height:64px!important;height:auto!important}
+.footer-brand{font-size:19px!important}
+.footer-brand svg{width:34px!important;height:26px!important}
+@media(max-width:760px){.announcement{min-height:29px;height:29px;font-size:7px;white-space:nowrap}
+.announcement a{padding:4px 9px;margin-left:6px;font-size:7px}
+header{top:29px!important;height:48px!important;padding:0 12px!important;gap:7px}
+header.header-scrolled{top:0!important}
+header .header-main-logo{width:104px;height:42px}
+header nav{gap:8px;font-size:6px;letter-spacing:.04em}
+header .nav-social{display:none}
+header .nav-donate{padding:6px 9px;font-size:7px}
+.hero-brand .hero-full-logo{width:min(220px,66vw)!important;max-height:54px!important}}
+@media(max-width:430px){header{padding:0 9px!important}
+header .header-main-logo{width:88px;height:38px}
+header nav{gap:6px;font-size:5.5px}
+header .nav-donate{padding:5px 7px;font-size:6px}
+.announcement{font-size:6.5px}
+.hero-brand .hero-full-logo{width:min(190px,62vw)!important;max-height:48px!important}}
+h1,h2,h3,h4,h5,h6,strong,b,.brand,.footer-brand,.eyebrow,.announcement,
+nav,.nav-donate,.follow,.outline-link,button,.signup button,.join,
+.campaign-statement,.update-card small,.footer-links{font-weight:800!important}
+/* Slightly larger campaign wordmarks for a clearer, balanced presence */
+header .header-main-logo{width:clamp(126px,13.2vw,174px)!important;height:52px!important}
+.hero-brand .hero-full-logo{width:min(300px,64vw)!important;max-height:76px!important}
+@media(max-width:760px){header .header-main-logo{width:116px!important;height:46px!important}
+.hero-brand .hero-full-logo{width:min(242px,70vw)!important;max-height:60px!important}}
+@media(max-width:430px){header .header-main-logo{width:100px!important;height:42px!important}
+.hero-brand .hero-full-logo{width:min(212px,68vw)!important;max-height:54px!important}}
+header{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.footer-brand{font-size:clamp(29px,3vw,36px)!important}
+.footer-brand .brand-mark{width:clamp(52px,5vw,68px)!important;height:auto!important}
+.hero-brand .hero-full-logo{width:min(420px,76vw)!important;max-height:104px!important}
+@media(max-width:760px){.hero-brand .hero-full-logo{width:min(340px,82vw)!important;max-height:86px!important}}
+@media(max-width:430px){.hero-brand .hero-full-logo{width:min(300px,84vw)!important;max-height:76px!important}}
+/* Platform navigation follows the standard nav style; hover turns red. */
+.nav-platform{color:inherit!important;text-decoration:none;white-space:nowrap;transition:color .2s ease}
+nav .nav-platform:hover,.footer-links .nav-platform:hover{color:#e83d4b!important}
+/* Final proportion, spacing and embedded-brand-art refinements */
+.header-main-logo{width:clamp(126px,13vw,170px)!important;height:auto!important;max-height:46px!important;object-fit:contain!important}
+.footer-brand{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important}
+#donate .nav-donate{font-size:14px!important;padding:15px 28px!important;margin-top:8px!important}
+@media(max-width:760px){.header-main-logo{width:112px!important;max-height:42px!important}}
+@media(max-width:430px){.header-main-logo{width:100px!important}}
+/* Final sizing pass: stronger hero mark, more legible navigation, quieter header logo */
+.header-main-logo{width:clamp(108px,11vw,146px)!important;max-height:42px!important}
+header nav{font-size:clamp(9px,.9vw,11px)!important;gap:clamp(12px,1.45vw,20px)!important}
+header nav a{padding:9px 2px!important}
+header .nav-donate{font-size:10px!important;padding:10px 16px!important}
+@media(max-width:760px){.header-main-logo{width:96px!important;max-height:38px!important}
+header nav{font-size:8px!important;gap:9px!important}
+header nav a{padding:8px 1px!important}
+header .nav-donate{font-size:9px!important;padding:8px 11px!important}}
+@media(max-width:430px){.header-main-logo{width:86px!important;max-height:34px!important}
+header nav{font-size:7px!important;gap:6px!important}
+header .nav-donate{font-size:8px!important;padding:7px 9px!important}}
+/* Campaign message and layout refinements */
+.announcement{font-size:clamp(13px,1.15vw,16px)!important;padding:12px 18px!important;line-height:1.45!important}
+.announcement a{font-size:1.08em!important;font-weight:900!important;padding:2px 4px!important}
+.header-main-logo{width:clamp(82px,8.5vw,112px)!important;max-height:36px!important}
+@media(max-width:760px){.header-main-logo{width:80px!important;max-height:32px!important}}
+/* Fine-tune announcement proportions and bring the intro typography back down */
+.announcement{font-size:clamp(10px,.85vw,12px)!important;line-height:1.4!important;padding:18px 20px!important;min-height:54px!important;box-sizing:border-box!important}
+.announcement a{font-size:1em!important;padding:0 3px!important}
+@media(max-width:760px){.announcement{font-size:10px!important;padding:16px 14px!important;min-height:50px!important}}
+/* Header alignment and full-width campaign announcement */
+a.announcement{
+ display:flex!important;width:100%!important;box-sizing:border-box!important;
+ min-height:58px!important;padding:16px var(--campaign-gutter)!important;
+ align-items:center!important;justify-content:center!important;gap:12px!important;
+ background:#db2a37!important;color:#fff!important;text-decoration:none!important;
+ text-align:center!important;font-size:clamp(10px,.85vw,12px)!important;
+ line-height:1.45!important;font-weight:800!important;letter-spacing:.025em!important;
+ border-radius:0!important;cursor:pointer!important
+}
+a.announcement:visited,a.announcement:hover,a.announcement:focus{color:#fff!important;text-decoration:none!important}
+.announcement .announcement-cta{display:inline-flex!important;align-items:center!important;gap:7px!important;
+ color:#fff!important;font-size:inherit!important;font-weight:900!important;white-space:nowrap!important}
+.announcement .announcement-arrow{display:inline-block!important;color:#fff!important;font-size:17px!important;
+ line-height:1!important;transition:transform .2s ease!important}
+a.announcement:hover .announcement-arrow{transform:translateX(4px)!important}
+header{height:78px!important;min-height:78px!important;box-sizing:border-box!important;
+ padding-top:10px!important;padding-bottom:0!important;align-items:center!important}
+header .brand,header nav,header .nav-social{transform:translateY(5px)!important}
+header .header-main-logo{width:clamp(76px,7.5vw,100px)!important;max-height:34px!important;height:auto!important}
+header nav{align-items:center!important}
+@media(max-width:760px){a.announcement{min-height:54px!important;padding:13px 16px!important;gap:8px!important;flex-wrap:wrap!important}
+header{height:72px!important;min-height:72px!important;padding-top:8px!important}
+header .brand,header nav,header .nav-social{transform:translateY(4px)!important}
+header .header-main-logo{width:76px!important;max-height:30px!important}}
+@media(max-width:430px){a.announcement{font-size:9px!important;line-height:1.35!important}
+header{height:68px!important;min-height:68px!important}}
+/* Announcement hover: light blue surface with navy text */
+a.announcement{
+ transition:background-color .22s ease,color .22s ease!important;
+}
+a.announcement:hover,
+a.announcement:focus-visible{
+ background:var(--blue)!important;
+ color:var(--navy)!important;
+}
+a.announcement:hover .announcement-cta,
+a.announcement:hover .announcement-arrow,
+a.announcement:focus-visible .announcement-cta,
+a.announcement:focus-visible .announcement-arrow{
+ color:var(--navy)!important;
+}
+a.announcement:focus-visible{outline:3px solid var(--navy)!important;outline-offset:-3px!important}
+/* Keep the header the same height; only its contents shift between states */
+header{
+ height:58px!important;
+ min-height:58px!important;
+ padding-top:0!important;
+ padding-bottom:0!important;
+ transition:top .2s ease,background .2s ease,box-shadow .2s ease!important;
+}
+header .brand,
+header nav,
+header .nav-social{
+ transition:transform .22s ease!important;
+}
+header .header-main-logo{
+ width:68px!important;
+ max-height:27px!important;
+ height:auto!important;
+ transition:width .22s ease,max-height .22s ease!important;
+}
+/* Transparent hero state: compact logo and navigation sits slightly lower */
+header:not(.header-scrolled) .brand,
+header:not(.header-scrolled) nav,
+header:not(.header-scrolled) .nav-social{
+ transform:translateY(10px)!important;
+}
+/* Scrolled state: restore normal logo size and vertically centered navigation */
+header.header-scrolled .brand,
+header.header-scrolled nav,
+header.header-scrolled .nav-social{
+ transform:translateY(0)!important;
+}
+header.header-scrolled .header-main-logo{
+ width:100px!important;
+ max-height:34px!important;
+}
+@media(max-width:760px){header{height:48px!important;min-height:48px!important}
+header .header-main-logo{width:58px!important;max-height:23px!important}
+header:not(.header-scrolled) .brand,
+ header:not(.header-scrolled) nav,
+ header:not(.header-scrolled) .nav-social{transform:translateY(7px)!important}
+header.header-scrolled .header-main-logo{width:88px!important;max-height:30px!important}}
+@media(max-width:430px){header{height:48px!important;min-height:48px!important}
+header .header-main-logo{width:52px!important;max-height:21px!important}
+header.header-scrolled .header-main-logo{width:78px!important;max-height:28px!important}}
+/* Keep the transparent header clear of the announcement banner */
+header:not(.header-scrolled) .brand,
+header:not(.header-scrolled) nav,
+header:not(.header-scrolled) .nav-social{
+ transform:translateY(22px)!important;
+}
+@media(max-width:760px){header:not(.header-scrolled) .brand,
+ header:not(.header-scrolled) nav,
+ header:not(.header-scrolled) .nav-social{
+  transform:translateY(15px)!important;
+ }}
+/* The fixed transparent header starts below the full announcement hit area */
+header:not(.header-scrolled){top:58px!important}
+@media(max-width:760px){header:not(.header-scrolled){top:54px!important}}
+@media(max-width:430px){header:not(.header-scrolled){top:50px!important}}
+/* Slightly larger hero branding, headline, copy and signup controls */
+.hero-brand .hero-full-logo{
+  width:min(500px,80vw)!important;
+  max-height:122px!important;
+}
+@media(max-width:760px){.hero-brand .hero-full-logo{width:min(390px,86vw)!important;max-height:98px!important}}
+@media(max-width:430px){.hero-brand .hero-full-logo{width:min(345px,88vw)!important;max-height:88px!important}}
+a.announcement{background-color:#db2a37!important}
+a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!important}
+</style>
+</head>
 <body><a class="announcement" href="index.html#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
 <header>
 <a class="brand" href="./" aria-label="AmentAmour home"><img class="header-main-logo" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20415%20160%22%20role%3D%22img%22%20aria-label%3D%22AmentAmour%20flag%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0.41%2028.24%200.27%2028.75%200.67%2029.47%204.31%2032.70%205.14%2033.75%205.51%2034.60%205.60%2035.40%205.44%2036.35%203.83%2040.48%203.81%2041.29%204.14%2041.91%204.75%2042.16%205.57%2042.07%206.52%2041.67%209.54%2040.07%2010.42%2039.80%2011.21%2039.74%2012.01%2039.92%2012.96%2040.40%2015.82%2042.65%2016.62%2043.15%2017.57%2043.37%2017.91%2043.29%2018.23%2043.06%2018.48%2042.56%2018.56%2041.83%2017.78%2037.62%2017.78%2036.83%2017.98%2036.04%2018.49%2035.17%2019.19%2034.47%2022.10%2032.57%2022.80%2031.99%2023.24%2031.35%2023.32%2030.67%2023.01%2030.15%2022.26%2029.72%2018.05%2029.08%2017.19%2028.76%2016.37%2028.20%2015.82%2027.57%2015.41%2026.83%2014.38%2023.25%2014.07%2022.59%2013.69%2022.15%2013.30%2021.94%2012.82%2021.92%2012.39%2022.08%2011.98%2022.41%2011.37%2023.25%209.77%2026.33%209.01%2027.17%208.25%2027.68%207.47%2027.93%206.68%2028.01%201.52%2027.74%200.88%2027.90ZM39.09%2029.58%2038.95%2029.90%2038.95%2030.33%2039.36%2031.15%2040.16%2031.92%2042.88%2033.99%2043.54%2034.74%2043.95%2035.56%2044.10%2036.27%2044.03%2037.22%2042.96%2041.35%2043.04%2042.22%2043.45%2042.79%2044.09%2042.96%2044.93%2042.75%2048.59%2040.35%2049.54%2039.93%2050.34%2039.81%2051.13%2039.90%2052.01%2040.23%2055.03%2042.07%2055.98%2042.53%2056.92%2042.62%2057.25%2042.50%2057.54%2042.23%2057.75%2041.63%2057.74%2040.95%2056.47%2036.98%2056.33%2036.11%2056.41%2035.32%2056.76%2034.48%2057.36%2033.69%2060.10%2031.34%2060.84%2030.50%2061.08%2030.00%2061.14%2029.48%2061.00%2029.08%2060.69%2028.78%2060.18%2028.54%2059.48%2028.41%2055.51%2028.38%2054.79%2028.20%2054.12%2027.86%2053.40%2027.27%2052.72%2026.35%2051.45%2023.33%2051.03%2022.59%2050.45%2022.01%2049.80%2021.84%2049.22%2022.05%2048.68%2022.66%2048.31%2023.41%2047.20%2026.51%2046.64%2027.38%2045.97%2028.01%2045.24%2028.42%2044.37%2028.67%2040.16%2028.98%2039.47%2029.25ZM78.28%2026.73%2078.21%2027.08%2078.28%2027.49%2078.87%2028.19%2079.76%2028.67%2083.02%2029.91%2083.87%2030.50%2084.53%2031.25%2084.89%2031.99%2085.09%2032.86%2085.19%2037.14%2085.51%2037.92%2085.98%2038.27%2086.67%2038.25%2087.38%2037.87%2088.13%2037.13%2090.28%2034.59%2091.15%2033.90%2091.93%2033.53%2092.72%2033.39%2093.67%2033.48%2096.86%2034.41%2098.04%2034.64%2098.93%2034.49%2099.25%2034.25%2099.41%2033.96%2099.46%2033.31%2099.24%2032.62%2096.98%2029.13%2096.59%2028.25%2096.45%2027.46%2096.56%2026.59%2096.92%2025.71%2098.97%2022.70%2099.45%2021.75%2099.57%2021.22%2099.51%2020.71%2099.26%2020.33%2098.84%2020.10%2098.28%2020.01%2097.49%2020.10%2093.67%2021.14%2092.88%2021.18%2092.16%2021.05%2091.33%2020.65%2090.47%2019.94%2088.54%2017.56%2087.74%2016.75%2087.05%2016.38%2086.36%2016.38%2085.88%2016.75%2085.55%2017.47%2085.19%2021.75%2084.92%2022.60%2084.49%2023.30%2083.83%2023.94%2083.02%2024.43%2079.22%2025.83%2078.63%2026.24Z%22%2F%3E%3Cpath%20fill%3D%22%23de293a%22%20d%3D%22M414.70%20123.65%20414.58%20122.85%20414.20%20121.94%20412.29%20118.89%20402.43%2099.76%20401.64%2098.61%20400.80%2097.77%20399.83%2097.17%20398.71%2096.85%20397.68%2096.78%20396.17%2096.85%20377.56%2098.61%20358.87%20100.09%20345.20%20100.93%20328.82%20101.44%20321.90%20101.99%20315.62%20102.74%20305.12%20104.38%20294.70%20106.59%20289.14%20108.03%20284.13%20109.53%20280.07%20110.95%20274.66%20113.08%20272.91%20113.45%20270.93%20113.56%20269.66%20113.29%20268.45%20112.56%20265.20%20109.23%20262.89%20107.10%20260.19%20104.86%20257.17%20102.63%20254.86%20101.11%20252.24%2099.55%20246.99%2096.93%20244.13%2095.76%20241.11%2094.69%20237.69%2093.69%20234.35%2092.90%20231.40%2092.37%20228.38%2091.98%20224.41%2091.69%20221.23%2091.62%20217.41%2091.80%20214.31%2092.10%20210.41%2092.71%20206.91%2093.47%20203.49%2094.42%20185.76%2099.86%20172.56%20103.72%20159.28%20107.43%20148.86%20110.20%20134.79%20113.73%20123.26%20116.41%20111.88%20118.82%20102.90%20120.53%2094.71%20121.90%2085.96%20123.12%2075.94%20124.18%2064.33%20125.08%2054.23%20125.59%2047.31%20125.79%2016.14%20125.94%2014.88%20126.22%2013.93%20126.82%2013.31%20127.72%2013.10%20128.81%2013.50%20130.95%2020.92%20155.95%2021.86%20158.68%2022.29%20159.30%2022.80%20159.68%2023.86%20159.92%2070.22%20159.92%2071.54%20159.75%2075.46%20158.88%2089.30%20157.12%2099.40%20155.53%20110.37%20153.37%20121.03%20150.82%20129.38%20148.51%20141.39%20144.81%20193.31%20127.95%20213.91%20121.61%20225.84%20118.30%20235.14%20116.06%20243.49%20114.40%20251.05%20113.33%20257.25%20112.89%20261.06%20112.94%20263.93%20113.19%20265.68%20113.46%20267.35%20113.85%20268.78%20114.42%20270.61%20115.52%20273.47%20117.70%20291.84%20133.54%20293.67%20134.72%20294.46%20135.01%20295.34%20135.14%20297.09%20134.98%20306.71%20132.75%20317.76%20130.69%20329.77%20128.93%20340.58%20127.72%20350.76%20126.91%20362.69%20126.43%20411.52%20126.40%20413.25%20126.22%20414.08%20125.81%20414.40%20125.45%20414.60%20124.99ZM396.14%2071.57%20395.97%2070.63%20395.35%2069.29%20384.71%2049.84%20383.47%2047.78%20382.34%2046.54%20381.06%2045.75%20379.63%2045.38%20377.24%2045.24%20359.75%2045.52%20343.13%2046.28%20333.59%2046.96%20326.19%2047.63%20318.00%2048.54%20311.80%2049.39%20302.18%2050.97%20294.54%2052.55%20289.61%2053.77%20269.97%2059.08%20258.20%2061.86%20249.85%2063.53%20243.09%2064.53%20241.34%2064.43%20239.91%2063.88%20238.80%2063.15%20233.55%2059.16%20228.38%2055.86%20225.12%2054.08%20222.26%2052.69%20216.45%2050.34%20210.57%2048.51%20204.45%2047.18%20198.16%2046.38%20194.35%2046.15%20191.48%2046.11%20186.00%2046.38%20180.11%2047.11%20153.08%2052.87%20132.88%2056.72%20116.66%2059.55%20103.06%2061.74%2093.75%2063.05%2083.97%2064.20%2073.00%2065.18%2061.39%2065.83%2054.55%2066.03%2039.92%2066.03%2032.92%2065.83%2024.17%2065.39%2015.90%2064.79%205.41%2063.86%204.42%2064.06%203.78%2064.48%203.34%2065.20%203.19%2066.11%203.34%2067.70%207.29%2093.33%207.60%2094.84%208.04%2095.81%208.48%2096.37%209.04%2096.80%209.78%2097.11%2010.58%2097.27%2023.14%2097.62%2041.43%2097.62%2055.90%2097.25%2068.94%2096.65%2077.93%2096.06%2087.95%2095.15%2096.78%2094.10%20104.25%2092.96%20109.66%2091.96%20116.42%2090.53%20133.67%2086.38%20149.58%2082.20%20186.24%2072.27%20202.14%2068.18%20210.17%2066.29%20216.69%2064.92%20222.18%2063.97%20226.63%2063.46%20229.57%2063.41%20230.69%2063.59%20231.80%2063.93%20234.19%2065.21%20237.21%2067.52%20239.12%2069.38%20241.07%2071.59%20257.39%2091.42%20258.26%2092.29%20259.09%2092.92%20259.95%2093.34%20260.75%2093.49%20261.70%2093.42%20262.73%2093.11%20269.49%2090.26%20276.25%2087.86%20282.14%2086.02%20289.14%2084.09%20296.05%2082.40%20303.85%2080.69%20312.59%2078.98%20321.50%2077.45%20330.09%2076.13%20339.87%2074.82%20348.62%2073.82%20356.97%2073.07%20369.29%2072.35%20382.17%2072.30%20388.22%2072.59%20394.26%2073.15%20395.02%2073.03%20395.63%2072.71%20395.99%2072.25ZM117.93%2012.38%20118.08%2013.41%20118.61%2014.84%20126.49%2032.46%20127.16%2033.54%20127.89%2034.30%20128.75%2034.81%20129.70%2035.01%20130.73%2034.94%20132.08%2034.64%20168.11%2024.90%20179.87%2021.89%20186.79%2020.26%20194.43%2018.66%20200.63%2017.66%20204.76%2017.35%20206.04%2017.41%20207.23%2017.65%20208.90%2018.29%20210.57%2019.29%20212.64%2020.85%20214.50%2022.57%20217.29%2025.71%20232.16%2043.80%20233.00%2044.67%20233.89%2045.37%20234.67%2045.75%20235.54%2045.93%20236.49%2045.86%20237.53%2045.56%20243.89%2042.89%20249.93%2040.72%20255.82%2038.88%20261.94%2037.19%20268.78%2035.49%20277.29%2033.64%20285.72%2032.02%20294.38%2030.54%20302.02%2029.39%20311.32%2028.15%20318.72%2027.31%20326.91%2026.56%20339.23%2025.85%20350.05%2025.79%20354.50%2025.95%20362.29%2026.59%20362.99%2026.48%20363.61%2026.17%20363.99%2025.72%20364.15%2025.06%20364.03%2024.21%20363.39%2022.78%20351.72%201.59%20351.25%200.93%20350.70%200.45%20350.10%200.14%20349.41%200.01%20318.56%200.01%20312.83%200.98%20295.89%202.55%20284.92%203.90%20276.41%205.26%20269.18%206.70%20263.53%208.06%20246.35%2012.72%20236.81%2015.07%20226.71%2017.20%20221.38%2018.10%20218.84%2018.41%20217.25%2018.34%20215.74%2017.79%20214.55%2017.02%20209.93%2013.52%20205.24%2010.48%20199.91%207.65%20194.74%205.43%20189.58%203.70%20184.49%202.42%20180.67%201.72%20170.73%200.26%20169.06%200.32%20157.29%202.15%20138.29%206.29%20120.71%209.79%20119.53%2010.19%20118.70%2010.74%20118.15%2011.48Z%22%2F%3E%3C%2Fsvg%3E" alt="AmentAmour for President"></a>
