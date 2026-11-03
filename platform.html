@@ -4,46 +4,96 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#172b4d">
-<meta name="description" content="The AmentAmour platform is being shaped with the people it is meant to serve. Coming soon.">
-<title>The Platform | AmentAmour For President</title>
+<meta name="description" content="Help shape the AmentAmour platform. Share your priorities and respond to ideas using your Roblox username.">
+<title>Shape the Platform | AmentAmour For President</title>
 <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/amentamour-flag.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#172b4d;--blue:#82bee1;--red:#e83d4b;--paper:#faf9f6;--ink:#172b4d;--muted:#647184}
+:root{--navy:#172b4d;--blue:#82bee1;--red:#e83d4b;--paper:#f7f8fa;--ink:#172b4d;--muted:#68778a;--line:#e1e7ed;--white:#fff}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Montserrat,Arial,sans-serif}
 a{color:inherit;text-decoration:none}
-header{min-height:70px;padding:12px clamp(18px,5vw,78px);display:flex;align-items:center;justify-content:space-between;gap:24px;background:#f3f1ef;border-bottom:1px solid #e7e8e8}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+header{min-height:70px;padding:12px clamp(18px,5vw,78px);display:flex;align-items:center;justify-content:space-between;gap:24px;background:#fff;border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:900;letter-spacing:-.04em}
 .brand img{width:38px;height:34px;object-fit:contain}
 .brand small{display:block;font-size:7px;letter-spacing:.2em;margin-top:3px}
 nav{display:flex;align-items:center;gap:clamp(9px,2vw,23px);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-nav a:not(.nav-platform):hover,.footer-links a:hover{color:var(--red)}
-.nav-platform{color:inherit;white-space:nowrap;transition:color .2s ease}
-nav .nav-platform:hover,.footer-links .nav-platform:hover{color:var(--red)}
-.nav-donate{background:var(--red);color:white;padding:10px 19px;border-radius:30px;font-size:9px}
-main{min-height:calc(100vh - 260px);display:grid;place-items:center;padding:70px 22px 90px;position:relative;overflow:hidden}
-main:before{content:"";position:absolute;width:min(70vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#dff1fb 0%,rgba(223,241,251,0) 68%);right:-18%;top:-28%;pointer-events:none}
-.platform-panel{position:relative;width:min(850px,100%);padding:clamp(30px,7vw,76px);background:#fff;border:1px solid #e5eaf0;box-shadow:0 22px 70px rgba(23,43,77,.08);text-align:center}
-.kicker{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border-radius:30px;background:#e3f3fc;color:#477b9d;font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
-.kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue)}
-h1{font-size:clamp(43px,8vw,82px);line-height:.96;letter-spacing:-.07em;margin:25px 0 22px;font-weight:900}
-h1 span{color:#70afd5}
-.lead{max-width:600px;margin:0 auto;color:#5e6b7c;font-size:clamp(14px,2vw,17px);line-height:1.85}
-.rule{width:58px;height:4px;background:var(--red);margin:32px auto}
-.supporting{max-width:570px;margin:0 auto;color:#788392;font-size:12px;line-height:1.9}
-.back-link{display:inline-flex;margin-top:34px;padding:12px 22px;border:1px solid #9fcbe4;border-radius:30px;color:var(--navy);font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,transform .2s}
-.back-link:hover{background:#dff1fb;transform:translateY(-2px)}
-footer{background:var(--navy);color:white;text-align:center;padding:34px 20px 26px}
+nav a:not(.nav-donate):hover,.footer-links a:hover{color:var(--red)}
+.nav-current{color:var(--red)}
+.nav-donate{background:var(--red);color:#fff;padding:10px 19px;border-radius:30px;font-size:9px}
+.hero{background:var(--navy);color:#fff;padding:clamp(48px,8vw,90px) 22px 58px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid #ffffff12;border-radius:50%;right:-140px;top:-290px;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff05}
+.hero-inner{width:min(1120px,100%);margin:auto;position:relative;z-index:1}
+.eyebrow{font-size:10px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#9fd3f0}
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.075em;max-width:790px;margin:18px 0 20px;font-weight:900}
+.hero h1 span{color:var(--blue)}
+.hero p{max-width:680px;color:#d1dbe7;font-size:14px;line-height:1.85;margin:0}
+.hero-note{display:flex;align-items:center;gap:10px;margin-top:25px;color:#aebdd0;font-size:10px;font-weight:700;letter-spacing:.04em}
+.hero-note:before{content:"";width:25px;height:3px;background:var(--red)}
+main{width:min(1120px,calc(100% - 36px));margin:36px auto 86px}
+.username-panel{display:grid;grid-template-columns:1fr minmax(220px,330px);align-items:center;gap:24px;padding:21px 24px;background:#e8f4fb;border:1px solid #d2e8f5;border-left:4px solid var(--blue);margin-bottom:34px}
+.username-panel h2{font-size:14px;margin:0 0 5px;letter-spacing:-.02em}
+.username-panel p{font-size:10px;line-height:1.65;color:#5e7084;margin:0}
+.field{display:grid;gap:7px}
+.field label{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#566b83}
+.field input,.field textarea,.field select{width:100%;border:1px solid #cbd5df;background:#fff;border-radius:3px;padding:12px 13px;color:var(--navy);outline:none;font-size:12px}
+.field textarea{min-height:115px;resize:vertical;line-height:1.7}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#5b9fc9;box-shadow:0 0 0 3px #82bee12c}
+.field small{font-size:9px;color:#718096;line-height:1.5}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:0 0 17px}
+.section-head h2{font-size:clamp(23px,3vw,31px);letter-spacing:-.055em;margin:0;color:var(--navy)}
+.section-head p{font-size:10px;color:var(--muted);margin:6px 0 0;line-height:1.65}
+.count{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#6c8297;white-space:nowrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 22px}
+.filter{border:1px solid #cbd7e1;background:#fff;color:#566b83;padding:9px 13px;border-radius:30px;font-size:9px;font-weight:800;transition:.18s}
+.filter:hover,.filter.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.proposal-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.proposal{background:#fff;border:1px solid var(--line);padding:23px 23px 20px;box-shadow:0 8px 24px #172b4d08;display:flex;flex-direction:column;min-height:300px}
+.proposal-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
+.category{font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#4b83a5;background:#eaf5fb;padding:7px 9px;border-radius:2px}
+.number{font-size:9px;color:#9aa6b4;font-weight:800}
+.proposal h3{font-size:20px;line-height:1.2;letter-spacing:-.045em;margin:0 0 11px;color:var(--navy)}
+.proposal p{font-size:11px;line-height:1.8;color:#6b7889;margin:0 0 22px}
+.actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:auto}
+.choice{padding:11px 6px;border:1px solid #d8e0e7;background:#fff;border-radius:3px;color:var(--navy);font-size:9px;font-weight:900;transition:.18s}
+.choice:hover{transform:translateY(-1px);border-color:var(--navy)}
+.choice.keep:hover,.choice.keep.selected{background:var(--navy);color:#fff;border-color:var(--navy)}
+.choice.improve:hover,.choice.improve.selected{background:#e5f3fb;color:#285e80;border-color:#9bc9e3}
+.choice.reject:hover,.choice.reject.selected{background:#fff0f1;color:#b82f3b;border-color:#e8a2a9}
+.response-box{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.response-box[hidden]{display:none}
+.response-box .field{margin-bottom:10px}
+.send-response,.submit-idea{border:0;background:var(--red);color:#fff;border-radius:3px;padding:12px 17px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;transition:background .18s}
+.send-response:hover,.submit-idea:hover{background:#c92f3b}
+.send-response:disabled,.submit-idea:disabled{opacity:.55;cursor:wait}
+.status{font-size:10px;line-height:1.6;margin-top:10px;color:#4d7897;min-height:15px}
+.empty{grid-column:1/-1;padding:34px;background:#fff;border:1px dashed #cbd6e0;text-align:center;color:#68778a;font-size:12px;line-height:1.8}
+.contribute{margin-top:62px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 38px #172b4d0a;display:grid;grid-template-columns:.85fr 1.15fr}
+.contribute-intro{background:#172b4d;color:#fff;padding:clamp(25px,4vw,42px)}
+.contribute-intro .eyebrow{color:#9fd3f0}
+.contribute-intro h2{font-size:clamp(27px,4vw,38px);line-height:1.05;letter-spacing:-.06em;margin:16px 0}
+.contribute-intro p{font-size:11px;line-height:1.85;color:#d1dbe7;margin:0}
+.contribute-form{padding:clamp(23px,4vw,40px)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .wide{grid-column:1/-1}
+.contribute-form .field{margin-bottom:14px}
+.form-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+.form-foot small{font-size:9px;line-height:1.6;color:#7a8796;max-width:270px}
+.privacy{margin:18px 0 0;padding:13px 15px;background:#f5f7f9;border-left:3px solid var(--blue);font-size:9px;line-height:1.7;color:#6b7889}
+.honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26px}
 .footer-brand img{width:170px;max-height:55px;object-fit:contain}
 .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px auto 15px;font-size:8px;font-weight:700}
 .footer-legal{max-width:580px;margin:16px auto 0;font-size:7px;line-height:1.8;color:#aebbd0}
 .footer-legal a{text-decoration:underline}
 .copyright{font-size:7px;color:#8797b0;margin-top:13px}
-@media(max-width:700px){header{align-items:flex-start;flex-direction:column;gap:12px;padding:13px 17px}nav{width:100%;justify-content:space-between;gap:7px;font-size:7px;flex-wrap:wrap}main{padding:44px 16px 58px}.platform-panel{padding:36px 22px}h1{font-size:clamp(42px,12vw,62px)}}
+@media(max-width:760px){header{align-items:flex-start;flex-direction:column;gap:12px;padding:13px 17px}nav{width:100%;justify-content:space-between;gap:7px;font-size:7px;flex-wrap:wrap}.username-panel{grid-template-columns:1fr;gap:14px}.proposal-list{grid-template-columns:1fr}.contribute{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.count{white-space:normal}}
+@media(max-width:480px){main{width:calc(100% - 26px);margin-top:23px}.hero{padding:45px 17px 43px}.proposal{padding:19px}.actions{gap:5px}.choice{font-size:8px;padding:10px 3px}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -51,30 +101,121 @@ footer{background:var(--navy);color:white;text-align:center;padding:34px 20px 26
 <header>
 <a class="brand" href="./" aria-label="AmentAmour for President home"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/amentamour-flag.svg" alt=""><span>AMENTAMOUR<small>FOR PRESIDENT</small></span></a>
 <nav aria-label="Main navigation">
-<a href="./">Home</a>
-<a href="about-ament.html">About Ament</a>
-<a href="news.html">News</a>
-<a href="images.html">Images</a>
-<a class="nav-platform" href="platform.html" aria-current="page">Platform</a>
-<a class="nav-donate" href="index.html#donate">Donate</a>
+<a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a class="nav-current" href="platform.html" aria-current="page">Platform</a><a class="nav-donate" href="index.html#donate">Donate</a>
 </nav>
 </header>
+<section class="hero">
+<div class="hero-inner">
+<div class="eyebrow">Your voice. Your future.</div>
+<h1>Let's build the platform <span>together.</span></h1>
+<p>This is your chance to shape the ideas and priorities behind the AmentAmour platform. Tell us what you support, what you would change, and what you think is missing.</p>
+<div class="hero-note">No account. No email. Just your Roblox username and your ideas.</div>
+</div>
+</section>
 <main>
-<section class="platform-panel" aria-labelledby="platform-title">
-<span class="kicker">Coming soon · Built with you</span>
-<h1 id="platform-title">A platform shaped by <span>the people.</span></h1>
-<p class="lead">A manifesto should reflect the hopes, priorities, and everyday realities of the people it is meant to serve — not just the ideas of a campaign.</p>
-<div class="rule" aria-hidden="true"></div>
-<p class="supporting">We’re preparing a space where you’ll be able to help shape the AmentAmour platform by telling us what matters to you and what you want to see changed. This is only the beginning. The next step is being built around your voice.</p>
-<a class="back-link" href="./">Return to the campaign</a>
+<section class="username-panel" aria-labelledby="username-title">
+<div><h2 id="username-title">First, what's your Roblox username?</h2><p>We use this to label your contribution and prevent repeat responses to the same proposal. You do not need to sign in or connect your Roblox account.</p></div>
+<div class="field"><label for="roblox-username">Roblox username</label><input id="roblox-username" name="roblox_username" type="text" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}" autocomplete="off" placeholder="YourRobloxName" required><small>3–20 letters, numbers or underscores. Your username is self-reported and is not verified.</small></div>
+</section>
+
+<section aria-labelledby="proposals-title">
+<div class="section-head"><div><div class="eyebrow" style="color:#6b9dbc">Have your say</div><h2 id="proposals-title">Ideas on the table</h2><p>Choose how you feel about each discussion proposal. You can leave a note when you want to improve or reject an idea.</p></div><div class="count" id="proposal-count">Loading proposals…</div></div>
+<div class="filters" id="filters" aria-label="Filter proposals by topic"></div>
+<div class="proposal-list" id="proposal-list" aria-live="polite"><div class="empty">Loading ideas…</div></div>
+</section>
+
+<section class="contribute" id="your-idea" aria-labelledby="idea-title">
+<div class="contribute-intro"><div class="eyebrow">Something missing?</div><h2 id="idea-title">Put your own idea on the table.</h2><p>Have a priority, solution, or concern that you don't see above? Tell us about it. The platform should reflect the people it is meant to serve.</p></div>
+<form class="contribute-form" id="idea-form">
+<div class="form-grid">
+<div class="field"><label for="idea-category">Topic</label><select id="idea-category" required><option value="">Choose a topic</option><option>Education & opportunity</option><option>Jobs & the economy</option><option>Public services</option><option>Youth voice</option><option>Community & wellbeing</option><option>Transparency & accountability</option><option>Other / new topic</option></select></div>
+<div class="field"><label for="idea-title-input">Give your idea a title</label><input id="idea-title-input" type="text" minlength="8" maxlength="140" placeholder="A short summary of your idea" required></div>
+<div class="field wide"><label for="idea-description">Tell us more</label><textarea id="idea-description" minlength="20" maxlength="1600" placeholder="What should change, why does it matter, and how could it work?" required></textarea></div>
+</div>
+<div class="honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<div class="form-foot"><button class="submit-idea" id="submit-idea" type="submit">Submit your idea</button><small>Your idea will be sent to the campaign team for review. Please don't include private or sensitive information.</small></div>
+<div class="status" id="idea-status" role="status" aria-live="polite"></div>
+<div class="privacy">You can take part without creating an account or providing an email address. Your Roblox username is collected with your contribution so the campaign can understand and moderate submissions. It is not proof of Roblox identity.</div>
+</form>
 </section>
 </main>
 <footer>
 <a class="footer-brand" href="./" aria-label="AmentAmour for President"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a>
-<div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a class="nav-platform" href="platform.html">Platform</a><a href="index.html#donate">Donate</a></div>
+<div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a href="platform.html">Platform</a><a href="index.html#donate">Donate</a></div>
 <div class="footer-legal">Paid for by AmentAmour for President. Campaign committee disclaimer and registration details must be reviewed and completed by the campaign's compliance team before publication. <a href="mailto:privacy@electament.com">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div>
 <div class="copyright">© <span id="year"></span> AmentAmour for President. All rights reserved.</div>
 </footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
+const supabase=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+const $=id=>document.getElementById(id);
+const state={proposals:[],category:"All topics",responded:new Set(),pending:null};
+const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function username(){return $("roblox-username").value.trim();}
+function validUsername(){return /^[A-Za-z0-9_]{3,20}$/.test(username());}
+function status(id,message){$(id).textContent=message;}
+function categories(){return ["All topics",...new Set(state.proposals.map(p=>p.category))];}
+function renderFilters(){
+ $("filters").innerHTML=categories().map(c=>'<button type="button" class="filter '+(state.category===c?"active":"")+'" data-category="'+escapeHtml(c)+'">'+escapeHtml(c)+'</button>').join("");
+}
+function renderProposals(){
+ const shown=state.proposals.filter(p=>state.category==="All topics"||p.category===state.category);
+ $("proposal-count").textContent=state.proposals.length+" discussion "+(state.proposals.length===1?"idea":"ideas");
+ if(!shown.length){$("proposal-list").innerHTML='<div class="empty">There are no proposals in this topic just yet. You can still share your own idea below.</div>';return;}
+ $("proposal-list").innerHTML=shown.map((p,i)=>{
+  const done=state.responded.has(p.id);
+  return '<article class="proposal" data-proposal="'+p.id+'"><div class="proposal-top"><span class="category">'+escapeHtml(p.category)+'</span><span class="number">IDEA '+String(state.proposals.indexOf(p)+1).padStart(2,"0")+'</span></div><h3>'+escapeHtml(p.title)+'</h3><p>'+escapeHtml(p.description)+'</p><div class="actions"><button type="button" class="choice keep" data-choice="keep" '+(done?"disabled":"")+'>'+ (done?"Response sent":"Keep it")+'</button><button type="button" class="choice improve" data-choice="improve" '+(done?"disabled":"")+'>'+ (done?"✓":"Improve it")+'</button><button type="button" class="choice reject" data-choice="reject" '+(done?"disabled":"")+'>'+ (done?"✓":"Reject it")+'</button></div><div class="response-box" hidden><div class="field"><label>Want to explain? (optional)</label><textarea class="response-comment" maxlength="1200" placeholder="What would you change, or why doesn't this work for you?"></textarea></div><button type="button" class="send-response">Send response</button><div class="status response-status" role="status"></div></div></article>';
+ }).join("");
+}
+async function loadProposals(){
+ const {data,error}=await supabase.from("campaign_platform_proposals").select("id,category,title,description,sort_order").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});
+ if(error){$("proposal-list").innerHTML='<div class="empty">We couldn't load the proposals just now. Please refresh the page and try again.</div>';status("proposal-count","Temporarily unavailable");return;}
+ state.proposals=data||[];renderFilters();renderProposals();
+}
+$("filters").addEventListener("click",event=>{
+ const button=event.target.closest("[data-category]");if(!button)return;
+ state.category=button.dataset.category;renderFilters();renderProposals();
+});
+$("proposal-list").addEventListener("click",async event=>{
+ const choiceButton=event.target.closest("[data-choice]");
+ if(choiceButton){
+  if(!validUsername()){status("proposal-count","Enter a valid Roblox username above first.");$("roblox-username").focus();return;}
+  const card=choiceButton.closest("[data-proposal]");const proposalId=card.dataset.proposal;const choice=choiceButton.dataset.choice;
+  if(choice==="keep"){await sendResponse(card,proposalId,choice);return;}
+  card.querySelectorAll("[data-choice]").forEach(b=>b.classList.toggle("selected",b===choiceButton));
+  const box=card.querySelector(".response-box");box.hidden=false;card.dataset.pendingChoice=choice;box.querySelector(".response-comment").focus();return;
+ }
+ if(event.target.closest(".send-response")){
+  const card=event.target.closest("[data-proposal]");await sendResponse(card,card.dataset.proposal,card.dataset.pendingChoice||"improve");
+ }
+});
+async function sendResponse(card,proposalId,choice){
+ if(!validUsername()){status("proposal-count","Enter a valid Roblox username above first.");$("roblox-username").focus();return;}
+ const btn=card.querySelector(".send-response");if(btn)btn.disabled=true;
+ const comment=card.querySelector(".response-comment")?.value.trim()||"";
+ const {error}=await supabase.from("campaign_platform_responses").insert({proposal_id:proposalId,roblox_username:username(),response:choice,comment});
+ if(error){
+  const message=error.code==="23505"?"This Roblox username has already responded to this proposal.":"We couldn't save that response. Please try again.";
+  const target=card.querySelector(".response-status");if(target)target.textContent=message;else status("proposal-count",message);
+  if(btn)btn.disabled=false;return;
+ }
+ state.responded.add(proposalId);renderProposals();
+ const newCard=document.querySelector('[data-proposal="'+proposalId+'"]');if(newCard)newCard.querySelector(".proposal").scrollIntoView?.({block:"nearest"});
+}
+$("idea-form").addEventListener("submit",async event=>{
+ event.preventDefault();status("idea-status","");
+ if($("website").value)return;
+ if(!validUsername()){status("idea-status","Please enter a valid Roblox username above.");$("roblox-username").focus();return;}
+ const category=$("idea-category").value,title=$("idea-title-input").value.trim(),description=$("idea-description").value.trim();
+ if(!category||title.length<8||description.length<20){status("idea-status","Please complete each field. Your title needs at least 8 characters and your description at least 20.");return;}
+ const button=$("submit-idea");button.disabled=true;button.textContent="Sending…";
+ const {error}=await supabase.from("campaign_platform_ideas").insert({roblox_username:username(),category,title,description});
+ button.disabled=false;button.textContent="Submit your idea";
+ if(error){status("idea-status","We couldn't submit your idea just now. Please check your connection and try again.");return;}
+ $("idea-form").reset();status("idea-status","Thank you — your idea has been sent to the campaign team for review.");
+});
+$("year").textContent=new Date().getFullYear();
+loadProposals();
+</script>
 </body>
 </html>
