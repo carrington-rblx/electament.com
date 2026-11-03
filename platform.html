@@ -433,36 +433,41 @@ footer{background:var(--navy);color:#fff;border-top:0}
 @media(max-width:760px){header{border-radius:0}.contribute{border-radius:6px}}
 
 
-/* Campaign-blue header and white navigation */
+/* Match the main site's navy header; current page is red text, not a pill */
 header,
 header.header-scrolled{
- background:#75b5dc!important;
- box-shadow:0 4px 16px rgba(24,45,83,.12)!important;
- border:0!important;
-}
-header nav a,
-header nav a:not(.nav-donate),
-header .brand{color:#fff!important}
-header nav a:hover{color:#182d53!important}
-header nav a.nav-platform,
-header nav a.nav-current,
-header nav a.nav-donate{
- display:inline-flex;
+ position:sticky!important;
+ top:0!important;
+ left:auto!important;
+ right:auto!important;
+ height:58px!important;
+ min-height:58px!important;
+ padding:0 clamp(16px,3vw,42px)!important;
+ display:flex;
  align-items:center;
- justify-content:center;
- padding:8px 13px;
- border-radius:24px;
- color:#fff!important;
- font-weight:900;
+ gap:16px;
+ background:var(--navy,#182d53)!important;
+ border:0!important;
+ border-bottom:1px solid rgba(255,255,255,.08)!important;
+ border-radius:0!important;
+ box-shadow:0 4px 14px rgba(10,24,45,.18)!important;
+ z-index:1002;
 }
-header nav a.nav-platform,
-header nav a.nav-current{background:#ed3d4b!important}
-header nav a.nav-donate{background:#ed3d4b!important}
-header nav a.nav-platform:hover,
-header nav a.nav-current:hover,
-header nav a.nav-donate:hover{background:#d92f40!important;color:#fff!important}
-header .nav-social a:not(.nav-donate){color:#fff!important;border-color:rgba(255,255,255,.8)!important}
-
+header .brand{color:#fff!important;flex:0 0 auto}
+header .brand small{color:#fff!important}
+header .brand img{filter:none}
+header nav{margin-left:auto;display:flex;align-items:center;gap:clamp(9px,1.15vw,16px);font-size:8px;white-space:nowrap}
+header nav a,
+header nav a:not(.nav-donate){color:#fff!important;background:transparent!important;padding:0!important;border:0!important;border-radius:0!important;font-weight:800}
+header nav a:hover{color:#75b5dc!important}
+header nav a.nav-current,
+header nav a.nav-current:hover{color:#ed3d4b!important;background:transparent!important}
+header nav a.nav-donate,
+header nav a.nav-donate:hover{display:inline-flex;align-items:center;justify-content:center;padding:7px 12px!important;border:0!important;border-radius:25px!important;background:#ed3d4b!important;color:#fff!important;font-weight:900}
+@media(max-width:760px){
+ header,header.header-scrolled{height:auto!important;min-height:58px!important;padding:12px 17px!important;align-items:center;flex-wrap:wrap;gap:12px}
+ header nav{width:100%;margin-left:0;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:7px}
+}
 </style>
 </head>
 <body>
