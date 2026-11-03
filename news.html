@@ -1097,6 +1097,43 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   margin:0 auto;
   padding:76px 35px 90px;
 }
+.news-interview{
+  display:flex;
+  justify-content:center;
+  padding-top:82px;
+  padding-bottom:0;
+}
+.interview-request{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  border:1.5px solid var(--blue);
+  border-radius:30px;
+  padding:17px 31px;
+  color:var(--navy);
+  background:transparent;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-align:center;
+  transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease,box-shadow .22s ease;
+}
+.interview-request:hover,
+.interview-request:focus-visible{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 9px 20px #ed3d4b44;
+}
+.interview-arrow{
+  font-size:17px;
+  line-height:1;
+  transition:transform .22s ease;
+}
+.interview-request:hover .interview-arrow,
+.interview-request:focus-visible .interview-arrow{transform:translateX(3px)}
 .press-release-list{
   display:flex;
   justify-content:center;
@@ -1262,7 +1299,13 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
       <span class="news-kicker">THE LATEST</span>
       <h1 id="news-title">News and Press</h1>
     </div>
-  </section>  <section class="news-content press-release-list" aria-label="Press releases">
+  </section>  <section class="news-content news-interview" aria-label="Interview requests">
+    <a class="interview-request" href="mailto:campaign@electament.com?subject=Interview%20Request">
+      <span>SUBMIT AN INTERVIEW REQUEST</span>
+      <span class="interview-arrow" aria-hidden="true">→</span>
+    </a>
+  </section>
+  <section class="news-content press-release-list" aria-label="Press releases">
     <article class="press-release-card">
       <span class="press-release-meta">PRESS RELEASE <span aria-hidden="true">|</span> NOVEMBER 2, 2026</span>
       <h2>WATCH: On Election Day Eve, Ossoff Campaigns With Sen. Rev. Warnock, Rep. Johnson, and Downballot Candidates</h2>
