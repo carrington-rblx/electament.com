@@ -1032,19 +1032,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   color:#fff;
   background:#1c3056;
 }
-.news-hero-image{
-  position:absolute;
-  z-index:1;
-  width:min(30vw,390px);
-  height:76%;
-  max-height:360px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  object-fit:contain;
-  object-position:center;
-  pointer-events:none;
-}
 .news-hero::before{
   content:"";
   position:absolute;
@@ -1166,7 +1153,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 @media(max-width:760px){
   .news-hero{min-height:390px;height:52svh}
   .news-hero::before{inset:0}
-  .news-hero-image{width:min(66vw,340px);height:72%;max-height:300px}
   .news-hero-inner{padding:64px 0}
   .news-content{padding:55px 22px 65px}
   .news-content-heading{align-items:start;flex-direction:column}
@@ -1186,7 +1172,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 </header>
 <main>
   <section class="news-hero" aria-labelledby="news-title">
-    <img class="news-hero-image" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Conservative%20Party%20%2860%29.png" alt="" aria-hidden="true">
     <div class="news-hero-inner">
       <span class="news-kicker">THE LATEST</span>
       <h1 id="news-title">News and Press</h1>
