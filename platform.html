@@ -305,6 +305,41 @@ footer{background:#fbfbf8;color:#303447;border-top:1px solid #e7e8ed;padding:36p
 .game-learn{border-radius:30px;background:#edf0f3}
 .game-response{border-radius:18px;box-shadow:0 8px 24px #3034470a}
 @media(max-width:760px){header{border-radius:0 0 15px 15px}.hero{padding:38px 18px 35px}.contribute{border-radius:18px}}
+
+/* Final game results */
+.game-results[hidden]{display:none}
+.game-results{min-height:calc(100vh - 70px);padding:clamp(24px,5vw,58px) 16px 64px;background:#edf0f2}
+.results-shell{width:min(760px,100%);margin:0 auto;background:#fbfbf8;border-radius:26px;padding:clamp(24px,5vw,48px) clamp(16px,4vw,38px);box-shadow:0 18px 65px #172b4d12;text-align:center}
+.results-kicker{font-size:9px;font-weight:900;letter-spacing:.2em;color:#7d8994}
+.results-title{font-size:clamp(32px,6vw,52px);line-height:1;letter-spacing:-.07em;color:#19242b;margin:12px 0 25px}
+.result-leader{width:min(460px,100%);margin:0 auto;background:#35a36c;border-radius:24px;padding:20px 22px 22px;color:#fff;box-shadow:0 10px 28px #236f4b25;overflow:hidden}
+.result-role{display:inline-flex;background:#ffdf55;color:#55440d;border-radius:30px;padding:9px 16px;font-size:10px;font-weight:900;letter-spacing:.06em;margin-bottom:13px}
+.result-avatar{width:148px;height:148px;margin:0 auto 13px;border-radius:50%;border:6px solid #ffffffd9;overflow:hidden;background:linear-gradient(90deg,#243d83 0 33.33%,#fff 33.33% 66.66%,#e64b55 66.66%);box-shadow:0 7px 18px #154c3430}
+.result-avatar svg{width:100%;height:100%;display:block}
+.result-leader h2{font-size:clamp(27px,5vw,37px);letter-spacing:-.06em;margin:0 0 6px}
+.result-country{font-size:10px;font-weight:800;letter-spacing:.08em;color:#e5f7ec;margin:0 0 16px}
+.result-description{max-width:370px;margin:0 auto;font-size:11px;line-height:1.8;color:#f0fff5}
+.result-trivia{margin-top:19px;border:0;border-radius:30px;padding:11px 18px;background:#eef0ef;color:#47534c;font-size:10px;font-weight:900}
+.result-stats{width:min(510px,100%);margin:30px auto 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.result-stat{display:flex;flex-direction:column;align-items:center;gap:9px}
+.result-ring{--pct:0%;width:100px;height:100px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ring-color) var(--pct),#e8e9e6 0);position:relative}
+.result-ring:before{content:"";position:absolute;inset:9px;background:#fbfbf8;border-radius:50%}
+.result-ring strong{position:relative;font-size:20px;letter-spacing:-.05em;color:#26323a}
+.result-stat-label{font-size:9px;font-weight:900;letter-spacing:.06em;color:#596574}
+.result-stat.reject{--ring-color:#e85b65}.result-stat.improve{--ring-color:#438fca}.result-stat.keep{--ring-color:#35a36c}
+.result-share{width:min(390px,100%);border:0;border-radius:40px;background:#ffdf55;color:#202020;padding:16px 24px;font-size:13px;font-weight:900;box-shadow:0 5px 0 #e9c33c}
+.result-share span{font-size:17px;margin-right:8px}
+.result-secondary{display:flex;justify-content:center;gap:10px;margin:15px auto 0}
+.result-secondary button{border:1px solid #e3e5e3;background:#fff;color:#35404b;border-radius:30px;padding:12px 19px;font-size:10px;font-weight:900}
+.result-note{font-size:9px;line-height:1.7;color:#89939c;max-width:480px;margin:20px auto 0}
+.result-answers{width:min(520px,100%);margin:20px auto 0;text-align:left}
+.result-answers[hidden]{display:none}
+.result-answers h3{font-size:16px;letter-spacing:-.04em;margin:0 0 12px}
+.result-answer{display:flex;justify-content:space-between;gap:14px;padding:11px 13px;background:#fff;border:1px solid #eceeeb;border-radius:12px;margin:7px 0;font-size:10px;line-height:1.5}
+.result-answer strong{white-space:nowrap}
+.result-answer .answer-reject{color:#cf4652}.result-answer .answer-improve{color:#367db2}.result-answer .answer-keep{color:#278b59}
+@media(max-width:480px){.result-stats{gap:4px}.result-ring{width:82px;height:82px}.result-ring:before{inset:8px}.result-ring strong{font-size:17px}.result-stat-label{font-size:8px}.result-secondary button{padding:11px 14px}}
+
 </style>
 </head>
 <body>
@@ -468,6 +503,48 @@ footer{background:#fbfbf8;color:#303447;border-top:1px solid #e7e8ed;padding:36p
 </form>
 </section>
 </main>
+
+<section class="game-results" id="game-results" hidden aria-labelledby="results-heading">
+ <div class="results-shell">
+  <div class="results-kicker">YOUR GAME IS COMPLETE</div>
+  <h1 class="results-title" id="results-heading">Your profile is ready.</h1>
+  <article class="result-leader">
+   <div class="result-role">You are: Guardian</div>
+   <div class="result-avatar" role="img" aria-label="Illustrated portrait of Jacques Chirac with the French tricolour">
+    <svg viewBox="0 0 160 160" aria-hidden="true">
+     <path fill="#243d83" d="M0 0h53.3v160H0z"/><path fill="#fff" d="M53.3 0h53.4v160H53.3z"/><path fill="#e64b55" d="M106.7 0H160v160h-53.3z"/>
+     <path fill="#253247" d="M36 160c3-30 18-45 44-48h0c27 2 42 18 45 48z"/>
+     <path fill="#d7d9d8" d="M52 49c0-27 13-39 29-39 19 0 30 14 30 40v23H52z"/>
+     <path fill="#e2b995" d="M53 55c0-20 12-31 27-31 17 0 28 12 28 31v29c0 20-13 32-28 32S53 104 53 84z"/>
+     <path fill="#d8d8d2" d="M49 56c-2-26 11-43 31-43 22 0 34 17 31 44l-8-13-7-15-14 10-24-2z"/>
+     <path fill="#fff" d="M61 65h13v5H61zM88 65h13v5H88z"/>
+     <path fill="#34445a" d="M66 66h5v5h-5zM92 66h5v5h-5z"/>
+     <path fill="#c78e78" d="M77 76h8v15h-8z"/>
+     <path fill="#f4eee6" d="M64 97c9 7 23 7 32 0l-5 15H69z"/>
+     <path fill="#fff" d="M67 111l13 9 13-9 9 7-8 42H60l-8-42z"/>
+     <path fill="#243d83" d="M76 120h8v40h-8z"/>
+    </svg>
+   </div>
+   <h2>Jacques Chirac</h2>
+   <p class="result-country">FRANCE · 1995–2007</p>
+   <p class="result-description">He knew when to say “no” in the name of France, even under pressure from the world's most powerful leaders. Like him, you stand by your principles when others push you to follow the crowd.</p>
+   <button class="result-trivia" type="button" id="result-trivia">? Did you know?</button>
+  </article>
+  <div class="result-stats" aria-label="Your answer breakdown">
+   <div class="result-stat reject"><div class="result-ring" id="ring-reject"><strong id="pct-reject">0%</strong></div><div class="result-stat-label">REJECT</div></div>
+   <div class="result-stat improve"><div class="result-ring" id="ring-improve"><strong id="pct-improve">0%</strong></div><div class="result-stat-label">IMPROVE</div></div>
+   <div class="result-stat keep"><div class="result-ring" id="ring-keep"><strong id="pct-keep">0%</strong></div><div class="result-stat-label">KEEP</div></div>
+  </div>
+  <button type="button" class="result-share" id="result-share"><span aria-hidden="true">↥</span> Share my profile</button>
+  <div class="result-secondary">
+   <button type="button" id="result-replay">↻ Play again</button>
+   <button type="button" id="result-my-answers">◉ My answers</button>
+  </div>
+  <div class="result-answers" id="result-answers" hidden><h3>Your answers</h3><div id="result-answer-list"></div></div>
+  <p class="result-note">Your profile is a playful, illustrative match based on your choices — not a scientific personality assessment. Your submitted answers remain subject to the privacy notice.</p>
+ </div>
+</section>
+
 <footer>
 <a class="footer-brand" href="./" aria-label="AmentAmour for President"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a>
 <div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a href="platform.html">Platform</a><a href="index.html#donate">Donate</a></div>
@@ -478,7 +555,7 @@ footer{background:#fbfbf8;color:#303447;border-top:1px solid #e7e8ed;padding:36p
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 const supabase=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
 const $=id=>document.getElementById(id);
-const state={proposals:[],category:"All topics",responded:new Set(),pending:null,consentAccepted:false,currentIndex:0};
+const state={proposals:[],category:"All topics",responded:new Set(),pending:null,consentAccepted:false,currentIndex:0,answers:[]};
 const CONSENT_VERSION="2026-11-03-v1";
 function consentPayload(){return {consent_given_at:new Date().toISOString(),consent_version:CONSENT_VERSION};}
 const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -549,7 +626,7 @@ async function sendResponse(card,proposalId,choice){
   const target=card.querySelector(".response-status");if(target)target.textContent=message;else status("proposal-count",message);
   if(btn)btn.disabled=false;return;
  }
- state.responded.add(proposalId);state.currentIndex=Math.min(state.currentIndex+1,state.proposals.length-1);renderProposals();
+ state.responded.add(proposalId);state.answers.push({proposalId,title:state.proposals.find(p=>p.id===proposalId)?.title||"Proposal",choice});if(state.answers.length>=state.proposals.length){showGameResults();return;}state.currentIndex=Math.min(state.currentIndex+1,state.proposals.length-1);renderProposals();
 
 }
 $("idea-form").addEventListener("submit",async event=>{
@@ -599,6 +676,42 @@ $("walkthrough-fourth-next").addEventListener("click",()=>{$("walkthrough-fourth
 $("walkthrough-fifth-back").addEventListener("click",()=>{$("walkthrough-fifth").hidden=true;$("walkthrough-fourth").hidden=false;$("walkthrough-fourth").scrollIntoView({behavior:"smooth",block:"start"});});
 $("political-consent").addEventListener("change",event=>{state.consentAccepted=event.target.checked;$("walkthrough-fifth-accept").disabled=!event.target.checked;$("consent-required").textContent=event.target.checked?"Consent given for this participation session. You can withdraw consent for future processing by contacting the campaign.":"Your choice is voluntary. You must actively agree before submitting responses.";});
 $("walkthrough-fifth-accept").addEventListener("click",()=>{if(!$("political-consent").checked)return;state.consentAccepted=true;$("walkthrough-fifth").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+
+
+function showGameResults(){
+ const total=state.answers.length||1,counts={reject:0,improve:0,keep:0};
+ state.answers.forEach(a=>{if(counts[a.choice]!==undefined)counts[a.choice]++;});
+ ["reject","improve","keep"].forEach(choice=>{
+  const pct=Math.round(counts[choice]/total*100);
+  $("pct-"+choice).textContent=pct+"%";
+  $("ring-"+choice).style.setProperty("--pct",pct+"%");
+ });
+ $("participation").hidden=true;$("game-results").hidden=false;
+ $("result-answer-list").innerHTML=state.answers.map(a=>'<div class="result-answer"><span>'+escapeHtml(a.title)+'</span><strong class="answer-'+a.choice+'">'+({reject:"Reject",improve:"Improve",keep:"Keep"}[a.choice])+'</strong></div>').join("");
+ $("game-results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("result-trivia").addEventListener("click",()=>{
+ $("learn-modal-title").textContent="A moment in history";
+ $("learn-modal-copy").textContent="In 2003, Jacques Chirac opposed the proposed invasion of Iraq at the United Nations, arguing for a peaceful approach and respect for international law.";
+ $("learn-modal").hidden=false;
+});
+$("result-my-answers").addEventListener("click",()=>{
+ const panel=$("result-answers");panel.hidden=!panel.hidden;
+ $("result-my-answers").textContent=panel.hidden?"◉ My answers":"Hide my answers";
+});
+$("result-share").addEventListener("click",async()=>{
+ const counts={reject:0,improve:0,keep:0};state.answers.forEach(a=>{if(counts[a.choice]!==undefined)counts[a.choice]++;});
+ const total=state.answers.length||1,percent=k=>Math.round(counts[k]/total*100);
+ const shareText="My AmentAmour profile: Guardian, like Jacques Chirac. My choices: "+percent("reject")+"% Reject, "+percent("improve")+"% Improve, "+percent("keep")+"% Keep. Play the game: "+location.href;
+ if(navigator.share){try{await navigator.share({title:"My AmentAmour profile",text:shareText,url:location.href});}catch(e){if(e.name!=="AbortError")status("proposal-count","Sharing isn't available on this device.");}}
+ else if(navigator.clipboard?.writeText){try{await navigator.clipboard.writeText(shareText);$("result-share").textContent="✓ Profile link copied";}catch(e){$("result-share").textContent="Copy unavailable";}}
+ else {$("result-share").textContent="Sharing isn't supported here";}
+});
+$("result-replay").addEventListener("click",()=>{
+ $("game-results").hidden=true;$("landing").hidden=false;$("landing").scrollIntoView({behavior:"smooth",block:"start"});
+ $("result-answers").hidden=true;
+ $("result-share").innerHTML='<span aria-hidden="true">↥</span> Share my profile';
+});
 
 showFeatured(0);
 
