@@ -569,6 +569,75 @@ footer{padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
 #bio .intro-copy .outline-link{color:#fff!important;border-color:#fff!important}
 @media(max-width:760px){#bio .intro-copy{padding:18px 16px!important}}
 
+
+/* Full-bleed campaign image hero */
+.campaign-image-hero{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:clamp(560px,78vh,820px);
+  overflow:hidden;
+  isolation:isolate;
+  background:#172b4d;
+}
+.campaign-image-hero::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background:linear-gradient(105deg,rgba(23,43,77,.88) 0%,rgba(23,43,77,.70) 48%,rgba(23,43,77,.86) 100%);
+  pointer-events:none;
+}
+.campaign-image-hero .bio-photo{
+  position:absolute;
+  z-index:-1;
+  inset:-18px;
+  min-height:0;
+  height:auto;
+  background:#172b4d;
+}
+.campaign-image-hero .bio-photo img{
+  width:100%;
+  height:100%;
+  min-height:0;
+  object-fit:cover;
+  object-position:center 42%;
+  filter:blur(7px);
+  transform:scale(1.06);
+  opacity:.88;
+}
+.campaign-image-hero .bio-panel{
+  position:relative;
+  z-index:1;
+  width:min(100%,1050px);
+  min-height:0;
+  justify-content:center;
+  padding:clamp(72px,11vw,150px) 28px;
+  text-align:center;
+  background:transparent;
+}
+.campaign-image-hero .bio-copy{width:min(100%,780px);margin:0 auto}
+.campaign-image-hero .bio-rule{margin:0 auto 30px}
+.campaign-image-hero .bio-copy .eyebrow{color:#b9d9f2}
+.campaign-image-hero .bio-copy h1{
+  margin:16px 0 22px;
+  color:#fff;
+  font-size:clamp(54px,8vw,100px);
+  text-shadow:0 4px 28px rgba(0,0,0,.22);
+}
+.campaign-image-hero .bio-copy p{
+  max-width:650px;
+  margin:0 auto;
+  color:#f1f6fc;
+}
+@media(max-width:760px){
+  .campaign-image-hero{min-height:580px}
+  .campaign-image-hero .bio-photo{inset:-14px;height:auto;max-height:none}
+  .campaign-image-hero .bio-photo img{height:100%;min-height:0;object-position:center}
+  .campaign-image-hero .bio-panel{min-height:580px;padding:70px 26px}
+}
+
 </style>
 <style id="support-campaign-emphasis">
 #about .support-tile{
@@ -1290,8 +1359,8 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 <div class="nav-social"><a href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M19.7 5.3A18.5 18.5 0 0 0 15.2 4l-.6 1.2a17 17 0 0 0-5.2 0L8.8 4a18.5 18.5 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.6a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.8 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a><a href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/REPUBLIC%20LOGO.png" alt="RepublicRx" style="width:18px;height:18px;object-fit:contain;display:block"></a><a class="nav-donate" href="#donate">Donate</a></div>
 </header>
 <main>
-<section class="bio-hero" aria-labelledby="images-title">
-  <div class="bio-photo"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png" alt="AmentAmour campaign event"></div>
+<section class="bio-hero campaign-image-hero" aria-labelledby="images-title">
+  <div class="bio-photo"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/HUYM_oIbIAAaoJV.png" alt="AmentAmour campaign image"></div>
   <div class="bio-panel"><div class="bio-copy">
     <div class="bio-rule"></div>
     <div class="eyebrow">Campaign gallery</div>
