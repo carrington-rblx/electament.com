@@ -96,7 +96,8 @@ function openEditor(article){
   renderArticleList();
   const admin=state.role==="admin";
   const isNew=!article.id;
-  const canEdit=admin ? ["draft","submitted","changes_requested"].includes(article.status) : ["draft","submitted","changes_requested"].includes(article.status);
+  const canEdit=admin || ["draft","submitted","changes_requested"].includes(article.status);
+  const canSaveLive=admin && article.status==="published";
   const canPropose=article.status==="published";
   const canReview=admin && article.status==="submitted";
   $("editorPanel").innerHTML=`
@@ -116,10 +117,11 @@ function openEditor(article){
     ${admin && article.status==="published"?'<div class="notice">This article is currently published. Changes saved by an administrator update this CMS record immediately; use the review controls on a submitted draft for staff-proposed revisions.</div>':""}
   `;
   renderBlocks(canEdit);
+  if(canSaveLive){ $("saveDraft").textContent="Save live changes"; $("submitArticle").classList.add("hidden"); }
   if(canEdit){
     $("addText").addEventListener("click",()=>{state.blocks.push({type:"text",text:""});renderBlocks(true);});
     $("addImage").addEventListener("click",()=>{state.blocks.push({type:"image",url:"",caption:"",layout:"wide"});renderBlocks(true);});
-    $("saveDraft").addEventListener("click",()=>saveArticle("draft"));
+    $("saveDraft").addEventListener("click",()=>saveArticle(canSaveLive?"published":"draft"));
     $("submitArticle").addEventListener("click",()=>saveArticle("submitted"));
     $("articleTitle").addEventListener("input",()=>{if(!$("articleSlug").dataset.edited)$("articleSlug").value=slugify($("articleTitle").value);});
     $("articleSlug").addEventListener("input",()=>{$("articleSlug").dataset.edited="1";});
@@ -204,7 +206,7 @@ async function saveArticle(status){
   if(!title){notice("appMessage","Add a headline before saving.","error");return;}
   const payload={title,slug,excerpt:$("articleExcerpt").value.trim(),hero_image:$("heroImage").value.trim()||null,content:state.blocks,status};
   if(status==="submitted") payload.submitted_at=new Date().toISOString();
-  const button=$(status==="draft"?"saveDraft":"submitArticle");setBusy(button,true);
+  const button=$(status==="published"||status==="draft"?"saveDraft":"submitArticle");setBusy(button,true);
   try{
     let result;
     if(state.current.id) {
@@ -217,10 +219,10 @@ async function saveArticle(status){
       }
     }
     if(result.error)throw result.error;
-    notice("appMessage",status==="submitted"?"Article submitted to the administrator for review.":"Draft saved.","good");
+    notice("appMessage",status==="submitted"?"Article submitted to the administrator for review.":status==="published"?"Published article updated live.":"Draft saved.","good");
     await loadArticles(result.data.id);
   }catch(err){notice("appMessage",err.message,"error");}
-  finally{setBusy(button,false,status==="draft"?"Save draft":"Submit for approval");}
+  finally{setBusy(button,false,status==="published"?"Save live changes":status==="draft"?"Save draft":"Submit for approval");}
 }
 async function reviewArticle(status){
   const note=$("reviewNote").value.trim();
