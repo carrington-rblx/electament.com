@@ -1387,11 +1387,15 @@ const title=document.getElementById("press-article-title"),date=document.getElem
 const back='<a class="press-article-back" href="news.html">← BACK TO NEWS</a>';
 try{
  if(!slug) throw new Error("No press release was selected.");
- const {data,error}=await db.from("articles").select("title,excerpt,content,published_at").eq("slug",slug).eq("status","published").maybeSingle();
+ const {data,error}=await db.from("articles").select("title,excerpt,content,hero_image,published_at").eq("slug",slug).eq("status","published").maybeSingle();
  if(error)throw error;if(!data)throw new Error("This press release is not available.");
  title.textContent=data.title;date.textContent=data.published_at?new Date(data.published_at).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}).toUpperCase():"PRESS RELEASE";
  document.title=data.title+" | AmentAmour For President";
  body.replaceChildren();
+ if(data.hero_image){
+  const hero=document.createElement("figure");hero.className="cms-article-image wide cms-article-hero-image";
+  const image=document.createElement("img");image.src=data.hero_image;image.alt=data.title+" — campaign press image";image.loading="eager";hero.append(image);body.append(hero);
+ }
  for(const block of (Array.isArray(data.content)?data.content:[])){
   if(block.type==="image"&&block.url){
    const figure=document.createElement("figure");figure.className="cms-article-image "+(block.layout==="left"||block.layout==="right"?block.layout:"wide");
