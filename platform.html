@@ -617,7 +617,7 @@ header .nav-social a:not(.nav-donate){color:#fff!important;border-color:rgba(255
 <div class="honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <div class="form-foot"><button class="submit-idea" id="submit-idea" type="submit">Submit your idea</button><small>Your idea will be sent to the campaign team for review. Please don't include private or sensitive information.</small></div>
 <div class="status" id="idea-status" role="status" aria-live="polite"></div>
-<div class="privacy">You can take part without creating an account or providing an email address. No username, account or email address is required to participate.</div>
+<div class="privacy">No account, username or email address is required. Your policy choices and any improvement text are submitted without a personal identifier.</div>
 </form>
 </section>
 </main>
@@ -673,12 +673,10 @@ header .nav-social a:not(.nav-donate){color:#fff!important;border-color:rgba(255
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 const supabase=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
 const $=id=>document.getElementById(id);
-const state={proposals:[],category:"All topics",responded:new Set(),pending:null,consentAccepted:false,currentIndex:0,answers:[]};
+const state={proposals:[],category:"All topics",consentAccepted:false,currentIndex:0,answers:[]};
 const CONSENT_VERSION="2026-11-03-v1";
 function consentPayload(){return {consent_given_at:new Date().toISOString(),consent_version:CONSENT_VERSION};}
 const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function username(){return $("roblox-username").value.trim();}
-function validUsername(){return /^[A-Za-z0-9_]{3,20}$/.test(username());}
 function status(id,message){$(id).textContent=message;}
 function renderProposals(){
  const total=state.proposals.length;
