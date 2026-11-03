@@ -1444,6 +1444,55 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 
 
 </style>
+<style id="you-president-donate-button-fix">
+/* Keep the header Donate pill consistent with the homepage navigation. */
+header .nav-social > a.nav-donate {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 10px 22px !important;
+  border: 0 !important;
+  border-radius: 25px !important;
+  background: #ed3d4b !important;
+  color: #fff !important;
+  font-family: Montserrat, Arial, sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: .1em !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  transform: none !important;
+}
+header .nav-social > a.nav-donate:hover,
+header .nav-social > a.nav-donate:focus-visible {
+  background: #cf2e3c !important;
+  color: #fff !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 9px 20px #ed3d4b44 !important;
+}
+@media(max-width:760px) {
+  header .nav-social > a.nav-donate {
+    padding: 8px 13px !important;
+    font-size: 7px !important;
+  }
+}
+@media(max-width:430px) {
+  header .nav-social > a.nav-donate {
+    padding: 7px 10px !important;
+    font-size: 7px !important;
+  }
+}
+</style>
+
 </head>
 <body><a class="announcement" href="index.html#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
 <header>
