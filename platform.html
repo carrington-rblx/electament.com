@@ -654,10 +654,6 @@ const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<
 function username(){return $("roblox-username").value.trim();}
 function validUsername(){return /^[A-Za-z0-9_]{3,20}$/.test(username());}
 function status(id,message){$(id).textContent=message;}
-function categories(){return ["All topics",...new Set(state.proposals.map(p=>p.category))];}
-function renderFilters(){
- $("filters").innerHTML=categories().map(c=>'<button type="button" class="filter '+(state.category===c?"active":"")+'" data-category="'+escapeHtml(c)+'">'+escapeHtml(c)+'</button>').join("");
-}
 function renderProposals(){
  const total=state.proposals.length;
  if(!total){$("proposal-count").textContent="No proposals available";$("proposal-list").innerHTML='<div class="empty">There are no published proposals yet.</div>';return;}
@@ -676,12 +672,8 @@ function renderProposals(){
 async function loadProposals(){
  const {data,error}=await supabase.from("campaign_platform_proposals").select("id,category,title,description,sort_order,created_at").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});
  if(error){$("proposal-list").innerHTML='<div class="empty">The proposals could not be loaded just now. Please refresh the page and try again.</div>';status("proposal-count","Temporarily unavailable");return;}
- state.proposals=data||[];renderFilters();renderProposals();
+ state.proposals=data||[];renderProposals();
 }
-$("filters").addEventListener("click",event=>{
- const button=event.target.closest("[data-category]");if(!button)return;
- state.category=button.dataset.category;renderFilters();renderProposals();
-});
 $("proposal-list").addEventListener("click",async event=>{
  const choiceButton=event.target.closest("[data-choice]");
  if(choiceButton){
