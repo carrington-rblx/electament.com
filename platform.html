@@ -246,6 +246,65 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 .game-response[hidden]{display:none}.game-response textarea{width:100%;min-height:78px;border:1px solid #d6dfe7;border-radius:7px;padding:10px;font:inherit;font-size:11px}
 .game-response .send-response{margin-top:10px}.game-hint{text-align:center;color:#9aa4b0;font-size:9px;margin:18px 0}
 @media(max-width:540px){.game-card{padding:0 21px 22px;min-height:410px}.game-card-art{margin:0 -21px;height:120px}.game-watermark{right:5px;font-size:6px}.game-card h2{font-size:22px}.game-card p{font-size:11px}.game-choice strong{font-size:7px}}
+
+/* Unified playful visual language across the whole platform page */
+:root{--navy:#303447;--blue:#82bee1;--red:#e85b68;--paper:#edf0f2;--ink:#303447;--muted:#737d8b;--line:#e7e8ed}
+body{background:#edf0f2;color:#303447}
+header{background:#fbfbf8;border:0;border-radius:0 0 18px 18px;padding:15px clamp(18px,5vw,78px);box-shadow:0 5px 22px #30344708}
+.brand{color:#303447}
+nav a:not(.nav-donate):hover,.footer-links a:hover{color:#7659b8}
+.nav-current{color:#7659b8}
+.nav-donate{background:#ffdf55;color:#303447;border-radius:30px;padding:11px 20px;box-shadow:0 3px 0 #e9c33c}
+.hero{background:#fbfbf8;color:#303447;padding:clamp(38px,6vw,65px) 22px 43px;overflow:hidden}
+.hero:after{border-color:#8f82bc18;box-shadow:0 0 0 45px #8f82bc08,0 0 0 90px #8f82bc05}
+.eyebrow{color:#8b7ab7}
+.hero h1{color:#20232c;letter-spacing:-.075em}
+.hero h1 span{color:#82bee1}
+.hero p{color:#687383}
+.hero-note{color:#87909c}
+.hero-note:before{background:#a18bda;width:8px;height:8px;border-radius:50%}
+main{width:min(900px,calc(100% - 36px));margin:26px auto 72px}
+.username-panel{background:#fbfbf8;border:1px solid #e9e8e5;border-radius:20px;border-left:0;padding:23px 25px;box-shadow:0 10px 30px #3034470a;margin-bottom:30px}
+.username-panel h2{font-size:17px;color:#242936}
+.username-panel p{color:#727d8b;font-size:11px}
+.field label{color:#697386}
+.field input,.field textarea,.field select{border:1px solid #e0e3e8;border-radius:10px;padding:13px 14px;color:#303447;background:#fff}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#a18bda;box-shadow:0 0 0 3px #a18bda22}
+.field small{color:#8993a0}
+.section-head h2{color:#252a36}
+.section-head p{color:#737d8b}
+.count{color:#8a7ab4}
+.filters{gap:9px}
+.filter{border:1px solid #e2e2e8;background:#fbfbf8;color:#667080;padding:10px 15px;border-radius:30px}
+.filter:hover,.filter.active{background:#eee8ff;border-color:#d8cdf6;color:#6548a8}
+.proposal-list{display:block}
+.proposal{border:1px solid #e8e7ec;border-radius:18px;box-shadow:0 10px 30px #3034470a}
+.category{color:#6548a8;background:#eee8ff;border-radius:30px}
+.proposal h3{color:#252a36}
+.choice{border:1px solid #e2e4e9;border-radius:30px}
+.choice.keep:hover,.choice.keep.selected{background:#35a36c;border-color:#35a36c}
+.choice.improve:hover,.choice.improve.selected{background:#e8f3fb;color:#326d94;border-color:#a9cce2}
+.choice.reject:hover,.choice.reject.selected{background:#fff0f1;color:#b82f3b;border-color:#e8a2a9}
+.send-response,.submit-idea{background:#8b75c4;border-radius:30px;padding:13px 20px;letter-spacing:.04em}
+.send-response:hover,.submit-idea:hover{background:#745eac}
+.empty{background:#fbfbf8;border:1px dashed #d8d6e2;border-radius:18px;color:#737d8b}
+.contribute{margin-top:46px;background:#fbfbf8;border:1px solid #e8e7ec;border-radius:22px;overflow:hidden;box-shadow:0 12px 38px #3034470a}
+.contribute-intro{background:#eee8ff;color:#303447;padding:clamp(25px,4vw,42px)}
+.contribute-intro .eyebrow{color:#7659b8}
+.contribute-intro h2{color:#272a36}
+.contribute-intro p{color:#687383}
+.contribute-form{padding:clamp(23px,4vw,40px)}
+.privacy{background:#f3f1f8;border-left:0;border-radius:12px;color:#697386;padding:15px}
+footer{background:#fbfbf8;color:#303447;border-top:1px solid #e7e8ed;padding:36px 20px 28px}
+.footer-legal{color:#7e8793}
+.copyright{color:#9aa2ad}
+.landing,.walkthrough,.walkthrough-third,.walkthrough-fourth,.walkthrough-fifth{background:#edf0f2}
+.game-back{background:#eee8ff;color:#6548a8}
+.game-progress{background:#e5e2ed}
+.game-progress span{background:#a18bda}
+.game-learn{border-radius:30px;background:#edf0f3}
+.game-response{border-radius:18px;box-shadow:0 8px 24px #3034470a}
+@media(max-width:760px){header{border-radius:0 0 15px 15px}.hero{padding:38px 18px 35px}.contribute{border-radius:18px}}
 </style>
 </head>
 <body>
