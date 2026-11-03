@@ -1655,72 +1655,32 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 }
 </style>
 
-<script>
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
 (()=>{
-  const photos=[
-    "https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png"
-  ];
-  const title="Campaign Event";
-  const viewer=document.getElementById("event-viewer");
-  const image=document.getElementById("viewer-image");
-  const indicators=document.getElementById("viewer-indicators");
-  const closeButton=document.querySelector(".viewer-close");
-  let current=0;
-  let lastTrigger=null;
-  let savedScrollY=0;
-
-  function showPhoto(index){
-    current=(index+photos.length)%photos.length;
-    image.src=photos[current];
-    image.alt=title+" — photo "+(current+1);
-    indicators.replaceChildren();
-    photos.forEach((photo,i)=>{
-      const pill=document.createElement("button");
-      pill.type="button";
-      pill.className="viewer-indicator"+(i===current?" is-active":"");
-      pill.setAttribute("aria-label","Show photo "+(i+1)+" of "+photos.length);
-      pill.setAttribute("aria-current",i===current?"true":"false");
-      pill.addEventListener("click",()=>showPhoto(i));
-      indicators.appendChild(pill);
-    });
-    indicators.setAttribute("aria-label","Photo "+(current+1)+" of "+photos.length);
-  }
-  function openViewer(trigger){
-    lastTrigger=trigger;
-    savedScrollY=window.scrollY;
-    showPhoto(0);
-    document.body.style.position="fixed";
-    document.body.style.top="-"+savedScrollY+"px";
-    document.body.style.left="0";
-    document.body.style.right="0";
-    document.body.style.width="100%";
-    viewer.classList.add("is-open");
-    viewer.setAttribute("aria-hidden","false");
-    closeButton.focus();
-  }
-  function closeViewer(){
-    viewer.classList.remove("is-open");
-    viewer.setAttribute("aria-hidden","true");
-    document.body.style.position="";
-    document.body.style.top="";
-    document.body.style.left="";
-    document.body.style.right="";
-    document.body.style.width="";
-    window.scrollTo(0,savedScrollY);
-    if(lastTrigger)lastTrigger.focus();
-  }
-  document.querySelectorAll(".event-card").forEach(card=>{
-    card.addEventListener("click",()=>openViewer(card));
+ const db=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp");
+ const gallery=document.querySelector(".event-gallery"),viewer=document.getElementById("event-viewer"),image=document.getElementById("viewer-image"),indicators=document.getElementById("viewer-indicators"),closeButton=document.querySelector(".viewer-close");
+ const fallback={id:"fallback",title:"Campaign Event",event_date:"2026-10-23",cover_image:"https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png",photos:[{url:"https://raw.githubusercontent.com/carrington-rblx/electament.com/main/Screenshot_2026-10-23_182824.png",caption:"Campaign Event"}]};
+ let albums=[fallback],active=fallback,current=0,lastTrigger=null,savedScrollY=0;
+ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const dateLabel=v=>v?new Date(v+"T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}):"";
+ function renderCards(){
+  gallery.replaceChildren();
+  albums.forEach(a=>{const card=document.createElement("button");card.type="button";card.className="event-card";card.setAttribute("aria-label","Open "+a.title+(a.event_date?", "+dateLabel(a.event_date):""));
+   card.innerHTML='<img class="event-cover" src="'+esc(a.cover_image)+'" alt="'+esc(a.title)+' cover"><span class="event-card-shade" aria-hidden="true"></span><span class="event-card-caption"><span class="event-card-title">'+esc(a.title)+'</span><span class="event-card-date">'+esc(dateLabel(a.event_date))+'</span></span><span class="event-card-count">'+(a.photos||[]).length+' PHOTO'+((a.photos||[]).length===1?'':'S')+'</span>';
+   card.addEventListener("click",()=>openViewer(card,a));gallery.append(card);
   });
-  image.addEventListener("click",()=>showPhoto(current+1));
-  closeButton.addEventListener("click",closeViewer);
-  viewer.addEventListener("click",event=>{
-    if(event.target===viewer)closeViewer();
-  });
-  document.addEventListener("keydown",event=>{
-    if(!viewer.classList.contains("is-open"))return;
-    if(event.key==="Escape")closeViewer();
-  });
+ }
+ function showPhoto(i){
+  const photos=active.photos||[];current=Math.max(0,Math.min(i,photos.length-1));image.src=photos[current].url;image.alt=(photos[current].caption||active.title)+" — photo "+(current+1);indicators.replaceChildren();
+  photos.forEach((p,j)=>{const b=document.createElement("button");b.type="button";b.className="viewer-indicator"+(j===current?" is-active":"");b.setAttribute("aria-label","Show photo "+(j+1)+" of "+photos.length);b.setAttribute("aria-current",j===current?"true":"false");b.addEventListener("click",()=>showPhoto(j));indicators.append(b);});
+  indicators.setAttribute("aria-label","Photo "+(current+1)+" of "+photos.length);
+ }
+ function openViewer(trigger,a){lastTrigger=trigger;active=a;savedScrollY=window.scrollY;showPhoto(0);document.body.style.position="fixed";document.body.style.top="-"+savedScrollY+"px";document.body.style.left="0";document.body.style.right="0";document.body.style.width="100%";viewer.classList.add("is-open");viewer.setAttribute("aria-hidden","false");closeButton.focus();}
+ function closeViewer(){viewer.classList.remove("is-open");viewer.setAttribute("aria-hidden","true");document.body.style.position="";document.body.style.top="";document.body.style.left="";document.body.style.right="";document.body.style.width="";window.scrollTo(0,savedScrollY);if(lastTrigger)lastTrigger.focus();}
+ image.addEventListener("click",()=>showPhoto((current+1)%(active.photos||[]).length));closeButton.addEventListener("click",closeViewer);viewer.addEventListener("click",e=>{if(e.target===viewer)closeViewer();});document.addEventListener("keydown",e=>{if(viewer.classList.contains("is-open")&&e.key==="Escape")closeViewer();});
+ async function init(){try{const q=await db.from("campaign_gallery_albums").select("id,title,event_date,cover_image,photos").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});if(q.error)throw q.error;if(q.data?.length){albums=q.data.filter(a=>a.cover_image&&Array.isArray(a.photos)&&a.photos.length);}}catch(e){console.warn("Campaign gallery feed unavailable; showing fallback album.",e);}renderCards();}
+ init();
 })();
 </script>
 
