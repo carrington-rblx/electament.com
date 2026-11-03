@@ -468,6 +468,58 @@ header nav a.nav-donate:hover{display:inline-flex;align-items:center;justify-con
  header,header.header-scrolled{height:auto!important;min-height:58px!important;padding:12px 17px!important;align-items:center;flex-wrap:wrap;gap:12px}
  header nav{width:100%;margin-left:0;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:7px}
 }
+
+/* Card-first policy game layout inspired by the supplied reference */
+#participation{width:100%;max-width:none;margin:0;padding:0;background:#f3eef8;min-height:calc(100vh - 58px)}
+#participation .gameplay{width:min(560px,calc(100% - 28px));max-width:560px;margin:0 auto;padding:18px 0 48px}
+#participation .game-top{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:0 auto 10px}
+#participation .game-back{order:0;background:#fff;color:#777b86;border:0;border-radius:16px;padding:14px 23px;font-size:14px;box-shadow:0 3px 0 #e2dfe8}
+#participation .game-count{order:2;text-transform:none;letter-spacing:0;font-size:10px;color:#7e8290}
+#participation .game-progress-row{display:grid;grid-template-columns:24px 1fr 24px;align-items:center;gap:9px;width:min(390px,100%);margin:0 auto 20px;color:#69778b;font-size:13px;font-weight:700}
+#participation .game-progress{height:15px;border-radius:20px;background:#e0e5ed;overflow:hidden}
+#participation .game-progress span{background:#a18bda;border-radius:20px}
+#participation .game-progress-label{display:none}
+#participation .proposal-list{display:flex;flex-direction:column;align-items:center;gap:0}
+#participation .game-card{width:min(400px,100%);min-height:540px;margin:0 auto;background:#fff;border:0;border-radius:28px;padding:0 25px 28px;box-shadow:0 12px 0 #e7e5e4,0 19px 0 #f8f8f6,0 25px 35px #25253a20;overflow:visible;display:flex;flex-direction:column}
+#participation .game-card-art{height:145px;flex:0 0 145px;margin:0 -25px 0;border-radius:28px 28px 0 0;background:#c99be5;color:#30283b;display:grid;place-items:center;font-size:60px}
+#participation .game-category{align-self:flex-start;margin-top:-13px;background:#9834d8;color:white;border-radius:30px;padding:10px 14px;font-size:12px;letter-spacing:.02em;text-transform:none;box-shadow:0 3px 8px #4d28652a}
+#participation .game-card h2{font-size:clamp(22px,3vw,27px);line-height:1.16;letter-spacing:-.035em;color:#292929;margin:28px 0 10px;max-width:320px}
+#participation .game-card p{font-size:15px;line-height:1.65;color:#626262;margin:0 0 18px;max-width:330px}
+#participation .game-learn{margin:auto auto 0;display:block;border:0;border-radius:17px;background:#edf0f5;color:#30343d;padding:15px 20px;font-size:13px;font-weight:900;box-shadow:0 7px 0 #d7dce5}
+#participation .game-watermark{right:-16px;top:72px;max-height:330px;font-size:8px;color:#8b8d9a}
+#participation .game-choices{width:min(500px,100%);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:48px auto 0}
+#participation .game-action{display:flex;flex-direction:column;align-items:center;gap:10px}
+#participation .game-choice{width:clamp(72px,12vw,92px);height:clamp(72px,12vw,92px);border:0;border-radius:50%;box-shadow:0 4px 0 #172b4d1a;display:grid;place-items:center;justify-self:center}
+#participation .game-choice .symbol{font-size:42px;line-height:1;font-weight:700}
+#participation .game-choice.reject{background:#f0444b;color:#fff}
+#participation .game-choice.improve{background:#2864ee;color:#fff}
+#participation .game-choice.keep{background:#1fc45e;color:#fff}
+#participation .game-action-label{font-size:13px;font-weight:900;letter-spacing:.01em}
+#participation .reject-label{color:#f0444b}
+#participation .improve-label{color:#2864ee}
+#participation .keep-label{color:#1fc45e}
+#participation .game-key-hint{display:flex;align-items:center;gap:4px;color:#858991;font-size:11px}
+#participation .game-key-hint kbd{display:inline-grid;place-items:center;min-width:21px;height:22px;border-radius:5px;background:#f4f5f7;color:#4c5360;box-shadow:0 3px 0 #aeb4bd;font:inherit;font-size:13px}
+#participation .game-response{width:min(400px,100%);margin:22px auto 0;padding:20px;border:1px solid #e6e3ec;border-radius:18px;background:#fff;box-shadow:0 8px 24px #25253a0b}
+#participation .game-response .field>span{display:block;font-size:13px;font-weight:900;color:#303447;margin-bottom:9px}
+#participation .game-response textarea{min-height:120px;border:1px solid #d8dce4;border-radius:10px;padding:13px;font-size:13px}
+#participation .game-response .send-response{background:#2864ee;border-radius:30px}
+#participation .game-hint{text-align:center;margin:23px 0 0;color:#9699a3;font-size:10px}
+#participation .contribute{margin-top:50px}
+@media(max-width:540px){
+ #participation .gameplay{padding-top:13px}
+ #participation .game-card{min-height:500px;padding:0 21px 23px}
+ #participation .game-card-art{margin:0 -21px;height:130px;flex-basis:130px}
+ #participation .game-card h2{font-size:22px;margin-top:25px}
+ #participation .game-card p{font-size:13px}
+ #participation .game-watermark{right:-13px;font-size:6px}
+ #participation .game-choices{gap:5px;margin-top:42px}
+ #participation .game-choice{width:72px;height:72px}
+ #participation .game-choice .symbol{font-size:35px}
+ #participation .game-action-label{font-size:11px}
+ #participation .game-key-hint{font-size:9px}
+}
+
 </style>
 </head>
 <body>
@@ -604,9 +656,8 @@ header nav a.nav-donate:hover{display:inline-flex;align-items:center;justify-con
 <div class="learn-modal" id="learn-modal" hidden role="dialog" aria-modal="true" aria-labelledby="learn-modal-title"><div class="learn-modal-card"><button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">A starting point</div><h2 id="learn-modal-title">An idea to explore</h2><p id="learn-modal-copy"></p><button type="button" class="modal-done" id="modal-done">Got it</button></div></div>
 <main id="participation" hidden>
 <section class="gameplay" aria-labelledby="gameplay-title">
- <div class="game-top"><button type="button" id="game-back" class="game-back">← Previous</button><span class="game-count" id="proposal-count">Loading proposals…</span></div>
- <div class="game-progress" role="progressbar" aria-label="Proposal progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="game-progress-fill"></span></div>
- <div class="game-progress-label"><span id="game-progress-current">0</span><span id="game-progress-total">0</span></div>
+ <div class="game-top"><button type="button" id="game-back" class="game-back">← Previous</button><span class="game-count" id="proposal-count" aria-live="polite">Loading proposals…</span></div>
+ <div class="game-progress-row"><span id="game-progress-current">0</span><div class="game-progress" role="progressbar" aria-label="Proposal progress" aria-valuemin="0" aria-valuemax="25" aria-valuenow="0"><span id="game-progress-fill"></span></div><span id="game-progress-total">25</span></div>
  <div class="proposal-list" id="proposal-list" aria-live="polite"><div class="empty">Loading proposals…</div></div>
  <div class="game-hint">Swipe left to reject · up to improve · right to keep</div>
 </section>
@@ -695,7 +746,7 @@ function renderProposals(){
  $("game-progress-fill").style.width=((state.currentIndex+1)/total*100)+"%";
  document.querySelector(".game-progress").setAttribute("aria-valuemax",String(total));
  document.querySelector(".game-progress").setAttribute("aria-valuenow",String(state.currentIndex+1));
- $("proposal-list").innerHTML='<article class="game-card" id="active-game-card" data-proposal="'+escapeHtml(p.id)+'"><div class="game-card-art" aria-hidden="true">'+(icons[p.category]||"✦")+'</div><span class="game-category">'+escapeHtml(p.category)+'</span><h2 id="gameplay-title">'+escapeHtml(p.title)+'</h2><p>'+escapeHtml(p.description)+'</p><button type="button" class="game-learn" id="game-learn">? Learn more</button><span class="game-watermark">This proposal comes from public debate and does not represent a campaign commitment.</span></article><div class="game-choices" aria-label="Choose your position"><button type="button" class="game-choice reject" data-choice="reject"><span class="symbol">×</span><strong>REJECT</strong></button><button type="button" class="game-choice improve" data-choice="improve"><span class="symbol">🔧</span><strong>IMPROVE</strong></button><button type="button" class="game-choice keep" data-choice="keep"><span class="symbol">♥</span><strong>KEEP</strong></button></div><div class="game-response" id="game-response" hidden><label for="game-comment" class="field"><span>How would you improve this policy?</span><textarea class="response-comment" id="game-comment" maxlength="1200" minlength="10" required placeholder="Write the specific change you would make to this policy…"></textarea><small>Describe the change you want to see. Your improvement is required to submit this choice.</small></label><button type="button" class="send-response" id="game-submit">Submit improvement</button><div class="status" id="game-response-status" role="status"></div></div><div class="status" id="game-global-status" role="status" aria-live="polite"></div>';
+ $("proposal-list").innerHTML='<article class="game-card" id="active-game-card" data-proposal="'+escapeHtml(p.id)+'"><div class="game-card-art" aria-hidden="true">'+(icons[p.category]||"✦")+'</div><span class="game-category">'+escapeHtml(p.category)+'</span><h2 id="gameplay-title">'+escapeHtml(p.title)+'</h2><p>'+escapeHtml(p.description)+'</p><button type="button" class="game-learn" id="game-learn">? Learn more</button><span class="game-watermark">This proposal comes from public debate and does not represent a campaign commitment.</span></article><div class="game-choices" aria-label="Choose your position"><div class="game-action"><button type="button" class="game-choice reject" data-choice="reject" aria-label="Reject this policy"><span class="symbol">×</span></button><strong class="game-action-label reject-label">REJECT</strong><span class="game-key-hint"><kbd>←</kbd> left</span></div><div class="game-action"><button type="button" class="game-choice improve" data-choice="improve" aria-label="Suggest an improvement"><span class="symbol">⚒</span></button><strong class="game-action-label improve-label">IMPROVE</strong><span class="game-key-hint"><kbd>↑</kbd> up</span></div><div class="game-action"><button type="button" class="game-choice keep" data-choice="keep" aria-label="Keep this policy"><span class="symbol">♥</span></button><strong class="game-action-label keep-label">KEEP</strong><span class="game-key-hint"><kbd>→</kbd> right</span></div></div><div class="game-response" id="game-response" hidden><label for="game-comment" class="field"><span>How would you improve this policy?</span><textarea class="response-comment" id="game-comment" maxlength="1200" minlength="10" required placeholder="Write the specific change you would make to this policy…"></textarea><small>Describe the change you want to see. Your improvement is required to submit this choice.</small></label><button type="button" class="send-response" id="game-submit">Submit improvement</button><div class="status" id="game-response-status" role="status"></div></div><div class="status" id="game-global-status" role="status" aria-live="polite"></div>';
  $("game-learn").addEventListener("click",()=>{$("learn-modal-title").textContent=p.title;$("learn-modal-copy").textContent=p.description;$("learn-modal").hidden=false;});
 }
 async function loadProposals(){
