@@ -111,6 +111,7 @@ body{background:var(--paper)!important}
 .announcement{display:flex!important;min-height:35px!important;height:auto!important;padding:9px 18px!important;align-items:center!important;justify-content:center!important;background:#db2a37!important;color:#fff!important;text-align:center!important;font-size:10px!important;font-weight:800!important;letter-spacing:.025em!important;line-height:1.4!important;cursor:default!important;text-decoration:none!important;transition:background .22s ease,color .22s ease!important}
 .announcement:hover{background:#82bee1!important;color:#172b4d!important}
 .site-header{height:68px!important;min-height:68px!important;background:#172b4d!important;color:#fff!important;border-bottom:0!important;padding:0 clamp(18px,4vw,64px)!important}
+.header-signout{border:1px solid #ffffff88;background:transparent;color:#fff;border-radius:22px;padding:9px 15px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}.header-signout:hover{background:#82bee1;color:#172b4d}
 .site-header .brand{color:#fff!important}
 .site-header nav a{color:#fff!important}
 .site-header nav a:hover{color:#82bee1!important}
@@ -129,6 +130,7 @@ body{background:var(--paper)!important}
   <nav aria-label="Main navigation">
     <a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="https://carrington-rblx.github.io/electament.com/#volunteer">Volunteer</a><a class="nav-donate" href="https://carrington-rblx.github.io/electament.com/#donate">Donate</a>
   </nav>
+  <button id="signout" class="header-signout hidden" type="button">Sign out</button>
   <div class="nav-social"><a href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer">D</a></div>
 </header>
 <main id="authView" class="shell auth-wrap">
