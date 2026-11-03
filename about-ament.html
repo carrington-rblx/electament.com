@@ -1280,6 +1280,52 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   text-transform:uppercase;
 }
 </style>
+<style id="about-hero-abstract-blur">
+/* Soft, oversized out-of-focus color fields for the About hero */
+.bio-panel{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#172b4d;
+}
+.bio-panel::before,
+.bio-panel::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(88px);
+  opacity:.9;
+}
+.bio-panel::before{
+  width:min(900px,115%);
+  height:700px;
+  left:-34%;
+  top:-34%;
+  background:
+    radial-gradient(ellipse at 32% 38%,rgba(255,255,255,.82) 0%,rgba(255,255,255,.46) 28%,rgba(255,255,255,.08) 62%,transparent 80%),
+    radial-gradient(ellipse at 76% 72%,rgba(232,61,75,.32) 0%,rgba(232,61,75,.12) 38%,transparent 68%);
+}
+.bio-panel::after{
+  width:min(1000px,125%);
+  height:760px;
+  right:-42%;
+  bottom:-48%;
+  background:
+    radial-gradient(ellipse at 55% 42%,rgba(23,43,77,.96) 0%,rgba(23,43,77,.72) 30%,rgba(23,43,77,.18) 66%,transparent 82%),
+    radial-gradient(ellipse at 22% 28%,rgba(255,255,255,.58) 0%,rgba(255,255,255,.18) 38%,transparent 70%),
+    radial-gradient(ellipse at 78% 78%,rgba(232,61,75,.25) 0%,transparent 62%);
+}
+.bio-copy{
+  position:relative;
+  z-index:1;
+}
+@media(max-width:760px){
+  .bio-panel::before{width:125%;height:520px;left:-28%;top:-25%;filter:blur(76px)}
+  .bio-panel::after{width:130%;height:560px;right:-34%;bottom:-34%;filter:blur(76px)}
+}
+</style>
 </head>
 <body>
 <a class="announcement" href="#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
