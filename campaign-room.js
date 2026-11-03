@@ -7,7 +7,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
 });
 
 const $ = (id) => document.getElementById(id);
-const state = { user:null, role:null, articles:[], current:null, blocks:[] };
+const state = { user:null, role:null, articles:[], current:null, blocks:[], galleryAlbums:[], currentAlbum:null };
 const escapeHtml = (value="") => String(value).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const slugify = (value="") => value.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80);
 const PRESS_COLORS = {red:"#e83d4b",navy:"#172b4d",blue:"#82bee1",black:"#1d2d49"};
@@ -70,7 +70,7 @@ async function enterApp(user){
   $("welcomeText").textContent=(state.role==="admin"?"Administrator access":"Staff access")+" · Signed in as "+user.email+". Drafts and review activity are saved securely.";
   $("memberPanel").classList.toggle("hidden",state.role!=="admin");
   await loadArticles();
-  if(state.role==="admin") await loadMembers();
+  if(state.role==="admin") { await loadMembers(); $("galleryPanel").classList.remove("hidden"); await loadGalleryAlbums(); }
 }
 const {data:initial}=await supabase.auth.getSession();
 if(initial.session) { try { await enterApp(initial.session.user); } catch(err) { notice("authMessage",err.message,"error"); } }
@@ -287,3 +287,62 @@ $("passwordForm").addEventListener("submit",async e=>{
   }catch(err){notice("appMessage",err.message||"Could not change password.","error");}
   finally{setBusy(button,false,"Change password");}
 });
+
+
+async function loadGalleryAlbums(selectId){
+ const q=await supabase.from("campaign_gallery_albums").select("*").order("sort_order",{ascending:true}).order("created_at",{ascending:true});
+ if(q.error){notice("appMessage","Gallery manager: "+q.error.message,"error");return;}
+ state.galleryAlbums=q.data||[];renderAlbumList();
+ const chosen=selectId?state.galleryAlbums.find(a=>a.id===selectId):state.galleryAlbums.find(a=>a.id===state.currentAlbum?.id);
+ if(chosen)openAlbumEditor(chosen);
+}
+function renderAlbumList(){
+ const host=$("albumList");
+ host.innerHTML=state.galleryAlbums.map(a=>'<button type="button" class="article-item '+(state.currentAlbum?.id===a.id?'active':'')+'" data-album="'+a.id+'"><strong>'+escapeHtml(a.title)+'</strong><small>'+((a.photos||[]).length)+' photos · '+(a.is_published?'Published':'Hidden')+'</small></button>').join("")||'<div class="empty">No albums yet. Create your first event album.</div>';
+ host.querySelectorAll("[data-album]").forEach(b=>b.addEventListener("click",()=>openAlbumEditor(state.galleryAlbums.find(a=>a.id===b.dataset.album))));
+}
+$("newAlbum").addEventListener("click",()=>openAlbumEditor({id:null,title:"",event_date:"",cover_image:"",photos:[],sort_order:state.galleryAlbums.length,is_published:true}));
+function openAlbumEditor(album){
+ state.currentAlbum={...album,photos:Array.isArray(album.photos)?structuredClone(album.photos):[]};renderAlbumList();const a=state.currentAlbum;
+ $("albumEditor").innerHTML='<div class="editor-head"><div><span class="eyebrow">'+(a.id?'Edit gallery album':'New gallery album')+'</span><h2>'+escapeHtml(a.title||'Untitled album')+'</h2></div></div>'+
+ '<div class="field"><label for="albumTitle">Event title</label><input id="albumTitle" maxlength="120" value="'+escapeHtml(a.title)+'" required></div>'+
+ '<div class="grid2"><div class="field"><label for="albumDate">Event date</label><input id="albumDate" type="date" value="'+escapeHtml(a.event_date||'')+'"></div><div class="field"><label for="albumOrder">Display order</label><input id="albumOrder" type="number" value="'+(Number(a.sort_order)||0)+'"></div></div>'+
+ '<div class="field"><label for="albumCover">Cover image URL</label><input id="albumCover" value="'+escapeHtml(a.cover_image||'')+'" placeholder="Upload a cover or paste an image URL"><input id="albumCoverFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>'+
+ '<div class="field"><label for="albumPhotos">Add gallery photos</label><input id="albumPhotos" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple><span class="help">Up to 10 MB per image. Select multiple photos at once.</span></div>'+
+ '<div id="albumPhotoList" class="grid2"></div><div class="field"><label><input id="albumPublished" type="checkbox" '+(a.is_published?'checked':'')+' style="width:auto;margin-right:8px">Show this album publicly</label></div>'+
+ '<div class="editor-actions"><button type="button" class="btn" id="saveAlbum">Save album</button>'+(a.id?'<button type="button" class="btn red" id="deleteAlbum">Delete album</button>':'')+'</div>';
+ renderAlbumPhotos();
+ $("albumCoverFile").addEventListener("change",async e=>{const url=await uploadGalleryAsset(e.target.files[0]);if(url)$("albumCover").value=url;});
+ $("albumPhotos").addEventListener("change",async e=>{for(const file of [...e.target.files]){const url=await uploadGalleryAsset(file);if(url)state.currentAlbum.photos.push({url:url,caption:file.name.replace(/\.[^.]+$/,'')});}renderAlbumPhotos();e.target.value="";});
+ $("saveAlbum").addEventListener("click",saveAlbum);$("deleteAlbum")?.addEventListener("click",deleteAlbum);
+}
+function renderAlbumPhotos(){
+ const host=$("albumPhotoList");if(!host)return;
+ host.innerHTML=state.currentAlbum.photos.map((p,i)=>'<div class="block"><img src="'+escapeHtml(p.url)+'" alt="" style="width:100%;height:110px;object-fit:cover"><div class="field"><label>Caption</label><input data-caption="'+i+'" value="'+escapeHtml(p.caption||'')+'"></div><button type="button" class="btn ghost" data-remove-photo="'+i+'">Remove photo</button></div>').join("")||'<p class="help">No gallery photos added yet.</p>';
+ host.querySelectorAll("[data-caption]").forEach(el=>el.addEventListener("input",()=>{state.currentAlbum.photos[Number(el.dataset.caption)].caption=el.value;}));
+ host.querySelectorAll("[data-remove-photo]").forEach(el=>el.addEventListener("click",()=>{state.currentAlbum.photos.splice(Number(el.dataset.removePhoto),1);renderAlbumPhotos();}));
+}
+async function uploadGalleryAsset(file){
+ if(!file)return null;
+ if(file.size>10*1024*1024){notice("appMessage","Images must be 10 MB or smaller.","error");return null;}
+ if(!["image/jpeg","image/png","image/webp","image/gif"].includes(file.type)){notice("appMessage","Choose a JPG, PNG, WebP, or GIF image.","error");return null;}
+ const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,""),path=state.user.id+"/gallery/"+crypto.randomUUID()+"."+ext;
+ const q=await supabase.storage.from("campaign-media").upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type});
+ if(q.error){notice("appMessage",q.error.message,"error");return null;}
+ return supabase.storage.from("campaign-media").getPublicUrl(path).data.publicUrl;
+}
+async function saveAlbum(){
+ const title=$("albumTitle").value.trim(),cover=$("albumCover").value.trim()||(state.currentAlbum.photos[0]?.url||"");
+ if(!title||!cover||!state.currentAlbum.photos.length){notice("appMessage","Add an event title, a cover image, and at least one gallery photo.","error");return;}
+ const payload={title:title,event_date:$("albumDate").value||null,cover_image:cover,photos:state.currentAlbum.photos,sort_order:Number($("albumOrder").value)||0,is_published:$("albumPublished").checked};
+ const q=state.currentAlbum.id?await supabase.from("campaign_gallery_albums").update(payload).eq("id",state.currentAlbum.id).select().single():await supabase.from("campaign_gallery_albums").insert({...payload,created_by:state.user.id}).select().single();
+ if(q.error){notice("appMessage",q.error.message,"error");return;}
+ notice("appMessage","Gallery album saved.","good");await loadGalleryAlbums(q.data.id);
+}
+async function deleteAlbum(){
+ if(!confirm("Delete this gallery album? This removes it from the public Images page."))return;
+ const q=await supabase.from("campaign_gallery_albums").delete().eq("id",state.currentAlbum.id);
+ if(q.error){notice("appMessage",q.error.message,"error");return;}
+ state.currentAlbum=null;notice("appMessage","Gallery album deleted.","good");await loadGalleryAlbums();
+ $("albumEditor").innerHTML='<div class="empty"><strong>Gallery manager</strong>Select an album or create a new one.</div>';
+}
