@@ -118,6 +118,37 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 .modal-close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:25px;color:#64748b}.modal-done{border:0;border-radius:30px;background:#172b4d;color:white;padding:11px 22px;font-size:10px;font-weight:900;margin-top:10px}
 #participation[hidden]{display:none}
 @media(max-width:540px){.landing{padding:13px 10px 25px;min-height:calc(100vh - 100px)}.landing-canvas{min-height:700px;border-radius:20px;padding:30px 12px 24px}.deck-stage{height:290px;margin-top:22px}.deck-card{height:270px}.deck-card-back{height:250px}.deck-agri{transform:translate(-64px,8px) rotate(-15deg)}.deck-family{transform:translate(-34px,0) rotate(-8deg)}.deck-innovation{transform:translate(34px,0) rotate(8deg)}.deck-democracy{transform:translate(64px,8px) rotate(15deg)}.deck-front h3{font-size:21px}.deck-card-back h3{font-size:17px}.landing-copy{font-size:11px;padding:0 12px}}
+
+.walkthrough[hidden]{display:none}
+.walkthrough{padding:clamp(14px,4vw,40px) 16px 48px;background:#edf0f2;min-height:calc(100vh - 70px);place-items:center}
+.walkthrough:not([hidden]){display:grid}
+.walkthrough-canvas{width:min(760px,100%);min-height:760px;background:#fbfbf8;border-radius:26px;padding:clamp(24px,4vw,42px) 22px 28px;display:flex;align-items:center;flex-direction:column;box-shadow:0 18px 65px #172b4d12;position:relative}
+.walkthrough-top{width:min(520px,100%);display:flex;align-items:center;justify-content:space-between;color:#7c8794;font-size:9px;font-weight:900;letter-spacing:.16em}
+.walkthrough-step{color:#82bee1;font-size:12px}.walkthrough-step i{font-style:normal;color:#aeb7c1}
+.walkthrough-game{width:min(500px,100%);height:330px;display:flex;align-items:center;justify-content:center;gap:clamp(4px,3vw,28px);position:relative;margin:8px auto 0}
+.sample-policy{width:min(270px,65vw);height:290px;flex:0 0 auto;background:#fffef9;border:1px solid #eee6cb;border-radius:19px;box-shadow:0 12px 35px #1d2d4920;padding:20px 22px;display:flex;flex-direction:column;align-items:flex-start}
+.sample-tag{padding:7px 11px;border-radius:30px;background:#ffe99b;color:#5e4a0c;font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.sample-icon{font-size:32px;margin-top:17px}.sample-policy h2{font-size:23px;line-height:1.12;letter-spacing:-.05em;margin:17px 0 9px;color:#1b2531}.sample-policy p{font-size:10px;line-height:1.7;color:#697585;margin:0}
+.sample-more{margin-top:auto;color:#788494;font-size:9px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.swipe-arrow{border:0;background:transparent;font-size:38px;line-height:1;font-weight:800;padding:12px 0;transition:transform .18s}
+.swipe-arrow:hover{transform:scale(1.18)}.swipe-left{color:#e83d4b}.swipe-right{color:#329b68}
+.demo-actions{display:flex;justify-content:center;gap:clamp(16px,5vw,42px);margin:0 auto 8px}
+.demo-choice{width:82px;height:82px;border:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:white;box-shadow:0 5px 0 #172b4d20;transition:transform .18s,outline .18s}
+.demo-choice:hover,.demo-choice.selected{transform:translateY(-4px) scale(1.04);outline:4px solid #172b4d18;outline-offset:3px}
+.demo-break{background:#e83d4b}.demo-repair{background:#438fca}.demo-keep{background:#35a36c}
+.demo-symbol{font-size:27px;line-height:1}.demo-choice b{font-size:8px;letter-spacing:.08em}
+.demo-feedback{height:24px;text-align:center;font-size:9px;color:#738092;font-weight:700;margin:3px 0 6px}
+.walkthrough-rule{width:min(500px,90%);height:1px;background:#e2e5e6;margin:10px auto 22px}
+.walkthrough-explainer{max-width:500px;text-align:center}
+.walkthrough-explainer h2{font-size:clamp(23px,4vw,31px);letter-spacing:-.055em;color:#171d26;margin:0 0 10px}
+.walkthrough-explainer h2 span{color:#82bee1}
+.walkthrough-explainer p{font-size:11px;line-height:1.85;color:#5d6876;margin:0}
+.walkthrough-dots{display:flex;gap:9px;align-items:center;justify-content:center;margin:22px 0 18px}
+.walkthrough-dots span{width:8px;height:8px;border-radius:10px;background:#d8dde2}.walkthrough-dots span.active{width:27px;background:#82bee1}
+.walkthrough-next{min-width:190px;border:0;border-radius:40px;background:#ffdf55;color:#202020;padding:15px 28px;font-size:14px;font-weight:900;box-shadow:0 5px 0 #e9c33c}
+.walkthrough-next span{margin-left:8px;font-size:18px}
+.walkthrough-back{position:absolute;bottom:34px;left:34px;border:0;background:none;color:#7d8997;font-size:9px;font-weight:800}
+@media(max-width:540px){.walkthrough{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-canvas{min-height:730px;border-radius:20px;padding:24px 12px 25px}.walkthrough-game{height:300px;gap:4px}.sample-policy{height:270px;padding:18px 17px}.sample-policy h2{font-size:21px}.swipe-arrow{font-size:32px}.demo-choice{width:72px;height:72px}.walkthrough-rule{margin:8px auto 18px}.walkthrough-back{left:18px;bottom:30px}}
 </style>
 </head>
 <body>
@@ -141,6 +172,37 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
   <div class="landing-dots" id="landing-dots" aria-label="Featured idea"><button type="button" class="active" aria-label="Idea 1"></button><button type="button" aria-label="Idea 2"></button><button type="button" aria-label="Idea 3"></button><button type="button" aria-label="Idea 4"></button><button type="button" aria-label="Idea 5"></button></div>
   <button type="button" class="play-button" id="play-button">Play <span>→</span></button>
   <div class="landing-footnote">YOUR VOICE. YOUR FUTURE. BUILT TOGETHER.</div>
+ </div>
+</section>
+
+<section class="walkthrough" id="walkthrough" hidden>
+ <div class="walkthrough-canvas">
+  <div class="walkthrough-top"><span class="walkthrough-kicker">HOW IT WORKS</span><span class="walkthrough-step">02 <i>/ 05</i></span></div>
+  <div class="walkthrough-game">
+   <button type="button" class="swipe-arrow swipe-left" id="demo-reject" aria-label="Preview reject action">←</button>
+   <article class="sample-policy" id="sample-policy">
+    <span class="sample-tag">Education</span>
+    <div class="sample-icon">🎓</div>
+    <h2>Ban mobile phones in high school</h2>
+    <p>No mobile phones on school grounds during the high school day.</p>
+    <span class="sample-more">? Learn more</span>
+   </article>
+   <button type="button" class="swipe-arrow swipe-right" id="demo-keep" aria-label="Preview keep action">→</button>
+  </div>
+  <div class="demo-actions" aria-label="Example ways to respond">
+   <button type="button" class="demo-choice demo-break" data-demo="reject"><span class="demo-symbol">×</span><b>REJECT</b></button>
+   <button type="button" class="demo-choice demo-repair" data-demo="improve"><span class="demo-symbol">🔧</span><b>IMPROVE</b></button>
+   <button type="button" class="demo-choice demo-keep" data-demo="keep"><span class="demo-symbol">♥</span><b>KEEP</b></button>
+  </div>
+  <div class="demo-feedback" id="demo-feedback" aria-live="polite">Choose what you would do with this idea.</div>
+  <div class="walkthrough-rule"></div>
+  <div class="walkthrough-explainer">
+   <h2>And what if <span>you</span> were President?</h2>
+   <p>Ideas shaped by public debate. Three choices — reject, improve or keep. Take a position on each proposal and help shape the AmentAmour platform for the future.</p>
+  </div>
+  <div class="walkthrough-dots" aria-label="Walkthrough step 2 of 5"><span></span><span class="active"></span><span></span><span></span><span></span></div>
+  <button type="button" class="walkthrough-next" id="walkthrough-next">Next <span>→</span></button>
+  <button type="button" class="walkthrough-back" id="walkthrough-back">← Back</button>
  </div>
 </section>
 <div class="learn-modal" id="learn-modal" hidden role="dialog" aria-modal="true" aria-labelledby="learn-modal-title"><div class="learn-modal-card"><button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">A starting point</div><h2 id="learn-modal-title">An idea to explore</h2><p id="learn-modal-copy"></p><button type="button" class="modal-done" id="modal-done">Got it</button></div></div>
@@ -261,7 +323,19 @@ $("learn-more").addEventListener("click",()=>{$("learn-modal").hidden=false;$("m
 $("modal-close").addEventListener("click",()=>$("learn-modal").hidden=true);$("modal-done").addEventListener("click",()=>$("learn-modal").hidden=true);
 $("learn-modal").addEventListener("click",event=>{if(event.target===$("learn-modal"))$("learn-modal").hidden=true;});
 document.addEventListener("keydown",event=>{if(event.key==="Escape")$("learn-modal").hidden=true;});
-$("play-button").addEventListener("click",()=>{$("landing").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+
+$("play-button").addEventListener("click",()=>{$("landing").hidden=true;$("walkthrough").hidden=false;$("walkthrough").scrollIntoView({behavior:"smooth",block:"start"});});
+function demoChoice(choice){
+ const messages={reject:"You would reject this proposal.",improve:"You would suggest changes to this proposal.",keep:"You would keep this proposal."};
+ document.querySelectorAll("[data-demo]").forEach(b=>b.classList.toggle("selected",b.dataset.demo===choice));
+ $("demo-feedback").textContent=messages[choice];
+}
+document.querySelectorAll("[data-demo]").forEach(b=>b.addEventListener("click",()=>demoChoice(b.dataset.demo)));
+$("demo-reject").addEventListener("click",()=>demoChoice("reject"));
+$("demo-keep").addEventListener("click",()=>demoChoice("keep"));
+$("walkthrough-back").addEventListener("click",()=>{$("walkthrough").hidden=true;$("landing").hidden=false;$("landing").scrollIntoView({behavior:"smooth",block:"start"});});
+$("walkthrough-next").addEventListener("click",()=>{$("walkthrough").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+
 showFeatured(0);
 
 loadProposals();
