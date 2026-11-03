@@ -139,12 +139,11 @@ body{background:var(--paper)!important}
     <p>Authorized campaign staff can draft press releases, upload media, and manage editorial review here.</p>
     <div id="authMessage" class="notice hidden" role="status"></div>
     <form id="authForm">
-      <div class="field"><label for="authEmail">Campaign email</label><input id="authEmail" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="authEmail">Email or username</label><input id="authEmail" type="text" autocomplete="username" placeholder="Your email or staff username" required></div>
       <div class="field"><label for="authPassword">Password</label><input id="authPassword" type="password" minlength="8" autocomplete="current-password" required></div>
       <button class="btn" id="authSubmit" type="submit">Sign in</button>
     </form>
-    <p style="font-size:12px;margin-top:20px"><span id="authSwitchText">New staff account?</span> <button id="authSwitch" class="auth-toggle" type="button">Create an account</button></p>
-    <p class="help">Creating an account does not automatically grant staff access. The campaign administrator must approve staff membership. The designated owner email receives administrator access after email verification.</p>
+    <p class="help" style="margin-top:20px">Staff accounts are created by the campaign administrator. Administrators sign in with their email; staff sign in with their assigned username and password.</p>
   </section>
 </main>
 <main id="appView" class="shell hidden">
@@ -162,11 +161,12 @@ body{background:var(--paper)!important}
   </div>
   <section id="memberPanel" class="panel members hidden">
     <div class="side-head"><strong>Staff access</strong><span class="status approved">Administrator</span></div>
-    <p class="help">Add an account after the staff member has registered and verified their email. Access can be suspended at any time.</p>
+    <p class="help">Create staff accounts with usernames and temporary passwords. Staff do not need email addresses. Share login details with each person privately. Access can be suspended at any time.</p>
     <form id="memberForm" class="grid2">
-      <div class="field"><label for="memberEmail">Registered account email</label><input id="memberEmail" type="email" required></div>
+      <div class="field"><label for="memberUsername">Staff username</label><input id="memberUsername" type="text" minlength="3" maxlength="24" pattern="[a-zA-Z0-9_]{3,24}" autocomplete="off" placeholder="e.g. campaign_writer" required></div>
+      <div class="field"><label for="memberPassword">Temporary password</label><input id="memberPassword" type="password" minlength="12" autocomplete="new-password" required><span class="help">At least 12 characters.</span></div>
       <div class="field"><label for="memberRole">Role</label><select id="memberRole"><option value="staff">Staff</option><option value="admin">Administrator</option></select></div>
-      <div style="grid-column:1/-1"><button class="btn" type="submit">Grant access</button></div>
+      <div style="grid-column:1/-1"><button class="btn" type="submit">Create account</button></div>
     </form>
     <div id="memberList"></div>
   </section>
