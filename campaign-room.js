@@ -59,11 +59,6 @@ async function enterApp(user){
   await loadArticles();
   if(state.role==="admin") await loadMembers();
 }
-supabase.auth.onAuthStateChange((event,session)=>{
-  if(event==="SIGNED_IN" && session?.user && $("appView").classList.contains("hidden")){
-    queueMicrotask(()=>enterApp(session.user).catch(err=>notice("authMessage",err.message,"error")));
-  }
-});
 const {data:initial}=await supabase.auth.getSession();
 if(initial.session) { try { await enterApp(initial.session.user); } catch(err) { notice("authMessage",err.message,"error"); } }
 
@@ -163,8 +158,15 @@ async function saveArticle(status){
   const button=$(status==="draft"?"saveDraft":"submitArticle");setBusy(button,true);
   try{
     let result;
-    if(state.current.id) result=await supabase.from("articles").update(payload).eq("id",state.current.id).select().single();
-    else result=await supabase.from("articles").insert({...payload,author_id:state.user.id}).select().single();
+    if(state.current.id) {
+      result=await supabase.from("articles").update(payload).eq("id",state.current.id).select().single();
+    } else {
+      const initialPayload={...payload,author_id:state.user.id,status:"draft"};
+      result=await supabase.from("articles").insert(initialPayload).select().single();
+      if(!result.error && status==="submitted") {
+        result=await supabase.from("articles").update({status:"submitted",submitted_at:payload.submitted_at}).eq("id",result.data.id).select().single();
+      }
+    }
     if(result.error)throw result.error;
     notice("appMessage",status==="submitted"?"Article submitted to the administrator for review.":"Draft saved.","good");
     await loadArticles(result.data.id);
