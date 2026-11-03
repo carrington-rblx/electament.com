@@ -1611,15 +1611,19 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   display:block;
   width:18px;
   height:10px;
-  border:1.5px solid #e83d4b;
+  padding:0;
+  border:0;
   border-radius:999px;
-  background:rgba(232,61,75,.3);
-  box-shadow:0 1px 5px rgba(0,0,0,.16);
+  background:rgba(130,190,225,.28);
+  outline:1.5px solid #82bee1;
+  outline-offset:3px;
+  cursor:pointer;
+  transition:width .18s ease,background .18s ease,outline-color .18s ease;
 }
 .viewer-indicator.is-active{
   width:28px;
-  background:#e83d4b;
-  border-color:#fff;
+  background:#82bee1;
+  outline-color:#b9e2f7;
 }
 .viewer-close{
   position:absolute;
@@ -1671,9 +1675,12 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
     image.alt=title+" — photo "+(current+1);
     indicators.replaceChildren();
     photos.forEach((photo,i)=>{
-      const pill=document.createElement("span");
+      const pill=document.createElement("button");
+      pill.type="button";
       pill.className="viewer-indicator"+(i===current?" is-active":"");
-      pill.setAttribute("aria-hidden","true");
+      pill.setAttribute("aria-label","Show photo "+(i+1)+" of "+photos.length);
+      pill.setAttribute("aria-current",i===current?"true":"false");
+      pill.addEventListener("click",()=>showPhoto(i));
       indicators.appendChild(pill);
     });
     indicators.setAttribute("aria-label","Photo "+(current+1)+" of "+photos.length);
