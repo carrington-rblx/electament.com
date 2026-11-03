@@ -103,10 +103,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
+
+/* Match the main website header and page colors */
+:root{--navy:#172b4d;--blue:#82bee1;--paper:#faf9f6;--ink:#172b4d}
+html,body{background:var(--paper)!important;color:var(--navy)!important}
+body{background:var(--paper)!important}
+.announcement{display:flex!important;min-height:35px!important;height:auto!important;padding:9px 18px!important;align-items:center!important;justify-content:center!important;background:#82bee1!important;color:#172b4d!important;text-align:center!important;font-size:10px!important;font-weight:800!important;letter-spacing:.025em!important;line-height:1.4!important;cursor:default!important;text-decoration:none!important}
+.site-header{height:68px!important;min-height:68px!important;background:#172b4d!important;color:#fff!important;border-bottom:0!important;padding:0 clamp(18px,4vw,64px)!important}
+.site-header .brand{color:#fff!important}
+.site-header nav a{color:#fff!important}
+.site-header nav a:hover{color:#82bee1!important}
+.site-header nav .nav-donate{background:var(--red)!important;color:#fff!important}
+.site-header nav .nav-donate:hover{background:#cf2e3c!important;color:#fff!important}
+.nav-social a{color:#fff!important;border-color:#ffffffaa!important}
+.nav-social a:hover{background:#82bee1!important;color:#172b4d!important}
+@media(max-width:760px){.site-header{height:auto!important;min-height:58px!important;padding:10px 17px!important}}
+@media(max-width:430px){.announcement{font-size:9px!important;padding:9px 12px!important}}
 </style>
 </head>
 <body>
-<a class="announcement" href="https://carrington-rblx.github.io/electament.com/#donate" aria-label="Support AmentAmour for President">Stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Support the campaign <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
+<div class="announcement">Working hard together for Team Ament. Let’s win this!</div>
 <header class="site-header">
   <a class="brand" href="./" aria-label="AmentAmour home"><img class="header-main-logo" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/amentamour-flag.svg" alt="AmentAmour campaign flag"></a>
   <nav aria-label="Main navigation">
