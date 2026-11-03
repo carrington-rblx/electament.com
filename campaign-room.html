@@ -22,11 +22,97 @@
 @media(max-width:850px){.workspace{grid-template-columns:1fr}.sidebar{position:static}.article-list{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-head{display:block}.editor-actions{justify-content:flex-start;margin-top:14px}}
 @media(max-width:560px){.top{padding:15px 18px}.top-actions>a{display:none}.shell{width:calc(100% - 24px);margin:24px auto 55px}.auth-card,.editor{padding:20px}.grid2{grid-template-columns:1fr}.article-list{grid-template-columns:1fr}.editor-actions .btn{flex:1}.member-row{align-items:flex-start;flex-direction:column}}
 </style>
+<style>
+
+/* Main campaign website visual system */
+:root{--navy:#172b4d;--blue:#82bee1;--red:#e83d4b;--paper:#faf9f6;--ink:#172b4d;--muted:#697487;--line:#e4e5e5}
+html,body{background:var(--paper);color:var(--navy);font-family:Montserrat,Arial,sans-serif}
+body{font-size:14px}
+.announcement{display:flex;width:100%;min-height:54px;box-sizing:border-box;padding:14px 20px;align-items:center;justify-content:center;gap:12px;background:#db2a37;color:#fff;text-align:center;font-size:clamp(10px,.85vw,12px);line-height:1.45;font-weight:800;letter-spacing:.025em;text-decoration:none;transition:background .22s ease,color .22s ease}
+.announcement-cta{display:inline-flex;align-items:center;gap:7px;color:inherit;font-weight:900;white-space:nowrap}
+.announcement-arrow{font-size:17px;transition:transform .2s}
+.announcement:hover{background:var(--blue);color:var(--navy)}
+.announcement:hover .announcement-arrow{transform:translateX(4px)}
+.site-header{height:66px;background:#f3f1ef;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,64px);gap:24px;border-bottom:1px solid #e7e8e8}
+.site-header .brand{display:flex;align-items:center;flex:0 0 auto}
+.header-main-logo{display:block;width:clamp(75px,8vw,104px);height:38px;object-fit:contain;object-position:left center}
+.site-header nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(10px,1.6vw,23px);margin-left:auto;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.site-header nav a{color:var(--navy);text-decoration:none;transition:color .2s}
+.site-header nav a:hover{color:var(--red)}
+.site-header nav .nav-donate{background:var(--red);color:white;padding:10px 20px;border-radius:25px;font-size:9px;font-weight:900;letter-spacing:.1em}
+.site-header nav .nav-donate:hover{background:#cf2e3c;color:white}
+.nav-social a{width:26px;height:26px;display:grid;place-items:center;border:1px solid var(--navy);border-radius:50%;font-size:10px;font-weight:900;text-decoration:none;transition:transform .2s,background .2s}
+.nav-social a:hover{transform:translateY(-3px);background:var(--blue)}
+.shell{width:min(1240px,calc(100% - 48px));margin:42px auto 76px}
+.intro{margin-bottom:26px}.eyebrow{font-size:9px;letter-spacing:.25em;color:#6b879f}
+.intro h1{font-size:clamp(34px,4vw,50px);font-weight:500;letter-spacing:-.055em;color:var(--navy);margin:10px 0}
+.panel{border:1px solid #e4e5e5;border-radius:2px;box-shadow:0 12px 32px #172b4d0d;background:#fff}
+.auth-wrap{max-width:540px;margin:68px auto 90px}
+.auth-card{padding:clamp(26px,4vw,42px);border-top:4px solid var(--blue)}
+.auth-card h2,.editor-head h2{font-weight:500;letter-spacing:-.045em}
+.auth-card h2{font-size:clamp(25px,3vw,32px);margin:10px 0}
+.auth-card p{font-size:13px;line-height:1.75}
+.field label{font-size:9px;letter-spacing:.14em;color:#64758a}
+.field input,.field textarea,.field select{border:1px solid #d7dce1;border-radius:2px;padding:13px 14px;background:#fff}
+.field input:hover,.field textarea:hover,.field select:hover{border-color:#9bb8ce}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}
+.btn{border-radius:25px;background:var(--red);padding:13px 22px;letter-spacing:.1em;transition:transform .2s,background .2s}
+.btn:hover{background:#cf2e3c;transform:translateY(-2px)}
+.btn.blue{background:var(--blue);color:var(--navy)}.btn.blue:hover{background:#6eadd4}
+.btn.red{background:var(--red)}.btn.ghost{border-radius:25px}
+.auth-toggle{color:#28658e}
+.workspace{gap:20px}
+.sidebar{border-top:3px solid var(--blue)}
+.article-item{border-radius:2px;transition:border-color .2s,background .2s}
+.article-item:hover,.article-item.active{border-color:var(--blue);background:#f3f8fb}
+.editor{border-top:3px solid var(--blue)}
+.block{border-radius:2px;background:#faf9f6}
+.block-head strong,.side-head strong,.review-box h3{letter-spacing:.15em}
+.status{border-radius:20px}
+.review-box{border-radius:2px;background:#f3f6f8}
+.members{border-top:3px solid var(--blue)}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:38px 20px 28px}
+.site-footer .footer-brand{display:inline-flex;align-items:center;justify-content:center}
+.site-footer .footer-brand img{width:min(250px,65vw);max-height:76px;object-fit:contain}
+.site-footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:22px auto 16px;font-size:9px;font-weight:700}
+.site-footer a{color:inherit;text-decoration:none;transition:color .2s,transform .2s}
+.site-footer .footer-links a:hover,.site-footer .footer-legal a:hover{color:var(--blue)}
+.site-footer .footer-social{display:flex;justify-content:center;gap:13px;margin:16px auto}
+.site-footer .footer-social a{width:34px;height:34px;display:grid;place-items:center;border:1px solid #ffffff88;border-radius:50%;font-size:11px;font-weight:900}
+.site-footer .footer-social a:hover{background:var(--blue);color:var(--navy)}
+.site-footer .footer-legal{max-width:580px;margin:18px auto 0;font-size:8px;line-height:1.8;color:#aebbd0}
+.site-footer .footer-legal a{text-decoration:underline}
+.site-footer .copyright{font-size:8px;color:#8797b0;margin-top:14px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media(max-width:760px){
+ .site-header{height:auto;min-height:58px;padding:10px 17px;gap:12px}
+ .header-main-logo{width:64px;height:32px}
+ .site-header nav{gap:10px;font-size:7px;flex-wrap:wrap}
+ .site-header nav .nav-donate{padding:8px 12px;font-size:7px}
+ .nav-social{display:none}
+ .shell{width:calc(100% - 28px);margin:28px auto 54px}
+ .auth-wrap{margin:38px auto 55px}
+ .site-footer .footer-links{gap:13px}
+}
+@media(max-width:430px){
+ .announcement{font-size:9px;flex-wrap:wrap;gap:4px 8px;padding:11px 12px}
+ .site-header{align-items:center}
+ .header-main-logo{width:52px;height:28px}
+ .site-header nav{gap:8px;font-size:6px}
+ .site-header nav .nav-donate{padding:7px 9px;font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+</style>
 </head>
 <body>
-<header class="top">
-  <div class="brand"><div class="brand-mark">A</div><div><small>AMENTAMOUR FOR PRESIDENT</small><strong>CAMPAIGN ROOM</strong></div></div>
-  <div class="top-actions"><a href="news.html">Public Newsroom ↗</a><button id="signout" class="hidden">Sign out</button></div>
+<a class="announcement" href="https://carrington-rblx.github.io/electament.com/#donate" aria-label="Support AmentAmour for President">Stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Support the campaign <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="AmentAmour home"><img class="header-main-logo" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/amentamour-flag.svg" alt="AmentAmour campaign flag"></a>
+  <nav aria-label="Main navigation">
+    <a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="https://carrington-rblx.github.io/electament.com/#volunteer">Volunteer</a><a class="nav-donate" href="https://carrington-rblx.github.io/electament.com/#donate">Donate</a>
+  </nav>
+  <div class="nav-social"><a href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer">D</a></div>
 </header>
 <main id="authView" class="shell auth-wrap">
   <section class="panel auth-card">
@@ -66,6 +152,12 @@
     <div id="memberList"></div>
   </section>
 </main>
-<footer class="footer">Private campaign workspace · Access is governed by Supabase authentication and database row-level security.</footer>
+<footer class="site-footer">
+  <a class="footer-brand" href="./" aria-label="AmentAmour for President"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a>
+  <div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="https://carrington-rblx.github.io/electament.com/#volunteer">Volunteer</a><a href="https://carrington-rblx.github.io/electament.com/#donate">Donate</a></div>
+  <div class="footer-social"><a href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer">D</a><a href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer">R</a></div>
+  <div class="footer-legal">Paid for by AmentAmour for President. <a href="mailto:privacy@electament.com">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div>
+  <div class="copyright">© 2026 AmentAmour for President. All rights reserved.</div>
+</footer>
 <script type="module" src="campaign-room.js"></script>
 </body></html>
