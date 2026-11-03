@@ -167,6 +167,37 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 .choice-explainer p span{display:block;margin-top:4px;font-size:9px;font-weight:900;letter-spacing:.04em;color:#8994a0}
 .walkthrough-third .walkthrough-dots{margin:30px 0 20px}
 @media(max-width:540px){.walkthrough-third{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-third-canvas{min-height:730px;border-radius:20px;padding:24px 14px 25px}.choices-heading{margin:42px 0 28px}.choice-explainer{padding:16px;gap:13px;min-height:104px}.choice-icon{width:47px;height:47px;flex-basis:47px}.choice-explainer h2{font-size:17px}.choice-explainer p{font-size:10px}}
+
+.walkthrough-fourth[hidden]{display:none}
+.walkthrough-fourth{padding:clamp(14px,4vw,40px) 16px 48px;background:#edf0f2;min-height:calc(100vh - 70px);place-items:center}
+.walkthrough-fourth:not([hidden]){display:grid}
+.walkthrough-fourth-canvas{width:min(760px,100%);min-height:760px;background:#fbfbf8;border-radius:26px;padding:clamp(24px,4vw,42px) 22px 28px;display:flex;align-items:center;flex-direction:column;box-shadow:0 18px 65px #172b4d12;position:relative;overflow:hidden}
+.history-cluster{width:min(540px,100%);height:340px;position:relative;margin:6px auto 8px}
+.history-person{position:absolute;display:flex;align-items:center;flex-direction:column;gap:6px;font-size:8px;font-weight:900;color:#657181;white-space:nowrap}
+.portrait-disc{width:76px;height:76px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 5px 18px #172b4d20;display:grid;place-items:center}
+.portrait-disc svg{width:100%;height:100%;image-rendering:pixelated;shape-rendering:crispEdges}
+.flag-fr{background:linear-gradient(90deg,#193d8b 0 33.3%,#fff 33.3% 66.6%,#ed2939 66.6%)}
+.flag-us{background:repeating-linear-gradient(180deg,#bd2638 0 7px,#fff 7px 14px)}
+.flag-us:after{content:"";position:absolute}
+.flag-uk{background:linear-gradient(32deg,transparent 43%,#fff 44% 56%,transparent 57%),linear-gradient(-32deg,transparent 43%,#fff 44% 56%,transparent 57%),linear-gradient(90deg,transparent 40%,#fff 40% 60%,transparent 60%),linear-gradient(transparent 40%,#fff 40% 60%,transparent 60%),linear-gradient(90deg,transparent 46%,#c9273d 46% 54%,transparent 54%),linear-gradient(transparent 46%,#c9273d 46% 54%,transparent 54%),#17356c}
+.flag-za{background:linear-gradient(155deg,#de2939 0 35%,#fff 35% 42%,#16864b 42% 62%,#fff 62% 69%,#244a9b 69%)}
+.flag-ca{background:linear-gradient(90deg,#d52b3f 0 25%,#fff 25% 75%,#d52b3f 75%)}
+.flag-de{background:linear-gradient(#171717 0 33%,#d52832 33% 66%,#e5b83f 66%)}
+.flag-eu{background:#204aa0;position:relative}
+.flag-eu:after{content:"✦  ✦  ✦";position:absolute;color:#ffdf55;font-size:10px;top:8px;left:8px;letter-spacing:1px}
+.person-degaulle{left:50%;top:112px;transform:translateX(-50%);z-index:2}
+.person-degaulle .portrait-disc{width:116px;height:116px;border-width:5px;box-shadow:0 9px 28px #172b4d2b}
+.person-degaulle span{font-size:10px;color:#25334a}
+.person-jfk{left:8%;top:8px}.person-churchill{right:8%;top:8px}.person-mandela{right:1%;top:174px}.person-trudeau{left:1%;top:174px}.person-adenauer{left:20%;bottom:0}.person-schuman{right:20%;bottom:0}
+.person-jfk .portrait-disc,.person-churchill .portrait-disc,.person-mandela .portrait-disc,.person-trudeau .portrait-disc,.person-adenauer .portrait-disc,.person-schuman .portrait-disc{width:68px;height:68px}
+.history-rule{width:min(510px,90%);height:1px;background:#e2e5e6;margin:10px auto 20px}
+.history-copy{max-width:510px;text-align:center}
+.history-copy h1{font-size:clamp(25px,4.5vw,34px);line-height:1.08;letter-spacing:-.06em;color:#171d26;margin:0 0 11px}
+.history-copy h1 span{color:#82bee1}
+.history-copy p{font-size:11px;line-height:1.8;color:#626e7c;margin:0}
+.walkthrough-fourth .walkthrough-dots{margin:21px 0 16px}
+.history-disclaimer{font-size:8px;color:#a0a7ae;letter-spacing:.025em;margin:18px 0 0;text-align:center}
+@media(max-width:540px){.walkthrough-fourth{padding:12px 10px 25px;min-height:calc(100vh - 100px)}.walkthrough-fourth-canvas{min-height:730px;border-radius:20px;padding:22px 12px 24px}.history-cluster{height:305px;margin-top:12px}.person-degaulle{top:100px}.person-degaulle .portrait-disc{width:100px;height:100px}.person-jfk{left:2%;top:4px}.person-churchill{right:2%;top:4px}.person-mandela{right:0;top:165px}.person-trudeau{left:0;top:165px}.person-adenauer{left:15%;bottom:0}.person-schuman{right:15%;bottom:0}.person-jfk .portrait-disc,.person-churchill .portrait-disc,.person-mandela .portrait-disc,.person-trudeau .portrait-disc,.person-adenauer .portrait-disc,.person-schuman .portrait-disc{width:60px;height:60px}.history-person{font-size:7px}.history-rule{margin:7px auto 17px}.history-disclaimer{margin-top:14px}}
 </style>
 </head>
 <body>
@@ -248,6 +279,30 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
   <div class="walkthrough-dots" aria-label="Walkthrough step 3 of 5"><span></span><span></span><span class="active"></span><span></span><span></span></div>
   <button type="button" class="walkthrough-next" id="walkthrough-third-next">Next <span>→</span></button>
   <button type="button" class="walkthrough-back" id="walkthrough-third-back">← Back</button>
+ </div>
+</section>
+
+<section class="walkthrough-fourth" id="walkthrough-fourth" hidden>
+ <div class="walkthrough-fourth-canvas">
+  <div class="walkthrough-top"><span class="walkthrough-kicker">YOUR PLACE IN HISTORY</span><span class="walkthrough-step">04 <i>/ 05</i></span></div>
+  <div class="history-cluster" aria-label="Pixel-art portraits of historical leaders with their national flags">
+   <div class="history-person person-jfk"><div class="portrait-disc flag-us"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#252d3a" d="M16 24h32v8H16zM20 16h24v8H20zM20 32h24v16H20z"/><path fill="#d8a477" d="M20 24h24v20H20z"/><path fill="#47362e" d="M20 20h24v8H20zM16 24h8v8h-8zM40 24h8v8h-8z"/><path fill="#fff" d="M24 31h5v3h-5zM36 31h5v3h-5z"/><path fill="#27364b" d="M28 32h4v3h-4zM24 40h16v4H24z"/><path fill="#243c62" d="M12 48h40v16H12z"/></svg></div><span>J. F. Kennedy</span></div>
+   <div class="history-person person-churchill"><div class="portrait-disc flag-uk"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#d7a078" d="M20 22h24v24H20z"/><path fill="#ddd" d="M16 17h32v8H16z"/><path fill="#d7a078" d="M16 24h8v14h-8zM40 24h8v14h-8z"/><path fill="#5a453a" d="M20 20h24v8H20zM20 38h24v8H20z"/><path fill="#fff" d="M24 30h5v3h-5zM36 30h5v3h-5z"/><path fill="#3b302d" d="M28 34h8v5h-8z"/><path fill="#293d58" d="M12 48h40v16H12z"/></svg></div><span>W. Churchill</span></div>
+   <div class="history-person person-mandela"><div class="portrait-disc flag-za"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#633f2b" d="M20 18h24v30H20z"/><path fill="#9c6745" d="M20 25h24v19H20z"/><path fill="#633f2b" d="M16 25h8v15h-8zM40 25h8v15h-8zM20 18h24v8H20z"/><path fill="#fff" d="M24 30h5v3h-5zM36 30h5v3h-5z"/><path fill="#3b2b24" d="M28 34h8v5h-8z"/><path fill="#273b53" d="M12 48h40v16H12z"/></svg></div><span>N. Mandela</span></div>
+   <div class="history-person person-trudeau"><div class="portrait-disc flag-ca"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#d5a078" d="M20 22h24v24H20z"/><path fill="#5b4030" d="M20 17h24v9H20zM16 22h8v9h-8zM40 22h8v9h-8z"/><path fill="#fff" d="M24 31h5v3h-5zM36 31h5v3h-5z"/><path fill="#47352c" d="M28 35h8v5h-8z"/><path fill="#293f60" d="M12 48h40v16H12z"/></svg></div><span>P. Trudeau</span></div>
+   <div class="history-person person-adenauer"><div class="portrait-disc flag-de"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#d3a17a" d="M20 22h24v24H20z"/><path fill="#d8d2c7" d="M20 16h24v10H20zM16 23h8v15h-8zM40 23h8v15h-8z"/><path fill="#fff" d="M24 31h5v3h-5zM36 31h5v3h-5z"/><path fill="#5b473b" d="M28 35h8v5h-8z"/><path fill="#293e59" d="M12 48h40v16H12z"/></svg></div><span>K. Adenauer</span></div>
+   <div class="history-person person-schuman"><div class="portrait-disc flag-eu"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#d4a17b" d="M20 22h24v24H20z"/><path fill="#d4d0c6" d="M20 16h24v10H20zM16 23h8v15h-8zM40 23h8v15h-8z"/><path fill="#fff" d="M24 31h5v3h-5zM36 31h5v3h-5z"/><path fill="#58473b" d="M28 35h8v5h-8z"/><path fill="#293e59" d="M12 48h40v16H12z"/></svg></div><span>R. Schuman</span></div>
+   <div class="history-person person-degaulle"><div class="portrait-disc flag-fr"><svg viewBox="0 0 80 80" aria-hidden="true"><path fill="#27384f" d="M22 30h36v9H22z"/><path fill="#d8a47c" d="M25 26h30v31H25z"/><path fill="#d8a47c" d="M19 33h8v17h-8zM53 33h8v17h-8z"/><path fill="#c8c2b8" d="M22 17h36v10H22zM17 24h46v5H17z"/><path fill="#fff" d="M29 37h6v4h-6zM45 37h6v4h-6z"/><path fill="#3a302c" d="M36 42h8v5h-8z"/><path fill="#243c62" d="M14 57h52v23H14z"/><path fill="#c9d2df" d="M35 58h10v9H35z"/></svg></div><span>Charles de Gaulle</span></div>
+  </div>
+  <div class="history-rule"></div>
+  <div class="history-copy">
+   <h1>Your profile among <span>history's greats.</span></h1>
+   <p>De Gaulle, Sauvé, Kennedy, Churchill... Through your answers, you help shape the AmentAmour project — and discover what kind of leader you might have been.</p>
+  </div>
+  <div class="walkthrough-dots" aria-label="Walkthrough step 4 of 5"><span></span><span></span><span></span><span class="active"></span><span></span></div>
+  <button type="button" class="walkthrough-next" id="walkthrough-fourth-next">Next <span>→</span></button>
+  <button type="button" class="walkthrough-back" id="walkthrough-fourth-back">← Back</button>
+  <p class="history-disclaimer">Fictional game · Illustrative profiles · Public-domain-inspired artwork</p>
  </div>
 </section>
 <div class="learn-modal" id="learn-modal" hidden role="dialog" aria-modal="true" aria-labelledby="learn-modal-title"><div class="learn-modal-card"><button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">A starting point</div><h2 id="learn-modal-title">An idea to explore</h2><p id="learn-modal-copy"></p><button type="button" class="modal-done" id="modal-done">Got it</button></div></div>
@@ -381,7 +436,9 @@ $("demo-keep").addEventListener("click",()=>demoChoice("keep"));
 $("walkthrough-back").addEventListener("click",()=>{$("walkthrough").hidden=true;$("landing").hidden=false;$("landing").scrollIntoView({behavior:"smooth",block:"start"});});
 $("walkthrough-next").addEventListener("click",()=>{$("walkthrough").hidden=true;$("walkthrough-third").hidden=false;$("walkthrough-third").scrollIntoView({behavior:"smooth",block:"start"});});
 $("walkthrough-third-back").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("walkthrough").hidden=false;$("walkthrough").scrollIntoView({behavior:"smooth",block:"start"});});
-$("walkthrough-third-next").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+$("walkthrough-third-next").addEventListener("click",()=>{$("walkthrough-third").hidden=true;$("walkthrough-fourth").hidden=false;$("walkthrough-fourth").scrollIntoView({behavior:"smooth",block:"start"});});
+$("walkthrough-fourth-back").addEventListener("click",()=>{$("walkthrough-fourth").hidden=true;$("walkthrough-third").hidden=false;$("walkthrough-third").scrollIntoView({behavior:"smooth",block:"start"});});
+$("walkthrough-fourth-next").addEventListener("click",()=>{$("walkthrough-fourth").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
 
 showFeatured(0);
 
