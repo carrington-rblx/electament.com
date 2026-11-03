@@ -39,60 +39,205 @@ header .nav-donate{background:#e83d4b;color:#fff;padding:8px 13px;font-size:9px;
 }
 
 
-/* Match the homepage shell: exact header/footer proportions and responsive behavior */
-:root{--campaign-gutter:clamp(22px,5.5vw,84px)}
-.announcement{height:27px;min-height:27px;padding:0 12px;font-size:9px;line-height:1.15;font-weight:800}
-.announcement-cta{display:inline-flex;align-items:center;gap:7px;margin-left:10px;background:#e83d4b;color:#fff;padding:5px 13px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
-.announcement-arrow{font-size:14px;line-height:1}
-header{position:fixed!important;top:27px!important;left:0;right:0;width:100%;height:58px!important;padding:0 var(--campaign-gutter)!important;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent!important;border:0!important;box-shadow:none;z-index:1002;transition:top .2s ease,background .2s ease,box-shadow .2s ease}
-header.header-scrolled{top:0!important;background:#172b4d!important;box-shadow:0 4px 14px rgba(10,24,45,.18)}
-header .brand{display:flex;flex:0 0 auto;width:auto!important;min-width:0!important;height:100%;align-items:center;justify-content:flex-start;color:#fff!important}
-header .header-main-logo{display:block;width:clamp(126px,13.2vw,174px)!important;height:52px!important;max-width:100%;object-fit:contain;object-position:left center}
-header nav{display:flex;align-items:center;gap:clamp(9px,1.15vw,16px);margin-left:auto;white-space:nowrap;font-family:Montserrat,Arial,sans-serif;font-size:8px;letter-spacing:.09em;font-weight:800;text-transform:uppercase}
-header nav a{color:#fff!important;transition:color .2s ease}
-header nav a:hover,header nav a[aria-current=page]{color:#82bee1!important}
-header .nav-social{display:flex;align-items:center;gap:7px;flex:0 0 auto}
-header .nav-social a:not(.nav-donate){width:25px;height:25px;display:inline-grid;place-items:center;border:1px solid rgba(255,255,255,.7);border-radius:50%;color:#fff}
-header .nav-donate{background:#e83d4b;color:#fff;padding:8px 13px;font-size:9px;font-weight:900;letter-spacing:.1em;border-radius:25px;white-space:nowrap}
-footer{background:#172b4d!important;color:#fff;text-align:center;padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
-.footer-brand{display:inline-flex;align-items:center;justify-content:center;margin-bottom:0;font-size:clamp(29px,3vw,36px)!important;font-weight:900;letter-spacing:-.06em}
-.footer-brand img{display:block;width:min(190px,55vw)!important;height:auto!important;max-height:58px!important;object-fit:contain}
-.footer-links{display:flex;justify-content:center;gap:clamp(18px,2.4vw,30px)!important;flex-wrap:wrap;margin:28px auto 22px!important;font-size:10px!important;font-weight:800}
-.footer-links a{transition:color .2s,transform .2s}
-.footer-links a:hover{color:#82bee1;transform:translateY(-2px)}
-.footer-social{display:flex;justify-content:center;gap:12px;margin:22px!important}
-.footer-social a{width:32px;height:32px;border:1px solid #ffffff88;border-radius:50%;display:grid;place-items:center;color:#fff;transition:transform .25s,background .25s,color .25s}
-.footer-social a:hover{transform:translateY(-4px);background:#82bee1;color:#172b4d}
-.footer-social img{width:18px;height:18px;object-fit:contain}
-.footer-legal{max-width:680px!important;margin:22px auto 0!important;font-size:9px!important;line-height:1.9!important;color:#aebbd0}
-.footer-legal a{text-decoration:underline}
-.copyright{font-size:9px!important;color:#8797b0;margin-top:18px!important}
-@media(max-width:760px){
- .announcement{min-height:29px;height:29px;font-size:7px;white-space:nowrap}
- .announcement-cta{padding:4px 9px;margin-left:6px;font-size:7px}
- header{top:29px!important;height:48px!important;padding:0 12px!important;gap:7px}
- header.header-scrolled{top:0!important}
- header .header-main-logo{width:116px!important;height:46px!important}
- header nav{gap:8px;font-size:6px;letter-spacing:.04em}
- header .nav-social{display:none}
- header .nav-donate{padding:6px 9px;font-size:7px}
- footer{padding:46px 20px 34px!important}
- .footer-links{gap:14px 20px!important}
-}
-@media(max-width:430px){
- header{padding:0 9px!important}
- header .header-main-logo{width:100px!important;height:42px!important}
- header nav{gap:6px;font-size:5.5px}
- header .nav-donate{padding:5px 7px;font-size:6px}
- .announcement{font-size:6.5px}
- footer{padding:40px 16px 30px!important}
-}
 
-/* You President shell sizing: keep the header mark compact and prevent footer artwork from dominating */
-header .header-main-logo{width:clamp(100px,10vw,140px)!important;height:44px!important}
-.footer-brand img{width:min(190px,55vw)!important;height:auto!important;max-height:58px!important}
-@media(max-width:760px){header .header-main-logo{width:104px!important;height:40px!important}}
-@media(max-width:430px){header .header-main-logo{width:88px!important;height:36px!important}}
+/* Exact homepage shell styles copied from index.html */
+.announcement{height:35px;background:var(--blue);display:flex;align-items:center;justify-content:center;padding:0 22px;color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.02em}
+.announcement a{margin-left:18px;background:var(--red);color:#fff;padding:8px 23px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+header{height:58px;background:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,78px);position:relative;z-index:10;border-bottom:1px solid #e7e8e8}
+.nav-social{display:flex;gap:12px;align-items:center;font-size:12px}
+.nav-social a:not(.nav-donate),.footer-social a{width:25px;height:25px;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:50%;font:700 10px var(--sans);letter-spacing:0;transition:transform .25s,background .25s,color .25s}
+.nav-social a:not(.nav-donate):hover,.footer-social a:hover{transform:translateY(-4px);background:var(--blue);color:var(--navy)}
+.nav-donate{transition:transform .25s,box-shadow .25s;background:var(--red);color:#fff;padding:10px 22px;border-radius:25px;font-size:9px;font-weight:900;letter-spacing:.1em}
+.nav-donate:hover,.announcement a:hover,.signup button:hover,.join:hover{transform:translateY(-3px);box-shadow:0 9px 20px #ed3d4b44}
+footer{background:var(--navy);color:#fff;text-align:center;padding:42px 20px 30px}
+.footer-brand{display:inline-flex;align-items:center;gap:8px;font-size:23px;font-weight:900;letter-spacing:-.06em}
+.footer-brand small{display:block;font-size:8px;letter-spacing:.22em}
+.footer-links a{transition:color .2s,transform .2s}
+.footer-links a:hover{color:var(--blue);transform:translateY(-2px)}
+.footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:23px auto 17px;font-size:8px;font-weight:700}
+.footer-social{font-size:14px;letter-spacing:10px;margin:15px}
+.footer-legal{max-width:580px;margin:20px auto 0;font-size:7px;line-height:1.8;color:#aebbd0}
+.footer-legal a{text-decoration:underline}
+.copyright{font-size:7px;color:#8797b0;margin-top:18px}
+body,button,input,nav,.announcement,.brand,.eyebrow,.legal,.status,.footer-links,.footer-legal,.copyright{font-family:var(--serif)}
+.signup button,.join,.nav-donate,.announcement a,.follow{background:var(--red);color:#fff}
+.announcement{background:#82bee1;color:#172b4d}
+header{background:#f3f1ef}
+footer{background:#172b4d}
+@media(hover:hover){.nav-donate:hover,.announcement a:hover,.signup button:hover,.join:hover{background:#cf2e3c;color:#fff}}
+footer{padding:32px 20px 24px}
+.footer-links{margin:17px auto 12px;gap:15px}
+.footer-legal{margin-top:14px}
+.copyright{margin-top:12px}
+@media(max-width:760px){footer{padding:28px 18px 22px}}
+@media(max-width:760px){.announcement{height:auto;min-height:38px;font-size:8px}
+.announcement a{padding:7px 13px;margin-left:8px}
+header{height:54px;padding:0 17px}
+.nav-social{display:none}
+.nav-donate{padding:8px 13px}}
+@media(max-width:430px){.nav-donate{font-size:7px;padding:7px 10px}}
+footer{padding-top:38px;padding-bottom:30px}
+.footer-brand{font-size:27px}
+.footer-links{font-size:9px}
+header{padding-left:clamp(18px,3vw,48px);padding-right:clamp(18px,3vw,48px)}
+footer{padding:42px 3vw 30px}
+/* Header refinement: compact, balanced navigation like the reference */
+.announcement{height:32px;font-family:var(--sans);font-size:10px;letter-spacing:.015em}
+.announcement a{font-family:var(--sans);padding:7px 19px;font-size:9px}
+header{
+  height:68px;
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) auto minmax(180px,1fr);
+  align-items:center;
+  gap:24px;
+  padding:0 clamp(24px,4.2vw,68px);
+  background:var(--paper);
+  border-bottom:1px solid #e5e7e8;
+}
+header nav{
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(18px,2.1vw,32px);
+  white-space:nowrap;
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:.11em;
+}
+.nav-social{justify-self:end;gap:10px;white-space:nowrap}
+.nav-social a:not(.nav-donate){width:26px;height:26px}
+.nav-donate{font-family:var(--sans);padding:10px 20px;font-size:9px}
+@media(max-width:760px){header{height:60px;grid-template-columns:1fr auto;gap:10px;padding:0 17px}
+header nav{grid-column:1/-1;grid-row:2;display:none}
+.nav-social{grid-column:2;grid-row:1;gap:8px}}
+@media(max-width:430px){header{height:56px;padding:0 13px}
+.nav-donate{padding:8px 13px;font-size:8px}}
+/* Transparent over the hero at page top; solid campaign navy after scrolling */
+header{
+  position:fixed;top:32px;left:0;right:0;width:100%;
+  z-index:1000;background:transparent;color:#fff;
+  border:0;box-shadow:none;
+  transform:translateY(0);opacity:1;visibility:visible;
+  transition:background .28s ease,box-shadow .28s ease,top .28s ease;
+}
+header.header-scrolled{top:0;background:var(--navy);box-shadow:0 5px 18px rgba(10,24,45,.16)}
+header .brand,header nav a{color:#fff}
+header nav a:hover{color:var(--blue)}
+header .nav-social a:not(.nav-donate){color:#fff;border-color:rgba(255,255,255,.7)}
+header .nav-donate{background:var(--red);color:#fff}
+.announcement{position:relative;z-index:1001}
+@media(max-width:760px){header{top:38px}
+header.header-scrolled{top:0}}
+footer{padding-top:28px!important;padding-bottom:22px!important}
+.footer-links{margin:12px auto 9px!important}
+.footer-legal{margin-top:10px!important}
+.copyright{margin-top:9px!important}
+@media(max-width:760px){header{height:60px;grid-template-columns:1fr auto;padding:0 17px}
+header nav{display:none}}
+/* Compact header mark and footer rhythm */
+header{gap:12px}
+header .brand{width:78px;min-width:78px;justify-self:start}
+header .header-flag{display:block;width:72px;height:34px;object-fit:contain;flex:none}
+header nav{gap:clamp(12px,1.45vw,21px);font-size:8px}
+header .nav-social{gap:7px}
+header .nav-donate{padding:9px 16px}
+footer{padding-top:25px!important;padding-bottom:18px!important}
+.footer-brand{margin-bottom:0}
+.footer-links{margin:9px auto 7px!important;gap:11px!important;line-height:1.3}
+.footer-social{margin:9px 0 7px}
+.footer-legal{margin-top:8px!important;line-height:1.55}
+.copyright{margin-top:7px!important}
+@media(max-width:760px){header .brand{width:60px;min-width:60px}
+header .header-flag{width:56px;height:28px}
+header nav{gap:9px}
+footer{padding-top:22px!important;padding-bottom:16px!important}
+.footer-links{gap:10px!important;margin:8px auto 6px!important}}
+\n/* Full campaign wordmark above the hero signup; flag-only mark remains in header */\n.hero-brand{display:flex;align-items:center;justify-content:center;width:100%;}
+\n
+/* Compact homepage spacing */
+.announcement{height:27px;min-height:27px;font-size:9px}
+.announcement a{padding:5px 14px;margin-left:12px}
+header{height:56px;padding-left:clamp(18px,3vw,42px);padding-right:clamp(18px,3vw,42px)}
+header .header-flag{width:60px;height:28px}
+header nav{gap:clamp(10px,1.2vw,17px)}
+.nav-donate{padding:8px 13px}
+footer{padding:18px 18px 14px!important}
+.footer-brand{font-size:22px}
+.footer-links{margin:7px auto 5px!important;gap:10px!important}
+.footer-social{margin:6px 0 5px}
+.footer-legal{margin-top:6px!important;line-height:1.4}
+.copyright{margin-top:5px!important}
+@media(max-width:760px){.announcement{min-height:29px;height:auto;font-size:8px}
+.announcement a{padding:5px 10px;margin-left:7px}
+header{height:50px;padding:0 14px}
+header .brand{width:52px;min-width:52px}
+header .header-flag{width:48px;height:24px}
+footer{padding:16px 14px 12px!important}}
+@media(max-width:430px){.footer-links{gap:8px!important}}
+/* Final compact layout and full-logo sticky header */
+:root{--site-header-height:58px}
+.announcement{height:27px;min-height:27px;padding:0 12px;font-size:9px;line-height:1.15}
+.announcement a{padding:5px 13px;margin-left:10px}
+header{position:fixed!important;top:27px!important;left:0;right:0;height:58px!important;padding:0 clamp(16px,3vw,42px)!important;display:flex;align-items:center;gap:16px;background:transparent!important;border:0!important;box-shadow:none;z-index:1002;transition:top .2s ease,background .2s ease,box-shadow .2s ease}
+header.header-scrolled{top:0!important;background:var(--navy)!important;box-shadow:0 4px 14px rgba(10,24,45,.18)}
+header .brand{display:flex;flex:0 0 auto;width:auto!important;min-width:0!important;height:100%;align-items:center;justify-content:flex-start;color:#fff!important}
+header .header-main-logo{display:block;width:clamp(112px,12vw,154px);height:48px;max-width:100%;object-fit:contain;object-position:left center}
+header nav{display:flex;align-items:center;gap:clamp(9px,1.15vw,16px);margin-left:auto;font-size:8px;white-space:nowrap}
+header nav a{color:#fff!important}
+header nav a:hover{color:var(--blue)!important}
+header .nav-social{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+header .nav-social a:not(.nav-donate){width:22px;height:22px}
+header .nav-donate{padding:7px 12px;font-size:8px}
+footer{padding:14px 14px 10px!important}
+.footer-brand{font-size:19px!important}
+.footer-brand svg{width:34px!important;height:26px!important}
+.footer-links{margin:6px auto 4px!important;gap:9px!important}
+.footer-social{margin:4px 0!important}
+.footer-social a{width:20px!important;height:20px!important}
+.footer-legal{margin:5px auto 0!important;line-height:1.35!important}
+.copyright{margin-top:4px!important}
+@media(max-width:760px){.announcement{min-height:29px;height:29px;font-size:7px;white-space:nowrap}
+.announcement a{padding:4px 9px;margin-left:6px;font-size:7px}
+header{top:29px!important;height:48px!important;padding:0 12px!important;gap:7px}
+header.header-scrolled{top:0!important}
+header .header-main-logo{width:104px;height:42px}
+header nav{gap:8px;font-size:6px;letter-spacing:.04em}
+header .nav-social{display:none}
+header .nav-donate{padding:6px 9px;font-size:7px}
+footer{padding:13px 12px 9px!important}}
+@media(max-width:430px){header{padding:0 9px!important}
+header .header-main-logo{width:88px;height:38px}
+header nav{gap:6px;font-size:5.5px}
+header .nav-donate{padding:5px 7px;font-size:6px}
+.announcement{font-size:6.5px}
+.footer-links{gap:7px!important}}
+h1,h2,h3,h4,h5,h6,strong,b,.brand,.footer-brand,.eyebrow,.announcement,
+nav,.nav-donate,.follow,.outline-link,button,.signup button,.join,
+.campaign-statement,.update-card small,.footer-links{font-weight:800!important}
+p,.hero-copy,.intro p,.updates-intro p,.footer-legal,.copyright,
+.volunteer-form input,.signup input{font-weight:500}
+/* Slightly larger campaign wordmarks for a clearer, balanced presence */
+header .header-main-logo{width:clamp(126px,13.2vw,174px)!important;height:52px!important}
+@media(max-width:760px){header .header-main-logo{width:116px!important;height:46px!important}}
+@media(max-width:430px){header .header-main-logo{width:100px!important;height:42px!important}}
+header{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+footer{padding-left:var(--campaign-gutter)!important;padding-right:var(--campaign-gutter)!important}
+.footer-legal{max-width:520px!important}
+/* Final requested polish: stronger footer, larger hero wordmark, red leadership highlight */
+footer{padding:clamp(54px,6vw,82px) var(--campaign-gutter) 42px!important}
+.footer-brand{font-size:clamp(29px,3vw,36px)!important}
+.footer-brand .brand-mark{width:clamp(52px,5vw,68px)!important;height:auto!important}
+.footer-links{gap:clamp(18px,2.4vw,30px)!important;margin:28px auto 22px!important;font-size:10px!important}
+.footer-social{margin:22px!important}
+.footer-social a{width:32px!important;height:32px!important;font-size:12px!important}
+.footer-legal{max-width:680px!important;font-size:9px!important;line-height:1.9!important;margin-top:22px!important}
+.copyright{font-size:9px!important;margin-top:18px!important}
+@media(max-width:760px){footer{padding:46px 20px 34px!important}
+.footer-links{gap:14px 20px!important}}
+@media(max-width:430px){footer{padding:40px 16px 30px!important}}
+/* Homepage footer artwork sizing */
+.footer-logo-art{display:block;width:min(250px,65vw);max-height:76px;object-fit:contain}
 </style></head>
 <body><a class="announcement" href="index.html#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
 <header>
@@ -109,13 +254,25 @@ header .header-main-logo{width:clamp(100px,10vw,140px)!important;height:44px!imp
 </main>
 <footer><a class="footer-brand" href="./" aria-label="AmentAmour for President"><img class="footer-logo-art" src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a><div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a href="you-president.html">You President</a><a href="index.html#donate">Donate</a></div><div class="footer-social"><a class="footer-social-link" href="https://discord.gg/9B9HCPXgNg" aria-label="Discord" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19.7 5.3A18.5 18.5 0 0 0 15.2 4l-.6 1.2a17 17 0 0 0-5.2 0L8.8 4a18.5 18.5 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.6a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.8 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a><a class="footer-social-link" href="https://republicrx.app/@AmentAmour" aria-label="RepublicRx" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/REPUBLIC%20LOGO.png" alt="RepublicRx"></a></div><div class="footer-legal">Paid for by AmentAmour for President. Campaign committee disclaimer and registration details must be reviewed and completed by the campaign's compliance team before publication. <a href="privacy-policy.html">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div><div class="copyright">© <span id="year"></span> AmentAmour for President. All rights reserved.</div></footer>
 <script>
+function demoSignup(formId,statusId){const form=document.getElementById(formId);form.addEventListener('submit',e=>{e.preventDefault();const status=document.getElementById(statusId);if(!form.reportValidity())return;status.textContent='Thanks for your interest! This preview form is not connected, so your information has not been sent or saved.';form.reset()})}
+
+document.querySelectorAll('.intro,.rally,.updates,.volunteer,.update-card,.support-tile,#donate').forEach(el=>el.classList.add('reveal'));
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'))}
+
+
 const siteHeader=document.querySelector('header');
 let headerTick=false;
 const syncHeader=()=>siteHeader.classList.toggle('header-scrolled',window.scrollY>2);
 syncHeader();
 window.addEventListener('scroll',()=>{
- if(headerTick)return;
- headerTick=true;
- requestAnimationFrame(()=>{syncHeader();headerTick=false;});
+  if(headerTick)return;
+  headerTick=true;
+  requestAnimationFrame(()=>{
+    syncHeader();
+    headerTick=false;
+  });
 },{passive:true});
+
+demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');document.getElementById('year').textContent=new Date().getFullYear();
+
 </script><script>document.getElementById('year').textContent=new Date().getFullYear();</script><script type="module" src="you-president.js"></script></body></html>
