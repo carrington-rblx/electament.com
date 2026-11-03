@@ -7,7 +7,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
 });
 
 const $ = (id) => document.getElementById(id);
-const state = { user:null, role:null, articles:[], current:null, isSignup:false, blocks:[] };
+const state = { user:null, role:null, articles:[], current:null, blocks:[] };
 const escapeHtml = (value="") => String(value).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const slugify = (value="") => value.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80);
 function notice(target, message, kind="") { const el=$(target); el.textContent=message; el.className="notice"+(kind?" "+kind:""); el.classList.remove("hidden"); }
@@ -15,31 +15,16 @@ function clearNotice(target) { $(target).classList.add("hidden"); }
 function dateLabel(value) { return value ? new Date(value).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "Not submitted"; }
 function setBusy(button,busy,label) { button.disabled=busy; if(busy) button.dataset.old=button.textContent; button.textContent=busy?"Please wait…":(label||button.dataset.old||"Save"); }
 
-$("authSwitch").addEventListener("click",()=>{
-  state.isSignup=!state.isSignup;
-  $("authTitle").textContent=state.isSignup?"Create staff account":"Sign in to Campaign Room";
-  $("authSubmit").textContent=state.isSignup?"Create account":"Sign in";
-  $("authPassword").autocomplete=state.isSignup?"new-password":"current-password";
-  $("authSwitchText").textContent=state.isSignup?"Already registered?":"New staff account?";
-  $("authSwitch").textContent=state.isSignup?"Sign in":"Create an account";
-  clearNotice("authMessage");
-});
 $("authForm").addEventListener("submit",async e=>{
   e.preventDefault(); const button=$("authSubmit"); setBusy(button,true);
-  const email=$("authEmail").value.trim(), password=$("authPassword").value;
+  const identifier=$("authEmail").value.trim(), password=$("authPassword").value;
+  const email=identifier.includes("@")?identifier:identifier.toLowerCase()+"@staff.electament.invalid";
   try {
-    if(state.isSignup){
-      const {data,error}=await supabase.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});
-      if(error) throw error;
-      if(data.session) await enterApp(data.session.user);
-      else notice("authMessage","Account created. Check your email to confirm the address, then return here to sign in.","good");
-    } else {
-      const {data,error}=await supabase.auth.signInWithPassword({email,password});
-      if(error) throw error;
-      await enterApp(data.user);
-    }
+    const {data,error}=await supabase.auth.signInWithPassword({email,password});
+    if(error) throw error;
+    await enterApp(data.user);
   } catch(err) { notice("authMessage",err.message||"Authentication failed.","error"); }
-  finally { setBusy(button,false,state.isSignup?"Create account":"Sign in"); }
+  finally { setBusy(button,false,"Sign in"); }
 });
 $("signout").addEventListener("click",async()=>{await supabase.auth.signOut();state.user=null;state.role=null;$("appView").classList.add("hidden");$("authView").classList.remove("hidden");$("signout").classList.add("hidden");});
 
@@ -201,14 +186,23 @@ async function loadMembers(){
   const {data,error}=await supabase.rpc("admin_list_campaign_members");
   if(error){notice("appMessage",error.message,"error");return;}
   $("memberList").innerHTML=(data||[]).map(m=>`
-    <div class="member-row"><div><strong>${escapeHtml(m.email||m.user_id)}</strong><small>${escapeHtml(m.role)} · ${m.active?"Active":"Suspended"}</small></div><button class="btn ${m.active?"ghost":"blue"}" data-member="${m.user_id}" data-active="${m.active}">${m.active?"Suspend access":"Restore access"}</button></div>`).join("")||'<p class="help">No active members have been added yet.</p>';
+    <div class="member-row"><div><strong>${escapeHtml(m.username||m.email||m.user_id)}</strong><small>${escapeHtml(m.role)} · ${m.active?"Active":"Suspended"}</small></div><button class="btn ${m.active?"ghost":"blue"}" data-member="${m.user_id}" data-active="${m.active}">${m.active?"Suspend access":"Restore access"}</button></div>`).join("")||'<p class="help">No active members have been added yet.</p>';
   $("memberList").querySelectorAll("[data-member]").forEach(btn=>btn.addEventListener("click",async()=>{
     const {error}=await supabase.rpc("admin_set_campaign_member_active",{p_user_id:btn.dataset.member,p_active:btn.dataset.active!=="true"});
     if(error)notice("appMessage",error.message,"error");else{notice("appMessage","Staff access updated.","good");loadMembers();}
   }));
 }
 $("memberForm").addEventListener("submit",async e=>{
-  e.preventDefault();const email=$("memberEmail").value.trim(),role=$("memberRole").value;
-  const {error}=await supabase.rpc("admin_add_campaign_member",{p_email:email,p_role:role});
-  if(error)notice("appMessage",error.message,"error");else{$("memberEmail").value="";notice("appMessage","Campaign access granted to "+email+".","good");await loadMembers();}
+  e.preventDefault();
+  const username=$("memberUsername").value.trim().toLowerCase(),password=$("memberPassword").value,role=$("memberRole").value;
+  const button=$("memberForm").querySelector('button[type="submit"]');setBusy(button,true);
+  try{
+    const {data,error}=await supabase.functions.invoke("campaign-staff-account",{body:{username,password,role}});
+    if(error)throw error;
+    if(data?.error)throw new Error(data.error);
+    $("memberUsername").value="";$("memberPassword").value="";
+    notice("appMessage","Account created for @"+data.username+". Give the staff member their username and temporary password securely.","good");
+    await loadMembers();
+  }catch(err){notice("appMessage",err.message||"Could not create staff account.","error");}
+  finally{setBusy(button,false,"Create account");}
 });
