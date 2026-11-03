@@ -83,12 +83,12 @@ function openEditor(article){
   renderArticleList();
   const admin=state.role==="admin";
   const isNew=!article.id;
-  const canEdit=admin || ["draft","submitted","changes_requested"].includes(article.status);
-  const canPropose=!admin && article.status==="published";
+  const canEdit=admin ? ["draft","submitted","changes_requested"].includes(article.status) : ["draft","submitted","changes_requested"].includes(article.status);
+  const canPropose=article.status==="published";
   const canReview=admin && article.status==="submitted";
   $("editorPanel").innerHTML=`
     <div class="editor-head"><div><span class="eyebrow">${isNew?"New press release":"Article workspace"}</span><h2>${escapeHtml(article.title||"Untitled press release")}</h2><span class="status ${article.status}">${escapeHtml(article.status.replace("_"," "))}</span></div>
-    <div class="editor-actions">${!isNew?'<button class="btn ghost" id="refreshArticle">Refresh</button>':""}${canPropose?'<button class="btn blue" id="proposeEdit">Propose an edit</button>':""}<button class="btn" id="saveDraft" ${canEdit?"":"disabled"}>Save draft</button><button class="btn blue" id="submitArticle" ${canEdit?"":"disabled"}>Submit for approval</button></div></div>
+    <div class="editor-actions">${!isNew?'<button class="btn ghost" id="refreshArticle">Refresh</button>':""}${canPropose?'<button class="btn blue" id="proposeEdit">Create revision</button>':""}<button class="btn" id="saveDraft" ${canEdit?"":"disabled"}>Save draft</button><button class="btn blue" id="submitArticle" ${canEdit?"":"disabled"}>Submit for approval</button></div></div>
     <div class="grid2">
       <div class="field"><label for="articleTitle">Headline</label><input id="articleTitle" maxlength="180" value="${escapeHtml(article.title)}" ${canEdit?"":"disabled"}></div>
       <div class="field"><label for="articleSlug">URL slug</label><input id="articleSlug" maxlength="80" value="${escapeHtml(article.slug)}" ${canEdit?"":"disabled"}><span class="help">Lowercase letters, numbers, and hyphens.</span></div>
