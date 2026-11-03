@@ -1301,6 +1301,11 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   .news-follow{transition:none}
 }
 </style>
+<style>
+.press-release-list.cms-list{display:grid;grid-template-columns:1fr;gap:24px}
+.press-release-list.cms-list .press-release-link{display:block;width:min(1140px,100%);margin:0 auto}
+.press-release-list.cms-list .press-release-card{height:auto;min-height:340px}
+</style>
 </head>
 <body>
 <a class="announcement" href="index.html#donate" aria-label="Chip in now to support Team AmentAmour — Donate">Chip in now to stand with Team AmentAmour and a stronger America. <span class="announcement-cta">Donate <span class="announcement-arrow" aria-hidden="true">→</span></span></a>
@@ -1354,6 +1359,30 @@ window.addEventListener('scroll',()=>{
 
 demoSignup('hero-form','hero-status');demoSignup('vol-form','vol-status');document.getElementById('year').textContent=new Date().getFullYear();
 
+</script>
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.118.0";
+const db=createClient("https://ogjzsmymvomfyqkkdsgt.supabase.co","sb_publishable_ergFTN1V7Alb2nawH4bk_w_N8xy_0yp");
+const list=document.querySelector(".press-release-list");
+try{
+ const {data,error}=await db.from("articles").select("slug,title,excerpt,published_at").eq("status","published").order("published_at",{ascending:false});
+ if(error) throw error;
+ if(data?.length){
+  list.classList.add("cms-list");
+  list.replaceChildren();
+  for(const article of data){
+   const link=document.createElement("a");link.className="press-release-link";link.href="press-release.html?slug="+encodeURIComponent(article.slug);link.setAttribute("aria-label","Read press release: "+article.title);
+   const card=document.createElement("article");card.className="press-release-card";
+   const meta=document.createElement("span");meta.className="press-release-meta";
+   const date=article.published_at?new Date(article.published_at).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}).toUpperCase():"";
+   meta.textContent="PRESS RELEASE | "+date;
+   const title=document.createElement("h2");title.textContent=article.title;
+   const excerpt=document.createElement("p");excerpt.textContent=article.excerpt||"";
+   const chevron=document.createElement("span");chevron.className="press-release-chevron";chevron.setAttribute("aria-hidden","true");chevron.innerHTML='<svg viewBox="0 0 16 16" width="14" height="14" focusable="false"><path d="m6 3 5 5-5 5"/></svg>';
+   card.append(meta,title,excerpt,chevron);link.append(card);list.append(link);
+  }
+ }
+}catch(error){console.warn("Campaign newsroom feed unavailable; showing the existing static newsroom card.",error);}
 </script>
 </body>
 </html>
