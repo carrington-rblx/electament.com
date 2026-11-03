@@ -169,7 +169,7 @@ function renderProposals(){
 }
 async function loadProposals(){
  const {data,error}=await supabase.from("campaign_platform_proposals").select("id,category,title,description,sort_order,created_at").eq("is_published",true).order("sort_order",{ascending:true}).order("created_at",{ascending:true});
- if(error){$("proposal-list").innerHTML='<div class="empty">We couldn't load the proposals just now. Please refresh the page and try again.</div>';status("proposal-count","Temporarily unavailable");return;}
+ if(error){$("proposal-list").innerHTML='<div class="empty">The proposals could not be loaded just now. Please refresh the page and try again.</div>';status("proposal-count","Temporarily unavailable");return;}
  state.proposals=data||[];renderFilters();renderProposals();
 }
 $("filters").addEventListener("click",event=>{
