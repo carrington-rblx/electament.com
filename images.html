@@ -1459,9 +1459,8 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 </section>
 
 <div class="event-viewer" id="event-viewer" aria-hidden="true">
-  <button class="viewer-close" type="button" aria-label="Close gallery">×</button>
-  <button class="viewer-arrow viewer-prev" type="button" aria-label="Previous photo">‹</button>
   <figure class="viewer-figure">
+    <button class="viewer-close" type="button" aria-label="Close gallery">×</button>
     <img id="viewer-image" src="" alt="">
     <figcaption>
       <span id="viewer-title">Campaign Event</span>
@@ -1469,7 +1468,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
       <span id="viewer-count">1 / 1</span>
     </figcaption>
   </figure>
-  <button class="viewer-arrow viewer-next" type="button" aria-label="Next photo">›</button>
 </div>
 
 <style>
@@ -1575,93 +1573,76 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:60px 76px;
-  background:rgba(7,15,29,.96);
+  padding:28px;
+  background:transparent;
   opacity:0;
   visibility:hidden;
-  transition:opacity .25s ease,visibility .25s ease;
+  pointer-events:none;
+  transition:opacity .2s ease,visibility .2s ease;
 }
-.event-viewer.is-open{opacity:1;visibility:visible}
+.event-viewer.is-open{opacity:1;visibility:visible;pointer-events:auto}
 .viewer-figure{
-  width:min(100%,1400px);
-  height:100%;
+  position:relative;
+  width:max-content;
+  max-width:min(100%,1400px);
+  max-height:100%;
   margin:0;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:15px;
+  gap:10px;
+  pointer-events:auto;
 }
 .viewer-figure img{
   display:block;
   max-width:100%;
-  max-height:calc(100% - 62px);
+  max-height:calc(100svh - 100px);
   width:auto;
   height:auto;
   object-fit:contain;
   cursor:pointer;
+  box-shadow:0 8px 32px rgba(23,43,77,.18);
 }
 .viewer-figure figcaption{
-  width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:18px;
+  gap:12px;
   flex-wrap:wrap;
-  color:#fff;
-  font:700 12px 'Montserrat',sans-serif;
-  letter-spacing:.08em;
+  color:#172b4d;
+  font:700 11px 'Montserrat',sans-serif;
+  letter-spacing:.04em;
   text-align:center;
 }
-#viewer-title{font-size:14px;font-weight:800}
-#viewer-date{color:#b9cde0}
-#viewer-count{color:#82bee1}
-.viewer-close,.viewer-arrow{
+#viewer-title{font-size:13px;font-weight:800}
+#viewer-date{color:#667080}
+#viewer-count{color:#667080}
+.viewer-close{
   position:absolute;
+  z-index:2;
+  top:10px;
+  right:10px;
+  width:42px;
+  height:42px;
   display:grid;
   place-items:center;
-  border:1px solid rgba(255,255,255,.45);
-  background:rgba(23,43,77,.72);
-  color:#fff;
+  border:0;
+  border-radius:50%;
+  background:rgba(250,249,246,.94);
+  color:#172b4d;
+  box-shadow:0 2px 12px rgba(23,43,77,.18);
   cursor:pointer;
+  font:300 30px/1 Arial,sans-serif;
   transition:background .2s ease,transform .2s ease;
 }
-.viewer-close:hover,.viewer-arrow:hover{background:#e83d4b}
-.viewer-close{
-  top:22px;right:25px;
-  width:46px;height:46px;
-  border-radius:50%;
-  font:300 32px/1 Arial,sans-serif;
-}
-.viewer-arrow{
-  top:50%;
-  width:48px;height:64px;
-  border-radius:3px;
-  transform:translateY(-50%);
-  font:300 42px/1 Arial,sans-serif;
-}
-.viewer-arrow:hover{transform:translateY(-50%) scale(1.06)}
-.viewer-prev{left:18px}
-.viewer-next{right:18px}
-.viewer-arrow:disabled{opacity:.22;cursor:default;background:rgba(23,43,77,.5)}
-.viewer-arrow:disabled:hover{transform:translateY(-50%)}
+.viewer-close:hover{background:#82bee1;transform:scale(1.05)}
 @media(max-width:700px){
-  .event-gallery{width:calc(100% - 32px);padding:36px 0 64px;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .event-card{aspect-ratio:4/5}
-  .event-card-caption{left:14px;right:12px;bottom:15px;gap:5px}
-  .event-card-title{font-size:clamp(14px,3.4vw,21px)}
-  .event-card-date{font-size:9px;letter-spacing:.07em}
-  .event-card-count{top:10px;right:10px;font-size:7px;padding:6px 7px}
-  .event-viewer{padding:58px 14px 30px}
-  .viewer-prev{left:8px}
-  .viewer-next{right:8px}
-  .viewer-arrow{width:36px;height:50px;font-size:32px}
-  .viewer-figure img{max-width:100%;max-height:calc(100% - 76px)}
-  .viewer-figure figcaption{gap:8px;font-size:10px}
-}
-@media(hover:none){
-  .event-card-caption,.event-card-count{opacity:1;transform:none}
-  .event-card-shade{opacity:1}
+  .event-viewer{padding:16px}
+  .viewer-figure{width:100%}
+  .viewer-figure img{max-width:100%;max-height:calc(100svh - 105px)}
+  .viewer-close{top:8px;right:8px;width:40px;height:40px}
+  .viewer-figure figcaption{gap:7px;font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){
   .event-cover,.event-card-caption,.event-card-count,.event-card-shade,.event-viewer{transition:none}
@@ -1680,8 +1661,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   const titleNode=document.getElementById("viewer-title");
   const dateNode=document.getElementById("viewer-date");
   const countNode=document.getElementById("viewer-count");
-  const previous=document.querySelector(".viewer-prev");
-  const next=document.querySelector(".viewer-next");
   const closeButton=document.querySelector(".viewer-close");
   let current=0;
   let lastTrigger=null;
@@ -1693,8 +1672,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
     titleNode.textContent=title;
     dateNode.textContent=date;
     countNode.textContent=(current+1)+" / "+photos.length;
-    previous.disabled=photos.length<2;
-    next.disabled=photos.length<2;
   }
   function openViewer(trigger){
     lastTrigger=trigger;
@@ -1713,8 +1690,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   document.querySelectorAll(".event-card").forEach(card=>{
     card.addEventListener("click",()=>openViewer(card));
   });
-  previous.addEventListener("click",()=>showPhoto(current-1));
-  next.addEventListener("click",()=>showPhoto(current+1));
   image.addEventListener("click",()=>showPhoto(current+1));
   closeButton.addEventListener("click",closeViewer);
   viewer.addEventListener("click",event=>{
@@ -1723,8 +1698,6 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   document.addEventListener("keydown",event=>{
     if(!viewer.classList.contains("is-open"))return;
     if(event.key==="Escape")closeViewer();
-    if(event.key==="ArrowLeft")showPhoto(current-1);
-    if(event.key==="ArrowRight")showPhoto(current+1);
   });
 })();
 </script>
