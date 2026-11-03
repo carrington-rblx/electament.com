@@ -84,10 +84,11 @@ function openEditor(article){
   const admin=state.role==="admin";
   const isNew=!article.id;
   const canEdit=admin || ["draft","submitted","changes_requested"].includes(article.status);
+  const canPropose=!admin && article.status==="published";
   const canReview=admin && article.status==="submitted";
   $("editorPanel").innerHTML=`
     <div class="editor-head"><div><span class="eyebrow">${isNew?"New press release":"Article workspace"}</span><h2>${escapeHtml(article.title||"Untitled press release")}</h2><span class="status ${article.status}">${escapeHtml(article.status.replace("_"," "))}</span></div>
-    <div class="editor-actions">${!isNew?'<button class="btn ghost" id="refreshArticle">Refresh</button>':""}<button class="btn" id="saveDraft" ${canEdit?"":"disabled"}>Save draft</button><button class="btn blue" id="submitArticle" ${canEdit?"":"disabled"}>Submit for approval</button></div></div>
+    <div class="editor-actions">${!isNew?'<button class="btn ghost" id="refreshArticle">Refresh</button>':""}${canPropose?'<button class="btn blue" id="proposeEdit">Propose an edit</button>':""}<button class="btn" id="saveDraft" ${canEdit?"":"disabled"}>Save draft</button><button class="btn blue" id="submitArticle" ${canEdit?"":"disabled"}>Submit for approval</button></div></div>
     <div class="grid2">
       <div class="field"><label for="articleTitle">Headline</label><input id="articleTitle" maxlength="180" value="${escapeHtml(article.title)}" ${canEdit?"":"disabled"}></div>
       <div class="field"><label for="articleSlug">URL slug</label><input id="articleSlug" maxlength="80" value="${escapeHtml(article.slug)}" ${canEdit?"":"disabled"}><span class="help">Lowercase letters, numbers, and hyphens.</span></div>
@@ -111,6 +112,11 @@ function openEditor(article){
     $("articleSlug").addEventListener("input",()=>{$("articleSlug").dataset.edited="1";});
   }
   if(!isNew) $("refreshArticle")?.addEventListener("click",()=>loadArticles(article.id));
+  if(canPropose) $("proposeEdit").addEventListener("click",()=>{
+    const proposal={...article,id:null,status:"draft",author_id:state.user.id,supersedes_id:article.id,slug:article.slug+"-revision-"+Date.now(),review_note:""};
+    openEditor(proposal);
+    notice("appMessage","You are editing a proposed revision. The published article will not change unless an administrator approves it.","good");
+  });
   if(canReview){
     $("approveArticle").addEventListener("click",()=>reviewArticle("published"));
     $("requestChanges").addEventListener("click",()=>reviewArticle("changes_requested"));
@@ -161,7 +167,7 @@ async function saveArticle(status){
     if(state.current.id) {
       result=await supabase.from("articles").update(payload).eq("id",state.current.id).select().single();
     } else {
-      const initialPayload={...payload,author_id:state.user.id,status:"draft"};
+      const initialPayload={...payload,author_id:state.user.id,status:"draft",...(state.current.supersedes_id?{supersedes_id:state.current.supersedes_id}:{})};
       result=await supabase.from("articles").insert(initialPayload).select().single();
       if(!result.error && status==="submitted") {
         result=await supabase.from("articles").update({status:"submitted",submitted_at:payload.submitted_at}).eq("id",result.data.id).select().single();
@@ -178,10 +184,17 @@ async function reviewArticle(status){
   const update={status,reviewed_at:new Date().toISOString(),reviewed_by:state.user.id,review_note:note};
   if(status==="published") update.published_at=new Date().toISOString();
   try{
-    const {data,error}=await supabase.from("articles").update(update).eq("id",state.current.id).select().single();
-    if(error)throw error;
-    notice("appMessage",status==="published"?"Approved and marked published in the Campaign Room CMS.":status==="changes_requested"?"Changes requested; the author can revise and resubmit.":"Submission rejected.","good");
-    await loadArticles(data.id);
+    let approvedId=state.current.id;
+    if(status==="published") {
+      const {data,error}=await supabase.rpc("admin_publish_article",{p_article_id:state.current.id});
+      if(error)throw error;
+      approvedId=data;
+    } else {
+      const {error}=await supabase.from("articles").update(update).eq("id",state.current.id);
+      if(error)throw error;
+    }
+    notice("appMessage",status==="published"?"Approved and published. Any published article revision now replaces the live CMS version.":status==="changes_requested"?"Changes requested; the author can revise and resubmit.":"Submission rejected.","good");
+    await loadArticles(approvedId);
   }catch(err){notice("appMessage",err.message,"error");}
 }
 async function loadMembers(){
