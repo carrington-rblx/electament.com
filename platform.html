@@ -95,6 +95,28 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 @media(max-width:760px){header{align-items:flex-start;flex-direction:column;gap:12px;padding:13px 17px}nav{width:100%;justify-content:space-between;gap:7px;font-size:7px;flex-wrap:wrap}.username-panel{grid-template-columns:1fr;gap:14px}.proposal-list{grid-template-columns:1fr}.contribute{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.count{white-space:normal}}
 @media(max-width:480px){main{width:calc(100% - 26px);margin-top:23px}.hero{padding:45px 17px 43px}.proposal{padding:19px}.actions{gap:5px}.choice{font-size:8px;padding:10px 3px}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+.landing{padding:clamp(18px,4vw,44px) 16px 48px;background:#edf0f2;min-height:calc(100vh - 70px);display:grid;place-items:center}
+.landing-canvas{width:min(760px,100%);min-height:760px;background:#fbfbf8;border-radius:26px;padding:clamp(28px,5vw,52px) 22px 30px;display:flex;align-items:center;flex-direction:column;box-shadow:0 18px 65px #172b4d12;overflow:hidden}
+.landing-title{text-align:center;z-index:2}.landing-kicker{font-size:9px;font-weight:900;letter-spacing:.2em;color:#778493;margin-bottom:12px}
+.landing-title h1{font-size:clamp(48px,8vw,74px);line-height:.88;letter-spacing:-.075em;color:#15191e;margin:0;font-weight:900}.landing-title h1 span{color:#82bee1}
+.deck-stage{height:310px;width:min(480px,100%);position:relative;margin:20px auto 4px;display:flex;justify-content:center;align-items:center;perspective:1000px}
+.deck-card{position:absolute;width:min(270px,68vw);height:292px;border-radius:19px;background:#fff;padding:20px 21px;box-shadow:0 12px 35px #1d2d4920;border:1px solid #e8e8e4;display:flex;flex-direction:column;align-items:flex-start;transition:transform .3s ease}
+.deck-card-back{height:272px;top:20px}.deck-card-back h3{font-size:20px;line-height:1.15;letter-spacing:-.04em;margin:22px 0;color:#202a36}
+.deck-agri{background:#eff7e9;transform:translate(-95px,7px) rotate(-15deg);z-index:1}.deck-family{background:#fff0f3;transform:translate(-49px,-1px) rotate(-8deg);z-index:2}.deck-innovation{background:#e9f8f6;transform:translate(49px,-1px) rotate(8deg);z-index:2}.deck-democracy{background:#f1edff;transform:translate(95px,7px) rotate(15deg);z-index:1}
+.deck-front{z-index:5;top:8px;background:#fffef9;transform:translateY(0) rotate(0);border-color:#eee6cb}.deck-front h3{font-size:23px;line-height:1.12;letter-spacing:-.05em;margin:16px 0 8px;color:#1b2531}.deck-front p{font-size:10px;line-height:1.65;color:#697585;margin:0 0 10px}
+.deck-tag{display:inline-flex;padding:7px 11px;border-radius:30px;background:#ffe99b;color:#5e4a0c;font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.deck-agri .deck-tag{background:#d8edc7;color:#3d6932}.deck-family .deck-tag{background:#ffd6df;color:#8d4055}.deck-innovation .deck-tag{background:#c9eee8;color:#286c63}.deck-democracy .deck-tag{background:#ddd3ff;color:#5943a1}
+.deck-icon{font-size:30px;margin-top:17px}.learn-more{margin-top:auto;background:transparent;border:0;padding:5px 0;color:#667386;font-size:9px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.landing-copy{max-width:470px;text-align:center;color:#4f5966;font-size:12px;line-height:1.85;margin:16px auto 17px}
+.landing-dots{display:flex;align-items:center;justify-content:center;gap:9px;margin:0 0 20px}.landing-dots button{width:8px;height:8px;border:0;border-radius:10px;padding:0;background:#d8dde2;transition:all .2s}.landing-dots button.active{width:27px;background:#82bee1}
+.play-button{min-width:190px;border:0;border-radius:40px;background:#ffdf55;color:#202020;padding:16px 28px;font-size:15px;font-weight:900;box-shadow:0 5px 0 #e9c33c;transition:transform .15s,box-shadow .15s}.play-button:hover{transform:translateY(-2px);box-shadow:0 7px 0 #e9c33c}.play-button span{margin-left:8px;font-size:18px}
+.landing-footnote{margin-top:22px;color:#9aa3ad;font-size:7px;font-weight:900;letter-spacing:.18em}
+.learn-modal{position:fixed;inset:0;z-index:2000;background:#172b4d75;display:grid;place-items:center;padding:20px}.learn-modal[hidden]{display:none}
+.learn-modal-card{position:relative;width:min(420px,100%);padding:32px;background:#fff;border-radius:15px;box-shadow:0 25px 80px #101c2e40}.learn-modal-card h2{font-size:24px;letter-spacing:-.05em;margin:10px 0}.learn-modal-card p{font-size:12px;line-height:1.8;color:#657386}
+.modal-close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:25px;color:#64748b}.modal-done{border:0;border-radius:30px;background:#172b4d;color:white;padding:11px 22px;font-size:10px;font-weight:900;margin-top:10px}
+#participation[hidden]{display:none}
+@media(max-width:540px){.landing{padding:13px 10px 25px;min-height:calc(100vh - 100px)}.landing-canvas{min-height:700px;border-radius:20px;padding:30px 12px 24px}.deck-stage{height:290px;margin-top:22px}.deck-card{height:270px}.deck-card-back{height:250px}.deck-agri{transform:translate(-64px,8px) rotate(-15deg)}.deck-family{transform:translate(-34px,0) rotate(-8deg)}.deck-innovation{transform:translate(34px,0) rotate(8deg)}.deck-democracy{transform:translate(64px,8px) rotate(15deg)}.deck-front h3{font-size:21px}.deck-card-back h3{font-size:17px}.landing-copy{font-size:11px;padding:0 12px}}
 </style>
 </head>
 <body>
@@ -104,15 +126,24 @@ footer{background:var(--navy);color:#fff;text-align:center;padding:34px 20px 26p
 <a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a class="nav-current" href="platform.html" aria-current="page">Platform</a><a class="nav-donate" href="index.html#donate">Donate</a>
 </nav>
 </header>
-<section class="hero">
-<div class="hero-inner">
-<div class="eyebrow">Your voice. Your future.</div>
-<h1>Let's build the platform <span>together.</span></h1>
-<p>This is your chance to shape the ideas and priorities behind the AmentAmour platform. Tell us what you support, what you would change, and what you think is missing.</p>
-<div class="hero-note">No account. No email. Just your Roblox username and your ideas.</div>
-</div>
+<section class="landing" id="landing">
+ <div class="landing-canvas">
+  <div class="landing-title"><div class="landing-kicker">AMENTAMOUR FOR PRESIDENT PRESENTS</div><h1>You<br><span>President.</span></h1></div>
+  <div class="deck-stage" aria-label="Preview of platform ideas">
+   <article class="deck-card deck-card-back deck-agri"><span class="deck-tag">Agriculture</span><div class="deck-icon">🌱</div><h3>Support local communities</h3></article>
+   <article class="deck-card deck-card-back deck-family"><span class="deck-tag">Families</span><div class="deck-icon">🏡</div><h3>Make family life more affordable</h3></article>
+   <article class="deck-card deck-card-back deck-innovation"><span class="deck-tag">Innovation</span><div class="deck-icon">💡</div><h3>Build the future together</h3></article>
+   <article class="deck-card deck-card-back deck-democracy"><span class="deck-tag">Democracy</span><div class="deck-icon">🗳️</div><h3>Give people a stronger voice</h3></article>
+   <article class="deck-card deck-front" id="featured-card"><span class="deck-tag" id="featured-tag">Education</span><div class="deck-icon" id="featured-icon">🎓</div><h3 id="featured-title">Make learning and skills training easier to access</h3><p id="featured-copy">More opportunities to learn, build skills and prepare for the future.</p><button type="button" class="learn-more" id="learn-more">? Learn more</button></article>
+  </div>
+  <p class="landing-copy">Our future should be shaped by the people who live it. Tell us what matters, challenge our ideas, and help build the AmentAmour platform.</p>
+  <div class="landing-dots" id="landing-dots" aria-label="Featured idea"><button type="button" class="active" aria-label="Idea 1"></button><button type="button" aria-label="Idea 2"></button><button type="button" aria-label="Idea 3"></button><button type="button" aria-label="Idea 4"></button><button type="button" aria-label="Idea 5"></button></div>
+  <button type="button" class="play-button" id="play-button">Play <span>→</span></button>
+  <div class="landing-footnote">YOUR VOICE. YOUR FUTURE. BUILT TOGETHER.</div>
+ </div>
 </section>
-<main>
+<div class="learn-modal" id="learn-modal" hidden role="dialog" aria-modal="true" aria-labelledby="learn-modal-title"><div class="learn-modal-card"><button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">A starting point</div><h2 id="learn-modal-title">An idea to explore</h2><p id="learn-modal-copy"></p><button type="button" class="modal-done" id="modal-done">Got it</button></div></div>
+<main id="participation" hidden>
 <section class="username-panel" aria-labelledby="username-title">
 <div><h2 id="username-title">First, what's your Roblox username?</h2><p>We use this to label your contribution and prevent repeat responses to the same proposal. You do not need to sign in or connect your Roblox account.</p></div>
 <div class="field"><label for="roblox-username">Roblox username</label><input id="roblox-username" name="roblox_username" type="text" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}" autocomplete="off" placeholder="YourRobloxName" required><small>3–20 letters, numbers or underscores. Your username is self-reported and is not verified.</small></div>
@@ -215,6 +246,23 @@ $("idea-form").addEventListener("submit",async event=>{
  $("idea-form").reset();status("idea-status","Thank you — your idea has been sent to the campaign team for review.");
 });
 $("year").textContent=new Date().getFullYear();
+
+const featuredIdeas=[
+{category:"Education",icon:"🎓",title:"Make learning and skills training easier to access",copy:"More opportunities to learn, build skills and prepare for the future.",detail:"People should have clear, affordable ways to build skills throughout their lives — through education, practical training, apprenticeships, or returning to learning."},
+{category:"Agriculture",icon:"🌱",title:"Support local communities and producers",copy:"Help local communities thrive and make opportunity reach further.",detail:"Strong communities need sustainable local opportunity, support for producers, and policies that recognise the people who keep communities running."},
+{category:"Families",icon:"🏡",title:"Make family life more affordable",copy:"Build a future where families can feel secure and supported.",detail:"Families should be able to access the services, opportunities and practical support that help them thrive."},
+{category:"Innovation",icon:"💡",title:"Build the future through innovation",copy:"Encourage new ideas, creativity and responsible technology.",detail:"Innovation can create opportunity when people have the tools, skills and support to turn good ideas into something useful."},
+{category:"Democracy",icon:"🗳️",title:"Give people a stronger voice in decisions",copy:"Make it easier for people to shape the decisions that affect them.",detail:"People should have meaningful ways to influence decisions, understand how choices are made and hold decision-makers accountable."}
+];
+function showFeatured(index){const idea=featuredIdeas[index];$("featured-tag").textContent=idea.category;$("featured-icon").textContent=idea.icon;$("featured-title").textContent=idea.title;$("featured-copy").textContent=idea.copy;$("landing-dots").querySelectorAll("button").forEach((b,i)=>{b.classList.toggle("active",i===index);b.setAttribute("aria-current",i===index?"true":"false");});$("learn-modal-title").textContent=idea.title;$("learn-modal-copy").textContent=idea.detail;}
+$("landing-dots").addEventListener("click",event=>{const dot=event.target.closest("button");if(dot)showFeatured([...$("landing-dots").children].indexOf(dot));});
+$("learn-more").addEventListener("click",()=>{$("learn-modal").hidden=false;$("modal-done").focus();});
+$("modal-close").addEventListener("click",()=>$("learn-modal").hidden=true);$("modal-done").addEventListener("click",()=>$("learn-modal").hidden=true);
+$("learn-modal").addEventListener("click",event=>{if(event.target===$("learn-modal"))$("learn-modal").hidden=true;});
+document.addEventListener("keydown",event=>{if(event.key==="Escape")$("learn-modal").hidden=true;});
+$("play-button").addEventListener("click",()=>{$("landing").hidden=true;$("participation").hidden=false;$("participation").scrollIntoView({behavior:"smooth",block:"start"});$("roblox-username").focus({preventScroll:true});});
+showFeatured(0);
+
 loadProposals();
 </script>
 </body>
