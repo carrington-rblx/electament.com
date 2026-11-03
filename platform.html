@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#172b4d">
+<meta name="description" content="The AmentAmour platform is being shaped with the people it is meant to serve. Coming soon.">
+<title>The Platform | AmentAmour For President</title>
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/amentamour-flag.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#172b4d;--blue:#82bee1;--red:#e83d4b;--paper:#faf9f6;--ink:#172b4d;--muted:#647184}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Montserrat,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+header{min-height:70px;padding:12px clamp(18px,5vw,78px);display:flex;align-items:center;justify-content:space-between;gap:24px;background:#f3f1ef;border-bottom:1px solid #e7e8e8}
+.brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:900;letter-spacing:-.04em}
+.brand img{width:38px;height:34px;object-fit:contain}
+.brand small{display:block;font-size:7px;letter-spacing:.2em;margin-top:3px}
+nav{display:flex;align-items:center;gap:clamp(9px,2vw,23px);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+nav a:not(.nav-platform):hover,.footer-links a:hover{color:var(--red)}
+.nav-platform{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#dff1fb;color:var(--navy);border:1px solid #b9dff3;white-space:nowrap}
+.nav-platform small{font-size:7px;letter-spacing:.08em;color:#477b9d;border-left:1px solid #a7d2e9;padding-left:7px}
+.nav-donate{background:var(--red);color:white;padding:10px 19px;border-radius:30px;font-size:9px}
+main{min-height:calc(100vh - 260px);display:grid;place-items:center;padding:70px 22px 90px;position:relative;overflow:hidden}
+main:before{content:"";position:absolute;width:min(70vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#dff1fb 0%,rgba(223,241,251,0) 68%);right:-18%;top:-28%;pointer-events:none}
+.platform-panel{position:relative;width:min(850px,100%);padding:clamp(30px,7vw,76px);background:#fff;border:1px solid #e5eaf0;box-shadow:0 22px 70px rgba(23,43,77,.08);text-align:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border-radius:30px;background:#e3f3fc;color:#477b9d;font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue)}
+h1{font-size:clamp(43px,8vw,82px);line-height:.96;letter-spacing:-.07em;margin:25px 0 22px;font-weight:900}
+h1 span{color:#70afd5}
+.lead{max-width:600px;margin:0 auto;color:#5e6b7c;font-size:clamp(14px,2vw,17px);line-height:1.85}
+.rule{width:58px;height:4px;background:var(--red);margin:32px auto}
+.supporting{max-width:570px;margin:0 auto;color:#788392;font-size:12px;line-height:1.9}
+.back-link{display:inline-flex;margin-top:34px;padding:12px 22px;border:1px solid #9fcbe4;border-radius:30px;color:var(--navy);font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,transform .2s}
+.back-link:hover{background:#dff1fb;transform:translateY(-2px)}
+footer{background:var(--navy);color:white;text-align:center;padding:34px 20px 26px}
+.footer-brand img{width:170px;max-height:55px;object-fit:contain}
+.footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px auto 15px;font-size:8px;font-weight:700}
+.footer-links .nav-platform{padding:5px 8px}
+.footer-links .nav-platform small{font-size:6px}
+.footer-legal{max-width:580px;margin:16px auto 0;font-size:7px;line-height:1.8;color:#aebbd0}
+.footer-legal a{text-decoration:underline}
+.copyright{font-size:7px;color:#8797b0;margin-top:13px}
+@media(max-width:700px){header{align-items:flex-start;flex-direction:column;gap:12px;padding:13px 17px}nav{width:100%;justify-content:space-between;gap:7px;font-size:7px;flex-wrap:wrap}.nav-platform{gap:4px;padding:6px 7px}.nav-platform small{font-size:5px;padding-left:4px}main{padding:44px 16px 58px}.platform-panel{padding:36px 22px}h1{font-size:clamp(42px,12vw,62px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="./" aria-label="AmentAmour for President home"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/amentamour-flag.svg" alt=""><span>AMENTAMOUR<small>FOR PRESIDENT</small></span></a>
+<nav aria-label="Main navigation">
+<a href="./">Home</a>
+<a href="about-ament.html">About Ament</a>
+<a href="news.html">News</a>
+<a href="images.html">Images</a>
+<a class="nav-platform" href="platform.html" aria-current="page"><span>Platform</span><small>Coming soon</small></a>
+<a class="nav-donate" href="index.html#donate">Donate</a>
+</nav>
+</header>
+<main>
+<section class="platform-panel" aria-labelledby="platform-title">
+<span class="kicker">Coming soon · Built with you</span>
+<h1 id="platform-title">A platform shaped by <span>the people.</span></h1>
+<p class="lead">A manifesto should reflect the hopes, priorities, and everyday realities of the people it is meant to serve — not just the ideas of a campaign.</p>
+<div class="rule" aria-hidden="true"></div>
+<p class="supporting">We’re preparing a space where you’ll be able to help shape the AmentAmour platform by telling us what matters to you and what you want to see changed. This is only the beginning. The next step is being built around your voice.</p>
+<a class="back-link" href="./">Return to the campaign</a>
+</section>
+</main>
+<footer>
+<a class="footer-brand" href="./" aria-label="AmentAmour for President"><img src="https://raw.githubusercontent.com/carrington-rblx/electament.com/main/a3ef5bfb-0046-4073-8108-4d8746dd5de2.png" alt="AmentAmour for President"></a>
+<div class="footer-links"><a href="./">Home</a><a href="about-ament.html">About Ament</a><a href="news.html">News</a><a href="images.html">Images</a><a class="nav-platform" href="platform.html"><span>Platform</span><small>Coming soon</small></a><a href="index.html#donate">Donate</a></div>
+<div class="footer-legal">Paid for by AmentAmour for President. Campaign committee disclaimer and registration details must be reviewed and completed by the campaign's compliance team before publication. <a href="mailto:privacy@electament.com">Privacy policy</a> · <a href="mailto:campaign@electament.com">Contact</a></div>
+<div class="copyright">© <span id="year"></span> AmentAmour for President. All rights reserved.</div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
