@@ -1035,9 +1035,9 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 .news-hero-image{
   position:absolute;
   z-index:0;
-  width:min(42vw,540px);
-  height:82%;
-  max-height:430px;
+  width:min(30vw,390px);
+  height:76%;
+  max-height:360px;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
@@ -1049,7 +1049,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   content:"";
   position:absolute;
   inset:0;
-  z-index:0;
+  z-index:1;
   background:rgba(28,48,86,.48);
   pointer-events:none;
 }
@@ -1057,7 +1057,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   content:"";
   position:absolute;
   inset:0;
-  z-index:0;
+  z-index:1;
   background:linear-gradient(180deg,rgba(28,48,86,.12),rgba(28,48,86,.58));
   pointer-events:none;
 }
@@ -1066,7 +1066,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   margin:0 auto;
   padding:80px 0;
   position:relative;
-  z-index:1;
+  z-index:2;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -1081,6 +1081,8 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   letter-spacing:.34em;
   line-height:1.2;
   margin:0 0 17px;
+  position:relative;
+  z-index:2;
   text-align:center;
 }
 .news-hero h1{
@@ -1091,6 +1093,8 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
   line-height:.94;
   margin:0 auto;
   max-width:800px;
+  position:relative;
+  z-index:2;
   text-align:center;
 }
 .news-content{
@@ -1162,7 +1166,7 @@ a.announcement:hover,a.announcement:focus-visible{background-color:var(--blue)!i
 @media(max-width:760px){
   .news-hero{min-height:390px;height:52svh}
   .news-hero::before{inset:0}
-  .news-hero-image{width:min(72vw,390px);height:76%;max-height:340px}
+  .news-hero-image{width:min(66vw,340px);height:72%;max-height:300px}
   .news-hero-inner{padding:64px 0}
   .news-content{padding:55px 22px 65px}
   .news-content-heading{align-items:start;flex-direction:column}
