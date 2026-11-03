@@ -186,10 +186,19 @@ async function loadMembers(){
   const {data,error}=await supabase.rpc("admin_list_campaign_members");
   if(error){notice("appMessage",error.message,"error");return;}
   $("memberList").innerHTML=(data||[]).map(m=>`
-    <div class="member-row"><div><strong>${escapeHtml(m.username||m.email||m.user_id)}</strong><small>${escapeHtml(m.role)} · ${m.active?"Active":"Suspended"}</small></div><button class="btn ${m.active?"ghost":"blue"}" data-member="${m.user_id}" data-active="${m.active}">${m.active?"Suspend access":"Restore access"}</button></div>`).join("")||'<p class="help">No active members have been added yet.</p>';
+    <div class="member-row"><div><strong>${escapeHtml(m.username||m.email||m.user_id)}</strong><small>${escapeHtml(m.role)} · ${m.active?"Active":"Suspended"}</small></div><div class="editor-actions"><button class="btn ${m.active?"ghost":"blue"}" data-member="${m.user_id}" data-active="${m.active}">${m.active?"Suspend access":"Restore access"}</button><button class="btn ghost" data-reset="${m.user_id}">Reset password</button></div></div>`).join("")||'<p class="help">No active members have been added yet.</p>';
   $("memberList").querySelectorAll("[data-member]").forEach(btn=>btn.addEventListener("click",async()=>{
     const {error}=await supabase.rpc("admin_set_campaign_member_active",{p_user_id:btn.dataset.member,p_active:btn.dataset.active!=="true"});
     if(error)notice("appMessage",error.message,"error");else{notice("appMessage","Staff access updated.","good");loadMembers();}
+  }));
+  $("memberList").querySelectorAll("[data-reset]").forEach(btn=>btn.addEventListener("click",async()=>{
+    const password=window.prompt("Enter a new temporary password (at least 12 characters) for this account:");
+    if(password===null)return;
+    if(password.length<12){notice("appMessage","Use a password with at least 12 characters.","error");return;}
+    const {data,error}=await supabase.functions.invoke("campaign-staff-account",{body:{action:"reset_password",user_id:btn.dataset.reset,password}});
+    if(error)notice("appMessage",error.message,"error");
+    else if(data?.error)notice("appMessage",data.error,"error");
+    else notice("appMessage","Password reset. Share the new temporary password securely.","good");
   }));
 }
 $("memberForm").addEventListener("submit",async e=>{
